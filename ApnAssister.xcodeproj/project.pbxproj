@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96BE5AA51C984E7D0067794E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AA41C984E7D0067794E /* AppDelegate.swift */; };
+		96BE5AA81C984E7E0067794E /* ApnAssister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AA61C984E7E0067794E /* ApnAssister.xcdatamodeld */; };
+		96BE5AAA1C984E7E0067794E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AA91C984E7E0067794E /* MasterViewController.swift */; };
+		96BE5AAC1C984E7E0067794E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AAB1C984E7E0067794E /* DetailViewController.swift */; };
+		96BE5AAF1C984E7E0067794E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BE5AAD1C984E7E0067794E /* Main.storyboard */; };
+		96BE5AB11C984E7E0067794E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96BE5AB01C984E7E0067794E /* Assets.xcassets */; };
+		96BE5AB41C984E7E0067794E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BE5AB21C984E7E0067794E /* LaunchScreen.storyboard */; };
+		96BE5ABF1C984E7E0067794E /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5ABE1C984E7E0067794E /* ApnAssisterTests.swift */; };
+		96BE5ACA1C984E7E0067794E /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AC91C984E7E0067794E /* ApnAssisterUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96BE5ABB1C984E7E0067794E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96BE5A991C984E7D0067794E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96BE5AA01C984E7D0067794E;
+			remoteInfo = ApnAssister;
+		};
+		96BE5AC61C984E7E0067794E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96BE5A991C984E7D0067794E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96BE5AA01C984E7D0067794E;
+			remoteInfo = ApnAssister;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		96BE5AA11C984E7D0067794E /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96BE5AA41C984E7D0067794E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96BE5AA71C984E7E0067794E /* ApnAssister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApnAssister.xcdatamodel; sourceTree = "<group>"; };
+		96BE5AA91C984E7E0067794E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		96BE5AAB1C984E7E0067794E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		96BE5AAE1C984E7E0067794E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		96BE5AB01C984E7E0067794E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96BE5AB31C984E7E0067794E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96BE5AB51C984E7E0067794E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96BE5ABA1C984E7E0067794E /* ApnAssisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96BE5ABE1C984E7E0067794E /* ApnAssisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterTests.swift; sourceTree = "<group>"; };
+		96BE5AC01C984E7E0067794E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96BE5AC51C984E7E0067794E /* ApnAssisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96BE5AC91C984E7E0067794E /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
+		96BE5ACB1C984E7E0067794E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96BE5A9E1C984E7D0067794E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BE5AB71C984E7E0067794E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BE5AC21C984E7E0067794E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96BE5A981C984E7D0067794E = {
+			isa = PBXGroup;
+			children = (
+				96BE5AA31C984E7D0067794E /* ApnAssister */,
+				96BE5ABD1C984E7E0067794E /* ApnAssisterTests */,
+				96BE5AC81C984E7E0067794E /* ApnAssisterUITests */,
+				96BE5AA21C984E7D0067794E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96BE5AA21C984E7D0067794E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96BE5AA11C984E7D0067794E /* ApnAssister.app */,
+				96BE5ABA1C984E7E0067794E /* ApnAssisterTests.xctest */,
+				96BE5AC51C984E7E0067794E /* ApnAssisterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96BE5AA31C984E7D0067794E /* ApnAssister */ = {
+			isa = PBXGroup;
+			children = (
+				96BE5AA41C984E7D0067794E /* AppDelegate.swift */,
+				96BE5AA91C984E7E0067794E /* MasterViewController.swift */,
+				96BE5AAB1C984E7E0067794E /* DetailViewController.swift */,
+				96BE5AAD1C984E7E0067794E /* Main.storyboard */,
+				96BE5AB01C984E7E0067794E /* Assets.xcassets */,
+				96BE5AB21C984E7E0067794E /* LaunchScreen.storyboard */,
+				96BE5AB51C984E7E0067794E /* Info.plist */,
+				96BE5AA61C984E7E0067794E /* ApnAssister.xcdatamodeld */,
+			);
+			path = ApnAssister;
+			sourceTree = "<group>";
+		};
+		96BE5ABD1C984E7E0067794E /* ApnAssisterTests */ = {
+			isa = PBXGroup;
+			children = (
+				96BE5ABE1C984E7E0067794E /* ApnAssisterTests.swift */,
+				96BE5AC01C984E7E0067794E /* Info.plist */,
+			);
+			path = ApnAssisterTests;
+			sourceTree = "<group>";
+		};
+		96BE5AC81C984E7E0067794E /* ApnAssisterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				96BE5AC91C984E7E0067794E /* ApnAssisterUITests.swift */,
+				96BE5ACB1C984E7E0067794E /* Info.plist */,
+			);
+			path = ApnAssisterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96BE5AA01C984E7D0067794E /* ApnAssister */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96BE5ACE1C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssister" */;
+			buildPhases = (
+				96BE5A9D1C984E7D0067794E /* Sources */,
+				96BE5A9E1C984E7D0067794E /* Frameworks */,
+				96BE5A9F1C984E7D0067794E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ApnAssister;
+			productName = ApnAssister;
+			productReference = 96BE5AA11C984E7D0067794E /* ApnAssister.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96BE5AB91C984E7E0067794E /* ApnAssisterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96BE5AD11C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssisterTests" */;
+			buildPhases = (
+				96BE5AB61C984E7E0067794E /* Sources */,
+				96BE5AB71C984E7E0067794E /* Frameworks */,
+				96BE5AB81C984E7E0067794E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96BE5ABC1C984E7E0067794E /* PBXTargetDependency */,
+			);
+			name = ApnAssisterTests;
+			productName = ApnAssisterTests;
+			productReference = 96BE5ABA1C984E7E0067794E /* ApnAssisterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		96BE5AC41C984E7E0067794E /* ApnAssisterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96BE5AD41C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssisterUITests" */;
+			buildPhases = (
+				96BE5AC11C984E7E0067794E /* Sources */,
+				96BE5AC21C984E7E0067794E /* Frameworks */,
+				96BE5AC31C984E7E0067794E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96BE5AC71C984E7E0067794E /* PBXTargetDependency */,
+			);
+			name = ApnAssisterUITests;
+			productName = ApnAssisterUITests;
+			productReference = 96BE5AC51C984E7E0067794E /* ApnAssisterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96BE5A991C984E7D0067794E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = WataruSuzuki;
+				TargetAttributes = {
+					96BE5AA01C984E7D0067794E = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					96BE5AB91C984E7E0067794E = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 96BE5AA01C984E7D0067794E;
+					};
+					96BE5AC41C984E7E0067794E = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 96BE5AA01C984E7D0067794E;
+					};
+				};
+			};
+			buildConfigurationList = 96BE5A9C1C984E7D0067794E /* Build configuration list for PBXProject "ApnAssister" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96BE5A981C984E7D0067794E;
+			productRefGroup = 96BE5AA21C984E7D0067794E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96BE5AA01C984E7D0067794E /* ApnAssister */,
+				96BE5AB91C984E7E0067794E /* ApnAssisterTests */,
+				96BE5AC41C984E7E0067794E /* ApnAssisterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96BE5A9F1C984E7D0067794E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96BE5AB41C984E7E0067794E /* LaunchScreen.storyboard in Resources */,
+				96BE5AB11C984E7E0067794E /* Assets.xcassets in Resources */,
+				96BE5AAF1C984E7E0067794E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BE5AB81C984E7E0067794E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BE5AC31C984E7E0067794E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96BE5A9D1C984E7D0067794E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96BE5AA51C984E7D0067794E /* AppDelegate.swift in Sources */,
+				96BE5AA81C984E7E0067794E /* ApnAssister.xcdatamodeld in Sources */,
+				96BE5AAA1C984E7E0067794E /* MasterViewController.swift in Sources */,
+				96BE5AAC1C984E7E0067794E /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BE5AB61C984E7E0067794E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96BE5ABF1C984E7E0067794E /* ApnAssisterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96BE5AC11C984E7E0067794E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96BE5ACA1C984E7E0067794E /* ApnAssisterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96BE5ABC1C984E7E0067794E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96BE5AA01C984E7D0067794E /* ApnAssister */;
+			targetProxy = 96BE5ABB1C984E7E0067794E /* PBXContainerItemProxy */;
+		};
+		96BE5AC71C984E7E0067794E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96BE5AA01C984E7D0067794E /* ApnAssister */;
+			targetProxy = 96BE5AC61C984E7E0067794E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		96BE5AAD1C984E7E0067794E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96BE5AAE1C984E7E0067794E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		96BE5AB21C984E7E0067794E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96BE5AB31C984E7E0067794E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96BE5ACC1C984E7E0067794E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96BE5ACD1C984E7E0067794E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96BE5ACF1C984E7E0067794E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ApnAssister/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		96BE5AD01C984E7E0067794E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ApnAssister/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		96BE5AD21C984E7E0067794E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ApnAssisterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnAssister.app/ApnAssister";
+			};
+			name = Debug;
+		};
+		96BE5AD31C984E7E0067794E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ApnAssisterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnAssister.app/ApnAssister";
+			};
+			name = Release;
+		};
+		96BE5AD51C984E7E0067794E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ApnAssisterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ApnAssister;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		96BE5AD61C984E7E0067794E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ApnAssisterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ApnAssister;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96BE5A9C1C984E7D0067794E /* Build configuration list for PBXProject "ApnAssister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96BE5ACC1C984E7E0067794E /* Debug */,
+				96BE5ACD1C984E7E0067794E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96BE5ACE1C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96BE5ACF1C984E7E0067794E /* Debug */,
+				96BE5AD01C984E7E0067794E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		96BE5AD11C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssisterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96BE5AD21C984E7E0067794E /* Debug */,
+				96BE5AD31C984E7E0067794E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		96BE5AD41C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssisterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96BE5AD51C984E7E0067794E /* Debug */,
+				96BE5AD61C984E7E0067794E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		96BE5AA61C984E7E0067794E /* ApnAssister.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				96BE5AA71C984E7E0067794E /* ApnAssister.xcdatamodel */,
+			);
+			currentVersion = 96BE5AA71C984E7E0067794E /* ApnAssister.xcdatamodel */;
+			path = ApnAssister.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 96BE5A991C984E7D0067794E /* Project object */;
+}

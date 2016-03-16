@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60AE40021C98FF4C003CDB98 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AE40011C98FF4C003CDB98 /* Settings.bundle */; };
 		96BE5AA51C984E7D0067794E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AA41C984E7D0067794E /* AppDelegate.swift */; };
 		96BE5AA81C984E7E0067794E /* ApnAssister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AA61C984E7E0067794E /* ApnAssister.xcdatamodeld */; };
 		96BE5AAA1C984E7E0067794E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AA91C984E7E0067794E /* MasterViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		249A605E926E7E4D002A8FB0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		274607A76C03584BC36A81E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		60AE40011C98FF4C003CDB98 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		96BE5AA11C984E7D0067794E /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BE5AA41C984E7D0067794E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96BE5AA71C984E7E0067794E /* ApnAssister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApnAssister.xcdatamodel; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		96BE5AA31C984E7D0067794E /* ApnAssister */ = {
 			isa = PBXGroup;
 			children = (
+				60AE40011C98FF4C003CDB98 /* Settings.bundle */,
 				96BE5AA41C984E7D0067794E /* AppDelegate.swift */,
 				96BE5AA91C984E7E0067794E /* MasterViewController.swift */,
 				96BE5AAB1C984E7E0067794E /* DetailViewController.swift */,
@@ -168,6 +171,7 @@
 				96BE5A9F1C984E7D0067794E /* Resources */,
 				0005E41FFEE3C488E5680DA0 /* Embed Pods Frameworks */,
 				E6EAF79C5277CCB4798D4F20 /* Copy Pods Resources */,
+				60AE40031C98FFAE003CDB98 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -262,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60AE40021C98FF4C003CDB98 /* Settings.bundle in Resources */,
 				96BE5AB41C984E7E0067794E /* LaunchScreen.storyboard in Resources */,
 				96BE5AB11C984E7E0067794E /* Assets.xcassets in Resources */,
 				96BE5AAF1C984E7E0067794E /* Main.storyboard in Resources */,
@@ -299,6 +304,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		60AE40031C98FFAE003CDB98 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 		CD1A0F9414B8DFC8FDC66E4E /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

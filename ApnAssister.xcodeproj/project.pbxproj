@@ -16,6 +16,7 @@
 		96BE5AB41C984E7E0067794E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96BE5AB21C984E7E0067794E /* LaunchScreen.storyboard */; };
 		96BE5ABF1C984E7E0067794E /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5ABE1C984E7E0067794E /* ApnAssisterTests.swift */; };
 		96BE5ACA1C984E7E0067794E /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BE5AC91C984E7E0067794E /* ApnAssisterUITests.swift */; };
+		D0CFEE16B68C8A042036481F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 249A605E926E7E4D002A8FB0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		249A605E926E7E4D002A8FB0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		274607A76C03584BC36A81E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		96BE5AA11C984E7D0067794E /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BE5AA41C984E7D0067794E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96BE5AA71C984E7E0067794E /* ApnAssister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ApnAssister.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		96BE5AC51C984E7E0067794E /* ApnAssisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BE5AC91C984E7E0067794E /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
 		96BE5ACB1C984E7E0067794E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1557EC27E5682AD232F2140 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0CFEE16B68C8A042036481F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				96BE5ABD1C984E7E0067794E /* ApnAssisterTests */,
 				96BE5AC81C984E7E0067794E /* ApnAssisterUITests */,
 				96BE5AA21C984E7D0067794E /* Products */,
+				D80070D8992CA06C4E9A58FE /* Pods */,
+				E62F1822B8BD414EF2B38140 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +138,23 @@
 			path = ApnAssisterUITests;
 			sourceTree = "<group>";
 		};
+		D80070D8992CA06C4E9A58FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				274607A76C03584BC36A81E6 /* Pods.debug.xcconfig */,
+				B1557EC27E5682AD232F2140 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E62F1822B8BD414EF2B38140 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				249A605E926E7E4D002A8FB0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96BE5ACE1C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssister" */;
 			buildPhases = (
+				CD1A0F9414B8DFC8FDC66E4E /* Check Pods Manifest.lock */,
 				96BE5A9D1C984E7D0067794E /* Sources */,
 				96BE5A9E1C984E7D0067794E /* Frameworks */,
 				96BE5A9F1C984E7D0067794E /* Resources */,
+				0005E41FFEE3C488E5680DA0 /* Embed Pods Frameworks */,
+				E6EAF79C5277CCB4798D4F20 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +283,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0005E41FFEE3C488E5680DA0 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD1A0F9414B8DFC8FDC66E4E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E6EAF79C5277CCB4798D4F20 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		96BE5A9D1C984E7D0067794E /* Sources */ = {
@@ -405,6 +480,7 @@
 		};
 		96BE5ACF1C984E7E0067794E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 274607A76C03584BC36A81E6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ApnAssister/Info.plist;
@@ -416,6 +492,7 @@
 		};
 		96BE5AD01C984E7E0067794E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1557EC27E5682AD232F2140 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ApnAssister/Info.plist;
@@ -492,6 +569,7 @@
 				96BE5AD01C984E7E0067794E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96BE5AD11C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssisterTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +578,7 @@
 				96BE5AD31C984E7E0067794E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		96BE5AD41C984E7E0067794E /* Build configuration list for PBXNativeTarget "ApnAssisterUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +587,7 @@
 				96BE5AD61C984E7E0067794E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>APNs</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>apn-assister</string>
+					<key>Password</key>
+					<string>apn-assister-password</string>
+					<key>Username</key>
+					<string>apn-assister-username</string>
+				</dict>
+			</array>
+			<key>AttachAPN</key>
+			<dict>
+				<key>Name</key>
+				<string>apn-assister</string>
+				<key>Password</key>
+				<string>apn-assister-password</string>
+				<key>Username</key>
+				<string>apn-assister-username</string>
+			</dict>
+			<key>PayloadDescription</key>
+			<string>Configures a custom APN.</string>
+			<key>PayloadDisplayName</key>
+			<string>Cellular</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.cellular.FFAE487D-EF10-47D1-91B8-C4269E901171</string>
+			<key>PayloadType</key>
+			<string>com.apple.cellular</string>
+			<key>PayloadUUID</key>
+			<string>93CE558D-942F-4BB7-B487-1EF01DD6A74F</string>
+			<key>PayloadVersion</key>
+			<real>1</real>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>profile_apn_assister</string>
+	<key>PayloadIdentifier</key>
+	<string>31273DC0-356A-4786-8D2B-8FDE3DBA307D</string>
+	<key>PayloadOrganization</key>
+	<string>JchanKchan</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>CA3B1705-67D9-4CBB-9FB2-758595AEACFD</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>

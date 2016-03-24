@@ -8,7 +8,9 @@
 
 import UIKit
 
-class EditApnViewController: UITableViewController {
+class EditApnViewController: UITableViewController,
+    UISwitchCellDelegate
+{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +45,12 @@ class EditApnViewController: UITableViewController {
         return newUITextField
     }
     
+    // MARK: - UISwitchCellDelegate
+    func changeMyUiSwitch(sender: UISwitch) {
+        //TODO
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return ConfigProfileUtils.ApnType.MAX.rawValue
     }

@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol UISwitchCellDelegate {
+    func changeMyUiSwitch(sender: UISwitch)
+}
+
 class UISwitchCell: UITableViewCell {
     
     @IBOutlet weak var myUILabel: UILabel!
     @IBOutlet weak var myUISwitch: UISwitch!
+    
+    var delegate: UISwitchCellDelegate! = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +30,8 @@ class UISwitchCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    // MARK: - Action
+    @IBAction func changeSwitch(sender: UISwitch) {
+        self.delegate.changeMyUiSwitch(sender)
+    }
 }

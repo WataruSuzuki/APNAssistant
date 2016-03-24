@@ -10,7 +10,7 @@ import UIKit
 
 class ConfigProfileUtils: NSObject {
 
-    enum keyAttachAPN : Int {
+    enum KeyAttachAPN : Int {
         case NAME = 0,
         AUTHENTICATION_TYPE,
         USERNAME,
@@ -21,17 +21,17 @@ class ConfigProfileUtils: NSObject {
         
         func getTitle() -> String {
             switch self {
-            case keyAttachAPN.NAME:
+            case KeyAttachAPN.NAME:
                 return NSLocalizedString("keyAttachApnName", comment: "")
-            case keyAttachAPN.AUTHENTICATION_TYPE:
+            case KeyAttachAPN.AUTHENTICATION_TYPE:
                 return NSLocalizedString("keyAttachApnAuthenticationType", comment: "")
-            case keyAttachAPN.USERNAME:
+            case KeyAttachAPN.USERNAME:
                 return NSLocalizedString("keyAttachApnUsername", comment: "")
-            case keyAttachAPN.PASSWORD:
+            case KeyAttachAPN.PASSWORD:
                 return NSLocalizedString("keyAttachApnPassword", comment: "")
-            case keyAttachAPN.PROXY_SERVER:
+            case KeyAttachAPN.PROXY_SERVER:
                 return NSLocalizedString("keyAttachApnProxyServer", comment: "")
-            case keyAttachAPN.PROXY_SERVER_PORT:
+            case KeyAttachAPN.PROXY_SERVER_PORT:
                 return NSLocalizedString("keyAttachApnProxyServerPort", comment: "")
             default:
                 return ""
@@ -39,7 +39,7 @@ class ConfigProfileUtils: NSObject {
         }
     }
     
-    enum keyAPNs : Int {
+    enum KeyAPNs : Int {
         case NAME = 0,
         AUTHENTICATION_TYPE,
         USERNAME,
@@ -50,17 +50,17 @@ class ConfigProfileUtils: NSObject {
         
         func getTitle() -> String {
             switch self {
-            case keyAPNs.NAME:
+            case KeyAPNs.NAME:
                 return NSLocalizedString("keyApnsName", comment: "")
-            case keyAPNs.AUTHENTICATION_TYPE:
+            case KeyAPNs.AUTHENTICATION_TYPE:
                 return NSLocalizedString("keyApnsAuthenticationType", comment: "")
-            case keyAPNs.USERNAME:
+            case KeyAPNs.USERNAME:
                 return NSLocalizedString("keyApnsUsername", comment: "")
-            case keyAPNs.PASSWORD:
+            case KeyAPNs.PASSWORD:
                 return NSLocalizedString("keyApnsPassword", comment: "")
-            case keyAPNs.PROXY_SERVER:
+            case KeyAPNs.PROXY_SERVER:
                 return NSLocalizedString("keyApnsProxyServer", comment: "")
-            case keyAPNs.PROXY_SERVER_PORT:
+            case KeyAPNs.PROXY_SERVER_PORT:
                 return NSLocalizedString("keyApnsProxyServerPort", comment: "")
             default:
                 return ""
@@ -68,4 +68,9 @@ class ConfigProfileUtils: NSObject {
         }
     }
     
+    enum ApnType : Int {
+        case APNS = 0,
+        ATTACH_APN,
+        MAX
+    }
 }

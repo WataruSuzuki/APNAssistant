@@ -28,24 +28,47 @@ class EditApnViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return ConfigProfileUtils.ApnType.MAX.rawValue
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        let sectionType = ConfigProfileUtils.ApnType(rawValue: section)
+        switch sectionType! {
+        case .APNS:
+            return ConfigProfileUtils.KeyAPNs.MAX.rawValue
+        case .ATTACH_APN:
+            return ConfigProfileUtils.KeyAttachAPN.MAX.rawValue + 1
+        default:
+            return 0
+        }
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
         // Configure the cell...
+        let sectionType = ConfigProfileUtils.ApnType(rawValue: indexPath.section)
+        switch sectionType! {
+        case .APNS:
+            let rowApns = ConfigProfileUtils.KeyAPNs(rawValue: indexPath.row)
+            cell.textLabel?.text = rowApns?.getTitle()
+            
+        case .ATTACH_APN:
+            if indexPath.row == 0 {
+                cell.textLabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
+            } else {
+                let rowAttachApn = ConfigProfileUtils.KeyAttachAPN(rawValue: indexPath.row)
+                cell.textLabel?.text = rowAttachApn?.getTitle()
+            }
+            
+        default:
+            break
+        }
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Favorite Apn List View Controller-->
+        <!--Favorite-->
         <scene sceneID="yrN-Bu-Icd">
             <objects>
                 <tableViewController storyboardIdentifier="FavoriteApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9tw-py-a3e" customClass="FavoriteApnListViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,13 +28,13 @@
                             <outlet property="delegate" destination="9tw-py-a3e" id="ZYP-rZ-c1Y"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Kg8-NM-fXl"/>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="ic_favorite_36pt" selectedImage="ic_favorite_36pt" id="Kg8-NM-fXl"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B39-dL-gE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="y8L-7e-LKD">
             <objects>
                 <tableViewController storyboardIdentifier="ApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b6B-zi-O2E" customClass="ApnListViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,13 +57,13 @@
                             <outlet property="delegate" destination="b6B-zi-O2E" id="Pcu-HJ-rzv"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="VY6-L7-YMC"/>
+                    <tabBarItem key="tabBarItem" title="List" image="ic_list_36pt" selectedImage="ic_list_36pt" id="VY6-L7-YMC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOG-4e-ybm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--Item-->
+        <!--Edit-->
         <scene sceneID="7kI-Li-yBg">
             <objects>
                 <tableViewController storyboardIdentifier="EditApnViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wfp-wt-fx9" customClass="EditApnViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M3X-aC-XcZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="M3X-aC-XcZ">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M3X-aC-XcZ" id="4te-Cm-wg9">
@@ -86,7 +86,7 @@
                             <outlet property="delegate" destination="wfp-wt-fx9" id="dRJ-8X-HnJ"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="DwC-Xc-xoU"/>
+                    <tabBarItem key="tabBarItem" title="Edit" image="ic_mode_edit_36pt" selectedImage="ic_mode_edit_36pt" id="DwC-Xc-xoU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBr-RT-zZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,4 +113,9 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_favorite_36pt" width="36" height="36"/>
+        <image name="ic_list_36pt" width="36" height="36"/>
+        <image name="ic_mode_edit_36pt" width="36" height="36"/>
+    </resources>
 </document>

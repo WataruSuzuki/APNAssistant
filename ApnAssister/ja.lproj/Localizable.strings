@@ -19,3 +19,5 @@ keyAttachApnUsername = "データAPNのユーザ名";
 keyAttachApnPassword = "データAPNのパスワード";
 keyAttachApnProxyServer = "データAPNのプロキシサーバ";
 keyAttachApnProxyServerPort = "データAPNのプロキシサーバ(ポート番号)";
+
+setAttachApnManual = "データAPNを手動でセットする";

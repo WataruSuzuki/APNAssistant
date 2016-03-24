@@ -19,3 +19,5 @@ keyAttachApnUsername = "Data apn user name";
 keyAttachApnPassword = "Data apn password";
 keyAttachApnProxyServer = "Data apn proxy server";
 keyAttachApnProxyServerPort = "Data apn proxy server port";
+
+setAttachApnManual = "Set Attach Apn manually";

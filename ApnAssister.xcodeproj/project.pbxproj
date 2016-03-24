@@ -13,6 +13,8 @@
 		60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
 		60BEE4FA1CA3C947005B86B9 /* ConfigProfileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F91CA3C947005B86B9 /* ConfigProfileUtils.swift */; };
+		60BEE4FF1CA3E185005B86B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5011CA3E185005B86B9 /* InfoPlist.strings */; };
+		60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
 		96DA6BF81C9B03FD00E424D5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF71C9B03FD00E424D5 /* FirstViewController.swift */; };
 		96DA6BFA1C9B03FD00E424D5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF91C9B03FD00E424D5 /* SecondViewController.swift */; };
@@ -48,6 +50,12 @@
 		60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnAssister-Bridging-Header.h"; sourceTree = "<group>"; };
 		60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteApnListViewController.swift; sourceTree = "<group>"; };
 		60BEE4F91CA3C947005B86B9 /* ConfigProfileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigProfileUtils.swift; sourceTree = "<group>"; };
+		60BEE4FB1CA3E0EE005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		60BEE4FC1CA3E0EF005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		60BEE5001CA3E185005B86B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		60BEE5021CA3E187005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		60BEE5061CA3E1A4005B86B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		60BEE5081CA3E1A6005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +163,8 @@
 				96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */,
 				96DA6C031C9B03FD00E424D5 /* Info.plist */,
 				60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */,
+				60BEE5011CA3E185005B86B9 /* InfoPlist.strings */,
+				60BEE5071CA3E1A4005B86B9 /* Localizable.strings */,
 			);
 			path = ApnAssister;
 			sourceTree = "<group>";
@@ -275,6 +285,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 96DA6BE91C9B03FD00E424D5;
 			productRefGroup = 96DA6BF31C9B03FD00E424D5 /* Products */;
@@ -294,9 +305,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */,
+				60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */,
 				96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */,
 				96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */,
 				96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */,
+				60BEE4FF1CA3E185005B86B9 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,10 +437,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		60BEE5011CA3E185005B86B9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60BEE5001CA3E185005B86B9 /* Base */,
+				60BEE5021CA3E187005B86B9 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		60BEE5071CA3E1A4005B86B9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60BEE5061CA3E1A4005B86B9 /* Base */,
+				60BEE5081CA3E1A6005B86B9 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				96DA6BFC1C9B03FD00E424D5 /* Base */,
+				60BEE4FB1CA3E0EE005B86B9 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -436,6 +468,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				96DA6C011C9B03FD00E424D5 /* Base */,
+				60BEE4FC1CA3E0EF005B86B9 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

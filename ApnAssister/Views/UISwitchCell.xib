@@ -13,7 +13,29 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vAe-H7-VSz" id="Ux1-CI-18A">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbA-0U-Ix8">
+                        <rect key="frame" x="8" y="11" width="247" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Yn-1M-e3b">
+                        <rect key="frame" x="263" y="6" width="51" height="31"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0Yn-1M-e3b" firstAttribute="leading" secondItem="mbA-0U-Ix8" secondAttribute="trailing" constant="8" id="6Sd-vC-X9R"/>
+                    <constraint firstItem="0Yn-1M-e3b" firstAttribute="top" secondItem="Ux1-CI-18A" secondAttribute="top" constant="6" id="RMN-bF-94E"/>
+                    <constraint firstItem="mbA-0U-Ix8" firstAttribute="leading" secondItem="Ux1-CI-18A" secondAttribute="leading" constant="8" id="boI-17-5ql"/>
+                    <constraint firstAttribute="trailing" secondItem="0Yn-1M-e3b" secondAttribute="trailing" constant="8" id="h2s-JT-Wa0"/>
+                    <constraint firstItem="mbA-0U-Ix8" firstAttribute="top" secondItem="Ux1-CI-18A" secondAttribute="top" constant="11" id="vki-YC-kDA"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="myUILabel" destination="mbA-0U-Ix8" id="FOj-Xa-dRs"/>
+                <outlet property="myUISwitch" destination="0Yn-1M-e3b" id="uYU-tC-H0F"/>
+            </connections>
             <point key="canvasLocation" x="302" y="210"/>
         </tableViewCell>
     </objects>

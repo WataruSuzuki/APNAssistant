@@ -10,6 +10,7 @@ import UIKit
 
 class UISwitchCell: UITableViewCell {
     
+    @IBOutlet weak var myUILabel: UILabel!
     @IBOutlet weak var myUISwitch: UISwitch!
 
     override func awakeFromNib() {

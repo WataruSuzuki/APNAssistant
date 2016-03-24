@@ -18,6 +18,9 @@ class EditApnViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.estimatedRowHeight = 90
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
         let nib = UINib(nibName: "TextFieldCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "TextFieldCell")
     }
@@ -55,9 +58,6 @@ class EditApnViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("EditApnViewCell", forIndexPath: indexPath)
-
-        // Configure the cell...
         let sectionType = ConfigProfileUtils.ApnType(rawValue: indexPath.section)
         switch sectionType! {
         case .APNS:
@@ -68,20 +68,38 @@ class EditApnViewController: UITableViewController {
             return newTextFieldCell
             
         case .ATTACH_APN:
+            let cell = tableView.dequeueReusableCellWithIdentifier("EditApnViewCell", forIndexPath: indexPath)
+            
+            // Configure the cell...
             if indexPath.row == 0 {
                 cell.textLabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
             } else {
                 let rowAttachApn = ConfigProfileUtils.KeyAttachAPN(rawValue: indexPath.row)
                 cell.textLabel?.text = rowAttachApn?.getTitle()
             }
+            return cell
             
         default:
             break
         }
 
-        return cell
+        return tableView.dequeueReusableCellWithIdentifier("EditApnViewCell", forIndexPath: indexPath)
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let sectionType = ConfigProfileUtils.ApnType(rawValue: indexPath.section)
+        switch sectionType! {
+        case .APNS:
+            let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
+            return newTextFieldCell.frame.height
+            
+        case .ATTACH_APN:
+            return tableView.rowHeight
+            
+        default:
+            return tableView.rowHeight
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -18,6 +18,8 @@ class EditApnViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let nib = UINib(nibName: "TextFieldCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "TextFieldCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +27,14 @@ class EditApnViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func getTextFieldForCell(indexPath: NSIndexPath) -> UITextField {
+        let newUITextField = UITextField()
+        newUITextField.adjustsFontSizeToFitWidth = true
+        newUITextField.returnKeyType = .Next
+        
+        return newUITextField
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -45,14 +55,17 @@ class EditApnViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("EditApnViewCell", forIndexPath: indexPath)
 
         // Configure the cell...
         let sectionType = ConfigProfileUtils.ApnType(rawValue: indexPath.section)
         switch sectionType! {
         case .APNS:
+            let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
             let rowApns = ConfigProfileUtils.KeyAPNs(rawValue: indexPath.row)
-            cell.textLabel?.text = rowApns?.getTitle()
+            newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
+            
+            return newTextFieldCell
             
         case .ATTACH_APN:
             if indexPath.row == 0 {

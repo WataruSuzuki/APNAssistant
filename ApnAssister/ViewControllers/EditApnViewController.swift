@@ -21,8 +21,8 @@ class EditApnViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        let nib = UINib(nibName: "TextFieldCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "TextFieldCell")
+        registerCustomCell("TextFieldCell")
+        registerCustomCell("UISwitchCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +30,11 @@ class EditApnViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func registerCustomCell(nibIdentifier: String) {
+        let nib = UINib(nibName: nibIdentifier, bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: nibIdentifier)
+    }
+    
     func getTextFieldForCell(indexPath: NSIndexPath) -> UITextField {
         let newUITextField = UITextField()
         newUITextField.adjustsFontSizeToFitWidth = true
@@ -59,6 +64,7 @@ class EditApnViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let sectionType = ConfigProfileUtils.ApnType(rawValue: indexPath.section)
+        
         switch sectionType! {
         case .APNS:
             let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
@@ -68,16 +74,18 @@ class EditApnViewController: UITableViewController {
             return newTextFieldCell
             
         case .ATTACH_APN:
-            let cell = tableView.dequeueReusableCellWithIdentifier("EditApnViewCell", forIndexPath: indexPath)
-            
-            // Configure the cell...
             if indexPath.row == 0 {
-                cell.textLabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
+                let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
+                cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
+                return cell
+                
             } else {
-                let rowAttachApn = ConfigProfileUtils.KeyAttachAPN(rawValue: indexPath.row)
-                cell.textLabel?.text = rowAttachApn?.getTitle()
+                let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
+                let rowAttachApn = ConfigProfileUtils.KeyAttachAPN(rawValue: indexPath.row-1)
+                newTextFieldCell.myUILabel?.text = rowAttachApn?.getTitle()
+                
+                return newTextFieldCell
             }
-            return cell
             
         default:
             break
@@ -94,7 +102,14 @@ class EditApnViewController: UITableViewController {
             return newTextFieldCell.frame.height
             
         case .ATTACH_APN:
-            return tableView.rowHeight
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
+                return cell.frame.height
+                
+            } else {
+                let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
+                return newTextFieldCell.frame.height
+            }
             
         default:
             return tableView.rowHeight

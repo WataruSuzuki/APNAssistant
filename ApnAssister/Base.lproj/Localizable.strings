@@ -5,3 +5,17 @@
   Created by WataruSuzuki on 2016/03/24.
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
+
+keyApnsName = "Default apn name";
+keyApnsAuthenticationType = "Default apn authentication type";
+keyApnsUsername = "Default apn user name";
+keyApnsPassword = "Default apn password";
+keyApnsProxyServer = "Default apn proxy server";
+keyApnsProxyServerPort = "Default apn proxy server port";
+
+keyAttachApnName = "Data apn name";
+keyAttachApnAuthenticationType = "Data apn authentication type";
+keyAttachApnUsername = "Data apn user name";
+keyAttachApnPassword = "Data apn password";
+keyAttachApnProxyServer = "Data apn proxy server";
+keyAttachApnProxyServerPort = "Data apn proxy server port";

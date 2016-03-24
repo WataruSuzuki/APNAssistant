@@ -5,3 +5,17 @@
   Created by WataruSuzuki on 2016/03/24.
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
+
+keyApnsName = "デフォルトAPNの名前";
+keyApnsAuthenticationType = "デフォルトAPNの認証方法";
+keyApnsUsername = "デフォルトAPNのユーザ名";
+keyApnsPassword = "デフォルトAPNのパスワード";
+keyApnsProxyServer = "デフォルトAPNのプロキシサーバ";
+keyApnsProxyServerPort = "デフォルトAPNのプロキシサーバ(ポート番号)";
+
+keyAttachApnName = "データAPNの名前";
+keyAttachApnAuthenticationType = "データAPNの認証方法";
+keyAttachApnUsername = "データAPNのユーザ名";
+keyAttachApnPassword = "データAPNのパスワード";
+keyAttachApnProxyServer = "データAPNのプロキシサーバ";
+keyAttachApnProxyServerPort = "データAPNのプロキシサーバ(ポート番号)";

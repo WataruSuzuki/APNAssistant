@@ -9,6 +9,7 @@
 import UIKit
 
 class EditApnViewController: UITableViewController,
+    TextFieldCellDelegate,
     UISwitchCellDelegate
 {
 
@@ -43,6 +44,35 @@ class EditApnViewController: UITableViewController,
         newUITextField.returnKeyType = .Next
         
         return newUITextField
+    }
+    
+    // MARK: - TextFieldCellDelegate
+    func textFieldCellDidEndEditing(sender: UITextField) {
+        //TODO
+    }
+    
+    func textFieldCellDidBeginEditing(sender: UITextField) {
+        //TODO
+    }
+    
+    func textFieldCellShouldClear(sender: UITextField) -> Bool {
+        return false//TODO
+    }
+    
+    func textFieldCellShouldReturn(sender: UITextField) -> Bool {
+        return false//TODO
+    }
+    
+    func textFieldCellShouldEndEditing(sender: UITextField) -> Bool {
+        return false//TODO
+    }
+    
+    func textFieldCellShouldBeginEditing(sender: UITextField) -> Bool {
+        return false//TODO
+    }
+    
+    func textFieldCellShouldChangeCharactersInRange(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return false//TODO
     }
     
     // MARK: - UISwitchCellDelegate

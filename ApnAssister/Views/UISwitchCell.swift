@@ -9,7 +9,7 @@
 import UIKit
 
 protocol UISwitchCellDelegate {
-    func changeMyUiSwitch(sender: UISwitch)
+    func changeMyUiSwitch(sender: UISwitch, indexPath: NSIndexPath)
 }
 
 class UISwitchCell: UITableViewCell {
@@ -32,6 +32,9 @@ class UISwitchCell: UITableViewCell {
 
     // MARK: - Action
     @IBAction func changeSwitch(sender: UISwitch) {
-        self.delegate.changeMyUiSwitch(sender)
+        if let tableView: UITableView = self.superview?.superview as? UITableView {
+            let indexPath = tableView.indexPathForCell(self)
+            self.delegate.changeMyUiSwitch(sender, indexPath: indexPath!)
+        }
     }
 }

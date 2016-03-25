@@ -76,8 +76,9 @@ class EditApnViewController: UITableViewController,
     }
     
     // MARK: - UISwitchCellDelegate
-    func changeMyUiSwitch(sender: UISwitch) {
+    func changeMyUiSwitch(sender: UISwitch, indexPath: NSIndexPath) {
         //TODO
+        print(indexPath.debugDescription)
     }
     
     // MARK: - Table view data source
@@ -112,6 +113,7 @@ class EditApnViewController: UITableViewController,
         case .ATTACH_APN:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
+                cell.delegate = self
                 cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
                 return cell
                 

@@ -134,8 +134,14 @@ class EditApnViewController: UITableViewController//,
         let rowApns = ConfigProfileUtils.KeyAPNs(rawValue: indexPath.row)
         newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
         //newTextFieldCell.delegate = self
-        newTextFieldCell.shouldBeginEditing = {(textField) in
-            return false
+        newTextFieldCell.didBeginEditing = {(textField) in
+            //TODO
+        }
+        newTextFieldCell.didEndEditing = {(textField) in
+            //TODO
+        }
+        newTextFieldCell.shouldChangeCharactersInRange = {(textField, range, string) in
+            return true
         }
         
         return newTextFieldCell

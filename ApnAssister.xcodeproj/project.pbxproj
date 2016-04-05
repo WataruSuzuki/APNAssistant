@@ -10,6 +10,7 @@
 		4CDCA41D6D8E6778A64DCBB9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82086984B027390E9C7FD7A4 /* libPods.a */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
+		607165521CB3D28A000BCAF5 /* DownloadProfileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */; };
 		60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
 		60BEE4FA1CA3C947005B86B9 /* ConfigProfileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F91CA3C947005B86B9 /* ConfigProfileUtils.swift */; };
@@ -19,6 +20,7 @@
 		60BEE5101CA40061005B86B9 /* UISwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */; };
 		60BEE5121CA4009E005B86B9 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
 		60BEE5141CA400AB005B86B9 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
+		60D1AB401CB3D1A700F51FEC /* DownloadProfileListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D1AB3F1CB3D1A700F51FEC /* DownloadProfileListViewCell.swift */; };
 		96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
 		96DA6BF81C9B03FD00E424D5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF71C9B03FD00E424D5 /* FirstViewController.swift */; };
 		96DA6BFA1C9B03FD00E424D5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF91C9B03FD00E424D5 /* SecondViewController.swift */; };
@@ -50,6 +52,7 @@
 		0B44900153E03A118779BE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditApnViewController.swift; sourceTree = "<group>"; };
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
+		607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadProfileListViewController.swift; sourceTree = "<group>"; };
 		60AA73A51C9BA3DD00E41CAE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnAssister-Bridging-Header.h"; sourceTree = "<group>"; };
 		60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteApnListViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 		60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISwitchCell.swift; sourceTree = "<group>"; };
 		60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UISwitchCell.xib; sourceTree = "<group>"; };
 		60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		60D1AB3F1CB3D1A700F51FEC /* DownloadProfileListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadProfileListViewCell.swift; sourceTree = "<group>"; };
 		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */,
 				60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */,
 				60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */,
+				60D1AB3F1CB3D1A700F51FEC /* DownloadProfileListViewCell.swift */,
+				607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -423,8 +429,10 @@
 				60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */,
 				60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */,
 				60BEE5101CA40061005B86B9 /* UISwitchCell.swift in Sources */,
+				60D1AB401CB3D1A700F51FEC /* DownloadProfileListViewCell.swift in Sources */,
 				60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */,
 				60BEE4FA1CA3C947005B86B9 /* ConfigProfileUtils.swift in Sources */,
+				607165521CB3D28A000BCAF5 /* DownloadProfileListViewController.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

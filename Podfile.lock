@@ -17,14 +17,19 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
+  - Realm (0.98.6):
+    - Realm/Headers (= 0.98.6)
+  - Realm/Headers (0.98.6)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
   - CocoaHTTPServer
+  - Realm
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
+  Realm: 44803f35418c5d89b27825a564247fcd190de37e
 
 COCOAPODS: 0.39.0

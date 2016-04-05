@@ -3,6 +3,7 @@ inhibit_all_warnings!
 
 pod 'CocoaAsyncSocket'
 pod 'CocoaHTTPServer'
+pod 'Realm'
 
 post_install do | installer |
   require 'fileutils'

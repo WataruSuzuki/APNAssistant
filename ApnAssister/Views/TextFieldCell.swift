@@ -26,6 +26,7 @@ class TextFieldCell: UITableViewCell,
     @IBOutlet weak var myUITextField: UITextField!
     
     var delegate: TextFieldCellDelegate! = nil
+    var shouldBeginEditing:((UITextField) -> Bool)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,7 +41,8 @@ class TextFieldCell: UITableViewCell,
     
     // MARK: - UITextFieldDelegate
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        return self.delegate.textFieldCellShouldBeginEditing(textField)
+        return (self.shouldBeginEditing?(textField))!
+        //return self.delegate.textFieldCellShouldBeginEditing(textField)
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {

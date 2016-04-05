@@ -104,11 +104,7 @@ class EditApnViewController: UITableViewController,
         
         switch sectionType! {
         case .APNS:
-            let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
-            let rowApns = ConfigProfileUtils.KeyAPNs(rawValue: indexPath.row)
-            newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
-            
-            return newTextFieldCell
+            return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
             
         case .ATTACH_APN:
             if indexPath.row == 0 {
@@ -123,11 +119,7 @@ class EditApnViewController: UITableViewController,
                 return cell
                 
             } else {
-                let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
-                let rowAttachApn = ConfigProfileUtils.KeyAttachAPN(rawValue: indexPath.row-1)
-                newTextFieldCell.myUILabel?.text = rowAttachApn?.getTitle()
-                
-                return newTextFieldCell
+                return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
             }
             
         default:
@@ -135,6 +127,15 @@ class EditApnViewController: UITableViewController,
         }
 
         return tableView.dequeueReusableCellWithIdentifier("EditApnViewCell", forIndexPath: indexPath)
+    }
+    
+    func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
+        let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
+        let rowApns = ConfigProfileUtils.KeyAPNs(rawValue: indexPath.row)
+        newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
+        newTextFieldCell.delegate = self
+        
+        return newTextFieldCell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

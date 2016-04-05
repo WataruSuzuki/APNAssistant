@@ -9,8 +9,8 @@
 import UIKit
 
 class EditApnViewController: UITableViewController,
-    TextFieldCellDelegate,
-    UISwitchCellDelegate
+    //UISwitchCellDelegate,
+    TextFieldCellDelegate
 {
 
     override func viewDidLoad() {
@@ -74,13 +74,13 @@ class EditApnViewController: UITableViewController,
     func textFieldCellShouldChangeCharactersInRange(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         return false//TODO
     }
-    
+    /*
     // MARK: - UISwitchCellDelegate
     func changeMyUiSwitch(sender: UISwitch, indexPath: NSIndexPath) {
         //TODO
         print(indexPath.debugDescription)
     }
-    
+    */
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return ConfigProfileUtils.ApnType.MAX.rawValue
@@ -113,7 +113,7 @@ class EditApnViewController: UITableViewController,
         case .ATTACH_APN:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
-                cell.delegate = self
+                //cell.delegate = self
                 cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
                 cell.switchValueChanged = {(boolValue:Bool) in
                     let indexPath = self.tableView.indexPathForCell(cell)

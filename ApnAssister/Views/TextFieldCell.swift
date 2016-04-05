@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/*
 protocol TextFieldCellDelegate {
     func textFieldCellShouldBeginEditing(sender: UITextField) -> Bool
     func textFieldCellShouldEndEditing(sender: UITextField) -> Bool
@@ -17,7 +17,7 @@ protocol TextFieldCellDelegate {
     func textFieldCellDidEndEditing(sender: UITextField)
     func textFieldCellShouldChangeCharactersInRange(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
 }
-
+*/
 class TextFieldCell: UITableViewCell,
     UITextFieldDelegate
 {
@@ -25,7 +25,7 @@ class TextFieldCell: UITableViewCell,
     @IBOutlet weak var myUILabel: UILabel!
     @IBOutlet weak var myUITextField: UITextField!
     
-    var delegate: TextFieldCellDelegate! = nil
+    //var delegate: TextFieldCellDelegate! = nil
     var shouldBeginEditing:((UITextField) -> Bool)?
     
     override func awakeFromNib() {
@@ -46,26 +46,32 @@ class TextFieldCell: UITableViewCell,
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        return self.delegate.textFieldCellShouldEndEditing(textField)
+        return false//TODO
+        //return self.delegate.textFieldCellShouldEndEditing(textField)
     }
     
     func textFieldShouldClear(textField: UITextField) -> Bool {
-        return self.delegate.textFieldCellShouldClear(textField)
+        return false//TODO
+        //return self.delegate.textFieldCellShouldClear(textField)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return self.delegate.textFieldCellShouldReturn(textField)
+        return false//TODO
+        //return self.delegate.textFieldCellShouldReturn(textField)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        self.delegate.textFieldCellShouldEndEditing(textField)
+        return//TODO
+        //self.delegate.textFieldCellShouldEndEditing(textField)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        self.delegate.textFieldCellDidEndEditing(textField)
+        return//TODO
+        //self.delegate.textFieldCellDidEndEditing(textField)
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        return self.delegate.textFieldCellShouldChangeCharactersInRange(textField, shouldChangeCharactersInRange: range, replacementString: string)
+        return false//TODO
+        //return self.delegate.textFieldCellShouldChangeCharactersInRange(textField, shouldChangeCharactersInRange: range, replacementString: string)
     }
 }

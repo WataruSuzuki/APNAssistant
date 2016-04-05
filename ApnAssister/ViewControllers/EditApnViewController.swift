@@ -8,9 +8,9 @@
 
 import UIKit
 
-class EditApnViewController: UITableViewController,
+class EditApnViewController: UITableViewController//,
     //UISwitchCellDelegate,
-    TextFieldCellDelegate
+    //TextFieldCellDelegate
 {
 
     override func viewDidLoad() {
@@ -45,7 +45,7 @@ class EditApnViewController: UITableViewController,
         
         return newUITextField
     }
-    
+    /*
     // MARK: - TextFieldCellDelegate
     func textFieldCellDidEndEditing(sender: UITextField) {
         //TODO
@@ -74,7 +74,7 @@ class EditApnViewController: UITableViewController,
     func textFieldCellShouldChangeCharactersInRange(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         return false//TODO
     }
-    /*
+    
     // MARK: - UISwitchCellDelegate
     func changeMyUiSwitch(sender: UISwitch, indexPath: NSIndexPath) {
         //TODO
@@ -133,7 +133,7 @@ class EditApnViewController: UITableViewController,
         let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
         let rowApns = ConfigProfileUtils.KeyAPNs(rawValue: indexPath.row)
         newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
-        newTextFieldCell.delegate = self
+        //newTextFieldCell.delegate = self
         newTextFieldCell.shouldBeginEditing = {(textField) in
             return false
         }

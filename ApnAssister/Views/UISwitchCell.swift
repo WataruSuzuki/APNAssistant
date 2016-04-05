@@ -17,6 +17,7 @@ class UISwitchCell: UITableViewCell {
     @IBOutlet weak var myUILabel: UILabel!
     @IBOutlet weak var myUISwitch: UISwitch!
     
+    var switchValueChanged:((Bool) -> Void)?
     var delegate: UISwitchCellDelegate! = nil
 
     override func awakeFromNib() {
@@ -36,5 +37,6 @@ class UISwitchCell: UITableViewCell {
             let indexPath = tableView.indexPathForCell(self)
             self.delegate.changeMyUiSwitch(sender, indexPath: indexPath!)
         }
+        self.switchValueChanged?(sender.on)
     }
 }

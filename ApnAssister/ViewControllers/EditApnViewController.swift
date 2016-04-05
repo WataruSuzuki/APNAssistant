@@ -115,6 +115,11 @@ class EditApnViewController: UITableViewController,
                 let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
                 cell.delegate = self
                 cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
+                cell.switchValueChanged = {(boolValue:Bool) in
+                    let indexPath = self.tableView.indexPathForCell(cell)
+                    print(indexPath.debugDescription)
+                    print(boolValue)
+                }
                 return cell
                 
             } else {

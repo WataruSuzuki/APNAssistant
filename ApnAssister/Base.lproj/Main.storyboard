@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Edit Apn View Controller-->
         <scene sceneID="jPo-rp-Nlg">
             <objects>
                 <tableViewController storyboardIdentifier="EditApnViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EGI-pn-bNT" customClass="EditApnViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,7 +28,18 @@
                             <outlet property="delegate" destination="EGI-pn-bNT" id="Tib-pX-y0B"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="N4Y-DZ-T4S"/>
+                    <navigationItem key="navigationItem" id="N4Y-DZ-T4S">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6wb-DH-v1o">
+                            <connections>
+                                <action selector="tapCancel:" destination="EGI-pn-bNT" id="q15-R0-Dgf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Sve-bq-tLe">
+                            <connections>
+                                <action selector="tapSave:" destination="EGI-pn-bNT" id="9Ma-Qy-ZOK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTO-Tl-kpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,7 +84,13 @@
                             <outlet property="delegate" destination="9tw-py-a3e" id="ZYP-rZ-c1Y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="jll-e6-nSr"/>
+                    <navigationItem key="navigationItem" id="jll-e6-nSr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jd4-pU-VPJ">
+                            <connections>
+                                <segue destination="thb-Fc-lb0" kind="presentation" id="xbE-Wg-Ere"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B39-dL-gE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

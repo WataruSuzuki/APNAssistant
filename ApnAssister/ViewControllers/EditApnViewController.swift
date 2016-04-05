@@ -214,4 +214,12 @@ class EditApnViewController: UITableViewController//,
     }
     */
 
+    // MARK: - Action
+    @IBAction func tapSave(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func tapCancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

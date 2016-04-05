@@ -9,6 +9,7 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    let realm = RLMRealm.defaultRealm()
 
     override func viewDidLoad() {
         super.viewDidLoad()

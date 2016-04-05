@@ -12,6 +12,7 @@ class EditApnViewController: UITableViewController//,
     //UISwitchCellDelegate,
     //TextFieldCellDelegate
 {
+    var isSetDataApnManually = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +93,12 @@ class EditApnViewController: UITableViewController//,
         case .APNS:
             return ConfigProfileUtils.KeyAPNs.MAX.rawValue
         case .ATTACH_APN:
-            return ConfigProfileUtils.KeyAttachAPN.MAX.rawValue + 1
+            if isSetDataApnManually {
+                return ConfigProfileUtils.KeyAttachAPN.MAX.rawValue + 1
+            } else {
+                return 1
+            }
+            
         default:
             return 0
         }
@@ -111,11 +117,14 @@ class EditApnViewController: UITableViewController//,
                 let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
                 //cell.delegate = self
                 cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
-                cell.switchValueChanged = {(boolValue:Bool) in
-                    let indexPath = self.tableView.indexPathForCell(cell)
-                    print(indexPath.debugDescription)
-                    print(boolValue)
+                cell.switchValueChanged = {(switchOn) in
+                    self.isSetDataApnManually = switchOn
+                    UIView.animateWithDuration(0.4, animations: {
+                        self.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
+                    })
                 }
+                cell.myUISwitch.on = isSetDataApnManually
+                
                 return cell
                 
             } else {

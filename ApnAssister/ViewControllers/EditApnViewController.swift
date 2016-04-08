@@ -190,6 +190,23 @@ class EditApnViewController: UITableViewController//,
 
     // MARK: - Action
     @IBAction func tapSave(sender: AnyObject) {
+        let newApnProfileObj = ApnProfileObject()
+        newApnProfileObj.KeyAPNsName = ""
+        newApnProfileObj.KeyAPNsAuthenticationType = ""
+        newApnProfileObj.KeyAPNsUserName = ""
+        newApnProfileObj.KeyAPNsPassword = ""
+        newApnProfileObj.KeyAPNsProxyServer = ""
+        newApnProfileObj.KeyAPNsProxyServerPort = ""
+        
+        newApnProfileObj.KeyAttachAPNName = ""
+        newApnProfileObj.KeyAttachAPNAuthenticationType = ""
+        newApnProfileObj.KeyAttachAPNUserName = ""
+        newApnProfileObj.KeyAttachAPNPassword = ""
+        newApnProfileObj.KeyAttachAPNProxyServer = ""
+        newApnProfileObj.KeyAttachAPNProxyServerPort = ""
+        
+        UtilHandleRLMObject.sharedInstance.saveApnProfileObj(newApnProfileObj)
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

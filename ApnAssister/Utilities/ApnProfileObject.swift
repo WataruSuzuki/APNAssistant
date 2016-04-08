@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Realm
 
 class ApnProfileObject: RLMObject {
     dynamic var KeyAPNsName = ""

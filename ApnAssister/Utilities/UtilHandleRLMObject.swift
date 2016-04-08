@@ -8,18 +8,23 @@
 
 import UIKit
 
-class UtilHandleRLMObject: RLMObject {
+class UtilHandleRLMObject: NSObject {
     
-    public static var sharedInstance: UtilHandleRLMObject = {
+    static var sharedInstance: UtilHandleRLMObject = {
         return UtilHandleRLMObject()
     }()
     private override init() {}
 
-    private let realm = RLMRealm.defaultRealm()
+    let realm = RLMRealm.defaultRealm()
     
     func saveApnProfileObj(apnObj: ApnProfileObject) {
         realm.beginWriteTransaction()
         realm.addObject(apnObj)
-        realm.commitWriteTransaction()
+        do {
+            try realm.commitWriteTransaction()
+        } catch let error as NSError{
+            print(error.description)
+        }
     }
+    
 }

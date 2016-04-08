@@ -1,5 +1,5 @@
 //
-//  ConfigProfileUtils.swift
+//  ConfigProfileKeys.swift
 //  ApnAssister
 //
 //  Created by WataruSuzuki on 2016/03/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigProfileUtils: NSObject {
+class ConfigProfileKeys: NSObject {
 
     enum KeyAttachAPN : Int {
         case NAME = 0,

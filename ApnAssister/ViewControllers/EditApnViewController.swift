@@ -84,17 +84,17 @@ class EditApnViewController: UITableViewController//,
     */
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ConfigProfileUtils.ApnType.MAX.rawValue
+        return ConfigProfileKeys.ApnType.MAX.rawValue
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = ConfigProfileUtils.ApnType(rawValue: section)
+        let sectionType = ConfigProfileKeys.ApnType(rawValue: section)
         switch sectionType! {
         case .APNS:
-            return ConfigProfileUtils.KeyAPNs.MAX.rawValue
+            return ConfigProfileKeys.KeyAPNs.MAX.rawValue
         case .ATTACH_APN:
             if isSetDataApnManually {
-                return ConfigProfileUtils.KeyAttachAPN.MAX.rawValue + 1
+                return ConfigProfileKeys.KeyAttachAPN.MAX.rawValue + 1
             } else {
                 return 1
             }
@@ -106,7 +106,7 @@ class EditApnViewController: UITableViewController//,
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let sectionType = ConfigProfileUtils.ApnType(rawValue: indexPath.section)
+        let sectionType = ConfigProfileKeys.ApnType(rawValue: indexPath.section)
         
         switch sectionType! {
         case .APNS:
@@ -140,7 +140,7 @@ class EditApnViewController: UITableViewController//,
     
     func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
         let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
-        let rowApns = ConfigProfileUtils.KeyAPNs(rawValue: indexPath.row)
+        let rowApns = ConfigProfileKeys.KeyAPNs(rawValue: indexPath.row)
         newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
         //newTextFieldCell.delegate = self
         newTextFieldCell.didBeginEditing = {(textField) in
@@ -157,7 +157,7 @@ class EditApnViewController: UITableViewController//,
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let sectionType = ConfigProfileUtils.ApnType(rawValue: indexPath.section)
+        let sectionType = ConfigProfileKeys.ApnType(rawValue: indexPath.section)
         switch sectionType! {
         case .APNS:
             let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell

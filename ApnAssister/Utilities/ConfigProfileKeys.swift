@@ -8,8 +8,28 @@
 
 import UIKit
 
-class ConfigProfileKeys: NSObject {
+class ConfigProfileKeys: RLMObject {
 
+    dynamic var columnAPNs = KeyAPNs.NAME.rawValue
+    dynamic var columnAttachAPN = KeyAttachAPN.NAME.rawValue
+    
+    var columnAPNsAsEnum: KeyAPNs {
+        get {
+            return KeyAPNs(rawValue: columnAPNs)!
+        }
+        set {
+            columnAPNs = newValue.rawValue
+        }
+    }
+    var columnAttachAPNAsEnum: KeyAttachAPN {
+        get {
+            return KeyAttachAPN(rawValue: columnAttachAPN)!
+        }
+        set {
+            columnAttachAPN = newValue.rawValue
+        }
+    }
+    
     enum KeyAttachAPN : Int {
         case NAME = 0,
         AUTHENTICATION_TYPE,

@@ -140,14 +140,21 @@ class EditApnViewController: UITableViewController//,
     
     func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
         let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
-        let rowApns = ConfigProfileKeys.KeyAPNs(rawValue: indexPath.row)
-        newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
+        
+        if indexPath.section == ConfigProfileKeys.ApnType.APNS.rawValue {
+            let rowApns = ConfigProfileKeys.KeyAPNs(rawValue: indexPath.row)
+            newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
+        } else {
+            let rowAttachApn = ConfigProfileKeys.KeyAttachAPN(rawValue: indexPath.row - 1)
+            newTextFieldCell.myUILabel?.text = rowAttachApn?.getTitle()
+        }
+        
         //newTextFieldCell.delegate = self
         newTextFieldCell.didBeginEditing = {(textField) in
             //TODO
         }
         newTextFieldCell.didEndEditing = {(textField) in
-            //TODO
+            print(indexPath)
         }
         newTextFieldCell.shouldChangeCharactersInRange = {(textField, range, string) in
             return true

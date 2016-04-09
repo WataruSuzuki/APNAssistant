@@ -11,7 +11,7 @@ import UIKit
 class ApnProfileObject: RLMObject {
 
     dynamic var columnAPNs = KeyAPNs.NAME.rawValue
-    dynamic var columnAttachAPN = KeyAttachAPN.NAME.rawValue
+    //dynamic var columnAttachAPN = KeyAttachAPN.NAME.rawValue
     
     var columnAPNsAsEnum: KeyAPNs {
         get {
@@ -20,7 +20,7 @@ class ApnProfileObject: RLMObject {
         set {
             columnAPNs = newValue.rawValue
         }
-    }
+    }/*
     var columnAttachAPNAsEnum: KeyAttachAPN {
         get {
             return KeyAttachAPN(rawValue: columnAttachAPN)!
@@ -29,7 +29,7 @@ class ApnProfileObject: RLMObject {
             columnAttachAPN = newValue.rawValue
         }
     }
-    
+ 
     enum KeyAttachAPN : Int {
         case NAME = 0,
         AUTHENTICATION_TYPE,
@@ -42,23 +42,23 @@ class ApnProfileObject: RLMObject {
         func getTitle() -> String {
             switch self {
             case KeyAttachAPN.NAME:
-                return NSLocalizedString("keyAttachApnName", comment: "")
+                return NSLocalizedString("", comment: "")
             case KeyAttachAPN.AUTHENTICATION_TYPE:
-                return NSLocalizedString("keyAttachApnAuthenticationType", comment: "")
+                return NSLocalizedString("", comment: "")
             case KeyAttachAPN.USERNAME:
-                return NSLocalizedString("keyAttachApnUsername", comment: "")
+                return NSLocalizedString("", comment: "")
             case KeyAttachAPN.PASSWORD:
-                return NSLocalizedString("keyAttachApnPassword", comment: "")
+                return NSLocalizedString("", comment: "")
             case KeyAttachAPN.PROXY_SERVER:
-                return NSLocalizedString("keyAttachApnProxyServer", comment: "")
+                return NSLocalizedString("", comment: "")
             case KeyAttachAPN.PROXY_SERVER_PORT:
-                return NSLocalizedString("keyAttachApnProxyServerPort", comment: "")
+                return NSLocalizedString("", comment: "")
             default:
                 return ""
             }
         }
     }
-    
+    */
     enum KeyAPNs : Int {
         case NAME = 0,
         AUTHENTICATION_TYPE,
@@ -68,20 +68,20 @@ class ApnProfileObject: RLMObject {
         PROXY_SERVER_PORT,
         MAX
         
-        func getTitle() -> String {
+        func getTitle(type: ApnType) -> String {
             switch self {
             case KeyAPNs.NAME:
-                return NSLocalizedString("keyApnsName", comment: "")
+                return NSLocalizedString((type == .APNS ? "keyApnsName" : "keyAttachApnName"), comment: "")
             case KeyAPNs.AUTHENTICATION_TYPE:
-                return NSLocalizedString("keyApnsAuthenticationType", comment: "")
+                return NSLocalizedString((type == .APNS ? "keyApnsAuthenticationType" : "keyAttachApnAuthenticationType"), comment: "")
             case KeyAPNs.USERNAME:
-                return NSLocalizedString("keyApnsUsername", comment: "")
+                return NSLocalizedString((type == .APNS ? "keyApnsUsername" : "keyAttachApnUsername"), comment: "")
             case KeyAPNs.PASSWORD:
-                return NSLocalizedString("keyApnsPassword", comment: "")
+                return NSLocalizedString((type == .APNS ? "keyApnsPassword" : "keyAttachApnPassword"), comment: "")
             case KeyAPNs.PROXY_SERVER:
-                return NSLocalizedString("keyApnsProxyServer", comment: "")
+                return NSLocalizedString((type == .APNS ? "keyApnsProxyServer" : "keyAttachApnProxyServer"), comment: "")
             case KeyAPNs.PROXY_SERVER_PORT:
-                return NSLocalizedString("keyApnsProxyServerPort", comment: "")
+                return NSLocalizedString((type == .APNS ? "keyApnsProxyServerPort" : "keyAttachApnProxyServerPort"), comment: "")
             default:
                 return ""
             }

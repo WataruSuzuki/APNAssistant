@@ -13,6 +13,7 @@ class EditApnViewController: UITableViewController//,
     //TextFieldCellDelegate
 {
     var isSetDataApnManually = true
+    let apnProfileObj = ApnProfileObject()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +95,7 @@ class EditApnViewController: UITableViewController//,
             return ApnProfileObject.KeyAPNs.MAX.rawValue
         case .ATTACH_APN:
             if isSetDataApnManually {
-                return ApnProfileObject.KeyAttachAPN.MAX.rawValue + 1
+                return ApnProfileObject.KeyAPNs.MAX.rawValue + 1
             } else {
                 return 1
             }
@@ -139,28 +140,29 @@ class EditApnViewController: UITableViewController//,
     }
     
     func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
-        let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
         
         if indexPath.section == ApnProfileObject.ApnType.APNS.rawValue {
             let rowApns = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)
-            newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
+            cell.myUILabel?.text = rowApns?.getTitle(.APNS)
         } else {
-            let rowAttachApn = ApnProfileObject.KeyAttachAPN(rawValue: indexPath.row - 1)
-            newTextFieldCell.myUILabel?.text = rowAttachApn?.getTitle()
+            let rowAttachApn = ApnProfileObject.KeyAPNs(rawValue: indexPath.row - 1)
+            cell.myUILabel?.text = rowAttachApn?.getTitle(.ATTACH_APN)
         }
         
         //newTextFieldCell.delegate = self
-        newTextFieldCell.didBeginEditing = {(textField) in
+        cell.didBeginEditing = {(textField) in
             //TODO
         }
-        newTextFieldCell.didEndEditing = {(textField) in
+        cell.didEndEditing = {(textField) in
             print(indexPath)
         }
-        newTextFieldCell.shouldChangeCharactersInRange = {(textField, range, string) in
+        cell.shouldChangeCharactersInRange = {(textField, range, string) in
+            self.updateApnProfileObj(cell, textfield: textField, range: range, string: string, indexPath: indexPath)
             return true
         }
         
-        return newTextFieldCell
+        return cell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -184,6 +186,20 @@ class EditApnViewController: UITableViewController//,
             return tableView.rowHeight
         }
     }
+    
+    func updateApnProfileObj(cell:TextFieldCell, textfield:UITextField, range:NSRange, string:String, indexPath:NSIndexPath) {
+        switch ApnProfileObject.ApnType(rawValue: indexPath.section)! {
+            
+        case .APNS:
+            let keyApns = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)
+            
+        case .ATTACH_APN:
+            let keyAttachApn = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)
+            
+        default:
+            break
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -197,23 +213,7 @@ class EditApnViewController: UITableViewController//,
 
     // MARK: - Action
     @IBAction func tapSave(sender: AnyObject) {
-        let newApnProfileObj = ApnProfileObject()
-        /*
-        newApnProfileObj.KeyAPNsName = ""
-        newApnProfileObj.KeyAPNsAuthenticationType = ""
-        newApnProfileObj.KeyAPNsUserName = ""
-        newApnProfileObj.KeyAPNsPassword = ""
-        newApnProfileObj.KeyAPNsProxyServer = ""
-        newApnProfileObj.KeyAPNsProxyServerPort = ""
-        
-        newApnProfileObj.KeyAttachAPNName = ""
-        newApnProfileObj.KeyAttachAPNAuthenticationType = ""
-        newApnProfileObj.KeyAttachAPNUserName = ""
-        newApnProfileObj.KeyAttachAPNPassword = ""
-        newApnProfileObj.KeyAttachAPNProxyServer = ""
-        newApnProfileObj.KeyAttachAPNProxyServerPort = ""
-        */
-        UtilHandleRLMObject.sharedInstance.saveApnProfileObj(newApnProfileObj)
+        UtilHandleRLMObject.sharedInstance.saveApnProfileObj(apnProfileObj)
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

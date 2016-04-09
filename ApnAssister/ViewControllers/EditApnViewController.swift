@@ -84,17 +84,17 @@ class EditApnViewController: UITableViewController//,
     */
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ConfigProfileKeys.ApnType.MAX.rawValue
+        return ApnProfileObject.ApnType.MAX.rawValue
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = ConfigProfileKeys.ApnType(rawValue: section)
+        let sectionType = ApnProfileObject.ApnType(rawValue: section)
         switch sectionType! {
         case .APNS:
-            return ConfigProfileKeys.KeyAPNs.MAX.rawValue
+            return ApnProfileObject.KeyAPNs.MAX.rawValue
         case .ATTACH_APN:
             if isSetDataApnManually {
-                return ConfigProfileKeys.KeyAttachAPN.MAX.rawValue + 1
+                return ApnProfileObject.KeyAttachAPN.MAX.rawValue + 1
             } else {
                 return 1
             }
@@ -106,7 +106,7 @@ class EditApnViewController: UITableViewController//,
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let sectionType = ConfigProfileKeys.ApnType(rawValue: indexPath.section)
+        let sectionType = ApnProfileObject.ApnType(rawValue: indexPath.section)
         
         switch sectionType! {
         case .APNS:
@@ -141,11 +141,11 @@ class EditApnViewController: UITableViewController//,
     func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
         let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
         
-        if indexPath.section == ConfigProfileKeys.ApnType.APNS.rawValue {
-            let rowApns = ConfigProfileKeys.KeyAPNs(rawValue: indexPath.row)
+        if indexPath.section == ApnProfileObject.ApnType.APNS.rawValue {
+            let rowApns = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)
             newTextFieldCell.myUILabel?.text = rowApns?.getTitle()
         } else {
-            let rowAttachApn = ConfigProfileKeys.KeyAttachAPN(rawValue: indexPath.row - 1)
+            let rowAttachApn = ApnProfileObject.KeyAttachAPN(rawValue: indexPath.row - 1)
             newTextFieldCell.myUILabel?.text = rowAttachApn?.getTitle()
         }
         
@@ -164,7 +164,7 @@ class EditApnViewController: UITableViewController//,
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let sectionType = ConfigProfileKeys.ApnType(rawValue: indexPath.section)
+        let sectionType = ApnProfileObject.ApnType(rawValue: indexPath.section)
         switch sectionType! {
         case .APNS:
             let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
@@ -198,6 +198,7 @@ class EditApnViewController: UITableViewController//,
     // MARK: - Action
     @IBAction func tapSave(sender: AnyObject) {
         let newApnProfileObj = ApnProfileObject()
+        /*
         newApnProfileObj.KeyAPNsName = ""
         newApnProfileObj.KeyAPNsAuthenticationType = ""
         newApnProfileObj.KeyAPNsUserName = ""
@@ -211,7 +212,7 @@ class EditApnViewController: UITableViewController//,
         newApnProfileObj.KeyAttachAPNPassword = ""
         newApnProfileObj.KeyAttachAPNProxyServer = ""
         newApnProfileObj.KeyAttachAPNProxyServerPort = ""
-        
+        */
         UtilHandleRLMObject.sharedInstance.saveApnProfileObj(newApnProfileObj)
         
         self.dismissViewControllerAnimated(true, completion: nil)

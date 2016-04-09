@@ -1,5 +1,5 @@
 //
-//  ConfigProfileKeys.swift
+//  ApnProfileObject.swift
 //  ApnAssister
 //
 //  Created by WataruSuzuki on 2016/03/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigProfileKeys: RLMObject {
+class ApnProfileObject: RLMObject {
 
     dynamic var columnAPNs = KeyAPNs.NAME.rawValue
     dynamic var columnAttachAPN = KeyAttachAPN.NAME.rawValue

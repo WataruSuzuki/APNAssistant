@@ -16,10 +16,10 @@ class ApnProfileObject: RLMObject {
     dynamic var KeyAPNsProxyServer = ""
     dynamic var KeyAPNsProxyServerPort = ""
 
-    dynamic var KeyAttachAPNName = ""
-    dynamic var KeyAttachAPNAuthenticationType = ""
-    dynamic var KeyAttachAPNUserName = ""
-    dynamic var KeyAttachAPNPassword = ""
-    dynamic var KeyAttachAPNProxyServer = ""
-    dynamic var KeyAttachAPNProxyServerPort = ""
+    dynamic var KeyAttachApnName = ""
+    dynamic var KeyAttachApnAuthenticationType = ""
+    dynamic var KeyAttachApnUserName = ""
+    dynamic var KeyAttachApnPassword = ""
+    dynamic var KeyAttachApnProxyServer = ""
+    dynamic var KeyAttachApnProxyServerPort = ""
 }

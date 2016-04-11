@@ -11,7 +11,6 @@ import UIKit
 class ApnProfileObject: RLMObject {
 
     dynamic var columnAPNs = KeyAPNs.NAME.rawValue
-    //dynamic var columnAttachAPN = KeyAttachAPN.NAME.rawValue
     
     var columnAPNsAsEnum: KeyAPNs {
         get {
@@ -20,45 +19,8 @@ class ApnProfileObject: RLMObject {
         set {
             columnAPNs = newValue.rawValue
         }
-    }/*
-    var columnAttachAPNAsEnum: KeyAttachAPN {
-        get {
-            return KeyAttachAPN(rawValue: columnAttachAPN)!
-        }
-        set {
-            columnAttachAPN = newValue.rawValue
-        }
     }
- 
-    enum KeyAttachAPN : Int {
-        case NAME = 0,
-        AUTHENTICATION_TYPE,
-        USERNAME,
-        PASSWORD,
-        PROXY_SERVER,
-        PROXY_SERVER_PORT,
-        MAX
-        
-        func getTitle() -> String {
-            switch self {
-            case KeyAttachAPN.NAME:
-                return NSLocalizedString("", comment: "")
-            case KeyAttachAPN.AUTHENTICATION_TYPE:
-                return NSLocalizedString("", comment: "")
-            case KeyAttachAPN.USERNAME:
-                return NSLocalizedString("", comment: "")
-            case KeyAttachAPN.PASSWORD:
-                return NSLocalizedString("", comment: "")
-            case KeyAttachAPN.PROXY_SERVER:
-                return NSLocalizedString("", comment: "")
-            case KeyAttachAPN.PROXY_SERVER_PORT:
-                return NSLocalizedString("", comment: "")
-            default:
-                return ""
-            }
-        }
-    }
-    */
+    
     enum KeyAPNs : Int {
         case NAME = 0,
         AUTHENTICATION_TYPE,

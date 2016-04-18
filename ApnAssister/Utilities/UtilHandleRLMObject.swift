@@ -9,12 +9,12 @@
 import UIKit
 
 class UtilHandleRLMObject: NSObject {
-    
+    /*
     static var sharedInstance: UtilHandleRLMObject = {
         return UtilHandleRLMObject()
     }()
     private override init() {}
-
+    */
     let realm = RLMRealm.defaultRealm()
     
     func saveApnProfileObj(apnObj: ApnProfileObject) {

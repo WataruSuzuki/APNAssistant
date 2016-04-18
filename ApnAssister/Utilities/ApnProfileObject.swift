@@ -10,14 +10,79 @@ import UIKit
 
 class ApnProfileObject: RLMObject {
 
-    dynamic var columnAPNs = KeyAPNs.NAME.rawValue
+    dynamic var apnsName = ""
+    dynamic var apnsAuthenticationType = ""
+    dynamic var apnsUserName = ""
+    dynamic var apnsPassword = ""
+    dynamic var apnsProxyServer = ""
+    dynamic var apnsProxyServerPort = ""
     
-    var columnAPNsAsEnum: KeyAPNs {
-        get {
-            return KeyAPNs(rawValue: columnAPNs)!
-        }
-        set {
-            columnAPNs = newValue.rawValue
+    dynamic var attachApnName = ""
+    dynamic var attachApnAuthenticationType = ""
+    dynamic var attachApnUserName = ""
+    dynamic var attachApnPassword = ""
+    dynamic var attachApnProxyServer = ""
+    dynamic var attachApnProxyServerPort = ""
+    
+    func updateApnProfileColumn(type: ApnType, column: KeyAPNs, newText: String) {
+        //print("newText = " + newText)
+        switch column {
+        case .NAME:
+            if type == .APNS {
+                self.apnsName = newText
+                print("apnsName = " + self.apnsName)
+            } else {
+                self.attachApnName = newText
+                print("attachApnName = " + self.attachApnName)
+            }
+            
+        case .AUTHENTICATION_TYPE:
+            if type == .APNS {
+                self.apnsAuthenticationType = newText
+                print("apnsAuthenticationType = " + self.apnsAuthenticationType)
+            } else {
+                self.attachApnAuthenticationType = newText
+                print("attachApnAuthenticationType = " + self.attachApnAuthenticationType)
+            }
+            
+        case .USERNAME:
+            if type == .APNS {
+                self.apnsUserName = newText
+                print("apnsUserName = " + self.apnsUserName)
+            } else {
+                self.attachApnUserName = newText
+                print("attachApnUserName = " + self.attachApnUserName)
+            }
+            
+        case .PASSWORD:
+            if type == .APNS {
+                self.apnsPassword = newText
+                print("apnsPassword = " + self.apnsPassword)
+            } else {
+                self.attachApnPassword = newText
+                print("attachApnPassword = " + self.attachApnPassword)
+            }
+            
+        case .PROXY_SERVER:
+            if type == .APNS {
+                self.apnsProxyServer = newText
+                print("apnsProxyServer = " + self.apnsProxyServer)
+            } else {
+                self.attachApnProxyServer = newText
+                print("attachApnProxyServer = " + self.attachApnProxyServer)
+            }
+            
+        case .PROXY_SERVER_PORT:
+            if type == .APNS {
+                self.apnsProxyServerPort = newText
+                print("apnsProxyServerPort = " + self.apnsProxyServerPort)
+            } else {
+                self.attachApnProxyServerPort = newText
+                print("attachApnProxyServerPort = " + self.attachApnProxyServerPort)
+            }
+            
+        default:
+            break
         }
     }
     

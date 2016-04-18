@@ -13,7 +13,7 @@ class EditApnViewController: UITableViewController//,
     //TextFieldCellDelegate
 {
     var isSetDataApnManually = true
-    let apnProfileObj = ApnProfileObject()
+    let myUtilHandleRLMObject = UtilHandleRLMObject()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +115,8 @@ class EditApnViewController: UITableViewController//,
             
         case .ATTACH_APN:
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell", forIndexPath: indexPath) as! UISwitchCell
+                //let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
                 //cell.delegate = self
                 cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
                 cell.switchValueChanged = {(switchOn) in
@@ -140,25 +141,23 @@ class EditApnViewController: UITableViewController//,
     }
     
     func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! TextFieldCell
+        //let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
         
-        if indexPath.section == ApnProfileObject.ApnType.APNS.rawValue {
-            let rowApns = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)
-            cell.myUILabel?.text = rowApns?.getTitle(.APNS)
-        } else {
-            let rowAttachApn = ApnProfileObject.KeyAPNs(rawValue: indexPath.row - 1)
-            cell.myUILabel?.text = rowAttachApn?.getTitle(.ATTACH_APN)
-        }
+        let type = ApnProfileObject.ApnType(rawValue: indexPath.section)!
+        let column = ApnProfileObject.KeyAPNs(rawValue: (type == .APNS ? indexPath.row : indexPath.row - 1))!
+        cell.myUILabel?.text = column.getTitle(type)
+        cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
         
         //newTextFieldCell.delegate = self
         cell.didBeginEditing = {(textField) in
             //TODO
         }
         cell.didEndEditing = {(textField) in
-            print(indexPath)
+            //TODO
         }
         cell.shouldChangeCharactersInRange = {(textField, range, string) in
-            self.updateApnProfileObj(cell, textfield: textField, range: range, string: string, indexPath: indexPath)
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: textField.text! + string)
             return true
         }
         
@@ -187,20 +186,6 @@ class EditApnViewController: UITableViewController//,
         }
     }
     
-    func updateApnProfileObj(cell:TextFieldCell, textfield:UITextField, range:NSRange, string:String, indexPath:NSIndexPath) {
-        switch ApnProfileObject.ApnType(rawValue: indexPath.section)! {
-            
-        case .APNS:
-            let keyApns = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)
-            
-        case .ATTACH_APN:
-            let keyAttachApn = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)
-            
-        default:
-            break
-        }
-    }
-
     /*
     // MARK: - Navigation
 

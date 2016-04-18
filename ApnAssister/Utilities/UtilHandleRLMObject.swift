@@ -15,7 +15,12 @@ class UtilHandleRLMObject: NSObject {
     }()
     private override init() {}
     */
+    
     let realm = RLMRealm.defaultRealm()
+    let apnProfileObj = ApnProfileObject()
+    
+    var arrayKeyApns = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
+    var arrayKeyAttachApn = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     
     func saveApnProfileObj(apnObj: ApnProfileObject) {
         realm.beginWriteTransaction()
@@ -27,4 +32,19 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
+    func keepApnProfileColumnValue(type: ApnProfileObject.ApnType, column: ApnProfileObject.KeyAPNs, newText: String) {
+        if type == .APNS {
+            arrayKeyApns[column.rawValue] = newText
+        } else {
+            arrayKeyAttachApn[column.rawValue] = newText
+        }
+    }
+    
+    func getKeptApnProfileColumnValue(type: ApnProfileObject.ApnType, column: ApnProfileObject.KeyAPNs) -> String {
+        if type == .APNS {
+            return arrayKeyApns[column.rawValue]
+        } else {
+            return arrayKeyAttachApn[column.rawValue]
+        }
+    }
 }

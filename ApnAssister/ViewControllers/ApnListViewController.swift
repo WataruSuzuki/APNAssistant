@@ -10,6 +10,8 @@ import UIKit
 
 class ApnListViewController: UITableViewController {
 
+    var allApnSummaryObjs = ApnSummaryObject.allObjects()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,26 +28,25 @@ class ApnListViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Int(allApnSummaryObjs.count)
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ApnListCell", forIndexPath: indexPath)
 
         // Configure the cell...
+        let apnSummary = allApnSummaryObjs.objectAtIndex(UInt(indexPath.row)) as! ApnSummaryObject
+        cell.textLabel?.text = apnSummary.name
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -1,5 +1,5 @@
 //
-//  Dummy.swift
+//  ApnDataObject.swift
 //  ApnAssister
 //
 //  Created by WataruSuzuki on 2016/04/08.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Dummy: RLMObject {
+class ApnDataObject: RLMObject {
     dynamic var KeyAPNsName = ""
     dynamic var KeyAPNsAuthenticationType = ""
     dynamic var KeyAPNsUserName = ""

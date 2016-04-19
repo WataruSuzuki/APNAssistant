@@ -29,7 +29,7 @@
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */; };
-		F0C888421CB76C2900A69ECC /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C888411CB76C2900A69ECC /* Dummy.swift */; };
+		F0C888421CB76C2900A69ECC /* ApnDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C888411CB76C2900A69ECC /* ApnDataObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,7 @@
 		96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		F0C888411CB76C2900A69ECC /* Dummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
+		F0C888411CB76C2900A69ECC /* ApnDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnDataObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				60BEE4F91CA3C947005B86B9 /* ApnProfileObject.swift */,
-				F0C888411CB76C2900A69ECC /* Dummy.swift */,
+				F0C888411CB76C2900A69ECC /* ApnDataObject.swift */,
 				6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */,
 			);
 			path = Utilities;
@@ -429,7 +429,7 @@
 				96DA6BFA1C9B03FD00E424D5 /* SecondViewController.swift in Sources */,
 				96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */,
 				96DA6BF81C9B03FD00E424D5 /* FirstViewController.swift in Sources */,
-				F0C888421CB76C2900A69ECC /* Dummy.swift in Sources */,
+				F0C888421CB76C2900A69ECC /* ApnDataObject.swift in Sources */,
 				6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */,
 				60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */,
 				60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */,

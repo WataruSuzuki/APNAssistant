@@ -9,17 +9,9 @@
 import UIKit
 
 class ApnDataObject: RLMObject {
-    dynamic var KeyAPNsName = ""
-    dynamic var KeyAPNsAuthenticationType = ""
-    dynamic var KeyAPNsUserName = ""
-    dynamic var KeyAPNsPassword = ""
-    dynamic var KeyAPNsProxyServer = ""
-    dynamic var KeyAPNsProxyServerPort = ""
-
-    dynamic var KeyAttachApnName = ""
-    dynamic var KeyAttachApnAuthenticationType = ""
-    dynamic var KeyAttachApnUserName = ""
-    dynamic var KeyAttachApnPassword = ""
-    dynamic var KeyAttachApnProxyServer = ""
-    dynamic var KeyAttachApnProxyServerPort = ""
+    dynamic var name = ""
+    dynamic var createdDate = 0.0
+    dynamic var dataType = ""
+    
+    dynamic var apnProfile = ApnProfileObject()
 }

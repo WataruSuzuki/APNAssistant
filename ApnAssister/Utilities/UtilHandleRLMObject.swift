@@ -18,13 +18,14 @@ class UtilHandleRLMObject: NSObject {
     
     let realm = RLMRealm.defaultRealm()
     let apnProfileObj = ApnProfileObject()
+    let apnSummaryObj = ApnDataObject()
     
     var arrayKeyApns = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     var arrayKeyAttachApn = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     
-    func saveApnProfileObj(apnObj: ApnProfileObject) {
+    func saveApnDataObj() {
         realm.beginWriteTransaction()
-        realm.addObject(apnObj)
+        realm.addObject(apnSummaryObj)
         do {
             try realm.commitWriteTransaction()
         } catch let error as NSError{
@@ -51,6 +52,16 @@ class UtilHandleRLMObject: NSObject {
     func prepareApnData() {
         prepareApnProfileColumn(.APNS, columnArray: arrayKeyApns)
         prepareApnProfileColumn(.ATTACH_APN, columnArray: arrayKeyAttachApn)
+        
+        prepareApnSummaryData()
+    }
+    
+    func prepareApnSummaryData() {
+        let now = NSDate()
+        apnSummaryObj.createdDate = now.timeIntervalSinceDate(NSDate())
+        apnSummaryObj.name = String(apnSummaryObj.createdDate)
+        
+        apnSummaryObj.apnProfile = apnProfileObj
     }
     
     func prepareApnProfileColumn(type: ApnProfileObject.ApnType, columnArray: Array<String>) {

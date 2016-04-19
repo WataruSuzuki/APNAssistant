@@ -198,7 +198,7 @@ class EditApnViewController: UITableViewController//,
 
     // MARK: - Action
     @IBAction func tapSave(sender: AnyObject) {
-        myUtilHandleRLMObject.prepareApnProfileColumn()
+        myUtilHandleRLMObject.prepareApnData()
         //UtilHandleRLMObject.sharedInstance.saveApnProfileObj(apnProfileObj)
         
         self.dismissViewControllerAnimated(true, completion: nil)

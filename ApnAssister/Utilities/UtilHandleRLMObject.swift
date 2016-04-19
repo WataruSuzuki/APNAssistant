@@ -48,16 +48,15 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    func prepareApnProfileColumn() {
+    func prepareApnData() {
+        prepareApnProfileColumn(.APNS, columnArray: arrayKeyApns)
+        prepareApnProfileColumn(.ATTACH_APN, columnArray: arrayKeyAttachApn)
+    }
+    
+    func prepareApnProfileColumn(type: ApnProfileObject.ApnType, columnArray: Array<String>) {
         var index = 0
-        for columnValue in arrayKeyApns {
-            apnProfileObj.updateApnProfileColumn(.APNS, column: ApnProfileObject.KeyAPNs(rawValue: index)!, newText: columnValue)
-            index += 1
-        }
-        
-        index = 0
-        for columnValue in arrayKeyAttachApn {
-            apnProfileObj.updateApnProfileColumn(.APNS, column: ApnProfileObject.KeyAPNs(rawValue: index)!, newText: columnValue)
+        for columnValue in columnArray {
+            apnProfileObj.updateApnProfileColumn(type, column: ApnProfileObject.KeyAPNs(rawValue: index)!, newText: columnValue)
             index += 1
         }
     }

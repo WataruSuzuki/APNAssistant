@@ -18,7 +18,7 @@ class UtilHandleRLMObject: NSObject {
     
     let realm = RLMRealm.defaultRealm()
     let apnProfileObj = ApnProfileObject()
-    let apnSummaryObj = ApnDataObject()
+    let apnSummaryObj = ApnSummaryObject()
     
     var arrayKeyApns = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     var arrayKeyAttachApn = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")

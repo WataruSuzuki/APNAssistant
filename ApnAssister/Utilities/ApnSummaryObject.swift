@@ -1,5 +1,5 @@
 //
-//  ApnDataObject.swift
+//  ApnSummaryObject.swift
 //  ApnAssister
 //
 //  Created by WataruSuzuki on 2016/04/08.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ApnDataObject: RLMObject {
+class ApnSummaryObject: RLMObject {
     dynamic var name = ""
     dynamic var createdDate = 0.0
     dynamic var dataType = ""

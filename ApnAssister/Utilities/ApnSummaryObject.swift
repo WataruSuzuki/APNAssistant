@@ -11,7 +11,13 @@ import UIKit
 class ApnSummaryObject: RLMObject {
     dynamic var name = ""
     dynamic var createdDate = 0.0
-    dynamic var dataType = ""
+    dynamic var dataType = DataTypes.NORMAL.rawValue
     
     dynamic var apnProfile = ApnProfileObject()
+    
+    enum DataTypes : Int {
+        case NORMAL = 0,
+        FAVORITE,
+        MAX
+    }
 }

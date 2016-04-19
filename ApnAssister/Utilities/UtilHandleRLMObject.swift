@@ -47,4 +47,18 @@ class UtilHandleRLMObject: NSObject {
             return arrayKeyAttachApn[column.rawValue]
         }
     }
+    
+    func prepareApnProfileColumn() {
+        var index = 0
+        for columnValue in arrayKeyApns {
+            apnProfileObj.updateApnProfileColumn(.APNS, column: ApnProfileObject.KeyAPNs(rawValue: index)!, newText: columnValue)
+            index += 1
+        }
+        
+        index = 0
+        for columnValue in arrayKeyAttachApn {
+            apnProfileObj.updateApnProfileColumn(.APNS, column: ApnProfileObject.KeyAPNs(rawValue: index)!, newText: columnValue)
+            index += 1
+        }
+    }
 }

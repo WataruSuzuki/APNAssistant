@@ -107,9 +107,7 @@ class EditApnViewController: UITableViewController//,
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let sectionType = ApnProfileObject.ApnType(rawValue: indexPath.section)
-        
-        switch sectionType! {
+        switch ApnProfileObject.ApnType(rawValue: indexPath.section)! {
         case .APNS:
             return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
             

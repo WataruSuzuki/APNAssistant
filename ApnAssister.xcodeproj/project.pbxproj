@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4CDCA41D6D8E6778A64DCBB9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82086984B027390E9C7FD7A4 /* libPods.a */; };
+		602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
 		6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0B44900153E03A118779BE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		602211F61CC7395B0065D37D /* DetailApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailApnViewController.swift; sourceTree = "<group>"; };
 		60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditApnViewController.swift; sourceTree = "<group>"; };
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
 		6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilHandleRLMObject.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */,
 				60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */,
 				607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */,
+				602211F61CC7395B0065D37D /* DetailApnViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				60BEE4FA1CA3C947005B86B9 /* ApnProfileObject.swift in Sources */,
 				607165521CB3D28A000BCAF5 /* DownloadProfileListViewController.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,
+				602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

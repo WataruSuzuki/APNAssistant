@@ -9,6 +9,9 @@
 import UIKit
 
 class DetailApnViewController: UITableViewController {
+    
+    let myUtilHandleRLMObject = UtilHandleRLMObject()
+    var myApnSummaryObject: ApnSummaryObject!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,9 @@ class DetailApnViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.title = myApnSummaryObject.name
+        
+        myUtilHandleRLMObject.prepareKeepApnProfileColumn(myApnSummaryObject.apnProfile)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +34,25 @@ class DetailApnViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return ApnProfileObject.ApnType.MAX.rawValue
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return ApnProfileObject.KeyAPNs.MAX.rawValue
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("DetailApnCell", forIndexPath: indexPath)
 
-        // Configure the cell...
-
+        let type = ApnProfileObject.ApnType(rawValue: indexPath.section)!
+        let column = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)!
+        cell.textLabel?.text = column.getTitle(type)
+        cell.detailTextLabel?.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

@@ -33,6 +33,34 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
+    func prepareKeepApnProfileColumn(prepareObj: ApnProfileObject) {
+        var index = 0
+        arrayKeyApns[index] = prepareObj.apnsName
+        index += 1
+        arrayKeyApns[index] = prepareObj.apnsAuthenticationType
+        index += 1
+        arrayKeyApns[index] = prepareObj.apnsUserName
+        index += 1
+        arrayKeyApns[index] = prepareObj.apnsPassword
+        index += 1
+        arrayKeyApns[index] = prepareObj.apnsProxyServer
+        index += 1
+        arrayKeyApns[index] = prepareObj.apnsProxyServerPort
+        
+        index = 0
+        arrayKeyAttachApn[index] = prepareObj.attachApnName
+        index += 1
+        arrayKeyAttachApn[index] = prepareObj.attachApnAuthenticationType
+        index += 1
+        arrayKeyAttachApn[index] = prepareObj.attachApnUserName
+        index += 1
+        arrayKeyAttachApn[index] = prepareObj.attachApnPassword
+        index += 1
+        arrayKeyAttachApn[index] = prepareObj.attachApnProxyServer
+        index += 1
+        arrayKeyAttachApn[index] = prepareObj.attachApnProxyServerPort
+    }
+    
     func keepApnProfileColumnValue(type: ApnProfileObject.ApnType, column: ApnProfileObject.KeyAPNs, newText: String) {
         if type == .APNS {
             arrayKeyApns[column.rawValue] = newText

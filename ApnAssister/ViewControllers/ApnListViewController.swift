@@ -38,16 +38,19 @@ class ApnListViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return loadApnListFromResults(allApnSummaryObjs, tableView: tableView, indexPath: indexPath)
+    }
+    
+    func loadApnListFromResults(results: RLMResults, tableView: UITableView, indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ApnListCell", forIndexPath: indexPath)
-
+        
         // Configure the cell...
-        let apnSummary = allApnSummaryObjs.objectAtIndex(UInt(indexPath.row)) as! ApnSummaryObject
+        let apnSummary = results.objectAtIndex(UInt(indexPath.row)) as! ApnSummaryObject
         cell.textLabel?.text = apnSummary.name
-
+        
         return cell
     }
     
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

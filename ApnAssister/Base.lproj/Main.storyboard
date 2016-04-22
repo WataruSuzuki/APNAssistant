@@ -77,6 +77,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="WfF-Xh-ygA" kind="show" identifier="DetailApnViewController" id="G0r-RL-zQM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -284,4 +287,7 @@
         <image name="ic_file_download_36pt" width="36" height="36"/>
         <image name="ic_list_36pt" width="36" height="36"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="G0r-RL-zQM"/>
+    </inferredMetricsTieBreakers>
 </document>

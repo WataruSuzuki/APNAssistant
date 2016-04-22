@@ -86,8 +86,8 @@ class UtilHandleRLMObject: NSObject {
     
     func prepareApnSummaryData() {
         let now = NSDate()
-        apnSummaryObj.createdDate = now.timeIntervalSinceDate(NSDate())
-        apnSummaryObj.name = String(apnSummaryObj.createdDate)
+        apnSummaryObj.createdDate = now.timeIntervalSinceNow
+        apnSummaryObj.name = String(now)
         
         apnSummaryObj.apnProfile = apnProfileObj
     }

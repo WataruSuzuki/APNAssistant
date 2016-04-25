@@ -22,8 +22,12 @@ class ApnSummaryObject: RLMObject {
     }
     
     static func getLastId() -> Int {
-        let lastObj = ApnSummaryObject.allObjects().lastObject() as! ApnSummaryObject
-        return lastObj.id
+        if let lastObj = ApnSummaryObject.allObjects().lastObject() as? ApnSummaryObject {
+            print(lastObj.id)
+            return lastObj.id + 1
+        } else {
+            return 1
+        }
     }
     
     enum DataTypes : Int {

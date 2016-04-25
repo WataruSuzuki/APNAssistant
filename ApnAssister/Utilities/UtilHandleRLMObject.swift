@@ -33,6 +33,16 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
+    func deleteApnSummaryObj(obj: ApnSummaryObject) {
+        realm.beginWriteTransaction()
+        realm.deleteObject(obj)
+        do {
+            try realm.commitWriteTransaction()
+        } catch let error as NSError{
+            print(error.description)
+        }
+    }
+    
     func prepareKeepApnProfileColumn(prepareObj: ApnProfileObject) {
         var index = 0
         arrayKeyApns[index] = prepareObj.apnsName

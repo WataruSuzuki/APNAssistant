@@ -88,6 +88,7 @@ class UtilHandleRLMObject: NSObject {
         let now = NSDate()
         apnSummaryObj.createdDate = now.timeIntervalSinceNow
         apnSummaryObj.name = String(now)
+        apnSummaryObj.id = ApnSummaryObject.getLastId()
         
         apnSummaryObj.apnProfile = apnProfileObj
     }

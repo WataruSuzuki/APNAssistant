@@ -43,7 +43,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTO-Tl-kpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="-1065"/>
+            <point key="canvasLocation" x="3180" y="-1025"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4rK-pB-YTk">
@@ -59,7 +59,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDe-j9-nFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-1065"/>
+            <point key="canvasLocation" x="2360" y="-1025"/>
         </scene>
         <!--Favorite Apn List View Controller-->
         <scene sceneID="yrN-Bu-Icd">
@@ -125,7 +125,13 @@
                             <outlet property="delegate" destination="b6B-zi-O2E" id="Pcu-HJ-rzv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="iqb-la-keb"/>
+                    <navigationItem key="navigationItem" id="iqb-la-keb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1qX-uy-6lk">
+                            <connections>
+                                <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" id="Ec9-Wz-Koz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOG-4e-ybm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,5 +295,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="G0r-RL-zQM"/>
+        <segue reference="Ec9-Wz-Koz"/>
     </inferredMetricsTieBreakers>
 </document>

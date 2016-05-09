@@ -22,6 +22,8 @@ class DetailApnViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.title = myApnSummaryObject.name
+        let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(DetailApnViewController.showEditApnViewController))
+        self.navigationItem.rightBarButtonItem = editButton
         
         myUtilHandleRLMObject.prepareKeepApnProfileColumn(myApnSummaryObject.apnProfile)
     }
@@ -41,7 +43,6 @@ class DetailApnViewController: UITableViewController {
         return ApnProfileObject.KeyAPNs.MAX.rawValue
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DetailApnCell", forIndexPath: indexPath)
 
@@ -53,14 +54,11 @@ class DetailApnViewController: UITableViewController {
         return cell
     }
     
-
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
-    */
 
     /*
     // Override to support editing the table view.
@@ -99,4 +97,7 @@ class DetailApnViewController: UITableViewController {
     }
     */
 
+    func showEditApnViewController() {
+        self.performSegueWithIdentifier("EditApnViewController", sender: self)
+    }
 }

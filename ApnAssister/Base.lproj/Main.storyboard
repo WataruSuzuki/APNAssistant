@@ -205,6 +205,9 @@
                             <outlet property="delegate" destination="WfF-Xh-ygA" id="2c2-IO-ev3"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" modalTransitionStyle="crossDissolve" id="CM8-Aq-zor"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXq-bF-F5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,6 +298,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="G0r-RL-zQM"/>
-        <segue reference="Ec9-Wz-Koz"/>
+        <segue reference="CM8-Aq-zor"/>
     </inferredMetricsTieBreakers>
 </document>

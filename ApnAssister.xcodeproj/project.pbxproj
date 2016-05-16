@@ -28,6 +28,7 @@
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */; };
+		9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
 		F0C888421CB76C2900A69ECC /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C888411CB76C2900A69ECC /* ApnSummaryObject.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		0B44900153E03A118779BE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnAssister.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.debug.xcconfig"; sourceTree = "<group>"; };
 		602211F61CC7395B0065D37D /* DetailApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailApnViewController.swift; sourceTree = "<group>"; };
 		60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditApnViewController.swift; sourceTree = "<group>"; };
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UISwitchCell.xib; sourceTree = "<group>"; };
 		60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.release.xcconfig"; sourceTree = "<group>"; };
 		96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DA6BFC1C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CDCA41D6D8E6778A64DCBB9 /* libPods.a in Frameworks */,
+				9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +122,8 @@
 			children = (
 				E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */,
 				0B44900153E03A118779BE78 /* Pods.release.xcconfig */,
+				2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */,
+				84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -217,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				82086984B027390E9C7FD7A4 /* libPods.a */,
+				18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,12 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister" */;
 			buildPhases = (
-				98B00AC8814008A4C2BE48C7 /* Check Pods Manifest.lock */,
+				98B00AC8814008A4C2BE48C7 /* 📦 Check Pods Manifest.lock */,
 				96DA6BEE1C9B03FD00E424D5 /* Sources */,
 				96DA6BEF1C9B03FD00E424D5 /* Frameworks */,
 				96DA6BF01C9B03FD00E424D5 /* Resources */,
-				18E337D890D28D5FA0BA7FAD /* Embed Pods Frameworks */,
-				0A709D2A1E243C36B562BF3A /* Copy Pods Resources */,
+				18E337D890D28D5FA0BA7FAD /* 📦 Embed Pods Frameworks */,
+				0A709D2A1E243C36B562BF3A /* 📦 Copy Pods Resources */,
 				60AA73A71C9BA73700E41CAE /* ShellScript */,
 			);
 			buildRules = (
@@ -358,34 +366,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A709D2A1E243C36B562BF3A /* Copy Pods Resources */ = {
+		0A709D2A1E243C36B562BF3A /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		18E337D890D28D5FA0BA7FAD /* Embed Pods Frameworks */ = {
+		18E337D890D28D5FA0BA7FAD /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60AA73A71C9BA73700E41CAE /* ShellScript */ = {
@@ -401,14 +409,14 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
-		98B00AC8814008A4C2BE48C7 /* Check Pods Manifest.lock */ = {
+		98B00AC8814008A4C2BE48C7 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,7 +601,7 @@
 		};
 		96DA6C1D1C9B03FE00E424D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -609,7 +617,7 @@
 		};
 		96DA6C1E1C9B03FE00E424D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B44900153E03A118779BE78 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

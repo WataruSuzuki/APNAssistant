@@ -27,12 +27,13 @@
 #import "shared_realm.hpp"
 
 static NSString *const c_RLMRealmConfigurationProperties[] = {
-    @"path",
+    @"fileURL",
     @"inMemoryIdentifier",
     @"encryptionKey",
     @"readOnly",
     @"schemaVersion",
     @"migrationBlock",
+    @"deleteRealmIfMigrationNeeded",
     @"dynamic",
     @"customSchema",
 };
@@ -117,8 +118,8 @@ NSString *RLMRealmPathForFile(NSString *fileName) {
 - (instancetype)init {
     self = [super init];
     if (self) {
-        static NSString *defaultRealmPath = RLMRealmPathForFile(c_defaultRealmFileName);
-        self.path = defaultRealmPath;
+        static NSURL *defaultRealmURL = [NSURL fileURLWithPath:RLMRealmPathForFile(c_defaultRealmFileName)];
+        self.fileURL = defaultRealmURL;
         self.schemaVersion = 0;
     }
 
@@ -145,10 +146,6 @@ NSString *RLMRealmPathForFile(NSString *fileName) {
     return [string stringByAppendingString:@"}"];
 }
 
-- (NSString *)path {
-    return _config.in_memory ? nil :@(_config.path.c_str());
-}
-
 static void RLMNSStringToStdString(std::string &out, NSString *in) {
     out.resize([in maximumLengthOfBytesUsingEncoding:NSUTF8StringEncoding]);
     if (out.empty()) {
@@ -164,13 +161,26 @@ static void RLMNSStringToStdString(std::string &out, NSString *in) {
     out.resize(size);
 }
 
-- (void)setPath:(NSString *)path {
+- (NSURL *)fileURL {
+    return _config.in_memory ? nil : [NSURL fileURLWithPath:@(_config.path.c_str())];
+}
+
+- (void)setFileURL:(NSURL *)fileURL {
+    NSString *path = fileURL.path;
     if (path.length == 0) {
         @throw RLMException(@"Realm path must not be empty");
     }
 
     RLMNSStringToStdString(_config.path, path);
     _config.in_memory = false;
+}
+
+- (NSString *)path {
+    return self.fileURL.path;
+}
+
+- (void)setPath:(NSString *)path {
+    self.fileURL = [NSURL fileURLWithPath:path];
 }
 
 - (NSString *)inMemoryIdentifier {
@@ -220,6 +230,14 @@ static void RLMNSStringToStdString(std::string &out, NSString *in) {
         @throw RLMException(@"Cannot set schema version to %llu (RLMNotVersioned)", RLMNotVersioned);
     }
     _config.schema_version = schemaVersion;
+}
+
+- (BOOL)deleteRealmIfMigrationNeeded {
+    return _config.delete_realm_if_migration_needed;
+}
+
+- (void)setDeleteRealmIfMigrationNeeded:(BOOL)deleteRealmIfMigrationNeeded {
+    _config.delete_realm_if_migration_needed = deleteRealmIfMigrationNeeded;
 }
 
 - (NSArray *)objectClasses {

@@ -22,6 +22,8 @@ class TextFieldCell: UITableViewCell,
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        myUITextField.returnKeyType = .Next
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -44,6 +46,24 @@ class TextFieldCell: UITableViewCell,
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        var searchedView = self.superview
+        var tableView: UITableView? = nil
+        
+        while ((searchedView) != nil) {
+            if searchedView!.isKindOfClass(UITableView) {
+                tableView = searchedView as? UITableView
+                break
+            }
+            searchedView = searchedView!.superview
+        }
+        
+        if nil != tableView {
+            let indexPath = tableView?.indexPathForCell(self)
+            let nextIndexPath = NSIndexPath(forRow: (indexPath?.row)! + 1, inSection: (indexPath?.section)!)
+            let nextCell = tableView?.cellForRowAtIndexPath(nextIndexPath) as! TextFieldCell
+            nextCell.myUITextField.becomeFirstResponder()
+        }
+        
         return true
     }
     

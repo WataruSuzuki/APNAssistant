@@ -7,18 +7,13 @@
 //
 
 import UIKit
-/*
-protocol UISwitchCellDelegate {
-    func changeMyUiSwitch(sender: UISwitch, indexPath: NSIndexPath)
-}
-*/
+
 class UISwitchCell: UITableViewCell {
     
     @IBOutlet weak var myUILabel: UILabel!
     @IBOutlet weak var myUISwitch: UISwitch!
     
     var switchValueChanged:((Bool) -> Void)?
-    //var delegate: UISwitchCellDelegate! = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,12 +28,6 @@ class UISwitchCell: UITableViewCell {
 
     // MARK: - Action
     @IBAction func changeSwitch(sender: UISwitch) {
-        /*
-        if let tableView: UITableView = self.superview?.superview as? UITableView {
-            let indexPath = tableView.indexPathForCell(self)
-            self.delegate.changeMyUiSwitch(sender, indexPath: indexPath!)
-        }
-        */
         self.switchValueChanged?(sender.on)
     }
 }

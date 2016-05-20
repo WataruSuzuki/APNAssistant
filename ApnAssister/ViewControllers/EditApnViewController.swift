@@ -8,9 +8,7 @@
 
 import UIKit
 
-class EditApnViewController: UITableViewController//,
-    //UISwitchCellDelegate,
-    //TextFieldCellDelegate
+class EditApnViewController: UITableViewController
 {
     var isSetDataApnManually = true
     let myUtilHandleRLMObject = UtilHandleRLMObject()
@@ -47,42 +45,7 @@ class EditApnViewController: UITableViewController//,
         
         return newUITextField
     }
-    /*
-    // MARK: - TextFieldCellDelegate
-    func textFieldCellDidEndEditing(sender: UITextField) {
-        //TODO
-    }
     
-    func textFieldCellDidBeginEditing(sender: UITextField) {
-        //TODO
-    }
-    
-    func textFieldCellShouldClear(sender: UITextField) -> Bool {
-        return false//TODO
-    }
-    
-    func textFieldCellShouldReturn(sender: UITextField) -> Bool {
-        return false//TODO
-    }
-    
-    func textFieldCellShouldEndEditing(sender: UITextField) -> Bool {
-        return false//TODO
-    }
-    
-    func textFieldCellShouldBeginEditing(sender: UITextField) -> Bool {
-        return false//TODO
-    }
-    
-    func textFieldCellShouldChangeCharactersInRange(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        return false//TODO
-    }
-    
-    // MARK: - UISwitchCellDelegate
-    func changeMyUiSwitch(sender: UISwitch, indexPath: NSIndexPath) {
-        //TODO
-        print(indexPath.debugDescription)
-    }
-    */
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return ApnProfileObject.ApnType.MAX.rawValue
@@ -114,8 +77,6 @@ class EditApnViewController: UITableViewController//,
         case .ATTACH_APN:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell", forIndexPath: indexPath) as! UISwitchCell
-                //let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
-                //cell.delegate = self
                 cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
                 cell.switchValueChanged = {(switchOn) in
                     self.isSetDataApnManually = switchOn
@@ -147,7 +108,6 @@ class EditApnViewController: UITableViewController//,
         cell.myUILabel?.text = column.getTitle(type)
         cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
         
-        //newTextFieldCell.delegate = self
         cell.didBeginEditing = {(textField) in
             //TODO
         }

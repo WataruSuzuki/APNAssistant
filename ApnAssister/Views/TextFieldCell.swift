@@ -7,17 +7,7 @@
 //
 
 import UIKit
-/*
-protocol TextFieldCellDelegate {
-    func textFieldCellShouldBeginEditing(sender: UITextField) -> Bool
-    func textFieldCellShouldEndEditing(sender: UITextField) -> Bool
-    func textFieldCellShouldClear(sender: UITextField) -> Bool
-    func textFieldCellShouldReturn(sender: UITextField) -> Bool
-    func textFieldCellDidBeginEditing(sender: UITextField)
-    func textFieldCellDidEndEditing(sender: UITextField)
-    func textFieldCellShouldChangeCharactersInRange(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
-}
-*/
+
 class TextFieldCell: UITableViewCell,
     UITextFieldDelegate
 {
@@ -25,7 +15,6 @@ class TextFieldCell: UITableViewCell,
     @IBOutlet weak var myUILabel: UILabel!
     @IBOutlet weak var myUITextField: UITextField!
     
-    //var delegate: TextFieldCellDelegate! = nil
     var didBeginEditing:((UITextField) -> Void)?
     var didEndEditing:((UITextField) -> Void)?
     var shouldChangeCharactersInRange:((UITextField, NSRange, String) -> Bool)?
@@ -44,36 +33,29 @@ class TextFieldCell: UITableViewCell,
     // MARK: - UITextFieldDelegate
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true
-        //return self.delegate.textFieldCellShouldBeginEditing(textField)
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         return true
-        //return self.delegate.textFieldCellShouldEndEditing(textField)
     }
     
     func textFieldShouldClear(textField: UITextField) -> Bool {
         return true
-        //return self.delegate.textFieldCellShouldClear(textField)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         return true
-        //return self.delegate.textFieldCellShouldReturn(textField)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         self.didBeginEditing?(textField)
-        //self.delegate.textFieldCellShouldEndEditing(textField)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.didEndEditing?(textField)
-        //self.delegate.textFieldCellDidEndEditing(textField)
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         return (self.shouldChangeCharactersInRange?(textField, range, string))!
-        //return self.delegate.textFieldCellShouldChangeCharactersInRange(textField, shouldChangeCharactersInRange: range, replacementString: string)
     }
 }

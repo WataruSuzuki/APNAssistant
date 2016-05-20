@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4CDCA41D6D8E6778A64DCBB9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82086984B027390E9C7FD7A4 /* libPods.a */; };
 		602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
@@ -95,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CDCA41D6D8E6778A64DCBB9 /* libPods.a in Frameworks */,
 				9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

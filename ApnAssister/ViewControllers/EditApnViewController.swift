@@ -55,10 +55,12 @@ class EditApnViewController: UITableViewController
         let sectionType = ApnProfileObject.ApnType(rawValue: section)
         switch sectionType! {
         case .APNS:
-            return ApnProfileObject.KeyAPNs.MAX.rawValue
+            //No Proxy Settings
+            return ApnProfileObject.KeyAPNs.maxRaw(sectionType!)
+            
         case .ATTACH_APN:
             if isSetDataApnManually {
-                return ApnProfileObject.KeyAPNs.MAX.rawValue + 1
+                return ApnProfileObject.KeyAPNs.maxRaw(sectionType!) + 1
             } else {
                 return 1
             }

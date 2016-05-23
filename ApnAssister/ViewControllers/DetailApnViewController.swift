@@ -40,7 +40,8 @@ class DetailApnViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ApnProfileObject.KeyAPNs.MAX.rawValue
+        let sectionType = ApnProfileObject.ApnType(rawValue: section)
+        return ApnProfileObject.KeyAPNs.maxRaw(sectionType!)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

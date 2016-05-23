@@ -60,8 +60,9 @@ class TextFieldCell: UITableViewCell,
         if nil != tableView {
             let indexPath = tableView?.indexPathForCell(self)
             let nextIndexPath = NSIndexPath(forRow: (indexPath?.row)! + 1, inSection: (indexPath?.section)!)
-            let nextCell = tableView?.cellForRowAtIndexPath(nextIndexPath) as! TextFieldCell
-            nextCell.myUITextField.becomeFirstResponder()
+            if let nextCell = tableView?.cellForRowAtIndexPath(nextIndexPath) as? TextFieldCell {
+                nextCell.myUITextField.becomeFirstResponder()
+            }
         }
         
         return true

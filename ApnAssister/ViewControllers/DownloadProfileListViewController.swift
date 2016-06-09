@@ -8,11 +8,15 @@
 
 import UIKit
 
-class DownloadProfileListViewController: UITableViewController {
+class DownloadProfileListViewController: UITableViewController,
+    NSURLSessionDownloadDelegate
+{
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        startJsonFileDownload()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -91,5 +95,37 @@ class DownloadProfileListViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    // MARK: - NSURLSessionDownloadDelegate
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+        // ファイルを移動
+        let fileManager = NSFileManager.defaultManager()
+        let documentPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
+        print(documentPath.debugDescription)
+        let url = NSURL.fileURLWithPath(documentPath + "/apnassister.js")
+        do{
+            try fileManager.moveItemAtURL(location, toURL: url)
+        } catch {
+            let nsError = error as NSError
+            print(nsError.description)
+        }
+        //TODO
+    }
+    
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
+        //TODO
+    }
+    
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        print("progress = \(Float((bytesWritten / totalBytesWritten) * 100))%")
+        //TODO
+    }
+    
+    func startJsonFileDownload() {
+        let url = NSURL(string: "https://github.com/douglascrockford/JSON-js/blob/master/json2.js")
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        
+        session.downloadTaskWithURL(url!).resume()
+    }
 }

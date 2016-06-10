@@ -89,6 +89,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="jll-e6-nSr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jd4-pU-VPJ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" id="xbE-Wg-Ere"/>
                             </connections>
@@ -127,6 +128,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="iqb-la-keb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1qX-uy-6lk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" id="Ec9-Wz-Koz"/>
                             </connections>
@@ -222,6 +224,11 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="v8t-Wm-wgW" kind="relationship" relationship="viewControllers" id="Q1F-RO-p9I"/>
@@ -242,6 +249,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VBN-vI-U8G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -261,6 +273,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lua-KP-4gg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -297,7 +314,8 @@
         <image name="ic_list_36pt" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G0r-RL-zQM"/>
+        <segue reference="JsQ-LT-jQX"/>
         <segue reference="CM8-Aq-zor"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

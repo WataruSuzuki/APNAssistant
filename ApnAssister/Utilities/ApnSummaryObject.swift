@@ -14,6 +14,7 @@ class ApnSummaryObject: RLMObject {
     dynamic var name = ""
     dynamic var createdDate = 0.0
     dynamic var dataType = DataTypes.NORMAL.rawValue
+    dynamic var country = Country.UNKNOWN.rawValue
     
     dynamic var apnProfile = ApnProfileObject()
     
@@ -33,6 +34,12 @@ class ApnSummaryObject: RLMObject {
     enum DataTypes : Int {
         case NORMAL = 0,
         FAVORITE,
+        MAX
+    }
+    
+    enum Country : Int {
+        case UNKNOWN = -1,
+        JAPAN,
         MAX
     }
 }

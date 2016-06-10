@@ -21,3 +21,7 @@ keyAttachApnProxyServer = "Data apn proxy server";
 keyAttachApnProxyServerPort = "Data apn proxy server port";
 
 setAttachApnManual = "Set Attach Apn manually";
+favorite_list = "Favorite List";
+profile_list = "Profile List";
+edit_apn = "Edit APN";
+

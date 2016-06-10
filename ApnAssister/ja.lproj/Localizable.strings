@@ -21,3 +21,7 @@ keyAttachApnProxyServer = "データAPNのプロキシサーバ";
 keyAttachApnProxyServerPort = "データAPNのプロキシサーバ(ポート番号)";
 
 setAttachApnManual = "データAPNを手動でセットする";
+favorite_list = "お気に入り一覧";
+profile_list = "プロファイル一覧";
+edit_apn = "APN編集";
+

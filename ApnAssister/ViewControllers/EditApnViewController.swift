@@ -10,9 +10,11 @@ import UIKit
 
 class EditApnViewController: UITableViewController
 {
-    var isSetDataApnManually = true
     let myUtilHandleRLMObject = UtilHandleRLMObject()
     let cocoaHTTPServer = HTTPServer()
+    
+    var isCompFirstRespond = false
+    var isSetDataApnManually = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +108,11 @@ class EditApnViewController: UITableViewController
         let column = ApnProfileObject.KeyAPNs(rawValue: (type == .APNS ? indexPath.row : indexPath.row - 1))!
         cell.myUILabel?.text = column.getTitle(type)
         cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+        
+        if !isCompFirstRespond && indexPath.section == 0 && indexPath.row == 0 {
+            cell.myUITextField.becomeFirstResponder()
+            isCompFirstRespond = true
+        }
         
         cell.didBeginEditing = {(textField) in
             //TODO

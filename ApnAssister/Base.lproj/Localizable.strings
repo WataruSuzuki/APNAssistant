@@ -25,3 +25,5 @@ favorite_list = "Favorite List";
 profile_list = "Profile List";
 edit_apn = "Edit APN";
 
+no_settings = "Empty";
+

@@ -24,6 +24,7 @@ class TextFieldCell: UITableViewCell,
         // Initialization code
         
         myUITextField.returnKeyType = .Next
+        myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

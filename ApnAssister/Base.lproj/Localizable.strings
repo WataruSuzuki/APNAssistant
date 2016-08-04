@@ -26,4 +26,5 @@ profile_list = "Profile List";
 edit_apn = "Edit APN";
 
 no_settings = "Empty";
-
+not_this_time = "Not this time";
+yes_update = "Yes, update";

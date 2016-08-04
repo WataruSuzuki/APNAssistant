@@ -26,3 +26,5 @@ profile_list = "プロファイル一覧";
 edit_apn = "APN編集";
 
 no_settings = "未設定";
+not_this_time = "今はしない";
+yes_update = "はい, 更新します";

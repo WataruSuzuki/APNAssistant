@@ -8,7 +8,8 @@
 
 import UIKit
 
-class EditApnViewController: UITableViewController
+class EditApnViewController: UITableViewController,
+    UIAlertViewDelegate, UIActionSheetDelegate
 {
     let myUtilHandleRLMObject = UtilHandleRLMObject()
     let cocoaHTTPServer = HTTPServer()
@@ -200,6 +201,74 @@ class EditApnViewController: UITableViewController
         }
     }
     
+    func handleNotThisTime(){
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func handleUpdateDeviceApn(){
+        self.writeMobileConfigProfile()
+    }
+    
+    func showConfirmUpdatingDeviceApn() {
+        let negativeMessage = NSLocalizedString("not_this_time", comment: "")
+        let positiveMessage = NSLocalizedString("yes_update", comment: "")
+        
+        showConfirmAlertController(negativeMessage, positiveMessage: positiveMessage)
+    }
+    
+    func showComfirmOldSheet(negativeMessage: String, positiveMessage: String) {
+        let sheet = UIActionSheet()
+        //sheet.tag =
+        sheet.delegate = self
+        sheet.title = positiveMessage
+        sheet.addButtonWithTitle(positiveMessage)
+        sheet.addButtonWithTitle(negativeMessage)
+        sheet.cancelButtonIndex = 1
+        sheet.destructiveButtonIndex = 0
+        
+        sheet.showInView(self.view)
+    }
+    
+    func showConfirmAlertController(negativeMessage: String, positiveMessage: String){
+        if #available(iOS 8.0, *) {
+            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
+                action in self.handleNotThisTime()
+            }
+            let deleteAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
+                action in self.handleUpdateDeviceApn()
+            }
+            
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            
+            if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
+                alertController.popoverPresentationController?.sourceView = self.view;
+                alertController.popoverPresentationController?.barButtonItem
+            }
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            showComfirmOldSheet(negativeMessage, positiveMessage: positiveMessage)
+        }
+    }
+    
+    // MARK: - UIActionSheetDelegate
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex {
+        case 1:
+            self.handleNotThisTime()
+            break
+            
+        case 0:
+            self.handleUpdateDeviceApn()
+            break
+            
+        default:
+            break
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -215,9 +284,7 @@ class EditApnViewController: UITableViewController
         myUtilHandleRLMObject.prepareApnData()
         myUtilHandleRLMObject.saveApnDataObj()
         
-        self.dismissViewControllerAnimated(true, completion: {
-            self.writeMobileConfigProfile()
-        })
+        showConfirmUpdatingDeviceApn()
     }
     
     @IBAction func tapCancel(sender: AnyObject) {

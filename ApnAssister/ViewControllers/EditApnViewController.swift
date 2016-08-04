@@ -54,11 +54,11 @@ class EditApnViewController: UITableViewController,
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = ApnProfileObject.ApnType(rawValue: section)
         switch sectionType! {
-        case .APNS:
+        case .ATTACH_APN:
             //No Proxy Settings
             return ApnProfileObject.KeyAPNs.maxRaw(sectionType!)
             
-        case .ATTACH_APN:
+        case .APNS:
             if isSetDataApnManually {
                 return ApnProfileObject.KeyAPNs.maxRaw(sectionType!) + 1
             } else {
@@ -73,9 +73,6 @@ class EditApnViewController: UITableViewController,
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch ApnProfileObject.ApnType(rawValue: indexPath.section)! {
         case .APNS:
-            return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
-            
-        case .ATTACH_APN:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell", forIndexPath: indexPath) as! UISwitchCell
                 cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
@@ -86,12 +83,13 @@ class EditApnViewController: UITableViewController,
                     })
                 }
                 cell.myUISwitch.on = isSetDataApnManually
-                
                 return cell
-                
-            } else {
-                return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
             }
+            fallthrough
+            
+        case .ATTACH_APN:
+            return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
+            
             
         default:
             break
@@ -105,7 +103,7 @@ class EditApnViewController: UITableViewController,
         //let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
         
         let type = ApnProfileObject.ApnType(rawValue: indexPath.section)!
-        let column = ApnProfileObject.KeyAPNs(rawValue: (type == .APNS ? indexPath.row : indexPath.row - 1))!
+        let column = ApnProfileObject.KeyAPNs(rawValue: (type == .ATTACH_APN ? indexPath.row : indexPath.row - 1))!
         cell.myUILabel?.text = column.getTitle(type)
         cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
         
@@ -132,18 +130,14 @@ class EditApnViewController: UITableViewController,
         let sectionType = ApnProfileObject.ApnType(rawValue: indexPath.section)
         switch sectionType! {
         case .APNS:
-            let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
-            return newTextFieldCell.frame.height
-            
-        case .ATTACH_APN:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell") as! UISwitchCell
                 return cell.frame.height
-                
-            } else {
-                let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
-                return newTextFieldCell.frame.height
             }
+            fallthrough
+        case .ATTACH_APN:
+            let newTextFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
+            return newTextFieldCell.frame.height
             
         default:
             return tableView.rowHeight

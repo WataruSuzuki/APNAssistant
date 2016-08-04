@@ -6,19 +6,19 @@
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
 
-keyApnsName = "Default apn name";
-keyApnsAuthenticationType = "Default apn authentication type";
-keyApnsUsername = "Default apn user name";
-keyApnsPassword = "Default apn password";
-keyApnsProxyServer = "Default apn proxy server";
-keyApnsProxyServerPort = "Default apn proxy server port";
+keyApnsName = "Data apn name";
+keyApnsAuthenticationType = "Data apn authentication type";
+keyApnsUsername = "Data apn user name";
+keyApnsPassword = "Data apn password";
+keyApnsProxyServer = "Data apn proxy server";
+keyApnsProxyServerPort = "Data apn proxy server port";
 
-keyAttachApnName = "Data apn name";
-keyAttachApnAuthenticationType = "Data apn authentication type";
-keyAttachApnUsername = "Data apn user name";
-keyAttachApnPassword = "Data apn password";
-keyAttachApnProxyServer = "Data apn proxy server";
-keyAttachApnProxyServerPort = "Data apn proxy server port";
+keyAttachApnName = "Default apn name";
+keyAttachApnAuthenticationType = "Default apn authentication type";
+keyAttachApnUsername = "Default apn user name";
+keyAttachApnPassword = "Default apn password";
+keyAttachApnProxyServer = "Default apn proxy server";
+keyAttachApnProxyServerPort = "Default apn proxy server port";
 
 setAttachApnManual = "Set Attach Apn manually";
 favorite_list = "Favorite List";
@@ -28,3 +28,6 @@ edit_apn = "Edit APN";
 no_settings = "Empty";
 not_this_time = "Not this time";
 yes_update = "Yes, update";
+
+config_mobile_network = "Config mobile network";
+mobile_network = "Mobile network";

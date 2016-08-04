@@ -69,7 +69,6 @@ class EditApnViewController: UITableViewController,
             return 0
         }
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch ApnProfileObject.ApnType(rawValue: indexPath.section)! {
@@ -152,36 +151,56 @@ class EditApnViewController: UITableViewController,
     }
     
     func writeMobileConfigProfile() {
-        let accessPointName = "freetel.link"
-        let payloadDescription = "APNS Assister profile"
-        let payloadDisplayName = "APNS Assister chooser"
+        let payloadDisplayName = "APNS Assister profile"
         let bundleID = NSBundle.mainBundle().bundleIdentifier!
-        let UUID_forPayloadId = "f9dbd18b-90ff-58c1-8605-5abae9c50691"
-        let UUID_forPayloadInfo = "4be0643f-1d98-573b-97cd-ca98a65347dd"
+        let UUID_forIdentifier = "f9dbd18b-90ff-58c1-8605-5abae9c50691"
+        let UUID_forDescription = "4be0643f-1d98-573b-97cd-ca98a65347dd"
         
         // build the Configuration Profile
-        let startOfXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"><plist version=\"1.0\"><dict><key>PayloadType</key><string>Configuration</string><key>PayloadVersion</key><integer>1</integer>"
-        let xmlOfProfileIdentifier = "<key>PayloadIdentifier</key><string>" + bundleID + "</string><key>PayloadUUID</key><string>" + UUID_forPayloadId + "</string>"
-        let xmlOfPayloadDescription = "<key>PayloadDisplayName</key><string>iOS Configuration Profile</string><key>PayloadDescription</key><string>" + payloadDescription + "</string><key>PayloadContent</key><array><dict><key>PayloadType</key><string>com.apple.cellular</string><key>PayloadVersion</key><integer>1</integer>"
+        var profileXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"><plist version=\"1.0\"><dict><key>PayloadContent</key><array><dict>"
         
+        //APNs
+        profileXml += "<key>APNs</key><array><dict><key>AuthenticationType</key><string>CHAP</string>"
+        profileXml += "<key>Name</key><string>" + myUtilHandleRLMObject.apnProfileObj.apnsName + "</string>"
+        profileXml += "<key>Password</key><string>" + myUtilHandleRLMObject.apnProfileObj.apnsPassword + "</string>"
         
-        let xmlOfPayloadInfo = "<key>PayloadIdentifier</key><string>" + bundleID + "</string><key>PayloadUUID</key><string>" + UUID_forPayloadInfo + "</string><key>PayloadDisplayName</key><string>" + payloadDisplayName + "</string><key>PayloadDescription</key><string>" + payloadDescription + "</string><key>AttachAPN</key><dict><key>Name</key><string>" + accessPointName + "</string><key>AuthenticationType</key><string>CHAP</string></dict><key>APNs</key><array><dict><key>Name</key><string>" + accessPointName
-        let endOfXml = "</string><key>AuthenticationType</key><string>CHAP</string></dict></array></dict></array></dict></plist>"
+        if !myUtilHandleRLMObject.apnProfileObj.apnsProxyServer.isEmpty
+            && !myUtilHandleRLMObject.apnProfileObj.apnsProxyServerPort.isEmpty {
+            profileXml += "<key>ProxyPort</key><integer>" + myUtilHandleRLMObject.apnProfileObj.apnsProxyServerPort + "</integer>"
+            profileXml += "<key>ProxyServer</key><string>" + myUtilHandleRLMObject.apnProfileObj.apnsProxyServer + "</string>"
+        }
+        profileXml += "<key>Username</key><string>" + myUtilHandleRLMObject.apnProfileObj.apnsUserName + "</string></dict></array>"
         
-        let xml = startOfXml
-            + xmlOfProfileIdentifier
-            + xmlOfPayloadDescription
-            + xmlOfPayloadInfo
-            + endOfXml
-        //xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"><plist version=\"1.0\"><dict><key>PayloadType</key><string>Configuration</string><key>PayloadVersion</key><integer>1</integer><key>PayloadIdentifier</key><string>jp.co.JchanKchan.WriteFile</string><key>PayloadUUID</key><string>f9dbd18b-90ff-58c1-8605-5abae9c50691</string><key>PayloadDisplayName</key><string>iOS Configuration Profile</string><key>PayloadDescription</key><string>APNS Assister profile</string><key>PayloadContent</key><array><dict><key>PayloadType</key><string>com.apple.cellular</string><key>PayloadVersion</key><integer>1</integer><key>PayloadIdentifier</key><string>jp.co.JchanKchan.WriteFile</string><key>PayloadUUID</key><string>4be0643f-1d98-573b-97cd-ca98a65347dd</string><key>PayloadDisplayName</key><string>APNS Assister chooser</string><key>PayloadDescription</key><string>APNS Assister profile</string><key>AttachAPN</key><dict><key>Name</key><string>freetel.link</string><key>AuthenticationType</key><string>CHAP</string></dict><key>APNs</key><array><dict><key>Name</key><string>freetel.link</string><key>AuthenticationType</key><string>CHAP</string></dict></array></dict></array></dict></plist>"
-        //xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"><plist version=\"1.0\"><dict><key>PayloadType</key><string>Configuration</string><key>PayloadVersion</key><integer>1</integer><key>PayloadIdentifier</key><string>net.azurewebsites.mobileconfig</string><key>PayloadUUID</key><string>f9dbd18b-90ff-58c1-8605-5abae9c50691</string><key>PayloadDisplayName</key><string>iOS構成プロファイル</string><key>PayloadDescription</key><string>mobileconfig.azurewebsites.netにて生成された構成プロファイルです。</string><key>PayloadContent</key><array><dict><key>PayloadType</key><string>com.apple.cellular</string><key>PayloadVersion</key><integer>1</integer><key>PayloadIdentifier</key><string>net.azurewebsites.mobileconfig.cellular</string><key>PayloadUUID</key><string>4be0643f-1d98-573b-97cd-ca98a65347dd</string><key>PayloadDisplayName</key><string>testのCellularペイロード</string><key>PayloadDescription</key><string>APNペイロードがインストール済みであれば、このペイロードはインストールできません。</string><key>AttachAPN</key><dict><key>Name</key><string>test</string><key>AuthenticationType</key><string>CHAP</string></dict><key>APNs</key><array><dict><key>Name</key><string>test</string><key>AuthenticationType</key><string>CHAP</string></dict></array></dict></array></dict></plist>"
+        //AttachAPN
+        profileXml += "<key>AttachAPN</key><dict><key>AuthenticationType</key><string>CHAP</string>"
+        profileXml += "<key>Name</key><string>" + myUtilHandleRLMObject.apnProfileObj.attachApnName + "</string>"
+        profileXml += "<key>Password</key><string>" + myUtilHandleRLMObject.apnProfileObj.attachApnPassword + "</string>"
+        profileXml += "<key>Username</key><string>" + myUtilHandleRLMObject.apnProfileObj.attachApnUserName + "</string></dict>"
+        
+        //PayloadDescription
+        profileXml += "<key>PayloadDescription</key><string>" + NSLocalizedString("config_mobile_network", comment: "") + "</string>"
+        profileXml += "<key>PayloadDisplayName</key><string>" + NSLocalizedString("mobile_network", comment: "") + "</string>"
+        profileXml += "<key>PayloadIdentifier</key><string>" + bundleID + "</string>"
+        profileXml += "<key>PayloadType</key><string>com.apple.cellular</string>"
+        profileXml += "<key>PayloadUUID</key><string>" + UUID_forDescription + "</string>"
+        profileXml += "<key>PayloadVersion</key><real>1</real></dict></array>"
+        
+        //PayloadDisplayName
+        profileXml += "<key>PayloadDisplayName</key><string>" + payloadDisplayName + "</string>"
+        profileXml += "<key>PayloadIdentifier</key><string>" + bundleID + "</string>"
+        profileXml += "<key>PayloadRemovalDisallowed</key><false/>"
+        profileXml += "<key>PayloadType</key><string>Configuration</string>"
+        profileXml += "<key>PayloadUUID</key><string>" + UUID_forIdentifier + "</string>"
+        profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
         
         // build the path where you're going to save the HTML
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let filePath = documentsPath + "/" + "profile.mobileconfig"
+        print(filePath)
         
         // save the NSString that contains the HTML to a file
-        try! xml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
+        //try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
+        try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
         
         startCocoaHTTPServer()
         

@@ -115,13 +115,13 @@ class ApnProfileObject: RLMObject {
         }
         
         static func maxRaw(type: ApnType) -> Int {
-            return (type == .APNS ? (KeyAPNs.MAX.rawValue - 2) : KeyAPNs.MAX.rawValue)
+            return (type == .ATTACH_APN ? (KeyAPNs.MAX.rawValue - 2) : KeyAPNs.MAX.rawValue)
         }
     }
     
     enum ApnType : Int {
-        case APNS = 0,
-        ATTACH_APN,
+        case ATTACH_APN = 0,
+        APNS,
         MAX
     }
 }

@@ -198,14 +198,30 @@ class EditApnViewController: UITableViewController,
         let filePath = documentsPath + "/" + "profile.mobileconfig"
         print(filePath)
         
-        // save the NSString that contains the HTML to a file
+        // save the String that contains the HTML to a file
         //try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
         try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
         
+        let fileManager = NSFileManager.defaultManager()
+        copyHtmlFilesFromResource(fileManager, fileName: "index",fileType: ".html")
+        copyHtmlFilesFromResource(fileManager, fileName: "configrationProfile",fileType: ".html")
+        
         startCocoaHTTPServer()
         
-        let fileUrl = "http://localhost:8080" + "/profile.mobileconfig"
+        let fileUrl = "http://localhost:8080" //+ "/profile.mobileconfig"
         UIApplication.sharedApplication().openURL(NSURL(string: fileUrl)!)
+    }
+    
+    func copyHtmlFilesFromResource(fileManager: NSFileManager, fileName: String, fileType: String) {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let filePath = documentsPath + "/" + fileName + fileType
+        
+        if fileManager.fileExistsAtPath(filePath) {
+            try! fileManager.removeItemAtPath(filePath)
+        }
+        
+        let resourcePath = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType)
+        try! fileManager.copyItemAtPath(resourcePath!, toPath: filePath)
     }
     
     func startCocoaHTTPServer() {

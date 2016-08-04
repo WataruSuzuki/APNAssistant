@@ -12,6 +12,8 @@
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
 		6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
 		607165521CB3D28A000BCAF5 /* DownloadProfileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */; };
+		6082F1B51D536843000B59EA /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
+		6082F1B61D536843000B59EA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
 		60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
 		60BEE4FA1CA3C947005B86B9 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F91CA3C947005B86B9 /* ApnProfileObject.swift */; };
@@ -57,6 +59,8 @@
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
 		6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilHandleRLMObject.swift; sourceTree = "<group>"; };
 		607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadProfileListViewController.swift; sourceTree = "<group>"; };
+		6082F1B31D536843000B59EA /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
+		6082F1B41D536843000B59EA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		60AA73A51C9BA3DD00E41CAE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnAssister-Bridging-Header.h"; sourceTree = "<group>"; };
 		60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteApnListViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		6082F1B21D536843000B59EA /* htdocs */ = {
+			isa = PBXGroup;
+			children = (
+				6082F1B31D536843000B59EA /* configrationProfile.html */,
+				6082F1B41D536843000B59EA /* index.html */,
+			);
+			path = htdocs;
+			sourceTree = "<group>";
+		};
 		60BEE4F81CA3C565005B86B9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +197,7 @@
 		96DA6BF41C9B03FD00E424D5 /* ApnAssister */ = {
 			isa = PBXGroup;
 			children = (
+				6082F1B21D536843000B59EA /* htdocs */,
 				60BEE4F81CA3C565005B86B9 /* Utilities */,
 				60BEE50A1CA3FF42005B86B9 /* Views */,
 				60224E081CA0E2DB00AFB201 /* ViewControllers */,
@@ -339,7 +353,9 @@
 				60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */,
 				60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */,
 				96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */,
+				6082F1B51D536843000B59EA /* configrationProfile.html in Resources */,
 				60BEE5141CA400AB005B86B9 /* TextFieldCell.xib in Resources */,
+				6082F1B61D536843000B59EA /* index.html in Resources */,
 				96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */,
 				60BEE5121CA4009E005B86B9 /* UISwitchCell.xib in Resources */,
 				96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */,

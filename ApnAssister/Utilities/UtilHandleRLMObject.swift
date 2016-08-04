@@ -87,9 +87,9 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    func prepareApnData() {
-        prepareApnProfileColumn(.APNS, columnArray: arrayKeyApns)
+    func prepareApnData(isSetDataApnManually: Bool) {
         prepareApnProfileColumn(.ATTACH_APN, columnArray: arrayKeyAttachApn)
+        prepareApnProfileColumn(.APNS, columnArray: (isSetDataApnManually ? arrayKeyApns : arrayKeyAttachApn))
         
         prepareApnSummaryData()
     }

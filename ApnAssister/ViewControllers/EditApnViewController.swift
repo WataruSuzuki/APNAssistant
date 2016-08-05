@@ -48,11 +48,11 @@ class EditApnViewController: UITableViewController,
     
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ApnProfileObject.ApnType.MAX.rawValue
+        return ApnSummaryObject.ApnInfoColumn.MAX.rawValue
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = ApnProfileObject.ApnType(rawValue: section)
+        let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: section)
         switch sectionType! {
         case .ATTACH_APN:
             //No Proxy Settings
@@ -65,58 +65,92 @@ class EditApnViewController: UITableViewController,
                 return 1
             }
             
+        case .SUMMARY:
+            return ApnSummaryObject.ApnSummaryColumn.MAX.rawValue
+            
         default:
             return 0
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch ApnProfileObject.ApnType(rawValue: indexPath.section)! {
+        switch ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)! {
         case .APNS:
             if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell", forIndexPath: indexPath) as! UISwitchCell
-                cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
-                cell.switchValueChanged = {(switchOn) in
-                    self.isSetDataApnManually = switchOn
-                    UIView.animateWithDuration(0.4, animations: {
-                        self.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
-                    })
-                }
-                cell.myUISwitch.on = isSetDataApnManually
-                return cell
+                return loadSwitchCell(tableView, cellForRowAtIndexPath: indexPath)
             }
-            fallthrough
             
-        case .ATTACH_APN:
-            return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
+        case .SUMMARY:
+            if indexPath.row == ApnSummaryObject.ApnSummaryColumn.DATATYPE.rawValue {
+                return loadSwitchCell(tableView, cellForRowAtIndexPath: indexPath)
+            } else {
+                return loadSummaryApnProfileCell(tableView, cellForRowAtIndexPath: indexPath)
+            }
             
-            
-        default:
-            break
+        case .ATTACH_APN: fallthrough
+        default: break
         }
 
-        return tableView.dequeueReusableCellWithIdentifier("EditApnViewCell", forIndexPath: indexPath)
+        return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
     }
     
-    func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
+    func loadSummaryApnProfileCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! TextFieldCell
-        //let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell") as! TextFieldCell
-        
-        let type = ApnProfileObject.ApnType(rawValue: indexPath.section)!
-        let column = ApnProfileObject.KeyAPNs(rawValue: (type == .ATTACH_APN ? indexPath.row : indexPath.row - 1))!
-        cell.myUILabel?.text = column.getTitle(type)
-        cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+        cell.myUILabel.text = ""
+        cell.myUITextField?.placeholder = NSLocalizedString("NameOfThisApnProfile", comment: "")
+        cell.myUITextField.text = myUtilHandleRLMObject.apnSummaryObj.name
         
         if !isCompFirstRespond && indexPath.section == 0 && indexPath.row == 0 {
             cell.myUITextField.becomeFirstResponder()
             isCompFirstRespond = true
         }
         
+        cell.shouldChangeCharactersInRange = {(textField, range, string) in
+            self.myUtilHandleRLMObject.apnSummaryObj.name += string
+            return true
+        }
+        
+        return cell
+    }
+    
+    func loadSwitchCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UISwitchCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("UISwitchCell", forIndexPath: indexPath) as! UISwitchCell
+        switch ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)! {
+        case .APNS:
+            cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
+            cell.switchValueChanged = {(switchOn) in
+                self.isSetDataApnManually = switchOn
+                UIView.animateWithDuration(0.4, animations: {
+                    self.tableView.reloadSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
+                })
+            }
+            cell.myUISwitch.on = isSetDataApnManually
+            
+        case .SUMMARY:
+            cell.myUILabel?.text = NSLocalizedString("isThisFavoriteOne", comment: "")
+            cell.switchValueChanged = {(switchOn) in
+                self.myUtilHandleRLMObject.apnSummaryObj.dataType = (switchOn ? ApnSummaryObject.DataTypes.FAVORITE.rawValue : ApnSummaryObject.DataTypes.NORMAL.rawValue)
+            }
+            cell.myUISwitch.on = (myUtilHandleRLMObject.apnSummaryObj.dataType == ApnSummaryObject.DataTypes.FAVORITE.rawValue ? true : false)
+            
+        default: break
+        }
+        return cell
+    }
+    
+    func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! TextFieldCell
+        
+        let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)!
+        let column = ApnProfileObject.KeyAPNs(rawValue: (type == .APNS ? indexPath.row - 1 : indexPath.row))!
+        cell.myUILabel?.text = column.getTitle(type)
+        cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+        
         cell.didBeginEditing = {(textField) in
-            //TODO
+            //do nothing
         }
         cell.didEndEditing = {(textField) in
-            //TODO
+            //do nothing
         }
         cell.shouldChangeCharactersInRange = {(textField, range, string) in
             self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: textField.text! + string)
@@ -127,7 +161,7 @@ class EditApnViewController: UITableViewController,
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let sectionType = ApnProfileObject.ApnType(rawValue: indexPath.section)
+        let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)
         switch sectionType! {
         case .APNS:
             if indexPath.row == 0 {

@@ -31,3 +31,6 @@ yes_update = "Yes, update";
 
 config_mobile_network = "Config mobile network";
 mobile_network = "Mobile network";
+
+isThisFavoriteOne = "Is this favorite one?";
+NameOfThisApnProfile = "Name of This APN profile";

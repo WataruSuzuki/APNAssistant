@@ -21,64 +21,48 @@ class ApnProfileObject: RLMObject {
     dynamic var attachApnAuthenticationType = ""
     dynamic var attachApnUserName = ""
     dynamic var attachApnPassword = ""
-    dynamic var attachApnProxyServer = ""
-    dynamic var attachApnProxyServerPort = ""
+    //dynamic var attachApnProxyServer = ""
+    //dynamic var attachApnProxyServerPort = ""
     
-    func updateApnProfileColumn(type: ApnType, column: KeyAPNs, newText: String) {
-        //print("newText = " + newText)
+    func updateApnProfileColumn(type: ApnSummaryObject.ApnInfoColumn, column: KeyAPNs, newText: String) {
+        print("column(\(type)) = " + column.getTitle(type))
         switch column {
         case .NAME:
             if type == .APNS {
                 self.apnsName = newText
-                print("apnsName = " + self.apnsName)
             } else {
                 self.attachApnName = newText
-                print("attachApnName = " + self.attachApnName)
             }
             
         case .AUTHENTICATION_TYPE:
             if type == .APNS {
                 self.apnsAuthenticationType = newText
-                print("apnsAuthenticationType = " + self.apnsAuthenticationType)
             } else {
                 self.attachApnAuthenticationType = newText
-                print("attachApnAuthenticationType = " + self.attachApnAuthenticationType)
             }
             
         case .USERNAME:
             if type == .APNS {
                 self.apnsUserName = newText
-                print("apnsUserName = " + self.apnsUserName)
             } else {
                 self.attachApnUserName = newText
-                print("attachApnUserName = " + self.attachApnUserName)
             }
             
         case .PASSWORD:
             if type == .APNS {
                 self.apnsPassword = newText
-                print("apnsPassword = " + self.apnsPassword)
             } else {
                 self.attachApnPassword = newText
-                print("attachApnPassword = " + self.attachApnPassword)
             }
             
         case .PROXY_SERVER:
             if type == .APNS {
                 self.apnsProxyServer = newText
-                print("apnsProxyServer = " + self.apnsProxyServer)
-            } else {
-                self.attachApnProxyServer = newText
-                print("attachApnProxyServer = " + self.attachApnProxyServer)
             }
             
         case .PROXY_SERVER_PORT:
             if type == .APNS {
                 self.apnsProxyServerPort = newText
-                print("apnsProxyServerPort = " + self.apnsProxyServerPort)
-            } else {
-                self.attachApnProxyServerPort = newText
-                print("attachApnProxyServerPort = " + self.attachApnProxyServerPort)
             }
             
         default:
@@ -95,7 +79,7 @@ class ApnProfileObject: RLMObject {
         PROXY_SERVER_PORT,
         MAX
         
-        func getTitle(type: ApnType) -> String {
+        func getTitle(type: ApnSummaryObject.ApnInfoColumn) -> String {
             switch self {
             case KeyAPNs.NAME:
                 return NSLocalizedString((type == .APNS ? "keyApnsName" : "keyAttachApnName"), comment: "")
@@ -114,14 +98,8 @@ class ApnProfileObject: RLMObject {
             }
         }
         
-        static func maxRaw(type: ApnType) -> Int {
+        static func maxRaw(type: ApnSummaryObject.ApnInfoColumn) -> Int {
             return (type == .ATTACH_APN ? (KeyAPNs.MAX.rawValue - 2) : KeyAPNs.MAX.rawValue)
         }
-    }
-    
-    enum ApnType : Int {
-        case ATTACH_APN = 0,
-        APNS,
-        MAX
     }
 }

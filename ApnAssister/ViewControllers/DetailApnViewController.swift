@@ -31,18 +31,18 @@ class DetailApnViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ApnProfileObject.ApnType.MAX.rawValue
+        return ApnSummaryObject.ApnInfoColumn.MAX.rawValue
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = ApnProfileObject.ApnType(rawValue: section)
+        let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: section)
         return ApnProfileObject.KeyAPNs.maxRaw(sectionType!)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DetailApnCell", forIndexPath: indexPath)
 
-        let type = ApnProfileObject.ApnType(rawValue: indexPath.section)!
+        let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)!
         let column = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)!
         cell.textLabel?.text = column.getTitle(type)
         cell.detailTextLabel?.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)

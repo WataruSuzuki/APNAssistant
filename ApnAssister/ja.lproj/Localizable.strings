@@ -31,3 +31,6 @@ yes_update = "はい, 更新します";
 
 config_mobile_network = "モバイルデータ通信設定を構成します";
 mobile_network = "モバイルデータ通信";
+
+isThisFavoriteOne = "お気に入りにします?";
+NameOfThisApnProfile = "このAPNプロファイル名";

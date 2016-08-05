@@ -42,4 +42,17 @@ class ApnSummaryObject: RLMObject {
         JAPAN,
         MAX
     }
+    
+    enum ApnSummaryColumn: Int {
+        case NAME = 0,
+        DATATYPE,
+        MAX
+    }
+    
+    enum ApnInfoColumn : Int {
+        case SUMMARY = 0,
+        ATTACH_APN,
+        APNS,
+        MAX
+    }
 }

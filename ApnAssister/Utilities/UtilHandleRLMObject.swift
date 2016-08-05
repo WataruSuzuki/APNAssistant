@@ -66,12 +66,12 @@ class UtilHandleRLMObject: NSObject {
         index += 1
         arrayKeyAttachApn[index] = prepareObj.attachApnPassword
         index += 1
-        arrayKeyAttachApn[index] = prepareObj.attachApnProxyServer
-        index += 1
-        arrayKeyAttachApn[index] = prepareObj.attachApnProxyServerPort
+        //arrayKeyAttachApn[index] = prepareObj.attachApnProxyServer
+        //index += 1
+        //arrayKeyAttachApn[index] = prepareObj.attachApnProxyServerPort
     }
     
-    func keepApnProfileColumnValue(type: ApnProfileObject.ApnType, column: ApnProfileObject.KeyAPNs, newText: String) {
+    func keepApnProfileColumnValue(type: ApnSummaryObject.ApnInfoColumn, column: ApnProfileObject.KeyAPNs, newText: String) {
         if type == .APNS {
             arrayKeyApns[column.rawValue] = newText
         } else {
@@ -79,7 +79,7 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    func getKeptApnProfileColumnValue(type: ApnProfileObject.ApnType, column: ApnProfileObject.KeyAPNs) -> String {
+    func getKeptApnProfileColumnValue(type: ApnSummaryObject.ApnInfoColumn, column: ApnProfileObject.KeyAPNs) -> String {
         if type == .APNS {
             return arrayKeyApns[column.rawValue]
         } else {
@@ -98,12 +98,13 @@ class UtilHandleRLMObject: NSObject {
         let now = NSDate()
         apnSummaryObj.createdDate = now.timeIntervalSinceNow
         apnSummaryObj.name = String(now)
+        //apnSummaryObj.dataType = (isFavorite ? ApnSummaryObject.DataTypes.FAVORITE.rawValue : ApnSummaryObject.DataTypes.NORMAL.rawValue)
         apnSummaryObj.id = ApnSummaryObject.getLastId()
         
         apnSummaryObj.apnProfile = apnProfileObj
     }
     
-    func prepareApnProfileColumn(type: ApnProfileObject.ApnType, columnArray: Array<String>) {
+    func prepareApnProfileColumn(type: ApnSummaryObject.ApnInfoColumn, columnArray: Array<String>) {
         var index = 0
         for columnValue in columnArray {
             apnProfileObj.updateApnProfileColumn(type, column: ApnProfileObject.KeyAPNs(rawValue: index)!, newText: columnValue)

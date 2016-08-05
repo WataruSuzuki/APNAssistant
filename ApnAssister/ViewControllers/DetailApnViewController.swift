@@ -36,6 +36,9 @@ class DetailApnViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: section)
+        if sectionType == ApnSummaryObject.ApnInfoColumn.SUMMARY {
+            return 0
+        }
         return ApnProfileObject.KeyAPNs.maxRaw(sectionType!)
     }
 

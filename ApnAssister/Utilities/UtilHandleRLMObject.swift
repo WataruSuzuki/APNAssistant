@@ -97,7 +97,9 @@ class UtilHandleRLMObject: NSObject {
     func prepareApnSummaryData() {
         let now = NSDate()
         apnSummaryObj.createdDate = now.timeIntervalSinceNow
-        apnSummaryObj.name = String(now)
+        if apnSummaryObj.name.isEmpty {
+            apnSummaryObj.name = String(now)
+        }
         //apnSummaryObj.dataType = (isFavorite ? ApnSummaryObject.DataTypes.FAVORITE.rawValue : ApnSummaryObject.DataTypes.NORMAL.rawValue)
         apnSummaryObj.id = ApnSummaryObject.getLastId()
         

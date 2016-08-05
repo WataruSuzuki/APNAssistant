@@ -10,12 +10,13 @@ import UIKit
 
 class DetailApnViewController: UITableViewController {
     
-    let myUtilHandleRLMObject = UtilHandleRLMObject()
+    var myUtilHandleRLMObject: UtilHandleRLMObject!
     var myApnSummaryObject: ApnSummaryObject!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: myApnSummaryObject.apnProfile, summaryObj: myApnSummaryObject)
         self.title = myApnSummaryObject.name
         let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(DetailApnViewController.showEditApnViewController))
         self.navigationItem.rightBarButtonItem = editButton
@@ -86,15 +87,22 @@ class DetailApnViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard (segue.identifier != nil) else { return }
+        switch segue.identifier! {
+        case "EditApnViewController":
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! EditApnViewController
+            controller.editingApnSummaryObj = myApnSummaryObject
+            
+        default:
+            break
+        }
     }
-    */
 
     func showEditApnViewController() {
         self.performSegueWithIdentifier("EditApnViewController", sender: self)

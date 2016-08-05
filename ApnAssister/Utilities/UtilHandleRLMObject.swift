@@ -17,11 +17,16 @@ class UtilHandleRLMObject: NSObject {
     */
     
     let realm = RLMRealm.defaultRealm()
-    let apnProfileObj = ApnProfileObject()
-    let apnSummaryObj = ApnSummaryObject()
+    let apnProfileObj: ApnProfileObject!
+    let apnSummaryObj: ApnSummaryObject!
     
     var arrayKeyApns = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     var arrayKeyAttachApn = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
+    
+    required init(profileObj: ApnProfileObject, summaryObj: ApnSummaryObject) {
+        apnProfileObj = profileObj
+        apnSummaryObj = summaryObj
+    }
     
     func saveApnDataObj() {
         realm.beginWriteTransaction()

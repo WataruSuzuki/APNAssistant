@@ -11,9 +11,10 @@ import UIKit
 class EditApnViewController: UITableViewController,
     UIAlertViewDelegate, UIActionSheetDelegate
 {
-    let myUtilHandleRLMObject = UtilHandleRLMObject()
+    var myUtilHandleRLMObject: UtilHandleRLMObject!
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
     
+    var editingApnSummaryObj: ApnSummaryObject?
     var isCompFirstRespond = false
     var isSetDataApnManually = true
 
@@ -26,6 +27,12 @@ class EditApnViewController: UITableViewController,
         
         registerCustomCell("TextFieldCell")
         registerCustomCell("UISwitchCell")
+        
+        if nil != editingApnSummaryObj {
+            myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: editingApnSummaryObj!.apnProfile, summaryObj: editingApnSummaryObj!)
+        } else {
+            myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
+        }
     }
 
     override func didReceiveMemoryWarning() {

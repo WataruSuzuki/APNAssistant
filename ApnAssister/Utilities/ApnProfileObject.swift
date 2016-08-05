@@ -26,6 +26,7 @@ class ApnProfileObject: RLMObject {
     
     func updateApnProfileColumn(type: ApnSummaryObject.ApnInfoColumn, column: KeyAPNs, newText: String) {
         print("column(\(type)) = " + column.getTitle(type))
+        print("newText = " + newText)
         switch column {
         case .NAME:
             if type == .APNS {

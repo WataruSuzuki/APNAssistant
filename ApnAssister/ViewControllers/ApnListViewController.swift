@@ -11,7 +11,7 @@ import UIKit
 class ApnListViewController: UITableViewController {
 
     var allApnSummaryObjs = ApnSummaryObject.allObjects()
-    let myUtilHandleRLMObject = UtilHandleRLMObject()
+    let myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
     
     override func viewDidLoad() {
         super.viewDidLoad()

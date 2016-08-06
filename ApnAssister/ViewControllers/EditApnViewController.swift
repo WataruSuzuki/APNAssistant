@@ -30,6 +30,7 @@ class EditApnViewController: UITableViewController,
         
         if nil != editingApnSummaryObj {
             myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: editingApnSummaryObj!.apnProfile, summaryObj: editingApnSummaryObj!)
+            myUtilHandleRLMObject.prepareKeepApnProfileColumn(editingApnSummaryObj!.apnProfile)
         } else {
             myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
         }

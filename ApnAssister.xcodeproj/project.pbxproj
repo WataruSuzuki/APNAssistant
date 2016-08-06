@@ -31,6 +31,11 @@
 		96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */; };
 		9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
+		F04541651D561F7800D4388C /* cellphone-sim-card.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541601D561F7800D4388C /* cellphone-sim-card.png */; };
+		F04541661D561F7800D4388C /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541611D561F7800D4388C /* cellphone.png */; };
+		F04541671D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */; };
+		F04541681D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */; };
+		F04541691D561F7800D4388C /* technology.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541641D561F7800D4388C /* technology.png */; };
 		F0C888421CB76C2900A69ECC /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C888411CB76C2900A69ECC /* ApnSummaryObject.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +97,11 @@
 		96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F04541601D561F7800D4388C /* cellphone-sim-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellphone-sim-card.png"; sourceTree = "<group>"; };
+		F04541611D561F7800D4388C /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
+		F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol-1.png"; sourceTree = "<group>"; };
+		F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol.png"; sourceTree = "<group>"; };
+		F04541641D561F7800D4388C /* technology.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technology.png; sourceTree = "<group>"; };
 		F0C888411CB76C2900A69ECC /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +223,7 @@
 				60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */,
 				60BEE5011CA3E185005B86B9 /* InfoPlist.strings */,
 				60BEE5071CA3E1A4005B86B9 /* Localizable.strings */,
+				F045415E1D561F7800D4388C /* Resources */,
 			);
 			path = ApnAssister;
 			sourceTree = "<group>";
@@ -242,6 +253,26 @@
 				18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F045415E1D561F7800D4388C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F045415F1D561F7800D4388C /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F045415F1D561F7800D4388C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F04541601D561F7800D4388C /* cellphone-sim-card.png */,
+				F04541611D561F7800D4388C /* cellphone.png */,
+				F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */,
+				F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */,
+				F04541641D561F7800D4388C /* technology.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,11 +384,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04541651D561F7800D4388C /* cellphone-sim-card.png in Resources */,
+				F04541671D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png in Resources */,
 				60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */,
 				60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */,
 				96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */,
 				6082F1B51D536843000B59EA /* configrationProfile.html in Resources */,
+				F04541681D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png in Resources */,
 				60BEE5141CA400AB005B86B9 /* TextFieldCell.xib in Resources */,
+				F04541661D561F7800D4388C /* cellphone.png in Resources */,
+				F04541691D561F7800D4388C /* technology.png in Resources */,
 				6082F1B61D536843000B59EA /* index.html in Resources */,
 				96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */,
 				60BEE5121CA4009E005B86B9 /* UISwitchCell.xib in Resources */,

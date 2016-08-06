@@ -16,7 +16,7 @@ class DetailApnViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: myApnSummaryObject.apnProfile, summaryObj: myApnSummaryObject)
+        myUtilHandleRLMObject = UtilHandleRLMObject(id: myApnSummaryObject.id, profileObj: myApnSummaryObject.apnProfile, summaryObj: myApnSummaryObject)
         self.title = myApnSummaryObject.name
         let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(DetailApnViewController.showEditApnViewController))
         self.navigationItem.rightBarButtonItem = editButton

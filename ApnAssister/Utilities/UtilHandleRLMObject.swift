@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct UtilHandleRLMConst {
+    internal static let CREATE_NEW_PROFILE = -1
+}
+
 class UtilHandleRLMObject: NSObject {
     /*
     static var sharedInstance: UtilHandleRLMObject = {
@@ -15,22 +19,23 @@ class UtilHandleRLMObject: NSObject {
     }()
     private override init() {}
     */
-    
     let realm = RLMRealm.defaultRealm()
+    
+    let primaryId: Int!
     let apnProfileObj: ApnProfileObject!
     let apnSummaryObj: ApnSummaryObject!
     
     var arrayKeyApns = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     var arrayKeyAttachApn = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     
-    required init(profileObj: ApnProfileObject, summaryObj: ApnSummaryObject) {
+    required init(id: Int, profileObj: ApnProfileObject, summaryObj: ApnSummaryObject) {
+        primaryId = id
         apnProfileObj = profileObj
         apnSummaryObj = summaryObj
     }
     
     func saveApnDataObj() {
-        realm.beginWriteTransaction()
-        realm.addObject(apnSummaryObj)
+        realm.addOrUpdateObject(apnSummaryObj)
         do {
             try realm.commitWriteTransaction()
         } catch let error as NSError{
@@ -93,6 +98,8 @@ class UtilHandleRLMObject: NSObject {
     }
     
     func prepareApnData(isSetDataApnManually: Bool) {
+        realm.beginWriteTransaction()
+        
         prepareApnProfileColumn(.ATTACH_APN, columnArray: arrayKeyAttachApn)
         prepareApnProfileColumn(.APNS, columnArray: (isSetDataApnManually ? arrayKeyApns : arrayKeyAttachApn))
         
@@ -105,9 +112,9 @@ class UtilHandleRLMObject: NSObject {
         if apnSummaryObj.name.isEmpty {
             apnSummaryObj.name = String(now)
         }
-        //apnSummaryObj.dataType = (isFavorite ? ApnSummaryObject.DataTypes.FAVORITE.rawValue : ApnSummaryObject.DataTypes.NORMAL.rawValue)
-        apnSummaryObj.id = ApnSummaryObject.getLastId()
-        
+        if 0 > primaryId {
+            apnSummaryObj.id = ApnSummaryObject.getLastId()
+        }
         apnSummaryObj.apnProfile = apnProfileObj
     }
     

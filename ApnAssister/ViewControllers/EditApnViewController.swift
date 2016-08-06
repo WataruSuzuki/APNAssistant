@@ -29,10 +29,10 @@ class EditApnViewController: UITableViewController,
         registerCustomCell("UISwitchCell")
         
         if nil != editingApnSummaryObj {
-            myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: editingApnSummaryObj!.apnProfile, summaryObj: editingApnSummaryObj!)
+            myUtilHandleRLMObject = UtilHandleRLMObject(id: editingApnSummaryObj!.id, profileObj: editingApnSummaryObj!.apnProfile, summaryObj: editingApnSummaryObj!)
             myUtilHandleRLMObject.prepareKeepApnProfileColumn(editingApnSummaryObj!.apnProfile)
         } else {
-            myUtilHandleRLMObject = UtilHandleRLMObject(profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
+            myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
         }
     }
 
@@ -161,7 +161,11 @@ class EditApnViewController: UITableViewController,
             //do nothing
         }
         cell.shouldChangeCharactersInRange = {(textField, range, string) in
-            self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: textField.text! + string)
+            let newText = (string.isEmpty
+                ? textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location))
+                : textField.text! + string
+            )
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: newText)
             return true
         }
         

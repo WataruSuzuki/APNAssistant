@@ -8,7 +8,9 @@
 
 import UIKit
 
-class DetailApnViewController: UITableViewController {
+class DetailApnViewController: UITableViewController,
+    EditApnViewControllerDelegate
+{
     
     var myUtilHandleRLMObject: UtilHandleRLMObject!
     var myApnSummaryObject: ApnSummaryObject!
@@ -16,12 +18,9 @@ class DetailApnViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        myUtilHandleRLMObject = UtilHandleRLMObject(id: myApnSummaryObject.id, profileObj: myApnSummaryObject.apnProfile, summaryObj: myApnSummaryObject)
-        self.title = myApnSummaryObject.name
+        loadTargetSummaryObj()
         let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(DetailApnViewController.showEditApnViewController))
         self.navigationItem.rightBarButtonItem = editButton
-        
-        myUtilHandleRLMObject.prepareKeepApnProfileColumn(myApnSummaryObject.apnProfile)
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,9 +86,22 @@ class DetailApnViewController: UITableViewController {
     }
     */
 
+    // MARK: - EditApnViewControllerDelegate
+    func didFinishEditApn(newObj: ApnSummaryObject) {
+        myApnSummaryObject = newObj
+        loadTargetSummaryObj()
+        
+        self.tableView.reloadData()
+    }
+    
+    func loadTargetSummaryObj() {
+        myUtilHandleRLMObject = UtilHandleRLMObject(id: myApnSummaryObject.id, profileObj: myApnSummaryObject.apnProfile, summaryObj: myApnSummaryObject)
+        self.title = myApnSummaryObject.name
+        
+        myUtilHandleRLMObject.prepareKeepApnProfileColumn(myApnSummaryObject.apnProfile)
+    }
     
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard (segue.identifier != nil) else { return }
@@ -98,6 +110,7 @@ class DetailApnViewController: UITableViewController {
             let navigationController = segue.destinationViewController as! UINavigationController
             let controller = navigationController.topViewController as! EditApnViewController
             controller.editingApnSummaryObj = myApnSummaryObject
+            controller.delegate = self
             
         default:
             break

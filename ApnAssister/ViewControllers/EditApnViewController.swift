@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EditApnViewControllerDelegate {
+    func didFinishEditApn(newObj: ApnSummaryObject)
+}
+
 class EditApnViewController: UITableViewController,
     UIAlertViewDelegate, UIActionSheetDelegate
 {
@@ -17,6 +21,8 @@ class EditApnViewController: UITableViewController,
     var editingApnSummaryObj: ApnSummaryObject?
     var isCompFirstRespond = false
     var isSetDataApnManually = true
+    
+    var delegate: EditApnViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,12 +196,13 @@ class EditApnViewController: UITableViewController,
         }
     }
     
-    func handleNotThisTime(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func handleUpdateDeviceApn(){
-        myUtilCocoaHTTPServer.writeMobileConfigProfile(myUtilHandleRLMObject)
+    func handleUpdateDeviceApn(isUpdateNow: Bool){
+        self.delegate.didFinishEditApn(myUtilHandleRLMObject.apnSummaryObj)
+        self.dismissViewControllerAnimated(true) { 
+            if isUpdateNow {
+                self.myUtilCocoaHTTPServer.writeMobileConfigProfile(self.myUtilHandleRLMObject)
+            }
+        }
     }
     
     func showConfirmUpdatingDeviceApn() {
@@ -221,10 +228,10 @@ class EditApnViewController: UITableViewController,
     func showConfirmAlertController(negativeMessage: String, positiveMessage: String){
         if #available(iOS 8.0, *) {
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
-                action in self.handleNotThisTime()
+                action in self.handleUpdateDeviceApn(false)
             }
             let deleteAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
-                action in self.handleUpdateDeviceApn()
+                action in self.handleUpdateDeviceApn(true)
             }
             
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -244,18 +251,7 @@ class EditApnViewController: UITableViewController,
     
     // MARK: - UIActionSheetDelegate
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        switch buttonIndex {
-        case 1:
-            self.handleNotThisTime()
-            break
-            
-        case 0:
-            self.handleUpdateDeviceApn()
-            break
-            
-        default:
-            break
-        }
+        self.handleUpdateDeviceApn(0 == buttonIndex ? true : false)
     }
     
     /*

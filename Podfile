@@ -5,6 +5,7 @@ target "ApnAssister" do
   pod 'CocoaAsyncSocket'
   pod 'CocoaHTTPServer'
   pod 'Realm'
+  pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 
 post_install do | installer |

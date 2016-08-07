@@ -195,11 +195,22 @@ UIAlertViewDelegate, UIActionSheetDelegate,
     }
     
     func handleUpdateDeviceApn(){
-        self.myUtilCocoaHTTPServer.writeMobileConfigProfile(self.myUtilHandleRLMObject)
+        self.myUtilCocoaHTTPServer.openSettingAppToSetProfile(self.myUtilHandleRLMObject)
     }
     
     func handleShareApn(){
-        //TODO
+        let shareConfigProfile = myUtilCocoaHTTPServer.getProfileData(myUtilHandleRLMObject)
+        let activityItems = [shareConfigProfile]
+        
+        let contoller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let excludedActivityTypes = [
+            UIActivityTypePostToWeibo,
+            UIActivityTypeSaveToCameraRoll,
+            UIActivityTypePrint
+        ]
+        
+        contoller.excludedActivityTypes = excludedActivityTypes
+        self.presentViewController(contoller, animated: true, completion: nil)
     }
     
     enum Menu: Int {

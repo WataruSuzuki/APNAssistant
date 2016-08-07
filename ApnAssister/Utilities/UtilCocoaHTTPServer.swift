@@ -24,6 +24,20 @@ class UtilCocoaHTTPServer: NSObject {
         }
     }
     
+    func getProfileData(rlmObject: UtilHandleRLMObject) -> NSData {
+        writeMobileConfigProfile(rlmObject)
+        return NSData(contentsOfFile: getConfigProfileFilePath())!
+    }
+    
+    func getConfigProfileFilePath() -> String {
+        // build the path where you're going to save the HTML
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let filePath = documentsPath + "/" + "profile.mobileconfig"
+        print(filePath)
+        
+        return filePath
+    }
+    
     func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject) {
         let payloadDisplayName = "APN Assister profile"
         let bundleID = NSBundle.mainBundle().bundleIdentifier!
@@ -67,19 +81,17 @@ class UtilCocoaHTTPServer: NSObject {
         profileXml += "<key>PayloadUUID</key><string>" + UUID_forIdentifier + "</string>"
         profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
         
-        // build the path where you're going to save the HTML
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let filePath = documentsPath + "/" + "profile.mobileconfig"
-        print(filePath)
-        
         // save the String that contains the HTML to a file
         //try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
-        try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
+        try! profileXml.writeToFile(getConfigProfileFilePath(), atomically: true, encoding: NSUTF8StringEncoding)
         
         let fileManager = NSFileManager.defaultManager()
         copyHtmlFilesFromResource(fileManager, fileName: "index",fileType: ".html")
         copyHtmlFilesFromResource(fileManager, fileName: "configrationProfile",fileType: ".html")
-        
+    }
+    
+    func openSettingAppToSetProfile(rlmObject: UtilHandleRLMObject) {
+        writeMobileConfigProfile(rlmObject)
         startCocoaHTTPServer()
         
         let fileUrl = "http://localhost:8080" //+ "/profile.mobileconfig"

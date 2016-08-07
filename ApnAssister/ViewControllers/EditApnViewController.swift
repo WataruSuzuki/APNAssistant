@@ -200,7 +200,7 @@ class EditApnViewController: UITableViewController,
         self.delegate.didFinishEditApn(myUtilHandleRLMObject.apnSummaryObj)
         self.dismissViewControllerAnimated(true) { 
             if isUpdateNow {
-                self.myUtilCocoaHTTPServer.writeMobileConfigProfile(self.myUtilHandleRLMObject)
+                self.myUtilCocoaHTTPServer.openSettingAppToSetProfile(self.myUtilHandleRLMObject)
             }
         }
     }

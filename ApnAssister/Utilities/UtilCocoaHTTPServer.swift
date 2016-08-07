@@ -25,7 +25,7 @@ class UtilCocoaHTTPServer: NSObject {
     }
     
     func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject) {
-        let payloadDisplayName = "APNS Assister profile"
+        let payloadDisplayName = "APN Assister profile"
         let bundleID = NSBundle.mainBundle().bundleIdentifier!
         let UUID_forIdentifier = "f9dbd18b-90ff-58c1-8605-5abae9c50691"
         let UUID_forDescription = "4be0643f-1d98-573b-97cd-ca98a65347dd"

@@ -1,11 +1,7 @@
 PODS:
-  - CocoaAsyncSocket (7.4.3):
-    - CocoaAsyncSocket/All (= 7.4.3)
-  - CocoaAsyncSocket/All (7.4.3):
-    - CocoaAsyncSocket/GCD
-    - CocoaAsyncSocket/RunLoop
-  - CocoaAsyncSocket/GCD (7.4.3)
-  - CocoaAsyncSocket/RunLoop (7.4.3)
+  - CocoaAsyncSocket (7.5.0):
+    - CocoaAsyncSocket/GCD (= 7.5.0)
+  - CocoaAsyncSocket/GCD (7.5.0)
   - CocoaHTTPServer (2.3):
     - CocoaAsyncSocket
     - CocoaLumberjack
@@ -17,21 +13,33 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
-  - Realm (1.0.0):
-    - Realm/Headers (= 1.0.0)
-  - Realm/Headers (1.0.0)
+  - DJKFlatIconAuthors (0.0.1)
+  - Realm (1.0.2):
+    - Realm/Headers (= 1.0.2)
+  - Realm/Headers (1.0.2)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
   - CocoaHTTPServer
+  - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
   - Realm
 
+EXTERNAL SOURCES:
+  DJKFlatIconAuthors:
+    :git: https://github.com/WataruSuzuki/DJKFlatIconAuthors.git
+
+CHECKOUT OPTIONS:
+  DJKFlatIconAuthors:
+    :commit: 9a1596dd5e0ab2c2f933550d61f8644304c78f29
+    :git: https://github.com/WataruSuzuki/DJKFlatIconAuthors.git
+
 SPEC CHECKSUMS:
-  CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
+  CocoaAsyncSocket: 3baeb1ddd969f81cf9fca81053ae49ef2d1cbbfa
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
+  DJKFlatIconAuthors: aff39c56b33e8a51c298d5750de2f4187edfe72c
+  Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
 
-PODFILE CHECKSUM: 14c90a0e5cc6c92da5ca0b2db2d94e233f11c6df
+PODFILE CHECKSUM: b34d8fc25f5b4e8046a90cab03ef1d79c78d3bd9
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

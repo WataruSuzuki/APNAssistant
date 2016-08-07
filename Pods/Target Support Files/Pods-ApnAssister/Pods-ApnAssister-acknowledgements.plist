@@ -78,6 +78,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>CC 3.0 BY
+
+Some icons made by 
+ Designmodo,
+and "Freepik" from Flaticon.com</string>
+			<key>Title</key>
+			<string>DJKFlatIconAuthors</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>TABLE OF CONTENTS
 
 1. Apache License version 2.0

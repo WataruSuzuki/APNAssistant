@@ -282,12 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister" */;
 			buildPhases = (
-				98B00AC8814008A4C2BE48C7 /* 📦 Check Pods Manifest.lock */,
+				98B00AC8814008A4C2BE48C7 /* [CP] Check Pods Manifest.lock */,
 				96DA6BEE1C9B03FD00E424D5 /* Sources */,
 				96DA6BEF1C9B03FD00E424D5 /* Frameworks */,
 				96DA6BF01C9B03FD00E424D5 /* Resources */,
-				18E337D890D28D5FA0BA7FAD /* 📦 Embed Pods Frameworks */,
-				0A709D2A1E243C36B562BF3A /* 📦 Copy Pods Resources */,
+				18E337D890D28D5FA0BA7FAD /* [CP] Embed Pods Frameworks */,
+				0A709D2A1E243C36B562BF3A /* [CP] Copy Pods Resources */,
 				60AA73A71C9BA73700E41CAE /* ShellScript */,
 			);
 			buildRules = (
@@ -419,14 +419,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A709D2A1E243C36B562BF3A /* 📦 Copy Pods Resources */ = {
+		0A709D2A1E243C36B562BF3A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,14 +434,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		18E337D890D28D5FA0BA7FAD /* 📦 Embed Pods Frameworks */ = {
+		18E337D890D28D5FA0BA7FAD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,14 +462,14 @@
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/\\./ })\n    \n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n# get the minor version from the last array element\nminorVersion=${arrIN[${lastElementPosition}]}\n# Increase it by 1\nminorVersion=$((minorVersion+1))\n# Format it as 3 digit\n#minorVersion=`printf \"%03d\" $minorVersion`\necho \"New minor version $minorVersion\"\n# Update it on the array\narrIN[$lastElementPosition]=$minorVersion\n\n# construct the build number now by joining the array\nbuildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n\necho \"New Build number $buildNumber\"\n\n#update it in plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi";
 		};
-		98B00AC8814008A4C2BE48C7 /* 📦 Check Pods Manifest.lock */ = {
+		98B00AC8814008A4C2BE48C7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

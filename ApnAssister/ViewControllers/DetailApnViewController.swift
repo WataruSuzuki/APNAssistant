@@ -9,8 +9,10 @@
 import UIKit
 
 class DetailApnViewController: UITableViewController,
+UIAlertViewDelegate, UIActionSheetDelegate,
     EditApnViewControllerDelegate
 {
+    let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
     
     var myUtilHandleRLMObject: UtilHandleRLMObject!
     var myApnSummaryObject: ApnSummaryObject!
@@ -19,8 +21,8 @@ class DetailApnViewController: UITableViewController,
         super.viewDidLoad()
 
         loadTargetSummaryObj()
-        let editButton = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(DetailApnViewController.showEditApnViewController))
-        self.navigationItem.rightBarButtonItem = editButton
+        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
+        self.navigationItem.rightBarButtonItem = menuButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,7 +119,98 @@ class DetailApnViewController: UITableViewController,
         }
     }
 
+    func showMenuSheet() {
+        var menuArray = [String]()
+        
+        for index in Menu.setThisApnToDevice.rawValue..<Menu.MAX.rawValue {
+            menuArray.append(NSLocalizedString(Menu(rawValue: index)!.toString(), comment: ""))
+        }
+        
+        showConfirmAlertController(menuArray)
+    }
+    
+    func showComfirmOldSheet(menuArray: [String]) {
+        let sheet = UIActionSheet()
+        //sheet.tag =
+        sheet.delegate = self
+        
+        for message in menuArray {
+            sheet.addButtonWithTitle(message)
+        }
+        sheet.cancelButtonIndex = menuArray.count
+        sheet.destructiveButtonIndex = 0
+        
+        sheet.showInView(self.view)
+    }
+    
+    func showConfirmAlertController(menuArray: [String]){
+        if #available(iOS 8.0, *) {
+            let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Default){
+                action in self.handleUpdateDeviceApn()
+            }
+            let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .Default){
+                action in self.handleShareApn()
+            }
+            let editAction = UIAlertAction(title: menuArray[Menu.edit.rawValue], style: .Default){
+                action in self.showEditApnViewController()
+            }
+            let cancelAction = UIAlertAction(title: menuArray[Menu.cancel.rawValue], style: .Cancel, handler: nil)
+            
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            alertController.addAction(cancelAction)
+            alertController.addAction(setApnAction)
+            alertController.addAction(shareAction)
+            alertController.addAction(editAction)
+            
+            if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
+                alertController.popoverPresentationController?.sourceView = self.view;
+                alertController.popoverPresentationController?.barButtonItem
+            }
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            showComfirmOldSheet(menuArray)
+        }
+    }
+    
+    // MARK: - UIActionSheetDelegate
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        switch Menu(rawValue: buttonIndex)! {
+        case .setThisApnToDevice:
+            self.handleUpdateDeviceApn()
+            
+        case .share:
+            self.handleShareApn()
+            
+        case .edit:
+            self.showEditApnViewController()
+            
+        default:
+            break
+        }
+    }
+    
     func showEditApnViewController() {
         self.performSegueWithIdentifier("EditApnViewController", sender: self)
+    }
+    
+    func handleUpdateDeviceApn(){
+        self.myUtilCocoaHTTPServer.writeMobileConfigProfile(self.myUtilHandleRLMObject)
+    }
+    
+    func handleShareApn(){
+        //TODO
+    }
+    
+    enum Menu: Int {
+        case setThisApnToDevice = 0,
+        share,
+        edit,
+        cancel,
+        MAX
+        
+        func toString() -> String {
+            return String(self)
+        }
     }
 }

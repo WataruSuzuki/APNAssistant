@@ -111,7 +111,7 @@ class EditApnViewController: UITableViewController,
     func loadSummaryApnProfileCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! TextFieldCell
         cell.myUILabel.text = ""
-        cell.myUITextField?.placeholder = NSLocalizedString("NameOfThisApnProfile", comment: "")
+        cell.myUITextField?.placeholder = NSLocalizedString("nameOfThisApnProfile", comment: "")
         cell.myUITextField.text = myUtilHandleRLMObject.apnSummaryObj.name
         
         if !isCompFirstRespond && indexPath.section == 0 && indexPath.row == 0 {

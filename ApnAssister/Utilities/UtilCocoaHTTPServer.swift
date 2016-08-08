@@ -50,20 +50,30 @@ class UtilCocoaHTTPServer: NSObject {
         //APNs
         profileXml += "<key>APNs</key><array><dict><key>AuthenticationType</key><string>CHAP</string>"
         profileXml += "<key>Name</key><string>" + rlmObject.apnProfileObj.apnsName + "</string>"
-        profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.apnsPassword + "</string>"
+        if !rlmObject.apnProfileObj.apnsPassword.isEmpty {
+            profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.apnsPassword + "</string>"
+        }
         
         if !rlmObject.apnProfileObj.apnsProxyServer.isEmpty
             && !rlmObject.apnProfileObj.apnsProxyServerPort.isEmpty {
             profileXml += "<key>ProxyPort</key><integer>" + rlmObject.apnProfileObj.apnsProxyServerPort + "</integer>"
             profileXml += "<key>ProxyServer</key><string>" + rlmObject.apnProfileObj.apnsProxyServer + "</string>"
         }
-        profileXml += "<key>Username</key><string>" + rlmObject.apnProfileObj.apnsUserName + "</string></dict></array>"
+        if !rlmObject.apnProfileObj.apnsUserName.isEmpty {
+            profileXml += "<key>Username</key><string>" + rlmObject.apnProfileObj.apnsUserName + "</string>"
+        }
+        profileXml += "</dict></array>"
         
         //AttachAPN
         profileXml += "<key>AttachAPN</key><dict><key>AuthenticationType</key><string>CHAP</string>"
         profileXml += "<key>Name</key><string>" + rlmObject.apnProfileObj.attachApnName + "</string>"
-        profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.attachApnPassword + "</string>"
-        profileXml += "<key>Username</key><string>" + rlmObject.apnProfileObj.attachApnUserName + "</string></dict>"
+        if !rlmObject.apnProfileObj.attachApnPassword.isEmpty {
+            profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.attachApnPassword + "</string>"
+        }
+        if !rlmObject.apnProfileObj.attachApnUserName.isEmpty {
+            profileXml += "<key>Username</key><string>" + rlmObject.apnProfileObj.attachApnUserName + "</string>"
+        }
+        profileXml += "</dict>"
         
         //PayloadDescription
         profileXml += "<key>PayloadDescription</key><string>" + NSLocalizedString("config_mobile_network", comment: "") + "</string>"

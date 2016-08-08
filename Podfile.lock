@@ -1,4 +1,5 @@
 PODS:
+  - CMPopTipView (2.3.0)
   - CocoaAsyncSocket (7.5.0):
     - CocoaAsyncSocket/GCD (= 7.5.0)
   - CocoaAsyncSocket/GCD (7.5.0)
@@ -19,6 +20,7 @@ PODS:
   - Realm/Headers (1.0.2)
 
 DEPENDENCIES:
+  - CMPopTipView
   - CocoaAsyncSocket
   - CocoaHTTPServer
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
@@ -34,12 +36,13 @@ CHECKOUT OPTIONS:
     :git: https://github.com/WataruSuzuki/DJKFlatIconAuthors.git
 
 SPEC CHECKSUMS:
+  CMPopTipView: 774e0230b5c73abb3c39051da6d8a383373c4f7f
   CocoaAsyncSocket: 3baeb1ddd969f81cf9fca81053ae49ef2d1cbbfa
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   DJKFlatIconAuthors: aff39c56b33e8a51c298d5750de2f4187edfe72c
   Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
 
-PODFILE CHECKSUM: b34d8fc25f5b4e8046a90cab03ef1d79c78d3bd9
+PODFILE CHECKSUM: 50b4e76ada1567e0a9639be5052f424358d5a2d2
 
 COCOAPODS: 1.0.1

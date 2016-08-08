@@ -40,4 +40,4 @@ setThisApnToDevice = "このAPNを端末にセットする";
 share = "共有する";
 edit = "編集する";
 
-
+tutorial_message = "まだAPNプロファイルがありません。こちらから作成しましょう!!";

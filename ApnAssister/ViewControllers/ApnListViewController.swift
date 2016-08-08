@@ -9,8 +9,10 @@
 import UIKit
 
 class ApnListViewController: UITableViewController,
+    CMPopTipViewDelegate,
     EditApnViewControllerDelegate
 {
+    let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
 
     var allApnSummaryObjs = ApnSummaryObject.allObjects()
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
@@ -25,6 +27,12 @@ class ApnListViewController: UITableViewController,
         super.viewWillAppear(animated)
         
         allApnSummaryObjs = ApnSummaryObject.allObjects()
+        if 0 < allApnSummaryObjs.count {
+            tutorialPopView.dismissAnimated(true)
+        } else {
+            tutorialPopView.presentPointingAtBarButtonItem(self.navigationItem.rightBarButtonItem, animated: true)
+        }
+        
         self.tableView.reloadData()
     }
 
@@ -95,6 +103,11 @@ class ApnListViewController: UITableViewController,
     // MARK: - EditApnViewControllerDelegate
     func didFinishEditApn(newObj: ApnSummaryObject) {
         //Do nothing. Because this VC checking update in viewDidAppear.
+    }
+    
+    // MARK: - CMPopTipViewDelegate
+    func popTipViewWasDismissedByUser(popTipView: CMPopTipView!) {
+        //TODO
     }
     
     // MARK: - Navigation

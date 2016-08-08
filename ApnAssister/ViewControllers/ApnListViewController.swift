@@ -30,6 +30,7 @@ class ApnListViewController: UITableViewController,
         if 0 < allApnSummaryObjs.count {
             tutorialPopView.dismissAnimated(true)
         } else {
+            tutorialPopView.has3DStyle = false
             tutorialPopView.presentPointingAtBarButtonItem(self.navigationItem.rightBarButtonItem, animated: true)
         }
         

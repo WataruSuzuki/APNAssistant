@@ -14,7 +14,6 @@ PODS:
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
   - DJKFlatIconAuthors (0.0.1)
-  - MMPopLabel (0.1.3)
   - Realm (1.0.2):
     - Realm/Headers (= 1.0.2)
   - Realm/Headers (1.0.2)
@@ -23,7 +22,6 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - CocoaHTTPServer
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
-  - MMPopLabel
   - Realm
 
 EXTERNAL SOURCES:
@@ -40,9 +38,8 @@ SPEC CHECKSUMS:
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   DJKFlatIconAuthors: aff39c56b33e8a51c298d5750de2f4187edfe72c
-  MMPopLabel: d9909f18cacd5200f005ef3f0790c9490357b57a
   Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
 
-PODFILE CHECKSUM: 1d8d8326c4a8b820386b4887b5740d446d22f8e5
+PODFILE CHECKSUM: b34d8fc25f5b4e8046a90cab03ef1d79c78d3bd9
 
 COCOAPODS: 1.0.1

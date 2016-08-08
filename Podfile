@@ -5,7 +5,6 @@ target "ApnAssister" do
   pod 'CocoaAsyncSocket'
   pod 'CocoaHTTPServer'
   pod 'Realm'
-  pod 'MMPopLabel'
   pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 

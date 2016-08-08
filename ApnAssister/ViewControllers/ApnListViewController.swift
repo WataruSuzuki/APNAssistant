@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ApnListViewController: UITableViewController {
+class ApnListViewController: UITableViewController,
+    EditApnViewControllerDelegate
+{
 
     var allApnSummaryObjs = ApnSummaryObject.allObjects()
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
@@ -90,6 +92,10 @@ class ApnListViewController: UITableViewController {
     }
     */
 
+    // MARK: - EditApnViewControllerDelegate
+    func didFinishEditApn(newObj: ApnSummaryObject) {
+        //Do nothing. Because this VC checking update in viewDidAppear.
+    }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -99,6 +105,12 @@ class ApnListViewController: UITableViewController {
             let indexPath = self.tableView.indexPathForSelectedRow
             let destinationVC = segue.destinationViewController as! DetailApnViewController
             destinationVC.myApnSummaryObject = allApnSummaryObjs.objectAtIndex(UInt((indexPath?.row)!)) as! ApnSummaryObject
+            
+        case "EditApnViewController":
+            if let navigationController = segue.destinationViewController as? UINavigationController {
+                let controller = navigationController.viewControllers.last as! EditApnViewController
+                controller.delegate = self
+            }
             
         default:
             break

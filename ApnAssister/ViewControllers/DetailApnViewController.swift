@@ -199,17 +199,15 @@ UIAlertViewDelegate, UIActionSheetDelegate,
     }
     
     func handleShareApn(){
-        let shareConfigProfile = myUtilCocoaHTTPServer.getProfileData(myUtilHandleRLMObject)
-        let activityItems = [shareConfigProfile]
+        let configProfileUrl = myUtilCocoaHTTPServer.getProfileUrl(myUtilHandleRLMObject)
         
-        let contoller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-        let excludedActivityTypes = [
+        let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)
+        contoller.excludedActivityTypes = [
             UIActivityTypePostToWeibo,
             UIActivityTypeSaveToCameraRoll,
             UIActivityTypePrint
         ]
-        
-        contoller.excludedActivityTypes = excludedActivityTypes
+
         self.presentViewController(contoller, animated: true, completion: nil)
     }
     

@@ -24,9 +24,9 @@ class UtilCocoaHTTPServer: NSObject {
         }
     }
     
-    func getProfileData(rlmObject: UtilHandleRLMObject) -> NSData {
+    func getProfileUrl(rlmObject: UtilHandleRLMObject) -> NSURL {
         writeMobileConfigProfile(rlmObject)
-        return NSData(contentsOfFile: getConfigProfileFilePath())!
+        return NSURL(fileURLWithPath: getConfigProfileFilePath())
     }
     
     func getConfigProfileFilePath() -> String {

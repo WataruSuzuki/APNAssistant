@@ -159,12 +159,13 @@ class EditApnViewController: UITableViewController,
         let column = ApnProfileObject.KeyAPNs(rawValue: (type == .APNS ? indexPath.row - 1 : indexPath.row))!
         cell.myUILabel?.text = column.getTitle(type)
         cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+        cell.myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
         
         cell.didBeginEditing = {(textField) in
             //do nothing
         }
         cell.didEndEditing = {(textField) in
-            //do nothing
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: textField.text!)
         }
         cell.shouldChangeCharactersInRange = {(textField, range, string) in
             let newText = (string.isEmpty

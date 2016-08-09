@@ -268,7 +268,7 @@ class EditApnViewController: UITableViewController,
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
                 alertController.popoverPresentationController?.sourceView = self.view;
-                alertController.popoverPresentationController?.barButtonItem
+                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
             }
             
             presentViewController(alertController, animated: true, completion: nil)

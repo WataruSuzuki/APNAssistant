@@ -12,10 +12,13 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let tabbarItemsTitle = [NSLocalizedString("favorite_list", comment: ""),
+                            NSLocalizedString("profile_list", comment: ""),
+                            "(・∀・)"]
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        loadTabBarTitle()
         return true
     }
 
@@ -41,6 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func loadTabBarTitle() {
+        if let tabbarController = self.window?.rootViewController as? UITabBarController {
+            var index = 0
+            for item in tabbarController.tabBar.items! {
+                item.title = tabbarItemsTitle[index]
+                index += 1
+            }
+        }
+    }
 }
 

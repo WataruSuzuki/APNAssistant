@@ -202,7 +202,11 @@ class EditApnViewController: UITableViewController,
             return newTextFieldCell.frame.height
             
         default:
-            return tableView.rowHeight
+            if #available(iOS 8.0, *) {
+                return tableView.rowHeight
+            } else {
+                return 44
+            }
         }
     }
     

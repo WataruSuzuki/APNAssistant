@@ -35,6 +35,7 @@ mobile_network = "モバイルデータ通信";
 isThisFavoriteOne = "お気に入りにします?";
 nameOfThisApnProfile = "このAPNプロファイル名";
 menu = "メニュー";
+cancel = "キャンセル";
 
 setThisApnToDevice = "このAPNを端末にセットする";
 share = "共有する";

@@ -63,7 +63,7 @@ class TextFieldCell: UITableViewCell,
             if !becomeCellTextFieldResponder(tableView!, nextIndexPath: nextIndexPath) {
                 let section = (indexPath?.section)! + 1
                 let fallbackIndexPath = NSIndexPath(forRow: (indexPath?.section)!, inSection: section)
-                if becomeCellTextFieldResponder(tableView!, nextIndexPath: fallbackIndexPath) {
+                if !becomeCellTextFieldResponder(tableView!, nextIndexPath: fallbackIndexPath) {
                     print("Not found next target myUITextField...")
                 }
             }

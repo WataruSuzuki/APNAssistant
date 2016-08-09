@@ -60,12 +60,25 @@ class TextFieldCell: UITableViewCell,
         if nil != tableView {
             let indexPath = tableView?.indexPathForCell(self)
             let nextIndexPath = NSIndexPath(forRow: (indexPath?.row)! + 1, inSection: (indexPath?.section)!)
-            if let nextCell = tableView?.cellForRowAtIndexPath(nextIndexPath) as? TextFieldCell {
-                nextCell.myUITextField.becomeFirstResponder()
+            if !becomeCellTextFieldResponder(tableView!, nextIndexPath: nextIndexPath) {
+                let section = (indexPath?.section)! + 1
+                let fallbackIndexPath = NSIndexPath(forRow: (indexPath?.section)!, inSection: section)
+                if becomeCellTextFieldResponder(tableView!, nextIndexPath: fallbackIndexPath) {
+                    print("Not found next target myUITextField...")
+                }
             }
         }
         
         return true
+    }
+    
+    func becomeCellTextFieldResponder(tableView: UITableView, nextIndexPath: NSIndexPath) -> Bool {
+        if let nextCell = tableView.cellForRowAtIndexPath(nextIndexPath) as? TextFieldCell {
+            nextCell.myUITextField.becomeFirstResponder()
+            return true
+        } else {
+            return false
+        }
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {

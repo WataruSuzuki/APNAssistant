@@ -165,6 +165,20 @@ class EditApnViewController: UITableViewController,
         cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
         cell.myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
         
+        switch column {
+        case ApnProfileObject.KeyAPNs.PROXY_SERVER_PORT:
+            cell.myUITextField.keyboardType = .NumberPad
+            cell.myUITextField.secureTextEntry = false
+            
+        case ApnProfileObject.KeyAPNs.PASSWORD:
+            cell.myUITextField.keyboardType = .Default
+            cell.myUITextField.secureTextEntry = true
+            
+        default:
+            cell.myUITextField.keyboardType = .Default
+            cell.myUITextField.secureTextEntry = false
+        }
+        
         cell.didBeginEditing = {(textField) in
             //do nothing
         }

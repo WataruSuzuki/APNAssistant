@@ -20,7 +20,7 @@ class ApnListViewController: UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = NSLocalizedString("profile_list", comment: "")
+        self.navigationItem.title = NSLocalizedString("profile_list", comment: "")
     }
     
     override func viewWillAppear(animated: Bool) {

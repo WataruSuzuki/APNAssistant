@@ -15,7 +15,7 @@ class FavoriteApnListViewController: ApnListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = NSLocalizedString("favorite_list", comment: "")
+        self.navigationItem.title = NSLocalizedString("favorite_list", comment: "")
     }
 
     override func didReceiveMemoryWarning() {

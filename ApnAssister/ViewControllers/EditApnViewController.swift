@@ -27,7 +27,7 @@ class EditApnViewController: UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = NSLocalizedString("edit_apn", comment: "")
+        self.navigationItem.title = NSLocalizedString("edit_apn", comment: "")
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
         

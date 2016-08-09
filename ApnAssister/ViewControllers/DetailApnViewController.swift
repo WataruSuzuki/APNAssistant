@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailApnViewController: UITableViewController,
-UIAlertViewDelegate, UIActionSheetDelegate,
+    UIAlertViewDelegate, UIActionSheetDelegate,
     EditApnViewControllerDelegate
 {
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
@@ -98,7 +98,7 @@ UIAlertViewDelegate, UIActionSheetDelegate,
     
     func loadTargetSummaryObj() {
         myUtilHandleRLMObject = UtilHandleRLMObject(id: myApnSummaryObject.id, profileObj: myApnSummaryObject.apnProfile, summaryObj: myApnSummaryObject)
-        self.title = myApnSummaryObject.name
+        self.navigationItem.title = myApnSummaryObject.name
         
         myUtilHandleRLMObject.prepareKeepApnProfileColumn(myApnSummaryObject.apnProfile)
     }

@@ -236,15 +236,16 @@ class EditApnViewController: UITableViewController,
     func showConfirmUpdatingDeviceApn() {
         let negativeMessage = NSLocalizedString("not_this_time", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
+        let sheetTitle = NSLocalizedString("is_update_now", comment: "")
         
-        showConfirmAlertController(negativeMessage, positiveMessage: positiveMessage)
+        showConfirmAlertController(sheetTitle, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
     }
     
-    func showComfirmOldSheet(negativeMessage: String, positiveMessage: String) {
+    func showComfirmOldSheet(title: String, negativeMessage: String, positiveMessage: String) {
         let sheet = UIActionSheet()
         //sheet.tag =
         sheet.delegate = self
-        sheet.title = ""
+        sheet.title = title
         sheet.addButtonWithTitle(positiveMessage)
         sheet.addButtonWithTitle(negativeMessage)
         sheet.cancelButtonIndex = 1
@@ -253,7 +254,7 @@ class EditApnViewController: UITableViewController,
         sheet.showInView(self.view)
     }
     
-    func showConfirmAlertController(negativeMessage: String, positiveMessage: String){
+    func showConfirmAlertController(title: String, negativeMessage: String, positiveMessage: String){
         if #available(iOS 8.0, *) {
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
                 action in self.handleUpdateDeviceApn(false)
@@ -262,7 +263,7 @@ class EditApnViewController: UITableViewController,
                 action in self.handleUpdateDeviceApn(true)
             }
             
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
             alertController.addAction(cancelAction)
             alertController.addAction(deleteAction)
             
@@ -273,7 +274,7 @@ class EditApnViewController: UITableViewController,
             
             presentViewController(alertController, animated: true, completion: nil)
         } else {
-            showComfirmOldSheet(negativeMessage, positiveMessage: positiveMessage)
+            showComfirmOldSheet(title, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
         }
     }
     

@@ -126,14 +126,14 @@ class DetailApnViewController: UITableViewController,
             menuArray.append(NSLocalizedString(Menu(rawValue: index)!.toString(), comment: ""))
         }
         
-        showConfirmAlertController(menuArray)
+        showConfirmAlertController(NSLocalizedString("menu", comment: ""), menuArray: menuArray)
     }
     
-    func showComfirmOldSheet(menuArray: [String]) {
+    func showComfirmOldSheet(title: String, menuArray: [String]) {
         let sheet = UIActionSheet()
         //sheet.tag =
         sheet.delegate = self
-        sheet.title = ""
+        sheet.title = title
         for message in menuArray {
             sheet.addButtonWithTitle(message)
         }
@@ -143,7 +143,7 @@ class DetailApnViewController: UITableViewController,
         sheet.showInView(self.view)
     }
     
-    func showConfirmAlertController(menuArray: [String]){
+    func showConfirmAlertController(title: String, menuArray: [String]){
         if #available(iOS 8.0, *) {
             let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Default){
                 action in self.handleUpdateDeviceApn()
@@ -156,7 +156,7 @@ class DetailApnViewController: UITableViewController,
             }
             let cancelAction = UIAlertAction(title: menuArray[Menu.cancel.rawValue], style: .Cancel, handler: nil)
             
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
             alertController.addAction(cancelAction)
             alertController.addAction(setApnAction)
             alertController.addAction(shareAction)
@@ -169,7 +169,7 @@ class DetailApnViewController: UITableViewController,
             
             presentViewController(alertController, animated: true, completion: nil)
         } else {
-            showComfirmOldSheet(menuArray)
+            showComfirmOldSheet(title, menuArray: menuArray)
         }
     }
     

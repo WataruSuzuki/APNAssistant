@@ -112,15 +112,19 @@ class EditApnViewController: UITableViewController,
         let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! TextFieldCell
         cell.myUILabel.text = ""
         cell.myUITextField?.placeholder = NSLocalizedString("nameOfThisApnProfile", comment: "")
-        cell.myUITextField.text = myUtilHandleRLMObject.apnSummaryObj.name
+        cell.myUITextField.text = myUtilHandleRLMObject.profileName
         
         if !isCompFirstRespond && indexPath.section == 0 && indexPath.row == 0 {
             cell.myUITextField.becomeFirstResponder()
             isCompFirstRespond = true
         }
         
+        cell.didEndEditing = {(textField) in
+            self.myUtilHandleRLMObject.profileName = textField.text!
+        }
         cell.shouldChangeCharactersInRange = {(textField, range, string) in
-            self.myUtilHandleRLMObject.apnSummaryObj.name += string
+            let newText = self.getNewChangeCharactersInRange(textField, range: range, string: string)
+            self.myUtilHandleRLMObject.profileName = newText
             return true
         }
         
@@ -168,15 +172,20 @@ class EditApnViewController: UITableViewController,
             self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: textField.text!)
         }
         cell.shouldChangeCharactersInRange = {(textField, range, string) in
-            let newText = (string.isEmpty
-                ? textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location))
-                : textField.text! + string
-            )
+            let newText = self.getNewChangeCharactersInRange(textField, range: range, string: string)
             self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: newText)
             return true
         }
         
         return cell
+    }
+    
+    func getNewChangeCharactersInRange(textField: UITextField, range: NSRange, string: String) -> String {
+        let newText = (string.isEmpty
+            ? textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location))
+            : textField.text! + string
+        )
+        return newText
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

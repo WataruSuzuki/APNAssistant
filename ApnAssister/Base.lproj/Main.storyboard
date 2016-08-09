@@ -188,7 +188,7 @@
                                             <rect key="frame" x="15" y="4" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7nr-Bx-VEo">
@@ -233,7 +233,6 @@
                     <connections>
                         <segue destination="v8t-Wm-wgW" kind="relationship" relationship="viewControllers" id="Q1F-RO-p9I"/>
                         <segue destination="hWK-Ys-7yj" kind="relationship" relationship="viewControllers" id="o8T-hz-9mS"/>
-                        <segue destination="NTo-b0-fRu" kind="relationship" relationship="viewControllers" id="eoK-fx-LP1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

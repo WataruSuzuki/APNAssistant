@@ -11,14 +11,14 @@ keyApnsAuthenticationType = "データAPNの認証方法";
 keyApnsUsername = "データAPNのユーザ名";
 keyApnsPassword = "データAPNのパスワード";
 keyApnsProxyServer = "データAPNのプロキシサーバ";
-keyApnsProxyServerPort = "データAPNのプロキシサーバ(ポート番号)";
+keyApnsProxyServerPort = "データAPNのプロキシポート番号";
 
 keyAttachApnName = "デフォルトAPNの名前";
 keyAttachApnAuthenticationType = "デフォルトAPNの認証方法";
 keyAttachApnUsername = "デフォルトAPNのユーザ名";
 keyAttachApnPassword = "デフォルトAPNのパスワード";
 keyAttachApnProxyServer = "デフォルトAPNのプロキシサーバ";
-keyAttachApnProxyServerPort = "デフォルトAPNのプロキシサーバ(ポート番号)";
+keyAttachApnProxyServerPort = "デフォルトAPNのプロキシポート番号";
 
 setAttachApnManual = "データAPNを手動でセットする";
 favorite_list = "お気に入り一覧";

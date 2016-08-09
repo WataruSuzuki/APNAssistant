@@ -113,6 +113,8 @@ class EditApnViewController: UITableViewController,
         cell.myUILabel.text = ""
         cell.myUITextField?.placeholder = NSLocalizedString("nameOfThisApnProfile", comment: "")
         cell.myUITextField.text = myUtilHandleRLMObject.profileName
+        cell.myUITextField.keyboardType = .Default
+        cell.myUITextField.secureTextEntry = false
         
         if !isCompFirstRespond && indexPath.section == 0 && indexPath.row == 0 {
             cell.myUITextField.becomeFirstResponder()

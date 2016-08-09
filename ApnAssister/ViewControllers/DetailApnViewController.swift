@@ -133,12 +133,12 @@ class DetailApnViewController: UITableViewController,
         let sheet = UIActionSheet()
         //sheet.tag =
         sheet.delegate = self
-        
+        sheet.title = ""
         for message in menuArray {
             sheet.addButtonWithTitle(message)
         }
-        sheet.cancelButtonIndex = menuArray.count
-        sheet.destructiveButtonIndex = 0
+        sheet.cancelButtonIndex = menuArray.count - 1
+        //sheet.destructiveButtonIndex = 0
         
         sheet.showInView(self.view)
     }

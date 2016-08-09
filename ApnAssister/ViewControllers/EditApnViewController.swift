@@ -226,11 +226,11 @@ class EditApnViewController: UITableViewController,
         let sheet = UIActionSheet()
         //sheet.tag =
         sheet.delegate = self
-        sheet.title = positiveMessage
+        sheet.title = ""
         sheet.addButtonWithTitle(positiveMessage)
         sheet.addButtonWithTitle(negativeMessage)
         sheet.cancelButtonIndex = 1
-        sheet.destructiveButtonIndex = 0
+        //sheet.destructiveButtonIndex = 0
         
         sheet.showInView(self.view)
     }

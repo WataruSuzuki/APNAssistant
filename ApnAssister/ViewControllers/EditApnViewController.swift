@@ -149,9 +149,9 @@ class EditApnViewController: UITableViewController,
         case .SUMMARY:
             cell.myUILabel?.text = NSLocalizedString("isThisFavoriteOne", comment: "")
             cell.switchValueChanged = {(switchOn) in
-                self.myUtilHandleRLMObject.apnSummaryObj.dataType = (switchOn ? ApnSummaryObject.DataTypes.FAVORITE.rawValue : ApnSummaryObject.DataTypes.NORMAL.rawValue)
+                self.myUtilHandleRLMObject.summaryDataType = (switchOn ? ApnSummaryObject.DataTypes.FAVORITE : ApnSummaryObject.DataTypes.NORMAL)
             }
-            cell.myUISwitch.on = (myUtilHandleRLMObject.apnSummaryObj.dataType == ApnSummaryObject.DataTypes.FAVORITE.rawValue ? true : false)
+            cell.myUISwitch.on = (myUtilHandleRLMObject.summaryDataType == ApnSummaryObject.DataTypes.FAVORITE ? true : false)
             
         default: break
         }

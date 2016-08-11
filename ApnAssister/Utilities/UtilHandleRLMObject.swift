@@ -28,6 +28,7 @@ class UtilHandleRLMObject: NSObject {
     var arrayKeyApns = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     var arrayKeyAttachApn = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
     var profileName = ""
+    var summaryDataType = ApnSummaryObject.DataTypes.NORMAL
     
     required init(id: Int, profileObj: ApnProfileObject, summaryObj: ApnSummaryObject) {
         primaryId = id
@@ -35,6 +36,7 @@ class UtilHandleRLMObject: NSObject {
         apnSummaryObj = summaryObj
         
         profileName = summaryObj.name
+        summaryDataType = ApnSummaryObject.DataTypes(rawValue: summaryObj.dataType)!
     }
     
     func saveApnDataObj() {
@@ -113,6 +115,7 @@ class UtilHandleRLMObject: NSObject {
         let now = NSDate()
         apnSummaryObj.createdDate = now.timeIntervalSinceNow
         apnSummaryObj.name = (profileName.isEmpty ? String(now) : profileName)
+        apnSummaryObj.dataType = summaryDataType.rawValue
         if 0 > primaryId {
             apnSummaryObj.id = ApnSummaryObject.getLastId()
         }

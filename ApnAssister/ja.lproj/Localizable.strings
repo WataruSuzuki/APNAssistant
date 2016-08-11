@@ -5,6 +5,7 @@
   Created by WataruSuzuki on 2016/03/24.
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
+payloadDisplayName = "APNアシスタントのプロファイル";
 
 keyApnsName = "データAPNの名前";
 keyApnsAuthenticationType = "データAPNの認証方法";

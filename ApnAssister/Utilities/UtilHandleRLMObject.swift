@@ -129,4 +129,51 @@ class UtilHandleRLMObject: NSObject {
             index += 1
         }
     }
+    
+    static func setupGroupDB() {
+        let containerPath = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)?.URLByAppendingPathComponent("profiledatabases").URLByAppendingPathComponent("default.realm")
+        //let containerPath = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)?.URLByAppendingPathComponent("default.realm")
+        print(containerPath?.path)
+        
+        let config = RLMRealmConfiguration.defaultConfiguration()
+        config.fileURL = containerPath
+        
+        RLMRealmConfiguration.setDefaultConfiguration(config)
+    }
+    
+    static func copyToGroupDB() {
+        let manager = NSFileManager.defaultManager()
+        let config = RLMRealmConfiguration.defaultConfiguration()
+        let oldURLs = [
+            config.fileURL,
+            config.fileURL?.URLByAppendingPathExtension("lock"),
+            config.fileURL?.URLByAppendingPathExtension("management")
+        ]
+        
+        let containerDirectory = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)?.URLByAppendingPathComponent("profiledatabases")
+        if nil == containerDirectory?.path
+            || !manager.fileExistsAtPath(containerDirectory!.path!)
+        {
+            try! manager.createDirectoryAtURL(containerDirectory!, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        let containerURL = containerDirectory?.URLByAppendingPathComponent("default.realm")
+        let newURLs = [
+            containerURL,
+            containerURL?.URLByAppendingPathExtension("lock"),
+            containerURL?.URLByAppendingPathExtension("management")
+        ]
+        
+        var index = 0
+        for oldURL in oldURLs {
+            do {
+                try manager.copyItemAtURL(oldURL!, toURL: newURLs[index]!)
+                index += 1
+                try manager.removeItemAtURL(oldURL!)
+            } catch {
+                let nsError = error as NSError
+                print(nsError.description)
+            }
+        }
+    }
 }

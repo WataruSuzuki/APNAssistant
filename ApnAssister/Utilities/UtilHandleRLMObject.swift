@@ -10,6 +10,7 @@ import UIKit
 
 struct UtilHandleRLMConst {
     internal static let CREATE_NEW_PROFILE = -1
+    internal static let CURRENT_SCHEMA_VERSION = UInt64(1)
 }
 
 class UtilHandleRLMObject: NSObject {
@@ -137,7 +138,15 @@ class UtilHandleRLMObject: NSObject {
         
         let config = RLMRealmConfiguration.defaultConfiguration()
         config.fileURL = containerPath
-        
+        config.schemaVersion = UtilHandleRLMConst.CURRENT_SCHEMA_VERSION
+        config.migrationBlock = {(migration, oldSchemaVersion) in
+            // 最初のマイグレーションの場合、`oldSchemaVersion`は0です
+            if (oldSchemaVersion < UtilHandleRLMConst.CURRENT_SCHEMA_VERSION) {
+                // 何もする必要はありません！
+                // Realmは自動的に新しく追加されたプロパティと、削除されたプロパティを認識します。
+                // そしてディスク上のスキーマを自動的にアップデートします。
+            }
+        }
         RLMRealmConfiguration.setDefaultConfiguration(config)
     }
     

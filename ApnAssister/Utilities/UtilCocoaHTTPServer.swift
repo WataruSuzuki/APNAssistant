@@ -76,8 +76,8 @@ class UtilCocoaHTTPServer: NSObject {
         profileXml += "</dict>"
         
         //PayloadDescription
-        profileXml += "<key>PayloadDescription</key><string>" + NSLocalizedString("config_mobile_network", comment: "") + "</string>"
-        profileXml += "<key>PayloadDisplayName</key><string>" + NSLocalizedString("mobile_network", comment: "") + "</string>"
+        profileXml += "<key>PayloadDescription</key><string>" + String(NSDate.init(timeIntervalSinceReferenceDate: rlmObject.apnSummaryObj.createdDate)) + "</string>"
+        profileXml += "<key>PayloadDisplayName</key><string>" + rlmObject.apnSummaryObj.name + "</string>"
         profileXml += "<key>PayloadIdentifier</key><string>" + bundleID + "</string>"
         profileXml += "<key>PayloadType</key><string>com.apple.cellular</string>"
         profileXml += "<key>PayloadUUID</key><string>" + UUID_forDescription + "</string>"

@@ -114,7 +114,7 @@ class UtilHandleRLMObject: NSObject {
     
     func prepareApnSummaryData() {
         let now = NSDate()
-        apnSummaryObj.createdDate = now.timeIntervalSinceNow
+        apnSummaryObj.createdDate = now.timeIntervalSinceReferenceDate
         apnSummaryObj.name = (profileName.isEmpty ? String(now) : profileName)
         apnSummaryObj.dataType = summaryDataType.rawValue
         if 0 > primaryId {

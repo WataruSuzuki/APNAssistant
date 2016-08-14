@@ -36,6 +36,7 @@
 		F009F3A11D6006A100D428D6 /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F009F3951D6006A000D428D6 /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F009F3AA1D600AE700D428D6 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
 		F009F3AB1D600AE700D428D6 /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
+		F009F3AC1D600D2600D428D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		F04541651D561F7800D4388C /* cellphone-sim-card.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541601D561F7800D4388C /* cellphone-sim-card.png */; };
 		F04541661D561F7800D4388C /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541611D561F7800D4388C /* cellphone.png */; };
 		F04541671D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */; };
@@ -519,6 +520,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F009F39D1D6006A100D428D6 /* MainInterface.storyboard in Resources */,
+				F009F3AC1D600D2600D428D6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

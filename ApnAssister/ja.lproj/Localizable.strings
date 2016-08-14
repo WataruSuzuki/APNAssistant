@@ -44,3 +44,4 @@ share = "共有する";
 edit = "編集する";
 
 tutorial_message = "まだAPNプロファイルがありません。こちらから作成しましょう!!";
+latest_set_profile = "アプリからこの端末にセットしたプロファイル";

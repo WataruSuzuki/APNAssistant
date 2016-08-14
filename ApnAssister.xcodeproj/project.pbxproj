@@ -31,6 +31,10 @@
 		96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */; };
 		9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
+		F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F009F3961D6006A000D428D6 /* NotificationCenter.framework */; };
+		F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3991D6006A100D428D6 /* TodayViewController.swift */; };
+		F009F39D1D6006A100D428D6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F009F39B1D6006A100D428D6 /* MainInterface.storyboard */; };
+		F009F3A11D6006A100D428D6 /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F009F3951D6006A000D428D6 /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F04541651D561F7800D4388C /* cellphone-sim-card.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541601D561F7800D4388C /* cellphone-sim-card.png */; };
 		F04541661D561F7800D4388C /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541611D561F7800D4388C /* cellphone.png */; };
 		F04541671D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */; };
@@ -54,7 +58,28 @@
 			remoteGlobalIDString = 96DA6BF11C9B03FD00E424D5;
 			remoteInfo = ApnAssister;
 		};
+		F009F39F1D6006A100D428D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96DA6BEA1C9B03FD00E424D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F009F3941D6006A000D428D6;
+			remoteInfo = TodayWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F009F3A51D6006A100D428D6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F009F3A11D6006A100D428D6 /* TodayWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0B44900153E03A118779BE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +122,11 @@
 		96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F009F3961D6006A000D428D6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F009F3991D6006A100D428D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		F009F39C1D6006A100D428D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F009F39E1D6006A100D428D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F04541601D561F7800D4388C /* cellphone-sim-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellphone-sim-card.png"; sourceTree = "<group>"; };
 		F04541611D561F7800D4388C /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
 		F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol-1.png"; sourceTree = "<group>"; };
@@ -126,6 +156,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F009F3921D6006A000D428D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +230,7 @@
 				96DA6BF41C9B03FD00E424D5 /* ApnAssister */,
 				96DA6C0B1C9B03FE00E424D5 /* ApnAssisterTests */,
 				96DA6C161C9B03FE00E424D5 /* ApnAssisterUITests */,
+				F009F3981D6006A100D428D6 /* TodayWidget */,
 				96DA6BF31C9B03FD00E424D5 /* Products */,
 				1DD471A10B4D9499B7C426C5 /* Pods */,
 				ABEAB649DE6ACE49732DE041 /* Frameworks */,
@@ -204,6 +243,7 @@
 				96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */,
 				96DA6C081C9B03FE00E424D5 /* ApnAssisterTests.xctest */,
 				96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */,
+				F009F3951D6006A000D428D6 /* TodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,8 +293,19 @@
 			children = (
 				82086984B027390E9C7FD7A4 /* libPods.a */,
 				18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */,
+				F009F3961D6006A000D428D6 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F009F3981D6006A100D428D6 /* TodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F009F3991D6006A100D428D6 /* TodayViewController.swift */,
+				F009F39B1D6006A100D428D6 /* MainInterface.storyboard */,
+				F009F39E1D6006A100D428D6 /* Info.plist */,
+			);
+			path = TodayWidget;
 			sourceTree = "<group>";
 		};
 		F045415E1D561F7800D4388C /* Resources */ = {
@@ -291,10 +342,12 @@
 				18E337D890D28D5FA0BA7FAD /* [CP] Embed Pods Frameworks */,
 				0A709D2A1E243C36B562BF3A /* [CP] Copy Pods Resources */,
 				60AA73A71C9BA73700E41CAE /* ShellScript */,
+				F009F3A51D6006A100D428D6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F009F3A01D6006A100D428D6 /* PBXTargetDependency */,
 			);
 			name = ApnAssister;
 			productName = ApnAssister;
@@ -337,13 +390,30 @@
 			productReference = 96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F009F3941D6006A000D428D6 /* TodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F009F3A41D6006A100D428D6 /* Build configuration list for PBXNativeTarget "TodayWidget" */;
+			buildPhases = (
+				F009F3911D6006A000D428D6 /* Sources */,
+				F009F3921D6006A000D428D6 /* Frameworks */,
+				F009F3931D6006A000D428D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayWidget;
+			productName = TodayWidget;
+			productReference = F009F3951D6006A000D428D6 /* TodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		96DA6BEA1C9B03FD00E424D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = WataruSuzuki;
 				TargetAttributes = {
@@ -364,6 +434,10 @@
 						CreatedOnToolsVersion = 7.2.1;
 						TestTargetID = 96DA6BF11C9B03FD00E424D5;
 					};
+					F009F3941D6006A000D428D6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F35G39V2UB;
+					};
 				};
 			};
 			buildConfigurationList = 96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnAssister" */;
@@ -383,6 +457,7 @@
 				96DA6BF11C9B03FD00E424D5 /* ApnAssister */,
 				96DA6C071C9B03FE00E424D5 /* ApnAssisterTests */,
 				96DA6C121C9B03FE00E424D5 /* ApnAssisterUITests */,
+				F009F3941D6006A000D428D6 /* TodayWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -421,6 +496,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F009F3931D6006A000D428D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F009F39D1D6006A100D428D6 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +606,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F009F3911D6006A000D428D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -535,6 +626,11 @@
 			isa = PBXTargetDependency;
 			target = 96DA6BF11C9B03FD00E424D5 /* ApnAssister */;
 			targetProxy = 96DA6C141C9B03FE00E424D5 /* PBXContainerItemProxy */;
+		};
+		F009F3A01D6006A100D428D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F009F3941D6006A000D428D6 /* TodayWidget */;
+			targetProxy = F009F39F1D6006A100D428D6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -573,6 +669,14 @@
 				60BEE4FC1CA3E0EF005B86B9 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F009F39B1D6006A100D428D6 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F009F39C1D6006A100D428D6 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -670,6 +774,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
@@ -688,6 +793,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
@@ -744,6 +850,34 @@
 			};
 			name = Release;
 		};
+		F009F3A21D6006A100D428D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F009F3A31D6006A100D428D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -782,6 +916,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F009F3A41D6006A100D428D6 /* Build configuration list for PBXNativeTarget "TodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F009F3A21D6006A100D428D6 /* Debug */,
+				F009F3A31D6006A100D428D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,7 +17,6 @@
 		6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
 		60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
-		60BEE4FA1CA3C947005B86B9 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F91CA3C947005B86B9 /* ApnProfileObject.swift */; };
 		60BEE4FF1CA3E185005B86B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5011CA3E185005B86B9 /* InfoPlist.strings */; };
 		60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50D1CA4003F005B86B9 /* TextFieldCell.swift */; };
@@ -35,12 +34,13 @@
 		F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3991D6006A100D428D6 /* TodayViewController.swift */; };
 		F009F39D1D6006A100D428D6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F009F39B1D6006A100D428D6 /* MainInterface.storyboard */; };
 		F009F3A11D6006A100D428D6 /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F009F3951D6006A000D428D6 /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F009F3AA1D600AE700D428D6 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
+		F009F3AB1D600AE700D428D6 /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
 		F04541651D561F7800D4388C /* cellphone-sim-card.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541601D561F7800D4388C /* cellphone-sim-card.png */; };
 		F04541661D561F7800D4388C /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541611D561F7800D4388C /* cellphone.png */; };
 		F04541671D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */; };
 		F04541681D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */; };
 		F04541691D561F7800D4388C /* technology.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541641D561F7800D4388C /* technology.png */; };
-		F0C888421CB76C2900A69ECC /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C888411CB76C2900A69ECC /* ApnSummaryObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,6 @@
 		60AA73A51C9BA3DD00E41CAE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnAssister-Bridging-Header.h"; sourceTree = "<group>"; };
 		60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteApnListViewController.swift; sourceTree = "<group>"; };
-		60BEE4F91CA3C947005B86B9 /* ApnProfileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnProfileObject.swift; sourceTree = "<group>"; };
 		60BEE4FB1CA3E0EE005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		60BEE4FC1CA3E0EF005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		60BEE5001CA3E185005B86B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -128,13 +127,14 @@
 		F009F39C1D6006A100D428D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F009F39E1D6006A100D428D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F009F3A61D60088A00D428D6 /* TodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayWidget.entitlements; sourceTree = "<group>"; };
+		F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnProfileObject.swift; sourceTree = "<group>"; };
+		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 		F04541601D561F7800D4388C /* cellphone-sim-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellphone-sim-card.png"; sourceTree = "<group>"; };
 		F04541611D561F7800D4388C /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
 		F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol-1.png"; sourceTree = "<group>"; };
 		F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol.png"; sourceTree = "<group>"; };
 		F04541641D561F7800D4388C /* technology.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technology.png; sourceTree = "<group>"; };
 		F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnAssister.entitlements; sourceTree = "<group>"; };
-		F0C888411CB76C2900A69ECC /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,8 +206,6 @@
 		60BEE4F81CA3C565005B86B9 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				60BEE4F91CA3C947005B86B9 /* ApnProfileObject.swift */,
-				F0C888411CB76C2900A69ECC /* ApnSummaryObject.swift */,
 				6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */,
 				6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */,
 			);
@@ -252,8 +250,7 @@
 		96DA6BF41C9B03FD00E424D5 /* ApnAssister */ = {
 			isa = PBXGroup;
 			children = (
-				F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */,
-				6082F1B21D536843000B59EA /* htdocs */,
+				F009F3A71D600AE700D428D6 /* Models */,
 				60BEE4F81CA3C565005B86B9 /* Utilities */,
 				60BEE50A1CA3FF42005B86B9 /* Views */,
 				60224E081CA0E2DB00AFB201 /* ViewControllers */,
@@ -266,6 +263,8 @@
 				60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */,
 				60BEE5011CA3E185005B86B9 /* InfoPlist.strings */,
 				60BEE5071CA3E1A4005B86B9 /* Localizable.strings */,
+				F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */,
+				6082F1B21D536843000B59EA /* htdocs */,
 				F045415E1D561F7800D4388C /* Resources */,
 			);
 			path = ApnAssister;
@@ -308,6 +307,15 @@
 				F009F39E1D6006A100D428D6 /* Info.plist */,
 			);
 			path = TodayWidget;
+			sourceTree = "<group>";
+		};
+		F009F3A71D600AE700D428D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */,
+				F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F045415E1D561F7800D4388C /* Resources */ = {
@@ -583,13 +591,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */,
-				F0C888421CB76C2900A69ECC /* ApnSummaryObject.swift in Sources */,
 				6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */,
 				60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */,
+				F009F3AA1D600AE700D428D6 /* ApnProfileObject.swift in Sources */,
 				60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */,
+				F009F3AB1D600AE700D428D6 /* ApnSummaryObject.swift in Sources */,
 				60BEE5101CA40061005B86B9 /* UISwitchCell.swift in Sources */,
 				60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */,
-				60BEE4FA1CA3C947005B86B9 /* ApnProfileObject.swift in Sources */,
 				607165521CB3D28A000BCAF5 /* DownloadProfileListViewController.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,
 				6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */,

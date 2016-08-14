@@ -127,6 +127,7 @@
 		F009F3991D6006A100D428D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		F009F39C1D6006A100D428D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F009F39E1D6006A100D428D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F009F3A61D60088A00D428D6 /* TodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayWidget.entitlements; sourceTree = "<group>"; };
 		F04541601D561F7800D4388C /* cellphone-sim-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellphone-sim-card.png"; sourceTree = "<group>"; };
 		F04541611D561F7800D4388C /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
 		F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol-1.png"; sourceTree = "<group>"; };
@@ -301,6 +302,7 @@
 		F009F3981D6006A100D428D6 /* TodayWidget */ = {
 			isa = PBXGroup;
 			children = (
+				F009F3A61D60088A00D428D6 /* TodayWidget.entitlements */,
 				F009F3991D6006A100D428D6 /* TodayViewController.swift */,
 				F009F39B1D6006A100D428D6 /* MainInterface.storyboard */,
 				F009F39E1D6006A100D428D6 /* Info.plist */,
@@ -437,6 +439,11 @@
 					F009F3941D6006A000D428D6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = F35G39V2UB;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -854,9 +861,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -868,9 +876,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";

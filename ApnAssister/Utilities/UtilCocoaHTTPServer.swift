@@ -21,6 +21,7 @@ class UtilCocoaHTTPServer: NSObject,
     
     var isTagKey = false
     var isTagValue = false
+    var isPayloadDisplayName = false
     
     func startCocoaHTTPServer() {
         cocoaHTTPServer.setType("_http._tcp.")
@@ -191,15 +192,19 @@ class UtilCocoaHTTPServer: NSObject,
             case ProfileXmlTag.APNs:
                 currentParseType = ApnSummaryObject.ApnInfoColumn.APNS
             default:
-                currentParseTag = ApnProfileObject.KeyAPNs(tag: string)
-                break
+                if string == "PayloadDisplayName" {
+                    isPayloadDisplayName = true
+                } else {
+                    currentParseTag = ApnProfileObject.KeyAPNs(tag: string)
+                }
             }
         } else if isTagValue {
-            if string == "PayloadDisplayName" && string != NSLocalizedString("payloadDisplayName", comment: "") {
+            if isPayloadDisplayName && string != NSLocalizedString("payloadDisplayName", comment: "") {
                 readSummaryObjFromFile.name = string
             } else {
                 readSummaryObjFromFile.apnProfile.updateApnProfileColumn(currentParseType, column: currentParseTag, newText: string)
             }
+            isPayloadDisplayName = false
         } else {
             //do nothing
         }

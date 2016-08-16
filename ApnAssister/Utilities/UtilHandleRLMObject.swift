@@ -131,13 +131,26 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
+    static func getAppGroupPathURL() -> NSURL? {
+        return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)
+    }
+    
+    static func getDatabasePathOfAppGroupPathURL() -> NSURL? {
+        return getAppGroupPathURL()?.URLByAppendingPathComponent("profiledatabases")
+    }
+    
+    static func getDefaultRealmDatabaseURL(directoryURL: NSURL?) -> NSURL? {
+        let containerURL = directoryURL?.URLByAppendingPathComponent("default.realm")
+        
+        return containerURL
+    }
+    
     static func setupGroupDB() {
-        let containerPath = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)?.URLByAppendingPathComponent("profiledatabases").URLByAppendingPathComponent("default.realm")
-        //let containerPath = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)?.URLByAppendingPathComponent("default.realm")
-        print(containerPath?.path)
+        let containerURL = getDefaultRealmDatabaseURL(getDatabasePathOfAppGroupPathURL())
+        print(containerURL?.path)
         
         let config = RLMRealmConfiguration.defaultConfiguration()
-        config.fileURL = containerPath
+        config.fileURL = containerURL
         config.schemaVersion = UtilHandleRLMConst.CURRENT_SCHEMA_VERSION
         config.migrationBlock = {(migration, oldSchemaVersion) in
             // 最初のマイグレーションの場合、`oldSchemaVersion`は0です
@@ -159,14 +172,14 @@ class UtilHandleRLMObject: NSObject {
             config.fileURL?.URLByAppendingPathExtension("management")
         ]
         
-        let containerDirectory = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)?.URLByAppendingPathComponent("profiledatabases")
+        let containerDirectory = getDatabasePathOfAppGroupPathURL()
         if nil == containerDirectory?.path
             || !manager.fileExistsAtPath(containerDirectory!.path!)
         {
             try! manager.createDirectoryAtURL(containerDirectory!, withIntermediateDirectories: true, attributes: nil)
         }
         
-        let containerURL = containerDirectory?.URLByAppendingPathComponent("default.realm")
+        let containerURL = getDefaultRealmDatabaseURL(containerDirectory)
         let newURLs = [
             containerURL,
             containerURL?.URLByAppendingPathExtension("lock"),

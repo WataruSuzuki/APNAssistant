@@ -8,9 +8,19 @@
 
 import UIKit
 
-class UtilCocoaHTTPServer: NSObject {
-
+class UtilCocoaHTTPServer: NSObject,
+    NSXMLParserDelegate
+{
     let cocoaHTTPServer = HTTPServer()
+    
+    var didEndParse:((NSXMLParser, ApnSummaryObject) -> Void)?
+    
+    var readSummaryObjFromFile: ApnSummaryObject!
+    var currentParseType = ApnSummaryObject.ApnInfoColumn.MAX
+    var currentParseTag = ApnProfileObject.KeyAPNs.MAX
+    
+    var isTagKey = false
+    var isTagValue = false
     
     func startCocoaHTTPServer() {
         cocoaHTTPServer.setType("_http._tcp.")
@@ -50,6 +60,19 @@ class UtilCocoaHTTPServer: NSObject {
         }
         
         return targetDirectory!.path! + "/"
+    }
+    
+    func readLatestSavedMobileConfigProfile() {
+        startReadMobileCongigProfile(getConfigProfileFilePath())
+    }
+    
+    func startReadMobileCongigProfile(path: String) {
+        if let parser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: path)) {
+            parser.delegate = self
+            readSummaryObjFromFile = ApnSummaryObject()
+            readSummaryObjFromFile.apnProfile = ApnProfileObject()
+            parser.parse()
+        }
     }
     
     func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject) {
@@ -134,5 +157,57 @@ class UtilCocoaHTTPServer: NSObject {
         
         let resourcePath = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType)
         try! fileManager.copyItemAtPath(resourcePath!, toPath: filePath)
+    }
+    
+    // MARK: - NSXMLParserDelegate
+    func parserDidStartDocument(parser: NSXMLParser) {
+        //do nothing
+    }
+    
+    func parserDidEndDocument(parser: NSXMLParser) {
+        self.didEndParse?(parser, readSummaryObjFromFile)
+    }
+    
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        
+        switch elementName {
+        case "key":
+            isTagKey = true
+            
+        case "string": fallthrough
+        case "integer":
+            isTagValue = true
+            break
+        default:
+            break
+        }
+    }
+    
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
+        if isTagKey {
+            switch string {
+            case ProfileXmlTag.AttachAPN:
+                currentParseType = ApnSummaryObject.ApnInfoColumn.ATTACH_APN
+            case ProfileXmlTag.APNs:
+                currentParseType = ApnSummaryObject.ApnInfoColumn.APNS
+            default:
+                currentParseTag = ApnProfileObject.KeyAPNs(tag: string)
+                break
+            }
+        } else if isTagValue {
+            if string == "PayloadDisplayName" && string != NSLocalizedString("payloadDisplayName", comment: "") {
+                readSummaryObjFromFile.name = string
+            } else {
+                readSummaryObjFromFile.apnProfile.updateApnProfileColumn(currentParseType, column: currentParseTag, newText: string)
+            }
+        } else {
+            //do nothing
+        }
+        
+    }
+    
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        isTagKey = false
+        isTagValue = false
     }
 }

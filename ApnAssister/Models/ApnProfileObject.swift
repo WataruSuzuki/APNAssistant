@@ -8,6 +8,17 @@
 
 import UIKit
 
+struct ProfileXmlTag {
+    static let AttachAPN = "AttachAPN"
+    static let APNs = "APNs"
+    static let Name = "Name"
+    static let Username = "Username"
+    static let Password = "Password"
+    static let AuthenticationType = "AuthenticationType"
+    static let ProxyServer = "ProxyServer"
+    static let ProxyPort = "ProxyPort"
+}
+
 class ApnProfileObject: RLMObject {
 
     dynamic var apnsName = ""
@@ -79,6 +90,25 @@ class ApnProfileObject: RLMObject {
         PROXY_SERVER,
         PROXY_SERVER_PORT,
         MAX
+        
+        init(tag: String) {
+            switch tag {
+            case ProfileXmlTag.Name:
+                self = .NAME
+            case ProfileXmlTag.AuthenticationType:
+                self = .AUTHENTICATION_TYPE
+            case ProfileXmlTag.Username:
+                self = .USERNAME
+            case ProfileXmlTag.Password:
+                self = .PASSWORD
+            case ProfileXmlTag.ProxyServer:
+                self = .PROXY_SERVER
+            case ProfileXmlTag.ProxyPort:
+                self = .PROXY_SERVER_PORT
+            default:
+                self = .MAX
+            }
+        }
         
         func getTitle(type: ApnSummaryObject.ApnInfoColumn) -> String {
             switch self {

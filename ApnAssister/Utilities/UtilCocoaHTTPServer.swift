@@ -16,7 +16,7 @@ class UtilCocoaHTTPServer: NSObject {
         cocoaHTTPServer.setType("_http._tcp.")
         cocoaHTTPServer.setPort(8080)
         
-        cocoaHTTPServer.setDocumentRoot(NSHomeDirectory() + "/Documents/")
+        cocoaHTTPServer.setDocumentRoot(getProfilesAppGroupPath())
         do {
             try cocoaHTTPServer.start()
         } catch  _ as NSError{
@@ -30,12 +30,26 @@ class UtilCocoaHTTPServer: NSObject {
     }
     
     func getConfigProfileFilePath() -> String {
-        // build the path where you're going to save the HTML
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let filePath = documentsPath + "/" + "profile.mobileconfig"
+        return getTargetFilePath("profile", fileType: ".mobileconfig")
+    }
+    
+    func getTargetFilePath(fileName: String, fileType: String) -> String {
+        let filePath = getProfilesAppGroupPath() + fileName + fileType
         print(filePath)
         
         return filePath
+    }
+    
+    func getProfilesAppGroupPath() -> String {
+        let fileManager = NSFileManager.defaultManager()
+        let targetDirectory = UtilHandleRLMObject.getAppGroupPathURL()?.URLByAppendingPathComponent("apnassistant")
+        if nil == targetDirectory?.path
+            || !fileManager.fileExistsAtPath(targetDirectory!.path!)
+        {
+            try! fileManager.createDirectoryAtURL(targetDirectory!, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        return targetDirectory!.path! + "/"
     }
     
     func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject) {
@@ -112,8 +126,7 @@ class UtilCocoaHTTPServer: NSObject {
     }
     
     func copyHtmlFilesFromResource(fileManager: NSFileManager, fileName: String, fileType: String) {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-        let filePath = documentsPath + "/" + fileName + fileType
+        let filePath = getTargetFilePath(fileName, fileType: fileType)
         
         if fileManager.fileExistsAtPath(filePath) {
             try! fileManager.removeItemAtPath(filePath)

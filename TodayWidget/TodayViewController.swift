@@ -14,7 +14,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelProfileName: UILabel!
     @IBOutlet weak var labelApnName: UILabel!
-    //@IBOutlet weak var buttonOpenApp: UIButton!
+    @IBOutlet weak var buttonOpenApp: UIButton!
     
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
 
@@ -23,6 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view from its nib.
         
         labelTitle.text = NSLocalizedString("latest_set_profile", comment: "")
+        buttonOpenApp.titleLabel?.text = NSLocalizedString("openApp", comment: "")
         
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
             self.labelProfileName.text = obj.name

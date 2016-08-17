@@ -19,49 +19,55 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXP-zB-yM1">
                                 <rect key="frame" x="20" y="8" width="191" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Eh5-Kv-heD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-ni-5DB">
-                                <rect key="frame" x="219" y="8" width="81" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTh-ep-Qt8">
+                                <rect key="frame" x="36" y="36" width="175" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="apn name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-gF-jLW">
+                                <rect key="frame" x="56" y="68" width="155" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="81" id="5MF-nz-zKQ"/>
-                                    <constraint firstAttribute="height" constant="49" id="G9D-9I-Jdo"/>
+                                    <constraint firstAttribute="width" constant="155" id="mLD-za-tKx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-ni-5DB">
+                                <rect key="frame" x="219" y="24" width="81" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="MHe-Nb-AVq"/>
+                                    <constraint firstAttribute="width" constant="81" id="TjG-HD-4uU"/>
                                 </constraints>
                                 <state key="normal" title="Open App"/>
                                 <connections>
                                     <action selector="tapOpenAppButton:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="BGP-JW-sf6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTh-ep-Qt8">
-                                <rect key="frame" x="36" y="36" width="175" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="apn name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-gF-jLW">
-                                <rect key="frame" x="56" y="65" width="155" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="MKu-gF-jLW" firstAttribute="top" secondItem="JTh-ep-Qt8" secondAttribute="bottom" constant="8" id="0WG-wc-qXh"/>
-                            <constraint firstItem="MKu-gF-jLW" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="56" id="6Ih-jg-h9L"/>
-                            <constraint firstItem="JTh-ep-Qt8" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="36" id="A0O-eg-fjM"/>
-                            <constraint firstItem="V3q-ni-5DB" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="Bnd-yL-alI"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="V3q-ni-5DB" secondAttribute="bottom" constant="40" id="G4I-Wa-pck"/>
-                            <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="JTh-ep-Qt8" secondAttribute="trailing" constant="8" id="Jib-Sx-KYU"/>
-                            <constraint firstItem="lXP-zB-yM1" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="20" id="Kbo-DI-jWc"/>
-                            <constraint firstItem="JTh-ep-Qt8" firstAttribute="top" secondItem="lXP-zB-yM1" secondAttribute="bottom" constant="7" id="Scs-jo-2cv"/>
-                            <constraint firstItem="lXP-zB-yM1" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="XDb-9E-kdj"/>
-                            <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="JTh-ep-Qt8" secondAttribute="trailing" constant="8" id="ZA5-CC-Vhd"/>
-                            <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="lXP-zB-yM1" secondAttribute="trailing" constant="8" id="dTN-kE-o0x"/>
-                            <constraint firstAttribute="trailing" secondItem="V3q-ni-5DB" secondAttribute="trailing" constant="20" id="gto-bb-292"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="MKu-gF-jLW" secondAttribute="bottom" constant="11" id="n4V-mM-pfX"/>
-                            <constraint firstAttribute="trailing" secondItem="MKu-gF-jLW" secondAttribute="trailing" constant="109" id="osO-vY-uzl"/>
+                            <constraint firstAttribute="trailing" secondItem="MKu-gF-jLW" secondAttribute="trailing" constant="109" id="A3f-Up-uhm"/>
+                            <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="lXP-zB-yM1" secondAttribute="trailing" constant="8" id="B1w-EP-ucE"/>
+                            <constraint firstItem="lXP-zB-yM1" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="20" id="N0l-pX-XUW"/>
+                            <constraint firstItem="MKu-gF-jLW" firstAttribute="top" secondItem="JTh-ep-Qt8" secondAttribute="bottom" constant="9" id="P1Y-Hv-JhJ"/>
+                            <constraint firstItem="JTh-ep-Qt8" firstAttribute="top" secondItem="lXP-zB-yM1" secondAttribute="bottom" constant="7" id="S7J-Bi-3At"/>
+                            <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="JTh-ep-Qt8" secondAttribute="trailing" constant="8" id="SKa-go-WZk"/>
+                            <constraint firstItem="JTh-ep-Qt8" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="36" id="Vjp-qa-PcC"/>
+                            <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="JTh-ep-Qt8" secondAttribute="trailing" constant="8" id="cbm-Ez-aK9"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="MKu-gF-jLW" secondAttribute="bottom" constant="11" id="cby-WI-j2u"/>
+                            <constraint firstItem="lXP-zB-yM1" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="hIf-TV-378"/>
+                            <constraint firstItem="MKu-gF-jLW" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="56" id="hIh-Z6-AnD"/>
+                            <constraint firstItem="JTh-ep-Qt8" firstAttribute="top" secondItem="lXP-zB-yM1" secondAttribute="bottom" constant="7" id="hsc-gA-Sm6"/>
+                            <constraint firstItem="V3q-ni-5DB" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="qMV-Lb-Nph"/>
+                            <constraint firstAttribute="trailing" secondItem="V3q-ni-5DB" secondAttribute="trailing" constant="20" id="rCA-9w-hkl"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -71,6 +77,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="97"/>
                     <connections>
+                        <outlet property="buttonOpenApp" destination="V3q-ni-5DB" id="yPb-vg-2SG"/>
                         <outlet property="labelApnName" destination="MKu-gF-jLW" id="PWn-dm-zas"/>
                         <outlet property="labelProfileName" destination="JTh-ep-Qt8" id="3Tn-GM-oFp"/>
                         <outlet property="labelTitle" destination="lXP-zB-yM1" id="AsI-0I-Oht"/>

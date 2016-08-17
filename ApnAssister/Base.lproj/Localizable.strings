@@ -46,3 +46,5 @@ cancel = "Cancel";
 tutorial_message = "No APN profile are available. You can create new one to tap here!!";
 latest_set_profile = "Profile latest set to device";
 unknown = "Unknown...";
+openApp = "Open app";
+

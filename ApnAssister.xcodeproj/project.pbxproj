@@ -12,7 +12,6 @@
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
 		6052A18F1D63E28C00A3B8CE /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
 		6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
-		6052A1931D63E2E500A3B8CE /* EmptyObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6052A1921D63E2E500A3B8CE /* EmptyObjC.m */; };
 		6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
 		6052A1951D63E34C00A3B8CE /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
 		6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
@@ -109,7 +108,6 @@
 		60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditApnViewController.swift; sourceTree = "<group>"; };
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
 		6052A1911D63E2E500A3B8CE /* TodayWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TodayWidget-Bridging-Header.h"; sourceTree = "<group>"; };
-		6052A1921D63E2E500A3B8CE /* EmptyObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyObjC.m; sourceTree = "<group>"; };
 		6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilHandleRLMObject.swift; sourceTree = "<group>"; };
 		607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadProfileListViewController.swift; sourceTree = "<group>"; };
 		6082F1B31D536843000B59EA /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 				F009F3991D6006A100D428D6 /* TodayViewController.swift */,
 				F009F39B1D6006A100D428D6 /* MainInterface.storyboard */,
 				F009F39E1D6006A100D428D6 /* Info.plist */,
-				6052A1921D63E2E500A3B8CE /* EmptyObjC.m */,
 				6052A1911D63E2E500A3B8CE /* TodayWidget-Bridging-Header.h */,
 			);
 			path = TodayWidget;
@@ -708,7 +705,6 @@
 				6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */,
 				6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */,
 				6052A1951D63E34C00A3B8CE /* UtilCocoaHTTPServer.swift in Sources */,
-				6052A1931D63E2E500A3B8CE /* EmptyObjC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

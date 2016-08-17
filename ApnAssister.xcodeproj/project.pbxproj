@@ -423,7 +423,6 @@
 				F009F3911D6006A000D428D6 /* Sources */,
 				F009F3921D6006A000D428D6 /* Frameworks */,
 				F009F3931D6006A000D428D6 /* Resources */,
-				F0A7F7F20DDA70CD966784AE /* [CP] Embed Pods Frameworks */,
 				0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */,
 				F04DB17F1D6494BA00998852 /* ShellScript */,
 			);
@@ -630,21 +629,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/\\./ })\n\n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n    # get the minor version from the last array element\n    minorVersion=${arrIN[${lastElementPosition}]}\n    # Increase it by 1\n    minorVersion=$((minorVersion+1))\n    # Format it as 3 digit\n    #minorVersion=`printf \"%03d\" $minorVersion`\n    echo \"New minor version $minorVersion\"\n    # Update it on the array\n    arrIN[$lastElementPosition]=$minorVersion\n    \n    # construct the build number now by joining the array\n    buildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n    \n    echo \"New Build number $buildNumber\"\n    \n    #update it in plist\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n    \n    fi";
-		};
-		F0A7F7F20DDA70CD966784AE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		F91EE9737E46D0E6D5F451D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

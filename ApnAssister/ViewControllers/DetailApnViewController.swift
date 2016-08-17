@@ -200,7 +200,8 @@ class DetailApnViewController: UITableViewController,
     }
     
     func handleUpdateDeviceApn(){
-        self.myUtilCocoaHTTPServer.openSettingAppToSetProfile(self.myUtilHandleRLMObject)
+        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
+        UIApplication.sharedApplication().openURL(url)
     }
     
     func handleShareApn(){

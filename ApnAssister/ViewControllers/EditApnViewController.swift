@@ -230,7 +230,8 @@ class EditApnViewController: UITableViewController,
         self.delegate.didFinishEditApn(myUtilHandleRLMObject.apnSummaryObj)
         self.dismissViewControllerAnimated(true) { 
             if isUpdateNow {
-                self.myUtilCocoaHTTPServer.openSettingAppToSetProfile(self.myUtilHandleRLMObject)
+                let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
+                UIApplication.sharedApplication().openURL(url)
             }
         }
     }

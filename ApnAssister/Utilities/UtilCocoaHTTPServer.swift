@@ -138,14 +138,14 @@ class UtilCocoaHTTPServer: NSObject,
         copyHtmlFilesFromResource(fileManager, fileName: "configrationProfile",fileType: ".html")
     }
     
-    func openSettingAppToSetProfile(rlmObject: UtilHandleRLMObject) {
+    func prepareOpenSettingAppToSetProfile(rlmObject: UtilHandleRLMObject) -> NSURL {
         writeMobileConfigProfile(rlmObject)
         startCocoaHTTPServer()
         
         if #available(iOS 9.0, *) {
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://localhost:8080")!)
+            return NSURL(string: "http://localhost:8080")!
         } else {
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://localhost:8080" + "/profile.mobileconfig")!)
+            return NSURL(string: "http://localhost:8080" + "/profile.mobileconfig")!
         }
     }
     

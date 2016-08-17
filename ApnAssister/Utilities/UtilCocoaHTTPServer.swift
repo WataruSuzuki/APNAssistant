@@ -69,14 +69,17 @@ class UtilCocoaHTTPServer: NSObject,
     
     func startReadMobileCongigProfile(path: String) {
         readSummaryObjFromFile = ApnSummaryObject()
-        if let parser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: path)) {
-            parser.delegate = self
-            readSummaryObjFromFile.apnProfile = ApnProfileObject()
-            parser.parse()
-        } else {
-            readSummaryObjFromFile.name = NSLocalizedString("unknown", comment: "")
-            self.didEndParse?(NSXMLParser(), readSummaryObjFromFile)
+        let fileManager = NSFileManager.defaultManager()
+        if fileManager.fileExistsAtPath(path) {
+            if let parser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: path)) {
+                parser.delegate = self
+                readSummaryObjFromFile.apnProfile = ApnProfileObject()
+                parser.parse()
+                return
+            }
         }
+        readSummaryObjFromFile.name = NSLocalizedString("unknown", comment: "")
+        self.didEndParse?(NSXMLParser(), readSummaryObjFromFile)
     }
     
     func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject) {

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Today View Controller-->
@@ -27,7 +26,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-ni-5DB">
                                 <rect key="frame" x="219" y="8" width="81" height="49"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="V3q-ni-5DB" secondAttribute="height" multiplier="81:49" id="6ps-qT-mxd"/>
+                                    <constraint firstAttribute="width" constant="81" id="5MF-nz-zKQ"/>
+                                    <constraint firstAttribute="height" constant="49" id="G9D-9I-Jdo"/>
                                 </constraints>
                                 <state key="normal" title="Open App"/>
                                 <connections>

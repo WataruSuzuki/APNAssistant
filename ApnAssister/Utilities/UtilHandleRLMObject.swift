@@ -163,14 +163,20 @@ class UtilHandleRLMObject: NSObject {
         RLMRealmConfiguration.setDefaultConfiguration(config)
     }
     
+    static func getRealmDatabaseFiles(targetURL: NSURL?) -> [NSURL?] {
+        let URLs = [
+            targetURL,
+            targetURL?.URLByAppendingPathExtension("lock"),
+            targetURL?.URLByAppendingPathExtension("management")
+        ]
+        
+        return URLs
+    }
+    
     static func copyToGroupDB() {
         let manager = NSFileManager.defaultManager()
         let config = RLMRealmConfiguration.defaultConfiguration()
-        let oldURLs = [
-            config.fileURL,
-            config.fileURL?.URLByAppendingPathExtension("lock"),
-            config.fileURL?.URLByAppendingPathExtension("management")
-        ]
+        let oldURLs = getRealmDatabaseFiles(config.fileURL)
         
         let containerDirectory = getDatabasePathOfAppGroupPathURL()
         if nil == containerDirectory?.path
@@ -180,11 +186,7 @@ class UtilHandleRLMObject: NSObject {
         }
         
         let containerURL = getDefaultRealmDatabaseURL(containerDirectory)
-        let newURLs = [
-            containerURL,
-            containerURL?.URLByAppendingPathExtension("lock"),
-            containerURL?.URLByAppendingPathExtension("management")
-        ]
+        let newURLs = getRealmDatabaseFiles(containerURL)
         
         var index = 0
         for oldURL in oldURLs {

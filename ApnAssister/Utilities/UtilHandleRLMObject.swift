@@ -132,7 +132,7 @@ class UtilHandleRLMObject: NSObject {
     }
     
     static func getAppGroupPathURL() -> NSURL? {
-        return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!)
+        return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!.stringByReplacingOccurrencesOfString(".TodayWidget", withString: ""))
     }
     
     static func getDatabasePathOfAppGroupPathURL() -> NSURL? {

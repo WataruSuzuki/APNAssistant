@@ -23,11 +23,6 @@ class DetailApnViewController: UITableViewController,
         loadTargetSummaryObj()
         let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
         self.navigationItem.rightBarButtonItem = menuButton
-        
-        myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
-            print(obj.debugDescription)
-        }
-        myUtilCocoaHTTPServer.readLatestSavedMobileConfigProfile()
     }
 
     override func didReceiveMemoryWarning() {

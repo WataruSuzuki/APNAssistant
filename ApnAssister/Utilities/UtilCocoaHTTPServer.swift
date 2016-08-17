@@ -68,11 +68,14 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func startReadMobileCongigProfile(path: String) {
+        readSummaryObjFromFile = ApnSummaryObject()
         if let parser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: path)) {
             parser.delegate = self
-            readSummaryObjFromFile = ApnSummaryObject()
             readSummaryObjFromFile.apnProfile = ApnProfileObject()
             parser.parse()
+        } else {
+            readSummaryObjFromFile.name = NSLocalizedString("unknown", comment: "")
+            self.didEndParse?(NSXMLParser(), readSummaryObjFromFile)
         }
     }
     

@@ -20,7 +20,7 @@ class EditApnViewController: UITableViewController,
     
     var editingApnSummaryObj: ApnSummaryObject?
     var isCompFirstRespond = false
-    var isSetDataApnManually = true
+    var isSetDataApnManually = false
     
     var delegate: EditApnViewControllerDelegate!
 

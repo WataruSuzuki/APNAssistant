@@ -10,6 +10,11 @@ import UIKit
 
 class SegmentedCtrlCell: UITableViewCell {
 
+    @IBOutlet weak var myUILabel: UILabel!
+    @IBOutlet weak var myUISegmentedControl: UISegmentedControl!
+    
+    var didChangeValue:((UISegmentedControl) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +26,25 @@ class SegmentedCtrlCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func changeSegmentedCtrl(sender: UISegmentedControl) {
+        self.didChangeValue?(sender)
+    }
+    
+    enum SegmentAuthType: Int {
+        case CHAP = 0,
+        PAP
+        
+        init(type: String) {
+            switch type {
+            case PAP.toString():  self = .PAP
+            case CHAP.toString(): fallthrough
+            default:
+                self = .CHAP
+            }
+        }
+        
+        func toString() -> String {
+            return String(self)
+        }
+    }
 }

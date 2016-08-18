@@ -33,6 +33,7 @@ class EditApnViewController: UITableViewController,
         
         registerCustomCell("TextFieldCell")
         registerCustomCell("UISwitchCell")
+        registerCustomCell("SegmentedCtrlCell")
         
         if nil != editingApnSummaryObj {
             myUtilHandleRLMObject = UtilHandleRLMObject(id: editingApnSummaryObj!.id, profileObj: editingApnSummaryObj!.apnProfile, summaryObj: editingApnSummaryObj!)
@@ -104,8 +105,31 @@ class EditApnViewController: UITableViewController,
         case .ATTACH_APN: fallthrough
         default: break
         }
-
-        return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
+        
+        if indexPath.row == ApnProfileObject.KeyAPNs.AUTHENTICATION_TYPE.rawValue {
+            return loadSegmentedCtrlCell(tableView, cellForRowAtIndexPath: indexPath)
+        } else {
+            return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
+        }
+    }
+    
+    func getTypeAndColumn(indexPath: NSIndexPath) -> (ApnSummaryObject.ApnInfoColumn, ApnProfileObject.KeyAPNs) {
+        let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)!
+        let column = ApnProfileObject.KeyAPNs(rawValue: (type == .APNS ? indexPath.row - 1 : indexPath.row))!
+        
+        return (type, column)
+    }
+    
+    func loadSegmentedCtrlCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> SegmentedCtrlCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("SegmentedCtrlCell", forIndexPath: indexPath) as! SegmentedCtrlCell
+        let typeAndColumn = getTypeAndColumn(indexPath)
+        cell.myUILabel?.text = typeAndColumn.1.getTitle(typeAndColumn.0)
+        cell.didChangeValue = { (segmentedCtrl) in
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1, newText: SegmentedCtrlCell.SegmentAuthType(rawValue: segmentedCtrl.selectedSegmentIndex)!.toString())
+        }
+        cell.myUISegmentedControl.selectedSegmentIndex = SegmentedCtrlCell.SegmentAuthType(type: myUtilHandleRLMObject.getKeptApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1)).rawValue
+        
+        return cell
     }
     
     func loadSummaryApnProfileCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
@@ -161,13 +185,12 @@ class EditApnViewController: UITableViewController,
     func loadTextFieldCell(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> TextFieldCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TextFieldCell", forIndexPath: indexPath) as! TextFieldCell
         
-        let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)!
-        let column = ApnProfileObject.KeyAPNs(rawValue: (type == .APNS ? indexPath.row - 1 : indexPath.row))!
-        cell.myUILabel?.text = column.getTitle(type)
-        cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+        let typeAndColumn = getTypeAndColumn(indexPath)
+        cell.myUILabel?.text = typeAndColumn.1.getTitle(typeAndColumn.0)
+        cell.myUITextField.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1)
         cell.myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
         
-        switch column {
+        switch typeAndColumn.1 {
         case ApnProfileObject.KeyAPNs.PROXY_SERVER_PORT:
             cell.myUITextField.keyboardType = .NumberPad
             cell.myUITextField.secureTextEntry = false
@@ -185,11 +208,11 @@ class EditApnViewController: UITableViewController,
             //do nothing
         }
         cell.didEndEditing = {(textField) in
-            self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: textField.text!)
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1, newText: textField.text!)
         }
         cell.shouldChangeCharactersInRange = {(textField, range, string) in
             let newText = self.getNewChangeCharactersInRange(textField, range: range, string: string)
-            self.myUtilHandleRLMObject.keepApnProfileColumnValue(type, column: column, newText: newText)
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1, newText: newText)
             return true
         }
         

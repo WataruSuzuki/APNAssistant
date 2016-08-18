@@ -237,9 +237,9 @@
 			children = (
 				60BEE50D1CA4003F005B86B9 /* TextFieldCell.swift */,
 				60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */,
+				602A462F1D65483A00ED22D6 /* SegmentedCtrlCell.swift */,
 				60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */,
 				60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */,
-				602A462F1D65483A00ED22D6 /* SegmentedCtrlCell.swift */,
 				602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */,
 			);
 			path = Views;

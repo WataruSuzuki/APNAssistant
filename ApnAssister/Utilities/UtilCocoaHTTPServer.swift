@@ -83,7 +83,7 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject) {
-        let payloadDisplayName = NSLocalizedString("payloadDisplayName", comment: "")
+        let payloadDescription = NSLocalizedString("payloadDescription", comment: "")
         let bundleID = NSBundle.mainBundle().bundleIdentifier!
         let UUID_forIdentifier = "f9dbd18b-90ff-58c1-8605-5abae9c50691"
         let UUID_forDescription = "4be0643f-1d98-573b-97cd-ca98a65347dd"
@@ -120,7 +120,7 @@ class UtilCocoaHTTPServer: NSObject,
         profileXml += "</dict>"
         
         //PayloadDescription
-        profileXml += "<key>PayloadDescription</key><string>" + String(NSDate.init(timeIntervalSinceReferenceDate: rlmObject.apnSummaryObj.createdDate)) + "</string>"
+        profileXml += "<key>PayloadDescription</key><string>" + payloadDescription + "</string>"
         profileXml += "<key>PayloadDisplayName</key><string>" + rlmObject.apnSummaryObj.name + "</string>"
         profileXml += "<key>PayloadIdentifier</key><string>" + bundleID + "</string>"
         profileXml += "<key>PayloadType</key><string>com.apple.cellular</string>"
@@ -128,7 +128,7 @@ class UtilCocoaHTTPServer: NSObject,
         profileXml += "<key>PayloadVersion</key><real>1</real></dict></array>"
         
         //PayloadDisplayName
-        profileXml += "<key>PayloadDisplayName</key><string>" + payloadDisplayName + "</string>"
+        profileXml += "<key>PayloadDisplayName</key><string>" + rlmObject.apnSummaryObj.name + "</string>"
         profileXml += "<key>PayloadIdentifier</key><string>" + bundleID + "</string>"
         profileXml += "<key>PayloadRemovalDisallowed</key><false/>"
         profileXml += "<key>PayloadType</key><string>Configuration</string>"
@@ -205,7 +205,7 @@ class UtilCocoaHTTPServer: NSObject,
                 }
             }
         } else if isTagValue {
-            if isPayloadDisplayName && string != NSLocalizedString("payloadDisplayName", comment: "") {
+            if isPayloadDisplayName {
                 readSummaryObjFromFile.name = string
             } else {
                 readSummaryObjFromFile.apnProfile.updateApnProfileColumn(currentParseType, column: currentParseTag, newText: string)

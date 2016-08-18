@@ -94,7 +94,8 @@ class UtilCocoaHTTPServer: NSObject,
         var profileXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\"><plist version=\"1.0\"><dict><key>PayloadContent</key><array><dict>"
         
         //APNs
-        profileXml += "<key>APNs</key><array><dict><key>AuthenticationType</key><string>CHAP</string>"
+        profileXml += "<key>APNs</key><array><dict>"
+        profileXml += "<key>AuthenticationType</key><string>" + rlmObject.apnProfileObj.apnsAuthenticationType + "</string>"
         profileXml += "<key>Name</key><string>" + rlmObject.apnProfileObj.apnsName + "</string>"
         if !rlmObject.apnProfileObj.apnsPassword.isEmpty {
             profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.apnsPassword + "</string>"
@@ -111,7 +112,8 @@ class UtilCocoaHTTPServer: NSObject,
         profileXml += "</dict></array>"
         
         //AttachAPN
-        profileXml += "<key>AttachAPN</key><dict><key>AuthenticationType</key><string>CHAP</string>"
+        profileXml += "<key>AttachAPN</key><dict>"
+        profileXml += "<key>AuthenticationType</key><string>" + rlmObject.apnProfileObj.attachApnAuthenticationType + "</string>"
         profileXml += "<key>Name</key><string>" + rlmObject.apnProfileObj.attachApnName + "</string>"
         if !rlmObject.apnProfileObj.attachApnPassword.isEmpty {
             profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.attachApnPassword + "</string>"

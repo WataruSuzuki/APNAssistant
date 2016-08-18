@@ -10,6 +10,7 @@
 		602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
+		602A462B1D65377000ED22D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 602A462D1D65377000ED22D6 /* InfoPlist.strings */; };
 		6052A18F1D63E28C00A3B8CE /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
 		6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
 		6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
@@ -97,6 +98,8 @@
 		602211F61CC7395B0065D37D /* DetailApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailApnViewController.swift; sourceTree = "<group>"; };
 		60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditApnViewController.swift; sourceTree = "<group>"; };
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
+		602A462C1D65377000ED22D6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		602A462E1D65379100ED22D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6052A1911D63E2E500A3B8CE /* TodayWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TodayWidget-Bridging-Header.h"; sourceTree = "<group>"; };
 		6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilHandleRLMObject.swift; sourceTree = "<group>"; };
 		607165511CB3D28A000BCAF5 /* DownloadProfileListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadProfileListViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +323,7 @@
 				F009F39B1D6006A100D428D6 /* MainInterface.storyboard */,
 				F009F39E1D6006A100D428D6 /* Info.plist */,
 				6052A1911D63E2E500A3B8CE /* TodayWidget-Bridging-Header.h */,
+				602A462D1D65377000ED22D6 /* InfoPlist.strings */,
 			);
 			path = TodayWidget;
 			sourceTree = "<group>";
@@ -537,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F009F39D1D6006A100D428D6 /* MainInterface.storyboard in Resources */,
+				602A462B1D65377000ED22D6 /* InfoPlist.strings in Resources */,
 				F009F3AC1D600D2600D428D6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -716,6 +721,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		602A462D1D65377000ED22D6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				602A462C1D65377000ED22D6 /* ja */,
+				602A462E1D65379100ED22D6 /* Base */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		60BEE5011CA3E185005B86B9 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

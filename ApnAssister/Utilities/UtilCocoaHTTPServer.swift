@@ -12,6 +12,8 @@ class UtilCocoaHTTPServer: NSObject,
     NSXMLParserDelegate
 {
     let cocoaHTTPServer = HTTPServer()
+    let fileNameSetting = "to-setting"
+    let fileNameShare = "apn-assistant"
     
     var didEndParse:((NSXMLParser, ApnSummaryObject) -> Void)?
     
@@ -36,12 +38,12 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func getProfileUrl(rlmObject: UtilHandleRLMObject) -> NSURL {
-        writeMobileConfigProfile(rlmObject)
-        return NSURL(fileURLWithPath: getConfigProfileFilePath())
+        writeMobileConfigProfile(rlmObject, fileName: fileNameShare)
+        return NSURL(fileURLWithPath: getConfigProfileFilePath(fileNameShare))
     }
     
-    func getConfigProfileFilePath() -> String {
-        return getTargetFilePath("profile", fileType: ".mobileconfig")
+    func getConfigProfileFilePath(fileName: String) -> String {
+        return getTargetFilePath(fileName, fileType: ".mobileconfig")
     }
     
     func getTargetFilePath(fileName: String, fileType: String) -> String {
@@ -64,7 +66,7 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func readLatestSavedMobileConfigProfile() {
-        startReadMobileCongigProfile(getConfigProfileFilePath())
+        startReadMobileCongigProfile(getConfigProfileFilePath(fileNameSetting))
     }
     
     func startReadMobileCongigProfile(path: String) {
@@ -82,7 +84,7 @@ class UtilCocoaHTTPServer: NSObject,
         self.didEndParse?(NSXMLParser(), readSummaryObjFromFile)
     }
     
-    func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject) {
+    func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject, fileName: String) {
         let payloadDescription = NSLocalizedString("payloadDescription", comment: "")
         let bundleID = NSBundle.mainBundle().bundleIdentifier!
         let UUID_forIdentifier = "f9dbd18b-90ff-58c1-8605-5abae9c50691"
@@ -137,7 +139,7 @@ class UtilCocoaHTTPServer: NSObject,
         
         // save the String that contains the HTML to a file
         //try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
-        try! profileXml.writeToFile(getConfigProfileFilePath(), atomically: true, encoding: NSUTF8StringEncoding)
+        try! profileXml.writeToFile(getConfigProfileFilePath(fileName), atomically: true, encoding: NSUTF8StringEncoding)
         
         let fileManager = NSFileManager.defaultManager()
         copyHtmlFilesFromResource(fileManager, fileName: "index",fileType: ".html")
@@ -145,7 +147,7 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func prepareOpenSettingAppToSetProfile(rlmObject: UtilHandleRLMObject) -> NSURL {
-        writeMobileConfigProfile(rlmObject)
+        writeMobileConfigProfile(rlmObject, fileName: fileNameSetting)
         startCocoaHTTPServer()
         
         if #available(iOS 9.0, *) {

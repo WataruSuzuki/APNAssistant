@@ -95,7 +95,8 @@ class UtilCocoaHTTPServer: NSObject,
         
         //APNs
         profileXml += "<key>APNs</key><array><dict>"
-        profileXml += "<key>AuthenticationType</key><string>" + rlmObject.apnProfileObj.apnsAuthenticationType + "</string>"
+        let apnsAuthType = (rlmObject.apnProfileObj.apnsAuthenticationType.isEmpty ? "CHAP" : rlmObject.apnProfileObj.apnsAuthenticationType)
+        profileXml += "<key>AuthenticationType</key><string>" + apnsAuthType + "</string>"
         profileXml += "<key>Name</key><string>" + rlmObject.apnProfileObj.apnsName + "</string>"
         if !rlmObject.apnProfileObj.apnsPassword.isEmpty {
             profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.apnsPassword + "</string>"
@@ -113,7 +114,8 @@ class UtilCocoaHTTPServer: NSObject,
         
         //AttachAPN
         profileXml += "<key>AttachAPN</key><dict>"
-        profileXml += "<key>AuthenticationType</key><string>" + rlmObject.apnProfileObj.attachApnAuthenticationType + "</string>"
+        let attachAuthType = (rlmObject.apnProfileObj.attachApnAuthenticationType.isEmpty ? "CHAP" : rlmObject.apnProfileObj.attachApnAuthenticationType)
+        profileXml += "<key>AuthenticationType</key><string>" + attachAuthType + "</string>"
         profileXml += "<key>Name</key><string>" + rlmObject.apnProfileObj.attachApnName + "</string>"
         if !rlmObject.apnProfileObj.attachApnPassword.isEmpty {
             profileXml += "<key>Password</key><string>" + rlmObject.apnProfileObj.attachApnPassword + "</string>"

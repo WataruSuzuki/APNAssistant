@@ -14,13 +14,14 @@ class ApnListViewController: UITableViewController,
 {
     let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
 
-    var allApnSummaryObjs = ApnSummaryObject.allObjects()
+    var allApnSummaryObjs: RLMResults!
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = NSLocalizedString("profile_list", comment: "")
+        allApnSummaryObjs = ApnSummaryObject.allObjects()
     }
     
     override func viewWillAppear(animated: Bool) {

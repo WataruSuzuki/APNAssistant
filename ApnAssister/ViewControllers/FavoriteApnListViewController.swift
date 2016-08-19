@@ -10,12 +10,13 @@ import UIKit
 
 class FavoriteApnListViewController: ApnListViewController {
 
-    var allFavoriteApnSummaryObjs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "dataType = %d", ApnSummaryObject.DataTypes.FAVORITE.rawValue))
+    var allFavoriteApnSummaryObjs: RLMResults!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = NSLocalizedString("favorite_list", comment: "")
+        allFavoriteApnSummaryObjs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "dataType = %d", ApnSummaryObject.DataTypes.FAVORITE.rawValue))
     }
 
     override func didReceiveMemoryWarning() {

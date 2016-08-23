@@ -20,7 +20,6 @@ class UtilHandleRLMObject: NSObject {
     }()
     private override init() {}
     */
-    let realm = RLMRealm.defaultRealm()
     
     let primaryId: Int!
     let apnProfileObj: ApnProfileObject!
@@ -40,7 +39,7 @@ class UtilHandleRLMObject: NSObject {
         summaryDataType = ApnSummaryObject.DataTypes(rawValue: summaryObj.dataType)!
     }
     
-    func saveApnDataObj() {
+    func saveApnDataObj(realm: RLMRealm) {
         realm.addOrUpdateObject(apnSummaryObj)
         do {
             try realm.commitWriteTransaction()
@@ -50,6 +49,7 @@ class UtilHandleRLMObject: NSObject {
     }
     
     func deleteApnSummaryObj(obj: ApnSummaryObject) {
+        let realm = RLMRealm.defaultRealm()
         realm.beginWriteTransaction()
         realm.deleteObject(obj)
         do {
@@ -103,7 +103,7 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    func prepareApnData(isSetDataApnManually: Bool) {
+    func prepareApnData(realm: RLMRealm, isSetDataApnManually: Bool) {
         realm.beginWriteTransaction()
         
         prepareApnProfileColumn(.ATTACH_APN, columnArray: arrayKeyAttachApn)

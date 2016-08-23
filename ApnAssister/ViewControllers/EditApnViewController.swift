@@ -321,8 +321,9 @@ class EditApnViewController: UITableViewController,
 
     // MARK: - Action
     @IBAction func tapSave(sender: AnyObject) {
-        myUtilHandleRLMObject.prepareApnData(isSetDataApnManually)
-        myUtilHandleRLMObject.saveApnDataObj()
+        let realm = RLMRealm.defaultRealm()
+        myUtilHandleRLMObject.prepareApnData(realm, isSetDataApnManually: isSetDataApnManually)
+        myUtilHandleRLMObject.saveApnDataObj(realm)
         
         showConfirmUpdatingDeviceApn()
     }

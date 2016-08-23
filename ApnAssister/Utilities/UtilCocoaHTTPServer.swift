@@ -12,7 +12,7 @@ class UtilCocoaHTTPServer: NSObject,
     NSXMLParserDelegate
 {
     let cocoaHTTPServer = HTTPServer()
-    let fileNameSetting = "to-setting"
+    let fileNameSetting = "set-to-device"
     let fileNameShare = "apn-assistant"
     
     var didEndParse:((NSXMLParser, ApnSummaryObject) -> Void)?
@@ -157,7 +157,7 @@ class UtilCocoaHTTPServer: NSObject,
         if #available(iOS 9.0, *) {
             return NSURL(string: "http://localhost:8080")!
         } else {
-            return NSURL(string: "http://localhost:8080" + "/profile.mobileconfig")!
+            return NSURL(string: "http://localhost:8080" + "/" + fileNameSetting + ".mobileconfig")!
         }
     }
     

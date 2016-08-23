@@ -50,8 +50,14 @@ class DetailApnViewController: UITableViewController,
         let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)!
         let column = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)!
         cell.textLabel?.text = column.getTitle(type)
-        cell.detailTextLabel?.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
-        
+        switch column {
+        case ApnProfileObject.KeyAPNs.PASSWORD:
+            cell.detailTextLabel?.text = "*******"
+            
+        default:
+            cell.detailTextLabel?.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+        }
+
         return cell
     }
     

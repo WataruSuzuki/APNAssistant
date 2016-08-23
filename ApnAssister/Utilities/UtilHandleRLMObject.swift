@@ -39,7 +39,9 @@ class UtilHandleRLMObject: NSObject {
         summaryDataType = ApnSummaryObject.DataTypes(rawValue: summaryObj.dataType)!
     }
     
-    func saveApnDataObj(realm: RLMRealm) {
+    func saveUpdateApnDataObj(realm: RLMRealm, isSetDataApnManually: Bool) {
+        realm.beginWriteTransaction()
+        prepareApnData(isSetDataApnManually)
         realm.addOrUpdateObject(apnSummaryObj)
         do {
             try realm.commitWriteTransaction()
@@ -103,9 +105,7 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    func prepareApnData(realm: RLMRealm, isSetDataApnManually: Bool) {
-        realm.beginWriteTransaction()
-        
+    func prepareApnData(isSetDataApnManually: Bool) {
         prepareApnProfileColumn(.ATTACH_APN, columnArray: arrayKeyAttachApn)
         prepareApnProfileColumn(.APNS, columnArray: (isSetDataApnManually ? arrayKeyApns : arrayKeyAttachApn))
         

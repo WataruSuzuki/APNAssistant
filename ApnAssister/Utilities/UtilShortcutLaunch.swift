@@ -73,6 +73,7 @@ class UtilShortcutLaunch: NSObject {
         case ShortcutIdentifier.First.type:
             // Handle shortcut 1 (static).
             return true
+            
         case ShortcutIdentifier.Second.type:
             // Handle shortcut 2 (static).
             handled = true

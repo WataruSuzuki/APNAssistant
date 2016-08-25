@@ -48,6 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     @available(iOS 9.0, *)
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        
+        completionHandler(myUtilShortcutLaunch.handleShortCutItem(shortcutItem))
+    }
+    
+    @available(iOS 9.0, *)
     func shouldPerformAdditionalDelegateHandling(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         return myUtilShortcutLaunch.performAdditionalDelegateHandling(application, didFinishLaunchingWithOptions: launchOptions)
     }

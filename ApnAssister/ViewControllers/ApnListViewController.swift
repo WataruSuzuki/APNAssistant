@@ -19,9 +19,7 @@ class ApnListViewController: UITableViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ApnListViewController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
-        
+                
         self.navigationItem.title = NSLocalizedString("ProfileList", comment: "")
         allApnSummaryObjs = ApnSummaryObject.allObjects()
     }
@@ -45,30 +43,6 @@ class ApnListViewController: UITableViewController,
         // Dispose of any resources that can be recreated.
     }
 
-    func appDidBecomeActive(notification: NSNotification) {
-        executeShortcutActions()
-    }
-    
-    func executeShortcutActions() {
-        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            if #available(iOS 9.0, *) {
-                guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {
-                    return
-                }
-                switch shortcutItem.type {
-                case UtilShortcutLaunch.ShortcutIdentifier.First.type:
-                    delegate.myUtilShortcutLaunch.launchedShortcutItem = nil
-                    if let controller = delegate.window?.rootViewController as? MainTabBarController {
-                        controller.selectedViewController = controller.viewControllers![MainTabBarController.TabIndex.FavoriteList.rawValue] as! UINavigationController
-                    }
-                    
-                default:
-                    break
-                }
-            }
-        }
-    }
-    
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

@@ -14,6 +14,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
         loadTabBarTitle()
     }
 
@@ -22,7 +23,28 @@ class MainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func appDidBecomeActive(notification: NSNotification) {
+        executeShortcutActions()
+    }
+    
+    func executeShortcutActions() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            if #available(iOS 9.0, *) {
+                guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {
+                    return
+                }
+                switch shortcutItem.type {
+                case UtilShortcutLaunch.ShortcutIdentifier.First.type:
+                    self.selectedViewController = self.viewControllers![MainTabBarController.TabIndex.FavoriteList.rawValue] as! UINavigationController
+                    
+                default:
+                    break
+                }
+                delegate.myUtilShortcutLaunch.launchedShortcutItem = nil
+            }
+        }
+    }
+    
     func loadTabBarTitle() {
         var index = 0
         for item in self.tabBar.items! {

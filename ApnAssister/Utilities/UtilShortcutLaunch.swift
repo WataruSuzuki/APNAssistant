@@ -42,22 +42,19 @@ class UtilShortcutLaunch: NSObject {
     
     @available(iOS 9.0, *)
     func initDynamicShortcuts(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) {
-//        if let shortcutItems = application.shortcutItems where shortcutItems.isEmpty {
-            // Construct the items.
-            var loadedItems = [UIApplicationShortcutItem]()
-            for index in 0...ShortcutIdentifier.Fourth.rawValue {
-                let shortcut = loadApplicationShortcutItem(index)
-                // Update the application providing the initial 'dynamic' shortcut items.
-                loadedItems.append(shortcut)
-            }
-            application.shortcutItems = loadedItems
-//        }
+        var loadedItems = [UIApplicationShortcutItem]()
+        for index in 0...ShortcutIdentifier.Fourth.rawValue {
+            let shortcut = loadApplicationShortcutItem(index)
+            // Update the application providing the initial 'dynamic' shortcut items.
+            loadedItems.append(shortcut)
+        }
+        application.shortcutItems = loadedItems
     }
     
     @available(iOS 9.0, *)
     func loadApplicationShortcutItem(index: Int) -> UIMutableApplicationShortcutItem {
-        return UIMutableApplicationShortcutItem(type: ShortcutIdentifier(rawValue: index)!.type, localizedTitle: ShortcutIdentifier(rawValue: index)!.toString(), localizedSubtitle: ShortcutIdentifier(rawValue: index)!.toString(), icon: ShortcutIdentifier(rawValue: index)!.getIcon(), userInfo: [UtilShortcutLaunch.iconKey: ShortcutIdentifier(rawValue: index)!.type])
-        //return UIMutableApplicationShortcutItem(type: ShortcutIdentifier(rawValue: index)!.type, localizedTitle: ShortcutIdentifier(rawValue: index)!.toString(), localizedSubtitle: ShortcutIdentifier(rawValue: index)!.toString(), icon: ShortcutIdentifier(rawValue: index)!.getIcon(), userInfo: [UtilShortcutLaunch.iconKey: ShortcutIdentifier(rawValue: index)!.type])
+        let shortcut = ShortcutIdentifier(rawValue: index)
+        return UIMutableApplicationShortcutItem(type: shortcut!.type, localizedTitle: shortcut!.getTitle(), localizedSubtitle: shortcut!.getSubTitle(), icon: shortcut!.getIcon(), userInfo: [UtilShortcutLaunch.iconKey: shortcut!.type])
     }
     
     @available(iOS 9.0, *)
@@ -110,6 +107,22 @@ class UtilShortcutLaunch: NSObject {
         
         func toString() -> String {
             return String(self)
+        }
+        
+        func getTitle() -> String {
+            if self == ShortcutIdentifier.First {
+                return NSLocalizedString("show_favorites", comment: "")
+            } else {
+                return "Set this APN"
+            }
+        }
+        
+        func getSubTitle() -> String {
+            if self == ShortcutIdentifier.First {
+                return ""
+            } else {
+                return NSLocalizedString("setThisApnToDevice", comment: "")
+            }
         }
         
         @available(iOS 9.0, *)

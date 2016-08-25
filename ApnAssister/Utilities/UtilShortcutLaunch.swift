@@ -27,7 +27,7 @@ class UtilShortcutLaunch: NSObject {
     func shouldPerformAdditionalDelegateHandling(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Install initial versions of our two extra dynamic shortcuts.
-        initDynamicShortcuts(application, didFinishLaunchingWithOptions: launchOptions)
+        initDynamicShortcuts(application)
         
         // If a shortcut was launched, display its information and take the appropriate action
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
@@ -41,7 +41,7 @@ class UtilShortcutLaunch: NSObject {
     }
     
     @available(iOS 9.0, *)
-    func initDynamicShortcuts(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) {
+    func initDynamicShortcuts(application: UIApplication) {
         var loadedItems = [UIApplicationShortcutItem]()
         let favorites = ApnSummaryObject.getFavoriteLists()
         
@@ -58,7 +58,9 @@ class UtilShortcutLaunch: NSObject {
         let shortcut = ShortcutIdentifier(rawValue: index)
         let name: String?
         let infoKey: Int?
-        if index != ShortcutIdentifier.First.rawValue {
+        if index != ShortcutIdentifier.First.rawValue
+            && results.count > UInt(index - 1)
+        {
             let apnSummary = results.objectAtIndex(UInt(index - 1)) as? ApnSummaryObject
             name = apnSummary?.name
             infoKey = apnSummary?.id

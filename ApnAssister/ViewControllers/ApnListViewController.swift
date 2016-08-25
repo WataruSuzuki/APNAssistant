@@ -27,6 +27,11 @@ class ApnListViewController: UITableViewController,
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        updateApnSummaryObjs()
+        self.tableView.reloadData()
+    }
+    
+    func updateApnSummaryObjs() {
         allApnSummaryObjs = ApnSummaryObject.allObjects()
         if 0 < allApnSummaryObjs.count {
             tutorialPopView.dismissAnimated(true)
@@ -34,8 +39,9 @@ class ApnListViewController: UITableViewController,
             tutorialPopView.has3DStyle = false
             tutorialPopView.presentPointingAtBarButtonItem(self.navigationItem.rightBarButtonItem, animated: true)
         }
-        
-        self.tableView.reloadData()
+        if #available(iOS 9.0, *) {
+            UtilShortcutLaunch().initDynamicShortcuts(UIApplication.sharedApplication())
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,15 +82,19 @@ class ApnListViewController: UITableViewController,
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            let apnSummary = allApnSummaryObjs.objectAtIndex(UInt(indexPath.row)) as! ApnSummaryObject
-            myUtilHandleRLMObject.deleteApnSummaryObj(apnSummary)
-            
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            deleteSeletedApn(allApnSummaryObjs, indexPath: indexPath)
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
+    }
+    
+    func deleteSeletedApn(objs: RLMResults, indexPath: NSIndexPath) {
+        let apnSummary = objs.objectAtIndex(UInt(indexPath.row)) as! ApnSummaryObject
+        myUtilHandleRLMObject.deleteApnSummaryObj(apnSummary)
+        
+        // Delete the row from the data source
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
 
     /*

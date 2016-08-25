@@ -31,6 +31,15 @@ class ApnSummaryObject: RLMObject {
         }
     }
     
+    static func getFavoriteLists() -> RLMResults {
+        let objs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "dataType = %d", DataTypes.FAVORITE.rawValue))
+        
+        let sortProperties = [RLMSortDescriptor(property: "createdDate", ascending: false),
+                              RLMSortDescriptor(property: "id", ascending: false)
+        ]
+        return objs.sortedResultsUsingDescriptors(sortProperties)
+    }
+    
     enum DataTypes : Int {
         case NORMAL = 0,
         FAVORITE,

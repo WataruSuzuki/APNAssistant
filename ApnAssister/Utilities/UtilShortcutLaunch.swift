@@ -21,7 +21,7 @@ class UtilShortcutLaunch: NSObject {
         }
     }
     
-    static let iconKey = "AppShortcutUserInfoIconKey"
+    static let infoKey = "AppShortcutUserInfoIconKey"
     
     @available(iOS 9.0, *)
     func shouldPerformAdditionalDelegateHandling(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -43,8 +43,10 @@ class UtilShortcutLaunch: NSObject {
     @available(iOS 9.0, *)
     func initDynamicShortcuts(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) {
         var loadedItems = [UIApplicationShortcutItem]()
+        let favorites = ApnSummaryObject.getFavoriteLists()
+        
         for index in 0...ShortcutIdentifier.Fourth.rawValue {
-            let shortcut = loadApplicationShortcutItem(index)
+            let shortcut = loadApplicationShortcutItem(index, results: favorites)
             // Update the application providing the initial 'dynamic' shortcut items.
             loadedItems.append(shortcut)
         }
@@ -52,9 +54,19 @@ class UtilShortcutLaunch: NSObject {
     }
     
     @available(iOS 9.0, *)
-    func loadApplicationShortcutItem(index: Int) -> UIMutableApplicationShortcutItem {
+    func loadApplicationShortcutItem(index: Int, results: RLMResults) -> UIMutableApplicationShortcutItem {
         let shortcut = ShortcutIdentifier(rawValue: index)
-        return UIMutableApplicationShortcutItem(type: shortcut!.type, localizedTitle: shortcut!.getTitle(), localizedSubtitle: shortcut!.getSubTitle(), icon: shortcut!.getIcon(), userInfo: [UtilShortcutLaunch.iconKey: shortcut!.type])
+        let name: String?
+        let infoKey: Int?
+        if index != ShortcutIdentifier.First.rawValue {
+            let apnSummary = results.objectAtIndex(UInt(index - 1)) as? ApnSummaryObject
+            name = apnSummary?.name
+            infoKey = apnSummary?.id
+        } else {
+            name = ""
+            infoKey = -1
+        }
+        return UIMutableApplicationShortcutItem(type: shortcut!.type, localizedTitle: shortcut!.getTitle(name!), localizedSubtitle: shortcut!.getSubTitle(), icon: shortcut!.getIcon(), userInfo: [UtilShortcutLaunch.infoKey: infoKey!])
     }
     
     @available(iOS 9.0, *)
@@ -109,11 +121,11 @@ class UtilShortcutLaunch: NSObject {
             return String(self)
         }
         
-        func getTitle() -> String {
+        func getTitle(fallbackTitle: String) -> String {
             if self == ShortcutIdentifier.First {
                 return NSLocalizedString("show_favorites", comment: "")
             } else {
-                return "Set this APN"
+                return fallbackTitle
             }
         }
         
@@ -125,8 +137,20 @@ class UtilShortcutLaunch: NSObject {
             }
         }
         
+        @available(iOS 9.1, *)
+        func getSystemIcon() -> UIApplicationShortcutIcon {
+            if self == ShortcutIdentifier.First {
+                return UIApplicationShortcutIcon(type: .Love)
+            } else {
+                return UIApplicationShortcutIcon(type: .Update)
+            }
+        }
+        
         @available(iOS 9.0, *)
         func getIcon() -> UIApplicationShortcutIcon {
+            if #available(iOS 9.1, *) {
+                return getSystemIcon()
+            }
             if self == ShortcutIdentifier.First {
                 return UIApplicationShortcutIcon(templateImageName: "ic_favorite_shortcut")
             } else {

@@ -16,7 +16,7 @@ class FavoriteApnListViewController: ApnListViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = NSLocalizedString("FavoriteList", comment: "")
-        allFavoriteApnSummaryObjs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "dataType = %d", ApnSummaryObject.DataTypes.FAVORITE.rawValue))
+        allFavoriteApnSummaryObjs = ApnSummaryObject.getFavoriteLists()
     }
 
     override func didReceiveMemoryWarning() {

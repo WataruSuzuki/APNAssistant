@@ -48,9 +48,9 @@ class ApnProfileObject: RLMObject {
             
         case .AUTHENTICATION_TYPE:
             if type == .APNS {
-                self.apnsAuthenticationType = newText
+                self.apnsAuthenticationType = (newText.isEmpty ? "CHAP" : newText)
             } else {
-                self.attachApnAuthenticationType = newText
+                self.attachApnAuthenticationType = (newText.isEmpty ? "CHAP" : newText)
             }
             
         case .USERNAME:

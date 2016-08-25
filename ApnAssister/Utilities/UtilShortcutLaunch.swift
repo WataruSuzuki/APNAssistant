@@ -114,7 +114,6 @@ class UtilShortcutLaunch: NSObject {
         
         @available(iOS 9.0, *)
         func getIcon() -> UIApplicationShortcutIcon {
-            return UIApplicationShortcutIcon(type: .Add)
             if self == ShortcutIdentifier.First {
                 return UIApplicationShortcutIcon(templateImageName: "ic_favorite_shortcut")
             } else {

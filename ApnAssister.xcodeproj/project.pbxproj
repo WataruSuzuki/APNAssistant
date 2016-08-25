@@ -22,6 +22,8 @@
 		6082F1B51D536843000B59EA /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
 		6082F1B61D536843000B59EA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
 		6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
+		6085D66B1D6EC46D008FF20A /* ic_favorite_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */; };
+		6085D66C1D6EC46D008FF20A /* ic_list_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */; };
 		60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
 		60BEE4FF1CA3E185005B86B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5011CA3E185005B86B9 /* InfoPlist.strings */; };
@@ -112,6 +114,8 @@
 		6082F1B31D536843000B59EA /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
 		6082F1B41D536843000B59EA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilCocoaHTTPServer.swift; sourceTree = "<group>"; };
+		6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_shortcut.png; sourceTree = "<group>"; };
+		6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_list_shortcut.png; sourceTree = "<group>"; };
 		60AA73A51C9BA3DD00E41CAE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnAssister-Bridging-Header.h"; sourceTree = "<group>"; };
 		60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteApnListViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +364,8 @@
 		F045415F1D561F7800D4388C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */,
+				6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */,
 				F04541601D561F7800D4388C /* cellphone-sim-card.png */,
 				F04541611D561F7800D4388C /* cellphone.png */,
 				F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */,
@@ -525,7 +531,9 @@
 				F04541681D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png in Resources */,
 				602A46321D65483A00ED22D6 /* SegmentedCtrlCell.xib in Resources */,
 				60BEE5141CA400AB005B86B9 /* TextFieldCell.xib in Resources */,
+				6085D66C1D6EC46D008FF20A /* ic_list_shortcut.png in Resources */,
 				F04541661D561F7800D4388C /* cellphone.png in Resources */,
+				6085D66B1D6EC46D008FF20A /* ic_favorite_shortcut.png in Resources */,
 				F04541691D561F7800D4388C /* technology.png in Resources */,
 				6082F1B61D536843000B59EA /* index.html in Resources */,
 				96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */,

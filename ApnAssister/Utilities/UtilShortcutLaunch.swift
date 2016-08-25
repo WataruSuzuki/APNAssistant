@@ -42,26 +42,26 @@ class UtilShortcutLaunch: NSObject {
     
     @available(iOS 9.0, *)
     func initDynamicShortcuts(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) {
-        if let shortcutItems = application.shortcutItems where shortcutItems.isEmpty {
+//        if let shortcutItems = application.shortcutItems where shortcutItems.isEmpty {
             // Construct the items.
-            let shortcut3 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Third.type, localizedTitle: "Play", localizedSubtitle: "Will Play an item", icon: UIApplicationShortcutIcon(type: .Play), userInfo: [
-                UtilShortcutLaunch.iconKey: UIApplicationShortcutIconType.Play.rawValue
-                ]
-            )
-            
-            let shortcut4 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Fourth.type, localizedTitle: "Pause", localizedSubtitle: "Will Pause an item", icon: UIApplicationShortcutIcon(type: .Pause), userInfo: [
-                UtilShortcutLaunch.iconKey: UIApplicationShortcutIconType.Pause.rawValue
-                ]
-            )
-            
-            // Update the application providing the initial 'dynamic' shortcut items.
-            application.shortcutItems = [shortcut3, shortcut4]
-        }
+            var loadedItems = [UIApplicationShortcutItem]()
+            for index in 0...ShortcutIdentifier.Fourth.rawValue {
+                let shortcut = loadApplicationShortcutItem(index)
+                // Update the application providing the initial 'dynamic' shortcut items.
+                loadedItems.append(shortcut)
+            }
+            application.shortcutItems = loadedItems
+//        }
+    }
+    
+    @available(iOS 9.0, *)
+    func loadApplicationShortcutItem(index: Int) -> UIMutableApplicationShortcutItem {
+        return UIMutableApplicationShortcutItem(type: ShortcutIdentifier(rawValue: index)!.type, localizedTitle: ShortcutIdentifier(rawValue: index)!.toString(), localizedSubtitle: ShortcutIdentifier(rawValue: index)!.toString(), icon: ShortcutIdentifier(rawValue: index)!.getIcon(), userInfo: [UtilShortcutLaunch.iconKey: ShortcutIdentifier(rawValue: index)!.type])
+        //return UIMutableApplicationShortcutItem(type: ShortcutIdentifier(rawValue: index)!.type, localizedTitle: ShortcutIdentifier(rawValue: index)!.toString(), localizedSubtitle: ShortcutIdentifier(rawValue: index)!.toString(), icon: ShortcutIdentifier(rawValue: index)!.getIcon(), userInfo: [UtilShortcutLaunch.iconKey: ShortcutIdentifier(rawValue: index)!.type])
     }
     
     @available(iOS 9.0, *)
     func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
-        var handled = false
         
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
         guard ShortcutIdentifier(fullType: shortcutItem.type) != nil else { return false }
@@ -69,47 +69,57 @@ class UtilShortcutLaunch: NSObject {
         
         launchedShortcutItem = shortcutItem
         switch (shortCutType) {
-        case ShortcutIdentifier.First.type:
-            // Handle shortcut 1 (static).
-            return true
-            
-        case ShortcutIdentifier.Second.type:
-            // Handle shortcut 2 (static).
-            handled = true
-            break
-        case ShortcutIdentifier.Third.type:
-            // Handle shortcut 3 (dynamic).
-            handled = true
-            break
+        case ShortcutIdentifier.First.type: fallthrough
+        case ShortcutIdentifier.Second.type:fallthrough
+        case ShortcutIdentifier.Third.type: fallthrough
         case ShortcutIdentifier.Fourth.type:
-            // Handle shortcut 4 (dynamic).
-            handled = true
-            break
+            return true
         default:
             return false
         }
-        
-        return handled
     }
     
-    enum ShortcutIdentifier: String {
-        case First
-        case Second
-        case Third
-        case Fourth
+    enum ShortcutIdentifier: Int {
+        case First = 0,
+        Second,
+        Third,
+        Fourth
         
         // MARK: Initializers
-        
         init?(fullType: String) {
             guard let last = fullType.componentsSeparatedByString(".").last else { return nil }
             
-            self.init(rawValue: last)
+            switch last {
+            case ShortcutIdentifier.First.toString():
+                self = .First
+            case ShortcutIdentifier.Second.toString():
+                self = .Second
+            case ShortcutIdentifier.Third.toString():
+                self = .Third
+            case ShortcutIdentifier.Fourth.toString():
+                self = .Fourth
+            default:
+                return nil
+            }
         }
         
         // MARK: Properties
-        
         var type: String {
-            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.rawValue)"
+            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.toString())"
+        }
+        
+        func toString() -> String {
+            return String(self)
+        }
+        
+        @available(iOS 9.0, *)
+        func getIcon() -> UIApplicationShortcutIcon {
+            return UIApplicationShortcutIcon(type: .Add)
+            if self == ShortcutIdentifier.First {
+                return UIApplicationShortcutIcon(templateImageName: "ic_favorite_shortcut")
+            } else {
+                return UIApplicationShortcutIcon(templateImageName: "ic_list_shortcut")
+            }
         }
     }
     

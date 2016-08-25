@@ -47,3 +47,6 @@ tutorial_message = "まだAPNプロファイルがありません。こちらか
 latest_set_profile = "アプリからこの端末にセットしたプロファイル";
 unknown = "不明です...";
 openApp = "アプリ起動";
+
+apn_assistant = "APNアシスト";
+show_favorites = "お気に入りを表示する";

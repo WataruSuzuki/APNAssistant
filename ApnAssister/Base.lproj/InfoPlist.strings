@@ -6,6 +6,3 @@
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
 CFBundleDisplayName = "APN Assistant";
-
-apn_assistant = "APN Assistant";
-show_favorites = "Show favorites";

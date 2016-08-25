@@ -48,3 +48,5 @@ latest_set_profile = "Profile latest set to device";
 unknown = "Unknown...";
 openApp = "Open app";
 
+apn_assistant = "APN Assistant";
+show_favorites = "Show favorites";

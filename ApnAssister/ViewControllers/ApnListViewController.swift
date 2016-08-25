@@ -20,7 +20,7 @@ class ApnListViewController: UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = NSLocalizedString("profile_list", comment: "")
+        self.navigationItem.title = NSLocalizedString("ProfileList", comment: "")
         allApnSummaryObjs = ApnSummaryObject.allObjects()
     }
     
@@ -44,15 +44,21 @@ class ApnListViewController: UITableViewController,
     }
 
     func appDidBecomeActive(notification: NSNotification) {
-        executeShortcutFuelGauge()
+        executeShortcutActions()
     }
     
-    func executeShortcutFuelGauge() {
+    func executeShortcutActions() {
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             if #available(iOS 9.0, *) {
-                if AppDelegate.ShortcutIdentifier.First.type == delegate.launchedShortcutItem?.type {
-                    delegate.launchedShortcutItem = nil
-                    //myGaugeTimerUtilities.fuelCaffeineGaugeTimer(self, senderSelector: #selector(CAFTopViewController.fuelGaugeTimer))
+                guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {
+                    return
+                }
+                switch shortcutItem.type {
+                case UtilShortcutLaunch.ShortcutIdentifier.First.type:
+                    delegate.myUtilShortcutLaunch.launchedShortcutItem = nil
+                    
+                default:
+                    break
                 }
             }
         }
@@ -146,5 +152,4 @@ class ApnListViewController: UITableViewController,
             break
         }
     }
-
 }

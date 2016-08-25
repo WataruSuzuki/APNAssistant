@@ -2,7 +2,7 @@
 //  MainTabBarController.swift
 //  ApnAssister
 //
-//  Created by H3032570 on 2016/08/25.
+//  Created by WataruSuzuki on 2016/08/25.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
@@ -22,14 +22,24 @@ class MainTabBarController: UITabBarController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadTabBarTitle() {
+        var index = 0
+        for item in self.tabBar.items! {
+            item.title = TabIndex(rawValue: index)?.getTitle()
+            index += 1
+        }
     }
-    */
-
+    
+    enum TabIndex: Int {
+        case ProfileList = 0,
+        FavoriteList
+        
+        func toStoring() -> String {
+            return String(self)
+        }
+        
+        func getTitle() -> String {
+            return NSLocalizedString(self.toStoring(), comment: "(・∀・)")
+        }
+    }
 }

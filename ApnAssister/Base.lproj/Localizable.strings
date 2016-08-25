@@ -22,8 +22,8 @@ keyAttachApnProxyServer = "Default apn proxy server";
 keyAttachApnProxyServerPort = "Default apn proxy server port";
 
 setAttachApnManual = "Set Attach Apn manually";
-favorite_list = "Favorite List";
-profile_list = "Profile List";
+FavoriteList = "Favorite List";
+ProfileList = "Profile List";
 edit_apn = "Edit APN";
 
 no_settings = "Empty";

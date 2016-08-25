@@ -22,6 +22,11 @@ class ApnListViewController: UITableViewController,
                 
         self.navigationItem.title = NSLocalizedString("ProfileList", comment: "")
         allApnSummaryObjs = ApnSummaryObject.allObjects()
+        if #available(iOS 9.0, *) {
+            if self.traitCollection.forceTouchCapability == .Available {
+                self.registerForPreviewingWithDelegate(self, sourceView: self.tableView)
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

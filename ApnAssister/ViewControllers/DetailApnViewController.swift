@@ -17,6 +17,27 @@ class DetailApnViewController: UITableViewController,
     var myUtilHandleRLMObject: UtilHandleRLMObject!
     var myApnSummaryObject: ApnSummaryObject!
 
+    @available(iOS 9.0, *)
+    lazy var previewActions: [UIPreviewActionItem] = {
+        let menuArray = self.loadMenuArray()
+        
+        let setApnAction = UIPreviewAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Default, handler: { (action, viewcontroller) in
+            self.handleUpdateDeviceApn()
+        })
+        let shareAction = UIPreviewAction(title: menuArray[Menu.share.rawValue], style: .Default, handler: { (action, viewcontroller) in
+            self.handleShareApn()
+        })
+        let editAction = UIPreviewAction(title: menuArray[Menu.edit.rawValue], style: .Default, handler: { (action, viewcontroller) in
+            self.showEditApnViewController()
+        })
+        
+        //let subAction1 = previewActionForTitle("Sub Action 1")
+        //let subAction2 = previewActionForTitle("Sub Action 2")
+        //let groupedActions = UIPreviewActionGroup(title: "Sub Actions…", style: .Default, actions: [subAction1, subAction2] )
+        
+        return [setApnAction, shareAction, editAction/*, groupedActions*/]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -125,13 +146,17 @@ class DetailApnViewController: UITableViewController,
         }
     }
 
-    func showMenuSheet() {
+    func loadMenuArray() -> [String] {
         var menuArray = [String]()
         
         for index in Menu.setThisApnToDevice.rawValue..<Menu.MAX.rawValue {
             menuArray.append(NSLocalizedString(Menu(rawValue: index)!.toString(), comment: ""))
         }
-        
+        return menuArray
+    }
+    
+    func showMenuSheet() {
+        let menuArray = loadMenuArray()
         showConfirmAlertController(NSLocalizedString("menu", comment: ""), menuArray: menuArray)
     }
     
@@ -216,6 +241,12 @@ class DetailApnViewController: UITableViewController,
         ]
 
         self.presentViewController(contoller, animated: true, completion: nil)
+    }
+    
+    // MARK: Preview actions
+    @available(iOS 9.0, *)
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        return previewActions
     }
     
     enum Menu: Int {

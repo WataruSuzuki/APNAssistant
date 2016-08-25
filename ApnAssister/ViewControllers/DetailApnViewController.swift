@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DetailApnPreviewDelegate {
+    func selectShareAction(handleObj: UtilHandleRLMObject)
+    func selectEditAction(newObj: ApnSummaryObject)
+}
+
 class DetailApnViewController: UITableViewController,
     UIAlertViewDelegate, UIActionSheetDelegate,
     EditApnViewControllerDelegate
@@ -17,6 +22,8 @@ class DetailApnViewController: UITableViewController,
     var myUtilHandleRLMObject: UtilHandleRLMObject!
     var myApnSummaryObject: ApnSummaryObject!
 
+    var delegate: DetailApnPreviewDelegate!
+    
     @available(iOS 9.0, *)
     lazy var previewActions: [UIPreviewActionItem] = {
         let menuArray = self.loadMenuArray()
@@ -25,10 +32,10 @@ class DetailApnViewController: UITableViewController,
             self.handleUpdateDeviceApn()
         })
         let shareAction = UIPreviewAction(title: menuArray[Menu.share.rawValue], style: .Default, handler: { (action, viewcontroller) in
-            self.handleShareApn()
+            self.delegate.selectShareAction(self.myUtilHandleRLMObject)
         })
         let editAction = UIPreviewAction(title: menuArray[Menu.edit.rawValue], style: .Default, handler: { (action, viewcontroller) in
-            self.showEditApnViewController()
+            self.delegate.selectEditAction(self.myApnSummaryObject)
         })
         
         //let subAction1 = previewActionForTitle("Sub Action 1")
@@ -180,7 +187,7 @@ class DetailApnViewController: UITableViewController,
                 action in self.handleUpdateDeviceApn()
             }
             let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .Default){
-                action in self.handleShareApn()
+                action in UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
             }
             let editAction = UIAlertAction(title: menuArray[Menu.edit.rawValue], style: .Default){
                 action in self.showEditApnViewController()
@@ -211,7 +218,7 @@ class DetailApnViewController: UITableViewController,
             self.handleUpdateDeviceApn()
             
         case .share:
-            self.handleShareApn()
+            UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
             
         case .edit:
             self.showEditApnViewController()
@@ -230,18 +237,18 @@ class DetailApnViewController: UITableViewController,
         UIApplication.sharedApplication().openURL(url)
     }
     
-    func handleShareApn(){
-        let configProfileUrl = myUtilCocoaHTTPServer.getProfileUrl(myUtilHandleRLMObject)
-        
-        let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)
-        contoller.excludedActivityTypes = [
-            UIActivityTypePostToWeibo,
-            UIActivityTypeSaveToCameraRoll,
-            UIActivityTypePrint
-        ]
-
-        self.presentViewController(contoller, animated: true, completion: nil)
-    }
+//    func handleShareApn(){
+//        let configProfileUrl = myUtilCocoaHTTPServer.getProfileUrl(myUtilHandleRLMObject)
+//        
+//        let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)
+//        contoller.excludedActivityTypes = [
+//            UIActivityTypePostToWeibo,
+//            UIActivityTypeSaveToCameraRoll,
+//            UIActivityTypePrint
+//        ]
+//
+//        self.presentViewController(contoller, animated: true, completion: nil)
+//    }
     
     // MARK: Preview actions
     @available(iOS 9.0, *)

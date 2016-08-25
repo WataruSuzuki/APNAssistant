@@ -10,12 +10,14 @@ import UIKit
 
 class ApnListViewController: UITableViewController,
     CMPopTipViewDelegate,
+    DetailApnPreviewDelegate,
     EditApnViewControllerDelegate
 {
     let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
 
     var allApnSummaryObjs: RLMResults!
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
+    var previewApnSummaryObj: ApnSummaryObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +124,16 @@ class ApnListViewController: UITableViewController,
         //Do nothing. Because this VC checking update in viewDidAppear.
     }
     
+    // MARK: - DetailApnPreviewDelegate
+    func selectShareAction(handleObj: UtilHandleRLMObject) {
+        UtilShareAction.handleShareApn(UtilCocoaHTTPServer(), obj: handleObj, sender: self)
+    }
+    
+    func selectEditAction(newObj: ApnSummaryObject) {
+        previewApnSummaryObj = newObj
+        self.performSegueWithIdentifier("EditApnViewController", sender: self)
+    }
+    
     // MARK: - CMPopTipViewDelegate
     func popTipViewWasDismissedByUser(popTipView: CMPopTipView!) {
         //TODO
@@ -139,7 +151,9 @@ class ApnListViewController: UITableViewController,
         case "EditApnViewController":
             if let navigationController = segue.destinationViewController as? UINavigationController {
                 let controller = navigationController.viewControllers.last as! EditApnViewController
+                controller.editingApnSummaryObj = previewApnSummaryObj
                 controller.delegate = self
+                previewApnSummaryObj = nil
             }
             
         default:

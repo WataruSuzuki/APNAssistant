@@ -19,20 +19,20 @@ extension ApnListViewController: UIViewControllerPreviewingDelegate {
             cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
         
         // Create a detail view controller and set its properties.
-        guard let detailViewController = storyboard?.instantiateViewControllerWithIdentifier("DetailApnViewController") as? DetailApnViewController else { return nil }
-        
-        detailViewController.myApnSummaryObject = allApnSummaryObjs.objectAtIndex(UInt((indexPath.row))) as! ApnSummaryObject
+        guard let targetController = storyboard?.instantiateViewControllerWithIdentifier("DetailApnViewController") as? DetailApnViewController else { return nil }
+        targetController.delegate = self
+        targetController.myApnSummaryObject = allApnSummaryObjs.objectAtIndex(UInt((indexPath.row))) as! ApnSummaryObject
         
         /*
          Set the height of the preview by setting the preferred content size of the detail view controller.
          Width should be zero, because it's not used in portrait.
          */
-        detailViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
+        targetController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
         
         // Set the source rect to the cell frame, so surrounding elements are blurred.
         previewingContext.sourceRect = cell.frame
         
-        return detailViewController
+        return targetController
     }
     
     /// Present the view controller for the "Pop" action.

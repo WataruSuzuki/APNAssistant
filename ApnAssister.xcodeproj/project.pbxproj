@@ -30,6 +30,7 @@
 		60BEE5101CA40061005B86B9 /* UISwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */; };
 		60BEE5121CA4009E005B86B9 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
 		60BEE5141CA400AB005B86B9 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
+		60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */; };
 		96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
 		96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
 		96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
@@ -123,6 +124,7 @@
 		60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISwitchCell.swift; sourceTree = "<group>"; };
 		60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UISwitchCell.xib; sourceTree = "<group>"; };
 		60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
+		60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilShortcutLaunch.swift; sourceTree = "<group>"; };
 		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.release.xcconfig"; sourceTree = "<group>"; };
 		96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,7 @@
 			children = (
 				6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */,
 				6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */,
+				60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				60BEE5101CA40061005B86B9 /* UISwitchCell.swift in Sources */,
 				60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */,
 				607165521CB3D28A000BCAF5 /* DownloadProfileListViewController.swift in Sources */,
+				60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,
 				6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */,
 				602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */,

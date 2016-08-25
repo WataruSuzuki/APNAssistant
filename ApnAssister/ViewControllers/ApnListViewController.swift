@@ -43,6 +43,21 @@ class ApnListViewController: UITableViewController,
         // Dispose of any resources that can be recreated.
     }
 
+    func appDidBecomeActive(notification: NSNotification) {
+        executeShortcutFuelGauge()
+    }
+    
+    func executeShortcutFuelGauge() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            if #available(iOS 9.0, *) {
+                if AppDelegate.ShortcutIdentifier.First.type == delegate.launchedShortcutItem?.type {
+                    delegate.launchedShortcutItem = nil
+                    //myGaugeTimerUtilities.fuelCaffeineGaugeTimer(self, senderSelector: #selector(CAFTopViewController.fuelGaugeTimer))
+                }
+            }
+        }
+    }
+    
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

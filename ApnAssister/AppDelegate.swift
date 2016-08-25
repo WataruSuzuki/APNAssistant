@@ -15,6 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let tabbarItemsTitle = [NSLocalizedString("favorite_list", comment: ""),
                             NSLocalizedString("profile_list", comment: ""),
                             "(・∀・)"]
+    private var _launchedShortcutItem: AnyObject?
+    @available(iOS 9.0, *)
+    var launchedShortcutItem: UIApplicationShortcutItem? {
+        get {
+            return _launchedShortcutItem as? UIApplicationShortcutItem
+        }
+        set {
+            _launchedShortcutItem = newValue
+        }
+    }
+    static let applicationShortcutUserInfoIconKey = "applicationShortcutUserInfoIconKey"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -46,6 +57,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    @available(iOS 9.0, *)
+    func shouldPerformAdditionalDelegateHandling(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        // Override point for customization after application launch.
+        let shouldPerformAdditionalDelegateHandling: Bool
+        
+        // If a shortcut was launched, display its information and take the appropriate action
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+            
+            launchedShortcutItem = shortcutItem
+            
+            // This will block "performActionForShortcutItem:completionHandler" from being called.
+            shouldPerformAdditionalDelegateHandling = false
+        } else {
+            shouldPerformAdditionalDelegateHandling = true
+        }
+        /*
+         // Install initial versions of our two extra dynamic shortcuts.
+         if let shortcutItems = application.shortcutItems where shortcutItems.isEmpty {
+         // Construct the items.
+         let shortcut3 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Third.type, localizedTitle: "Play", localizedSubtitle: "Will Play an item", icon: UIApplicationShortcutIcon(type: .Play), userInfo: [
+         AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.Play.rawValue
+         ]
+         )
+         
+         let shortcut4 = UIMutableApplicationShortcutItem(type: ShortcutIdentifier.Fourth.type, localizedTitle: "Pause", localizedSubtitle: "Will Pause an item", icon: UIApplicationShortcutIcon(type: .Pause), userInfo: [
+         AppDelegate.applicationShortcutUserInfoIconKey: UIApplicationShortcutIconType.Pause.rawValue
+         ]
+         )
+         
+         // Update the application providing the initial 'dynamic' shortcut items.
+         application.shortcutItems = [shortcut3, shortcut4]
+         }*/
+        
+        return shouldPerformAdditionalDelegateHandling
+    }
+    
+    enum ShortcutIdentifier: String {
+        case First
+        //case Second
+        //case Third
+        //case Fourth
+        
+        // MARK: Initializers
+        
+        init?(fullType: String) {
+            guard let last = fullType.componentsSeparatedByString(".").last else { return nil }
+            
+            self.init(rawValue: last)
+        }
+        
+        // MARK: Properties
+        
+        var type: String {
+            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.rawValue)"
+        }
+    }
+    
     func loadTabBarTitle() {
         if let tabbarController = self.window?.rootViewController as? UITabBarController {
             var index = 0

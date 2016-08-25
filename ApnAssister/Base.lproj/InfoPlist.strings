@@ -6,3 +6,6 @@
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
 CFBundleDisplayName = "APN Assistant";
+
+caffeine_timer = "Caffeine Timer";
+set_the_timer = "Set new timer";

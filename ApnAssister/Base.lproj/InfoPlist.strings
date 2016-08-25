@@ -7,5 +7,5 @@
 */
 CFBundleDisplayName = "APN Assistant";
 
-caffeine_timer = "Caffeine Timer";
-set_the_timer = "Set new timer";
+apn_assistant = "APN Assistant";
+show_favorites = "Show favorites";

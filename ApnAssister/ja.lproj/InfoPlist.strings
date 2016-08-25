@@ -6,3 +6,6 @@
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
 CFBundleDisplayName = "APNアシスト";
+
+apn_assistant = "APNアシスト";
+show_favorites = "お気に入りを表示する";

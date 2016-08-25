@@ -18,8 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UtilHandleRLMObject.copyToGroupDB()
         UtilHandleRLMObject.setupGroupDB()
-        //loadTabBarTitle()
-        return true
+        if #available(iOS 9.0, *) {
+            return shouldPerformAdditionalDelegateHandling(application, didFinishLaunchingWithOptions: launchOptions)
+        } else {
+            return true
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -49,10 +52,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return myUtilShortcutLaunch.performAdditionalDelegateHandling(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
-//    func loadTabBarTitle() {
-//        if let controller = self.window?.rootViewController as? MainTabBarController {
-//            controller.loadTabBarTitle()
-//        }
-//    }
 }
 

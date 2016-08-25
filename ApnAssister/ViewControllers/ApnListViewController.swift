@@ -20,6 +20,8 @@ class ApnListViewController: UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ApnListViewController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        
         self.navigationItem.title = NSLocalizedString("ProfileList", comment: "")
         allApnSummaryObjs = ApnSummaryObject.allObjects()
     }
@@ -37,7 +39,7 @@ class ApnListViewController: UITableViewController,
         
         self.tableView.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +58,9 @@ class ApnListViewController: UITableViewController,
                 switch shortcutItem.type {
                 case UtilShortcutLaunch.ShortcutIdentifier.First.type:
                     delegate.myUtilShortcutLaunch.launchedShortcutItem = nil
+                    if let controller = delegate.window?.rootViewController as? MainTabBarController {
+                        controller.selectedViewController = controller.viewControllers![MainTabBarController.TabIndex.FavoriteList.rawValue] as! UINavigationController
+                    }
                     
                 default:
                     break

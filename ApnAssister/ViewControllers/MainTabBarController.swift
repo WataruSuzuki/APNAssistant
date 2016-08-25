@@ -10,6 +10,8 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,25 +26,37 @@ class MainTabBarController: UITabBarController {
     }
     
     func appDidBecomeActive(notification: NSNotification) {
-        executeShortcutActions()
+        if #available(iOS 9.0, *) {
+            executeShortcutActions()
+        }
     }
     
+    @available(iOS 9.0, *)
     func executeShortcutActions() {
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            if #available(iOS 9.0, *) {
-                guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {
-                    return
-                }
-                switch shortcutItem.type {
-                case UtilShortcutLaunch.ShortcutIdentifier.First.type:
-                    self.selectedViewController = self.viewControllers![MainTabBarController.TabIndex.FavoriteList.rawValue] as! UINavigationController
-                    
-                default:
-                    break
-                }
-                delegate.myUtilShortcutLaunch.launchedShortcutItem = nil
+            guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {
+                return
             }
+            switch shortcutItem.type {
+            case UtilShortcutLaunch.ShortcutIdentifier.First.type:
+                self.selectedViewController = self.viewControllers![MainTabBarController.TabIndex.FavoriteList.rawValue] as! UINavigationController
+                
+            default:
+                execureShortcutUpdateApn(shortcutItem.type)
+                break
+            }
+            delegate.myUtilShortcutLaunch.launchedShortcutItem = nil
         }
+    }
+    
+    func execureShortcutUpdateApn(type: String) {
+        let results = ApnSummaryObject.getFavoriteLists()
+        let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
+        let shortcutApn = results.objectsWithPredicate(NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as! ApnSummaryObject
+        
+        let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
+        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
+        UIApplication.sharedApplication().openURL(url)
     }
     
     func loadTabBarTitle() {

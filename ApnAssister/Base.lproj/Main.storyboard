@@ -213,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="2360" y="360"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="MainTabBarController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -229,8 +229,8 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="v8t-Wm-wgW" kind="relationship" relationship="viewControllers" id="Q1F-RO-p9I"/>
                         <segue destination="hWK-Ys-7yj" kind="relationship" relationship="viewControllers" id="o8T-hz-9mS"/>
+                        <segue destination="v8t-Wm-wgW" kind="relationship" relationship="viewControllers" id="054-IC-3hg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

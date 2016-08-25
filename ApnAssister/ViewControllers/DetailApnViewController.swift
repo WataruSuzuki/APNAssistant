@@ -33,11 +33,11 @@ class DetailApnViewController: UITableViewController,
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ApnSummaryObject.ApnInfoColumn.MAX.rawValue
+        return ApnSummaryObject.ApnInfoColumn.MAX.rawValue - 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: section)
+        let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: section + 1)
         if sectionType == ApnSummaryObject.ApnInfoColumn.SUMMARY {
             return 0
         }

@@ -170,13 +170,13 @@
         <scene sceneID="OK9-cF-jaP">
             <objects>
                 <tableViewController storyboardIdentifier="DetailApnViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WfF-Xh-ygA" customClass="DetailApnViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IKJ-hM-T15">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="IKJ-hM-T15">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailApnCell" textLabel="ihP-hQ-K3y" detailTextLabel="7nr-Bx-VEo" style="IBUITableViewCellStyleSubtitle" id="yVg-Xn-G5V">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yVg-Xn-G5V" id="5r1-O1-5tr">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -301,8 +301,8 @@
         <image name="ic_list_36pt" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xbE-Wg-Ere"/>
         <segue reference="G0r-RL-zQM"/>
+        <segue reference="CM8-Aq-zor"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

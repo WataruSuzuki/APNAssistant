@@ -18,17 +18,6 @@ class ApnListViewController: UITableViewController,
     let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
     
-    private var _mySearchController: AnyObject?
-    @available(iOS 8.0, *)
-    var mySearchController: UISearchController? {
-        get {
-            return _mySearchController as? UISearchController
-        }
-        set {
-            _mySearchController = newValue
-        }
-    }
-    
     var allApnSummaryObjs: RLMResults!
     var previewApnSummaryObj: ApnSummaryObject?
     //var searchedApnSummaryObjs: RLMResults!
@@ -45,6 +34,8 @@ class ApnListViewController: UITableViewController,
                 self.registerForPreviewingWithDelegate(self, sourceView: self.tableView)
             }
         }
+        let anyTouch = UITapGestureRecognizer(target: self, action: #selector(ApnListViewController.tapTableView))
+        self.tableView.addGestureRecognizer(anyTouch)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -182,6 +173,10 @@ class ApnListViewController: UITableViewController,
             allApnSummaryObjs = ApnSummaryObject.getSearchedLists(searchString)
         }
         self.tableView.reloadData()
+    }
+    
+    func tapTableView() {
+        self.apnSearchBar.resignFirstResponder()
     }
     
     // MARK: - Navigation

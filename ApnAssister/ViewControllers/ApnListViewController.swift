@@ -165,10 +165,14 @@ class ApnListViewController: UITableViewController,
     func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         let newText = (text.isEmpty
             ? searchBar.text!.substringToIndex(searchBar.text!.startIndex.advancedBy(range.location))
-            : searchBar.text! + text
+            : searchBar.text!.substringToIndex(searchBar.text!.startIndex.advancedBy(range.location)) + text
         )
         loadTargetApnSummaryObjs(newText)
         return true
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        loadTargetApnSummaryObjs(searchText)
     }
     
     func loadTargetApnSummaryObjs(searchString: String) {

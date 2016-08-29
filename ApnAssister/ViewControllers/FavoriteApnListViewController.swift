@@ -66,6 +66,35 @@ class FavoriteApnListViewController: ApnListViewController {
     }
     */
 
+    // MARK: - UISearchDisplayDelegate
+    override func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+        loadTargetApnSummaryObjs(searchString!)
+        return true
+    }
+    
+    // MARK: - UISearchBarDelegate
+    override func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let newText = (text.isEmpty
+            ? searchBar.text!.substringToIndex(searchBar.text!.startIndex.advancedBy(range.location))
+            : searchBar.text!.substringToIndex(searchBar.text!.startIndex.advancedBy(range.location)) + text
+        )
+        loadTargetApnSummaryObjs(newText)
+        return true
+    }
+    
+    override func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        loadTargetApnSummaryObjs(searchText)
+    }
+    
+    override func loadTargetApnSummaryObjs(searchString: String) {
+        if searchString.isEmpty {
+            allFavoriteApnSummaryObjs = ApnSummaryObject.getFavoriteLists()
+        } else {
+            allFavoriteApnSummaryObjs = ApnSummaryObject.getSearchedFavoriteLists(searchString)
+        }
+        self.tableView.reloadData()
+    }
+    
     
     // MARK: - Navigation
 

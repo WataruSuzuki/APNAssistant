@@ -22,6 +22,11 @@ class ApnSummaryObject: RLMObject {
         return "id"
     }
     
+    static let sortProperties = [
+        RLMSortDescriptor(property: "createdDate", ascending: false),
+        RLMSortDescriptor(property: "id", ascending: false)
+    ]
+    
     static func getLastId() -> Int {
         if let lastObj = ApnSummaryObject.allObjects().lastObject() as? ApnSummaryObject {
             print(lastObj.id)
@@ -32,20 +37,19 @@ class ApnSummaryObject: RLMObject {
     }
     
     static func getSearchedLists(keyword: String) -> RLMResults {
-        let objs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "name contains %@", keyword))
+        return ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "name contains %@", keyword))
+    }
+    
+    static func getSearchedFavoriteLists(keyword: String) -> RLMResults {
+        var objs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "dataType = %d", DataTypes.FAVORITE.rawValue))
+        objs = objs.objectsWithPredicate(NSPredicate(format: "name contains %@", keyword))
         
-        print("keyword = \(keyword)")
-        print(objs)
-        
-        return objs
+        return objs.sortedResultsUsingDescriptors(sortProperties)
     }
     
     static func getFavoriteLists() -> RLMResults {
         let objs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "dataType = %d", DataTypes.FAVORITE.rawValue))
         
-        let sortProperties = [RLMSortDescriptor(property: "createdDate", ascending: false),
-                              RLMSortDescriptor(property: "id", ascending: false)
-        ]
         return objs.sortedResultsUsingDescriptors(sortProperties)
     }
     

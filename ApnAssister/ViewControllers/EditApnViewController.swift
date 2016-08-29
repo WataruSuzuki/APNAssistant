@@ -222,7 +222,7 @@ class EditApnViewController: UITableViewController,
     func getNewChangeCharactersInRange(textField: UITextField, range: NSRange, string: String) -> String {
         let newText = (string.isEmpty
             ? textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location))
-            : textField.text! + string
+            : textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location)) + string
         )
         return newText
     }

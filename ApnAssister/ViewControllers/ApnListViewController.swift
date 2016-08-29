@@ -9,15 +9,31 @@
 import UIKit
 
 class ApnListViewController: UITableViewController,
+    UISearchDisplayDelegate,
+    UISearchBarDelegate,
     CMPopTipViewDelegate,
     DetailApnPreviewDelegate,
     EditApnViewControllerDelegate
 {
     let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
-
-    var allApnSummaryObjs: RLMResults!
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
+    
+    private var _mySearchController: AnyObject?
+    @available(iOS 8.0, *)
+    var mySearchController: UISearchController? {
+        get {
+            return _mySearchController as? UISearchController
+        }
+        set {
+            _mySearchController = newValue
+        }
+    }
+    
+    var allApnSummaryObjs: RLMResults!
     var previewApnSummaryObj: ApnSummaryObject?
+    //var searchedApnSummaryObjs: RLMResults!
+    
+    @IBOutlet var apnSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +153,31 @@ class ApnListViewController: UITableViewController,
     // MARK: - CMPopTipViewDelegate
     func popTipViewWasDismissedByUser(popTipView: CMPopTipView!) {
         //TODO
+    }
+    
+    // MARK: - UISearchDisplayDelegate
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+        loadTargetApnSummaryObjs(searchString!)
+        return true
+    }
+    
+    // MARK: - UISearchBarDelegate
+    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        let newText = (text.isEmpty
+            ? searchBar.text!.substringToIndex(searchBar.text!.startIndex.advancedBy(range.location))
+            : searchBar.text! + text
+        )
+        loadTargetApnSummaryObjs(newText)
+        return true
+    }
+    
+    func loadTargetApnSummaryObjs(searchString: String) {
+        if searchString.isEmpty {
+            allApnSummaryObjs = ApnSummaryObject.allObjects()
+        } else {
+            allApnSummaryObjs = ApnSummaryObject.getSearchedLists(searchString)
+        }
+        self.tableView.reloadData()
     }
     
     // MARK: - Navigation

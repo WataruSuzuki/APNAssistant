@@ -31,6 +31,15 @@ class ApnSummaryObject: RLMObject {
         }
     }
     
+    static func getSearchedLists(keyword: String) -> RLMResults {
+        let objs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "name contains %@", keyword))
+        
+        print("keyword = \(keyword)")
+        print(objs)
+        
+        return objs
+    }
+    
     static func getFavoriteLists() -> RLMResults {
         let objs = ApnSummaryObject.objectsWithPredicate(NSPredicate(format: "dataType = %d", DataTypes.FAVORITE.rawValue))
         

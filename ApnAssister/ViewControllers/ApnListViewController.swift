@@ -34,8 +34,7 @@ class ApnListViewController: UITableViewController,
                 self.registerForPreviewingWithDelegate(self, sourceView: self.tableView)
             }
         }
-        let anyTouch = UITapGestureRecognizer(target: self, action: #selector(ApnListViewController.tapTableView))
-        self.tableView.addGestureRecognizer(anyTouch)
+        self.tableView.keyboardDismissMode = .Interactive
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -173,10 +172,6 @@ class ApnListViewController: UITableViewController,
             allApnSummaryObjs = ApnSummaryObject.getSearchedLists(searchString)
         }
         self.tableView.reloadData()
-    }
-    
-    func tapTableView() {
-        self.apnSearchBar.resignFirstResponder()
     }
     
     // MARK: - Navigation

@@ -1,4 +1,4 @@
-PROJ_FILE_PATH="ApnAssister.xcodeproj"
+PROJ_FILE_PATH="ApnAssister.xcworkspace"
 TARGET_HOST="ApnAssister"
 OUT_ARCHIVES_DIR="out_archives"
 OUT_IPA_DIR="out_ipa"
@@ -20,8 +20,8 @@ fi
 # 関数の定義
 # -------------------------
 itunes_connect () {
-    xcodebuild clean -project "${PROJ_FILE_PATH}"
-    xcodebuild archive -project "${PROJ_FILE_PATH}" -scheme "${TARGET_HOST}" -archivePath "${PWD}/${OUT_ARCHIVES_DIR}/$1.xcarchive" -configuration $1
+    xcodebuild clean -workspace "${PROJ_FILE_PATH}"
+    xcodebuild archive -workspace "${PROJ_FILE_PATH}" -scheme "${TARGET_HOST}" -archivePath "${PWD}/${OUT_ARCHIVES_DIR}/$1.xcarchive" -configuration $1
     xcodebuild -exportArchive -archivePath "${PWD}/${OUT_ARCHIVES_DIR}/$1.xcarchive" -exportPath "${PWD}/${OUT_IPA_DIR}" -exportOptionsPlist "${PWD}/exportOptions.Plist"
     "${ALTTOOL}" --validate-app -f "${PWD}/${OUT_IPA_DIR}/${TARGET_HOST}.ipa"  -u ${ITUNES_ID} -p ${ITUNES_PW}
     "${ALTTOOL}" --upload-app -f "${PWD}/${OUT_IPA_DIR}/${TARGET_HOST}.ipa"  -u ${ITUNES_ID} -p ${ITUNES_PW}

@@ -17,11 +17,9 @@ class DownloadProfileListViewController: UITableViewController,
 
         startJsonFileDownload()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let jsonRefreshControl = UIRefreshControl()
+        jsonRefreshControl.addTarget(self, action: #selector(DownloadProfileListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
+        self.refreshControl = jsonRefreshControl
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,20 +94,34 @@ class DownloadProfileListViewController: UITableViewController,
     }
     */
     
-    // MARK: - NSURLSessionDownloadDelegate
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        // ファイルを移動
-        let fileManager = NSFileManager.defaultManager()
-        let documentPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
-        print(documentPath.debugDescription)
-        let url = NSURL.fileURLWithPath(documentPath + "/apnassister.json")
+    func moveJSONFilesFromURLSession(fileManager: NSFileManager, fileName: String, fileType: String, location: NSURL) {
+        let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: fileType)
+        
+        if fileManager.fileExistsAtPath(filePath) {
+            try! fileManager.removeItemAtPath(filePath)
+        }
+        
+        let url = NSURL.fileURLWithPath(filePath)
         do{
             try fileManager.moveItemAtURL(location, toURL: url)
+            let jsonData = NSData(contentsOfURL: url)
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .MutableContainers) as! NSDictionary
+            print(json)
+            let station = json.objectForKey("items") as! NSArray
+            for i in 0  ..< station.count  {
+                print(station[i].objectForKey("name") as! NSString)
+            }
         } catch {
             let nsError = error as NSError
             print(nsError.description)
         }
-        //TODO
+    }
+    
+    // MARK: - NSURLSessionDownloadDelegate
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+        // ファイルを移動.
+        let fileManager = NSFileManager.defaultManager()
+        moveJSONFilesFromURLSession(fileManager, fileName: "japan", fileType: ".json", location: location)
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
@@ -122,7 +134,7 @@ class DownloadProfileListViewController: UITableViewController,
     }
     
     func startJsonFileDownload() {
-        let url = NSURL(string: "https://watarusuzuki.github.io/japan.json")
+        let url = NSURL(string: "https://watarusuzuki.github.io/public-profiles/japan.json")
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
         

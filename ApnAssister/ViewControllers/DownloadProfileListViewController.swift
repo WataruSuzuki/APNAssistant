@@ -102,7 +102,7 @@ class DownloadProfileListViewController: UITableViewController,
         let fileManager = NSFileManager.defaultManager()
         let documentPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
         print(documentPath.debugDescription)
-        let url = NSURL.fileURLWithPath(documentPath + "/apnassister.js")
+        let url = NSURL.fileURLWithPath(documentPath + "/apnassister.json")
         do{
             try fileManager.moveItemAtURL(location, toURL: url)
         } catch {
@@ -122,7 +122,7 @@ class DownloadProfileListViewController: UITableViewController,
     }
     
     func startJsonFileDownload() {
-        let url = NSURL(string: "https://github.com/douglascrockford/JSON-js/blob/master/json2.js")
+        let url = NSURL(string: "https://watarusuzuki.github.io/japan.json")
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
         

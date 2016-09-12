@@ -50,3 +50,7 @@ openApp = "Open app";
 
 apn_assistant = "APN Assistant";
 show_favorites = "Show favorites";
+
+custom = "Custom";
+public = "Public";
+

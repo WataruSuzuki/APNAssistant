@@ -11,6 +11,7 @@ import UIKit
 class DownloadProfileListViewController: UITableViewController,
     NSURLSessionDownloadDelegate
 {
+    let myUtilDownloadProfileList = UtilDownloadProfileList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +31,44 @@ class DownloadProfileListViewController: UITableViewController,
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return myUtilDownloadProfileList.customProfileList.count + myUtilDownloadProfileList.publicProfileList.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section > (DownloadProfiles.json.MAX.rawValue - 1) {
+            let customSection = section - DownloadProfiles.json.MAX.rawValue
+            return myUtilDownloadProfileList.customProfileList[customSection].count
+        } else {
+            return myUtilDownloadProfileList.publicProfileList[section].count
+        }
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("DownloadProfileListCell", forIndexPath: indexPath)
 
+        let items: NSArray
         // Configure the cell...
+        if indexPath.section > (DownloadProfiles.json.MAX.rawValue - 1) {
+            let customSection = indexPath.section - DownloadProfiles.json.MAX.rawValue
+            items = myUtilDownloadProfileList.customProfileList[customSection] as NSArray
+        } else {
+            items = myUtilDownloadProfileList.publicProfileList[indexPath.section] as NSArray
+        }
+        cell.textLabel?.text = items[indexPath.row].objectForKey("name") as? String
 
         return cell
     }
-    */
-
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section > (DownloadProfiles.json.MAX.rawValue - 1) {
+            let jsonName = DownloadProfiles.json(rawValue: section - DownloadProfiles.json.MAX.rawValue)!
+            return jsonName.toString() + "(" + NSLocalizedString("custom", comment: "") + ")"
+        } else {
+            let jsonName = DownloadProfiles.json(rawValue: section)!
+            return jsonName.toString() + "(" + NSLocalizedString("public", comment: "") + ")"
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -94,34 +114,15 @@ class DownloadProfileListViewController: UITableViewController,
     }
     */
     
-    func moveJSONFilesFromURLSession(fileManager: NSFileManager, fileName: String, fileType: String, location: NSURL) {
-        let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: fileType)
-        
-        if fileManager.fileExistsAtPath(filePath) {
-            try! fileManager.removeItemAtPath(filePath)
-        }
-        
-        let url = NSURL.fileURLWithPath(filePath)
-        do{
-            try fileManager.moveItemAtURL(location, toURL: url)
-            let jsonData = NSData(contentsOfURL: url)
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .MutableContainers) as! NSDictionary
-            print(json)
-            let station = json.objectForKey("items") as! NSArray
-            for i in 0  ..< station.count  {
-                print(station[i].objectForKey("name") as! NSString)
-            }
-        } catch {
-            let nsError = error as NSError
-            print(nsError.description)
-        }
-    }
-    
     // MARK: - NSURLSessionDownloadDelegate
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        // ファイルを移動.
-        let fileManager = NSFileManager.defaultManager()
-        moveJSONFilesFromURLSession(fileManager, fileName: "japan", fileType: ".json", location: location)
+        myUtilDownloadProfileList.moveJSONFilesFromURLSession(downloadTask, location: location)
+        
+        let section = myUtilDownloadProfileList.getUpdateIndexSection(downloadTask)
+        if section != DownloadProfiles.ERROR_INDEX {
+            self.tableView.reloadData()
+            //self.tableView.rectForSection(section)
+        }
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
@@ -134,10 +135,6 @@ class DownloadProfileListViewController: UITableViewController,
     }
     
     func startJsonFileDownload() {
-        let url = NSURL(string: "https://watarusuzuki.github.io/public-profiles/japan.json")
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
-        
-        session.downloadTaskWithURL(url!).resume()
+        myUtilDownloadProfileList.startJsonFileDownload(self)
     }
 }

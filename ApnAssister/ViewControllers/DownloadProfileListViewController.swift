@@ -121,7 +121,7 @@ class DownloadProfileListViewController: UITableViewController,
         let section = myUtilDownloadProfileList.getUpdateIndexSection(downloadTask)
         if section != DownloadProfiles.ERROR_INDEX {
             self.tableView.reloadData()
-            //self.tableView.rectForSection(section)
+            //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
         }
     }
     

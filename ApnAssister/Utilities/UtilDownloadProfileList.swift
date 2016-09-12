@@ -52,7 +52,7 @@ class UtilDownloadProfileList: NSObject {
             if let url = response.URL {
                 if let fileName = url.lastPathComponent {
                     let country = DownloadProfiles.json.init(fileName: fileName)
-                    if DownloadProfiles.publicProfilesDir.containsString(url.absoluteString) {
+                    if url.absoluteString.containsString(DownloadProfiles.publicProfilesDir) {
                         return country.rawValue
                     } else {
                         return country.rawValue + DownloadProfiles.json.MAX.rawValue
@@ -105,11 +105,13 @@ class UtilDownloadProfileList: NSObject {
     }
     
     func startJsonFileDownload(delegate: NSURLSessionDownloadDelegate) {
-        for index in 0...DownloadProfiles.json.MAX.rawValue {
-            let dir = (index < (DownloadProfiles.json.MAX.rawValue / 2)
-                ? DownloadProfiles.publicProfilesDir
-                : DownloadProfiles.customProfilesDir)
-            let url = NSURL(string: DownloadProfiles.serverUrl + dir + DownloadProfiles.json(rawValue: index)!.getFileName())
+        for index in 0..<(DownloadProfiles.json.MAX.rawValue * 2) {
+            let url: NSURL!
+            if 0 >= DownloadProfiles.json.MAX.rawValue - index {
+                url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.customProfilesDir + DownloadProfiles.json(rawValue: index - DownloadProfiles.json.MAX.rawValue)!.getFileName())
+            } else {
+                url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.publicProfilesDir + DownloadProfiles.json(rawValue: index)!.getFileName())
+            }
             
             let config = NSURLSessionConfiguration.defaultSessionConfiguration()
             let session = NSURLSession(configuration: config, delegate: delegate, delegateQueue: NSOperationQueue.mainQueue())

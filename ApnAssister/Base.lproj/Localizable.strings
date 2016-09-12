@@ -54,3 +54,6 @@ show_favorites = "Show favorites";
 custom = "Custom";
 public = "Public";
 
+japan = "Japan";
+usa = "U.S.A.";
+

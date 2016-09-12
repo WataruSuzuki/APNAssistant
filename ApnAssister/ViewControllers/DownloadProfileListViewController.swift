@@ -35,11 +35,11 @@ class DownloadProfileListViewController: UITableViewController,
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section > (DownloadProfiles.json.MAX.rawValue - 1) {
-            let customSection = section - DownloadProfiles.json.MAX.rawValue
-            return myUtilDownloadProfileList.customProfileList[customSection].count
+        let offset = myUtilDownloadProfileList.getOffsetSection(section)
+        if offset.0 {
+            return myUtilDownloadProfileList.customProfileList[offset.1].count
         } else {
-            return myUtilDownloadProfileList.publicProfileList[section].count
+            return myUtilDownloadProfileList.publicProfileList[offset.1].count
         }
     }
 
@@ -48,11 +48,11 @@ class DownloadProfileListViewController: UITableViewController,
 
         let items: NSArray
         // Configure the cell...
-        if indexPath.section > (DownloadProfiles.json.MAX.rawValue - 1) {
-            let customSection = indexPath.section - DownloadProfiles.json.MAX.rawValue
-            items = myUtilDownloadProfileList.customProfileList[customSection] as NSArray
+        let offset = myUtilDownloadProfileList.getOffsetSection(indexPath.section)
+        if offset.0 {
+            items = myUtilDownloadProfileList.customProfileList[offset.1] as NSArray
         } else {
-            items = myUtilDownloadProfileList.publicProfileList[indexPath.section] as NSArray
+            items = myUtilDownloadProfileList.publicProfileList[offset.1] as NSArray
         }
         cell.textLabel?.text = items[indexPath.row].objectForKey("name") as? String
 
@@ -60,13 +60,14 @@ class DownloadProfileListViewController: UITableViewController,
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section > (DownloadProfiles.json.MAX.rawValue - 1) {
-            let jsonName = DownloadProfiles.json(rawValue: section - DownloadProfiles.json.MAX.rawValue)!
-            return jsonName.toString() + "(" + NSLocalizedString("custom", comment: "") + ")"
-        } else {
-            let jsonName = DownloadProfiles.json(rawValue: section)!
-            return jsonName.toString() + "(" + NSLocalizedString("public", comment: "") + ")"
+        let offset = myUtilDownloadProfileList.getOffsetSection(section)
+        if (offset.0 && 0 == myUtilDownloadProfileList.customProfileList[offset.1].count)
+            || (!offset.0 && myUtilDownloadProfileList.publicProfileList[offset.1].count == 0)
+        {
+            return ""
         }
+        let jsonName = DownloadProfiles.json(rawValue: offset.1)!
+        return NSLocalizedString(jsonName.toString(), comment: "") + "(" + NSLocalizedString((offset.0 ? "custom": "public"), comment: "") + ")"
     }
     
     /*

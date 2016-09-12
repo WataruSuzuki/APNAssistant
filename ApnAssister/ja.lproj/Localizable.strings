@@ -53,3 +53,7 @@ show_favorites = "お気に入りを表示する";
 
 custom = "カスタム";
 public = "公式";
+
+japan = "日本";
+usa = "アメリカ合衆国";
+

@@ -275,7 +275,7 @@ class EditApnViewController: UITableViewController,
         sheet.addButtonWithTitle(positiveMessage)
         sheet.addButtonWithTitle(negativeMessage)
         sheet.cancelButtonIndex = 1
-        //sheet.destructiveButtonIndex = 0
+        sheet.destructiveButtonIndex = 0
         
         sheet.showInView(self.view)
     }
@@ -285,7 +285,7 @@ class EditApnViewController: UITableViewController,
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
                 action in self.handleUpdateDeviceApn(false)
             }
-            let deleteAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
+            let deleteAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Destructive){
                 action in self.handleUpdateDeviceApn(true)
             }
             

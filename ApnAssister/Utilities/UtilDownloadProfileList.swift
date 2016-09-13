@@ -14,6 +14,9 @@ struct DownloadProfiles {
     static let publicProfilesDir = "public-profiles/"
     static let customProfilesDir = "custom-profiles/"
     
+    static let profileItems = "items"
+    static let profileName = "name"
+    static let profileUrl = "profile_url"
     static let ERROR_INDEX = (-1)
     
     enum json: Int {
@@ -92,9 +95,9 @@ class UtilDownloadProfileList: NSObject {
             let jsonData = NSData(contentsOfURL: localUrl)
             let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .MutableContainers) as! NSDictionary
             
-            let items = json.objectForKey("items") as! NSArray
+            let items = json.objectForKey(DownloadProfiles.profileItems) as! NSArray
             for i in 0  ..< items.count  {
-                print(items[i].objectForKey("name") as! NSString)
+                print(items[i].objectForKey(DownloadProfiles.profileName) as! NSString)
             }
             let section = getUpdateIndexSection(downloadTask)
             if section != DownloadProfiles.ERROR_INDEX {

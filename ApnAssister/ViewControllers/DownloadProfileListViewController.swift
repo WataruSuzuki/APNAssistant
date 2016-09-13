@@ -9,9 +9,11 @@
 import UIKit
 
 class DownloadProfileListViewController: UITableViewController,
+    UIAlertViewDelegate, UIActionSheetDelegate,
     NSURLSessionDownloadDelegate
 {
     let myUtilDownloadProfileList = UtilDownloadProfileList()
+    var selectedIndexPath = NSIndexPath()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,7 @@ class DownloadProfileListViewController: UITableViewController,
         } else {
             items = myUtilDownloadProfileList.publicProfileList[offset.1] as NSArray
         }
-        cell.textLabel?.text = items[indexPath.row].objectForKey("name") as? String
+        cell.textLabel?.text = items[indexPath.row].objectForKey(DownloadProfiles.profileName) as? String
 
         return cell
     }
@@ -68,6 +70,67 @@ class DownloadProfileListViewController: UITableViewController,
         }
         let jsonName = DownloadProfiles.json(rawValue: offset.1)!
         return NSLocalizedString(jsonName.toString(), comment: "") + "(" + NSLocalizedString((offset.0 ? "custom": "public"), comment: "") + ")"
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedIndexPath = indexPath
+        showConfirmInstallProfile()
+    }
+    
+    func showConfirmInstallProfile() {
+        let negativeMessage = NSLocalizedString("cancel", comment: "")
+        let positiveMessage = NSLocalizedString("yes_update", comment: "")
+        
+        showConfirmAlertController(negativeMessage, positiveMessage: positiveMessage)
+    }
+    
+    func showComfirmOldSheet(title: String, negativeMessage: String, positiveMessage: String) {
+        let sheet = UIActionSheet()
+        //sheet.tag =
+        sheet.delegate = self
+        sheet.title = title
+        sheet.addButtonWithTitle(positiveMessage)
+        sheet.addButtonWithTitle(negativeMessage)
+        sheet.cancelButtonIndex = 1
+        sheet.destructiveButtonIndex = 0
+        
+        sheet.showInView(self.view)
+    }
+    
+    func showConfirmAlertController(negativeMessage: String, positiveMessage: String){
+        let title = NSLocalizedString("caution", comment: "")
+        let message = NSLocalizedString("caution_profile", comment: "")
+        if #available(iOS 8.0, *) {
+            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
+                action in //do nothing
+            }
+            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Destructive){
+                action in self.installProfileFromNetwork()
+            }
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
+            alertController.addAction(cancelAction)
+            alertController.addAction(installAction)
+            
+            if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
+                alertController.popoverPresentationController?.sourceView = self.view;
+                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+            }
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            showComfirmOldSheet(title + "\n" + message, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
+        }
+    }
+    
+    func installProfileFromNetwork() {
+        let offset = myUtilDownloadProfileList.getOffsetSection(selectedIndexPath.section)
+        let profileData = (offset.0
+            ? myUtilDownloadProfileList.customProfileList[offset.1]
+            : myUtilDownloadProfileList.publicProfileList[offset.1]
+        )
+        let url = profileData[selectedIndexPath.row].objectForKey(DownloadProfiles.profileUrl) as! String
+        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
     }
     
     /*
@@ -105,6 +168,13 @@ class DownloadProfileListViewController: UITableViewController,
     }
     */
 
+    // MARK: - UIActionSheetDelegate
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        if 0 == buttonIndex {
+            self.installProfileFromNetwork()
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

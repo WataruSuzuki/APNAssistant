@@ -58,6 +58,6 @@ japan = "Japan";
 usa = "U.S.A.";
 
 caution = "Caution";
-caution_profile = "If your APN settings are wrong, you might lose cellular-data connectivity and receive additional charges. Please contact your carrier to verify the correct APN settings if you worried.";
+caution_profile = "If your APN settings are wrong, you might lose cellular-data connectivity and receive additional charges. \nPlease contact your carrier to verify the correct APN settings if you worried.";
 
 

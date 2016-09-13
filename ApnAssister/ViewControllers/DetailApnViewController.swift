@@ -176,14 +176,14 @@ class DetailApnViewController: UITableViewController,
             sheet.addButtonWithTitle(message)
         }
         sheet.cancelButtonIndex = menuArray.count - 1
-        //sheet.destructiveButtonIndex = 0
+        sheet.destructiveButtonIndex = 0
         
         sheet.showInView(self.view)
     }
     
     func showConfirmAlertController(title: String, menuArray: [String]){
         if #available(iOS 8.0, *) {
-            let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Default){
+            let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Destructive){
                 action in self.handleUpdateDeviceApn()
             }
             let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .Default){

@@ -29,6 +29,7 @@ edit_apn = "Edit APN";
 no_settings = "Empty";
 not_this_time = "Not this time";
 yes_update = "Yes, update";
+understand = "I understarnd the risks and continue.";
 is_update_now = "Is update setting now?";
 
 config_mobile_network = "Config mobile network";

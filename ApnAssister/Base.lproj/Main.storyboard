@@ -98,12 +98,13 @@
                     <navigationItem key="navigationItem" id="jll-e6-nSr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jd4-pU-VPJ">
                             <connections>
-                                <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" id="xbE-Wg-Ere"/>
+                                <action selector="tapAddButton:" destination="9tw-py-a3e" id="g7U-sq-kCQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="apnSearchBar" destination="Jwh-vS-KgN" id="KzP-c0-ILM"/>
+                        <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" id="qt6-zg-au9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B39-dL-gE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -147,12 +148,13 @@
                     <navigationItem key="navigationItem" id="iqb-la-keb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1qX-uy-6lk">
                             <connections>
-                                <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" id="Ec9-Wz-Koz"/>
+                                <action selector="tapAddButton:" destination="b6B-zi-O2E" id="EXj-jk-FQe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="apnSearchBar" destination="Hb0-E1-wq2" id="LeV-My-bvT"/>
+                        <segue destination="thb-Fc-lb0" kind="presentation" identifier="EditApnViewController" id="BkJ-jt-6BA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOG-4e-ybm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -251,9 +253,9 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="NTo-b0-fRu" kind="relationship" relationship="viewControllers" id="C1C-I1-g5E"/>
                         <segue destination="hWK-Ys-7yj" kind="relationship" relationship="viewControllers" id="o8T-hz-9mS"/>
                         <segue destination="v8t-Wm-wgW" kind="relationship" relationship="viewControllers" id="054-IC-3hg"/>
+                        <segue destination="NTo-b0-fRu" kind="relationship" relationship="viewControllers" id="C1C-I1-g5E"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -324,7 +326,7 @@
         <image name="ic_list_36pt" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ec9-Wz-Koz"/>
+        <segue reference="BkJ-jt-6BA"/>
         <segue reference="JsQ-LT-jQX"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>

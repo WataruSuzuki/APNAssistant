@@ -29,6 +29,7 @@ edit_apn = "APN編集";
 no_settings = "未設定";
 not_this_time = "今はしない";
 yes_update = "はい, 更新します";
+understand = "リスクについて理解して継続します";
 is_update_now = "今すぐデバイスへ設定しますか?";
 
 config_mobile_network = "モバイルデータ通信設定を構成します";

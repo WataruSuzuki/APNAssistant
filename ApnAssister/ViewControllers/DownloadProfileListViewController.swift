@@ -14,6 +14,7 @@ class DownloadProfileListViewController: UITableViewController,
 {
     let myUtilDownloadProfileList = UtilDownloadProfileList()
     var selectedIndexPath = NSIndexPath()
+    var updateSectionCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -194,6 +195,11 @@ class DownloadProfileListViewController: UITableViewController,
         if section != DownloadProfiles.ERROR_INDEX {
             self.tableView.reloadData()
             //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
+            updateSectionCount += 1
+        }
+        
+        if updateSectionCount >= self.tableView.numberOfSections {
+            self.refreshControl?.endRefreshing()
         }
     }
     

@@ -53,7 +53,7 @@ openApp = "Open app";
 apn_assistant = "APN Assistant";
 show_favorites = "Show favorites";
 
-custom = "Custom(It' created by carrier information)";
+custom = "Custom: created by carrier info";
 public = "Public";
 
 japan = "Japan";

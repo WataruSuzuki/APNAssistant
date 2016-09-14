@@ -24,6 +24,7 @@ keyAttachApnProxyServerPort = "デフォルトAPNのプロキシポート番号"
 setAttachApnManual = "データAPNを手動でセットする";
 FavoriteList = "お気に入り一覧";
 ProfileList = "プロファイル一覧";
+DownloadList = "ダウンロード可能一覧";
 edit_apn = "APN編集";
 
 no_settings = "未設定";

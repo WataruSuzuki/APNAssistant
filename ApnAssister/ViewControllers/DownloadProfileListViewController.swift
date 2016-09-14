@@ -20,6 +20,7 @@ class DownloadProfileListViewController: UITableViewController,
 
         startJsonFileDownload()
         
+        self.navigationItem.title = NSLocalizedString("DownloadList", comment: "")
         let jsonRefreshControl = UIRefreshControl()
         jsonRefreshControl.addTarget(self, action: #selector(DownloadProfileListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
         self.refreshControl = jsonRefreshControl

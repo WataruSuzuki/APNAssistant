@@ -69,7 +69,8 @@ class MainTabBarController: UITabBarController {
     
     enum TabIndex: Int {
         case ProfileList = 0,
-        FavoriteList
+        FavoriteList,
+        DownloadList
         
         func toStoring() -> String {
             return String(self)

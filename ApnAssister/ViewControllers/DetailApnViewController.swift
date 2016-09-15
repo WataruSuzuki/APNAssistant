@@ -28,7 +28,7 @@ class DetailApnViewController: UITableViewController,
     lazy var previewActions: [UIPreviewActionItem] = {
         let menuArray = self.loadMenuArray()
         
-        let setApnAction = UIPreviewAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Default, handler: { (action, viewcontroller) in
+        let setApnAction = UIPreviewAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Destructive, handler: { (action, viewcontroller) in
             self.handleUpdateDeviceApn()
         })
         let shareAction = UIPreviewAction(title: menuArray[Menu.share.rawValue], style: .Default, handler: { (action, viewcontroller) in

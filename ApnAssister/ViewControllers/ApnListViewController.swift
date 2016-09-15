@@ -240,7 +240,6 @@ class ApnListViewController: UITableViewController,
             alertController.addAction(installAction)
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-                alertController.popoverPresentationController?.sourceView = self.view;
                 alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
             }
             

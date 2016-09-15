@@ -294,7 +294,6 @@ class EditApnViewController: UITableViewController,
             alertController.addAction(deleteAction)
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-                alertController.popoverPresentationController?.sourceView = self.view;
                 alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
             }
             

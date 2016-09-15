@@ -95,33 +95,6 @@ class DetailApnViewController: UITableViewController,
         return false
     }
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     // MARK: - EditApnViewControllerDelegate
     func didFinishEditApn(newObj: ApnSummaryObject) {
         myApnSummaryObject = newObj
@@ -235,20 +208,7 @@ class DetailApnViewController: UITableViewController,
         let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
         UIApplication.sharedApplication().openURL(url)
     }
-    
-//    func handleShareApn(){
-//        let configProfileUrl = myUtilCocoaHTTPServer.getProfileUrl(myUtilHandleRLMObject)
-//        
-//        let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)
-//        contoller.excludedActivityTypes = [
-//            UIActivityTypePostToWeibo,
-//            UIActivityTypeSaveToCameraRoll,
-//            UIActivityTypePrint
-//        ]
-//
-//        self.presentViewController(contoller, animated: true, completion: nil)
-//    }
-    
+        
     // MARK: Preview actions
     @available(iOS 9.0, *)
     override func previewActionItems() -> [UIPreviewActionItem] {

@@ -98,7 +98,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B44900153E03A118779BE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnAssister.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.debug.xcconfig"; sourceTree = "<group>"; };
 		2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 		96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3961D6006A000D428D6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F009F3991D6006A100D428D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -206,8 +204,6 @@
 		1DD471A10B4D9499B7C426C5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */,
-				0B44900153E03A118779BE78 /* Pods.release.xcconfig */,
 				2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */,
 				84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */,
 				4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */,

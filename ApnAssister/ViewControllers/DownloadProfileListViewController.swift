@@ -115,8 +115,10 @@ class DownloadProfileListViewController: UITableViewController,
             alertController.addAction(installAction)
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-                alertController.popoverPresentationController?.sourceView = self.view;
-                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+                if let cell = self.tableView.cellForRowAtIndexPath(selectedIndexPath) {
+                    alertController.popoverPresentationController?.sourceView = self.view
+                    alertController.popoverPresentationController?.sourceRect = cell.frame
+                }
             }
             
             presentViewController(alertController, animated: true, completion: nil)

@@ -22,14 +22,14 @@ struct DownloadProfiles {
     enum json: Int {
         case japan = 0,
         usa,
+        global,
         MAX
         
         init(fileName: String) {
             switch fileName {
-            case json.japan.getFileName():
-                self = json.japan
-            case json.usa.getFileName():
-                self = json.usa
+            case json.japan.getFileName():  self = json.japan
+            case json.usa.getFileName():    self = json.usa
+            case json.global.getFileName(): self = json.global
             default:
                 self = json.MAX
             }

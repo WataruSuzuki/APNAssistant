@@ -56,6 +56,7 @@ show_favorites = "お気に入りを表示する";
 custom = "カスタム:事業者からの情報を元に作成";
 public = "公式";
 
+global = "グローバル";
 japan = "日本";
 usa = "アメリカ合衆国";
 

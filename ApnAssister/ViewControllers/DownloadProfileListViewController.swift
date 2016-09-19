@@ -197,11 +197,20 @@ class DownloadProfileListViewController: UITableViewController,
         if section != DownloadProfiles.ERROR_INDEX {
             self.tableView.reloadData()
             //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
-            updateSectionCount += 1
         }
+        updateSectionCount += 1
         
+        print("updateSectionCount = \(updateSectionCount)")
+        print("numberOfSections = \(self.tableView.numberOfSections)")
         if updateSectionCount >= self.tableView.numberOfSections {
             self.refreshControl?.endRefreshing()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        }
+    }
+    
+    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+        if nil != error {
+            updateSectionCount += 1
         }
     }
     
@@ -215,6 +224,8 @@ class DownloadProfileListViewController: UITableViewController,
     }
     
     func startJsonFileDownload() {
+        updateSectionCount = 0
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         myUtilDownloadProfileList.startJsonFileDownload(self)
     }
 }

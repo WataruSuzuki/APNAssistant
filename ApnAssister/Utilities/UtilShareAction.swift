@@ -20,6 +20,12 @@ class UtilShareAction: NSObject {
             UIActivityTypePrint
         ]
         
+        if #available(iOS 8.0, *) {
+            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                contoller.popoverPresentationController?.barButtonItem = sender.navigationItem.rightBarButtonItem
+            }
+        }
+        
         sender.presentViewController(contoller, animated: true, completion: nil)
     }
 }

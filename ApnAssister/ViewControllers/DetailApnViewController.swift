@@ -75,7 +75,7 @@ class DetailApnViewController: UITableViewController,
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DetailApnCell", forIndexPath: indexPath)
 
-        let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)!
+        let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section + 1)!
         let column = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)!
         cell.textLabel?.text = column.getTitle(type)
         switch column {

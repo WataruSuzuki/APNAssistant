@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="1562" y="360"/>
         </scene>
-        <!--Download Profile List View Controller-->
+        <!--Available Apn List View Controller-->
         <scene sceneID="7kI-Li-yBg">
             <objects>
-                <tableViewController storyboardIdentifier="DownloadProfileListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wfp-wt-fx9" customClass="DownloadProfileListViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AvailableApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wfp-wt-fx9" customClass="AvailableApnListViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kJR-Eq-dDi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

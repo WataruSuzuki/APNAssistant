@@ -1,5 +1,5 @@
 //
-//  DownloadProfileListViewController.swift
+//  AvailableApnListViewController.swift
 //  ApnAssister
 //
 //  Created by WataruSuzuki on 2016/04/05.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DownloadProfileListViewController: UITableViewController,
+class AvailableApnListViewController: UITableViewController,
     UIAlertViewDelegate, UIActionSheetDelegate,
     NSURLSessionDownloadDelegate
 {
@@ -23,7 +23,7 @@ class DownloadProfileListViewController: UITableViewController,
         
         self.navigationItem.title = NSLocalizedString("DownloadList", comment: "")
         let jsonRefreshControl = UIRefreshControl()
-        jsonRefreshControl.addTarget(self, action: #selector(DownloadProfileListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
+        jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
         self.refreshControl = jsonRefreshControl
     }
 

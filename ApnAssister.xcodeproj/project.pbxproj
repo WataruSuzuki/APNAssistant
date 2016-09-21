@@ -56,6 +56,7 @@
 		F009F3AB1D600AE700D428D6 /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
 		F009F3AC1D600D2600D428D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		F0244C581D9307F9006C6E5F /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */; };
+		F0244C5A1D93132D006C6E5F /* EasyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C591D93132D006C6E5F /* EasyInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnProfileObject.swift; sourceTree = "<group>"; };
 		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 		F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
+		F0244C591D93132D006C6E5F /* EasyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyInfoViewController.swift; sourceTree = "<group>"; };
 		F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnAssister.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 				60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */,
 				96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */,
 				F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */,
+				F0244C591D93132D006C6E5F /* EasyInfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */,
 				F009F3AA1D600AE700D428D6 /* ApnProfileObject.swift in Sources */,
 				60FCDBA81D86879900DA5726 /* AvailableUpdateHelper.swift in Sources */,
+				F0244C5A1D93132D006C6E5F /* EasyInfoViewController.swift in Sources */,
 				96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */,
 				6085D6721D6F012B008FF20A /* ApnListViewController+Previewing.swift in Sources */,
 				60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */,

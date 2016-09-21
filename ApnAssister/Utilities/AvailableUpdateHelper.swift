@@ -353,6 +353,9 @@ class AvailableUpdateHelper: NSObject {
     
     var publicProfileList = [NSArray](count: DownloadProfiles.json.MAX.rawValue, repeatedValue: [])
     var customProfileList = [NSArray](count: DownloadProfiles.json.MAX.rawValue, repeatedValue: [])
+    var updateIndexSection = 0
+    var updateUrl = [NSURL]()
+    var senderDelegate: NSURLSessionDownloadDelegate!
     
     func getOffsetSection(currentSection: Int) -> (Bool, Int) {
         if currentSection > (DownloadProfiles.json.MAX.rawValue - 1) {
@@ -434,6 +437,9 @@ class AvailableUpdateHelper: NSObject {
     }
     
     func startJsonFileDownload(delegate: NSURLSessionDownloadDelegate) {
+        updateIndexSection = 0
+        senderDelegate = delegate
+        updateUrl = [NSURL]()
         for index in 0..<(DownloadProfiles.json.MAX.rawValue * 2) {
             let url: NSURL!
             if 0 >= DownloadProfiles.json.MAX.rawValue - index {
@@ -442,10 +448,23 @@ class AvailableUpdateHelper: NSObject {
                 url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.publicProfilesDir + DownloadProfiles.json(rawValue: index)!.getFileName())
             }
             
-            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            let session = NSURLSession(configuration: config, delegate: delegate, delegateQueue: NSOperationQueue.mainQueue())
+            //let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            //let session = NSURLSession(configuration: config, delegate: delegate, delegateQueue: NSOperationQueue.mainQueue())
             
-            session.downloadTaskWithURL(url!).resume()
+            //session.downloadTaskWithURL(url!).resume()
+            updateUrl.append(url!)
+        }
+        executeNextDownloadTask()
+    }
+    
+    func executeNextDownloadTask() {
+        print(#function)
+        print("updateIndexSection = \(updateIndexSection)")
+        if updateIndexSection <= updateUrl.count {
+            let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+            let session = NSURLSession(configuration: config, delegate: senderDelegate, delegateQueue: NSOperationQueue.mainQueue())
+            session.downloadTaskWithURL(updateUrl[updateIndexSection]).resume()
+            updateIndexSection += 1
         }
     }
 }

@@ -210,12 +210,15 @@ class AvailableApnListViewController: UITableViewController,
         if updateSectionCount >= self.tableView.numberOfSections {
             self.refreshControl?.endRefreshing()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        } else {
+            myAvailableUpdateHelper.executeNextDownloadTask()
         }
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
         if nil != error {
             updateSectionCount += 1
+            myAvailableUpdateHelper.executeNextDownloadTask()
         }
     }
     

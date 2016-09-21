@@ -237,6 +237,51 @@
             </objects>
             <point key="canvasLocation" x="2360" y="360"/>
         </scene>
+        <!--Easy Info View Controller-->
+        <scene sceneID="sRp-Em-9CR">
+            <objects>
+                <viewController storyboardIdentifier="EasyInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ngi-6D-hSP" customClass="EasyInfoViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ix1-nx-YV8"/>
+                        <viewControllerLayoutGuide type="bottom" id="2iX-xy-hkT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zpd-a5-dey">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMa-mY-lcv">
+                                <rect key="frame" x="289" y="517" width="22" height="22"/>
+                                <connections>
+                                    <action selector="tapInfoButton" destination="Ngi-6D-hSP" eventType="touchUpInside" id="tIH-lM-5OF"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HAL-Xu-NZE">
+                                <rect key="frame" x="20" y="72" width="560" height="415"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HAL-Xu-NZE" firstAttribute="top" secondItem="Ix1-nx-YV8" secondAttribute="bottom" constant="8" id="1aq-ke-lGc"/>
+                            <constraint firstItem="HAL-Xu-NZE" firstAttribute="leading" secondItem="zpd-a5-dey" secondAttribute="leading" constant="20" id="Jij-Eq-ttp"/>
+                            <constraint firstAttribute="trailing" secondItem="HAL-Xu-NZE" secondAttribute="trailing" constant="20" id="auc-rM-Dfg"/>
+                            <constraint firstItem="FMa-mY-lcv" firstAttribute="top" secondItem="HAL-Xu-NZE" secondAttribute="bottom" constant="30" id="c4a-iF-t24"/>
+                            <constraint firstItem="2iX-xy-hkT" firstAttribute="top" secondItem="FMa-mY-lcv" secondAttribute="bottom" constant="12" id="o1i-Yu-A3h"/>
+                            <constraint firstItem="FMa-mY-lcv" firstAttribute="centerX" secondItem="zpd-a5-dey" secondAttribute="centerX" id="wLD-r4-0hU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoButton" destination="FMa-mY-lcv" id="Cgb-r5-TYf"/>
+                        <outlet property="infoTextView" destination="HAL-Xu-NZE" id="Ytd-lv-Dun"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0f-ly-KwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="1062"/>
+        </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -301,7 +346,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--Root View Controller-->
+        <!--About This App View Controller-->
         <scene sceneID="S2M-zB-IJ0">
             <objects>
                 <tableViewController storyboardIdentifier="AboutThisAppViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8gV-fw-fOQ" customClass="AboutThisAppViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
@@ -324,7 +369,10 @@
                             <outlet property="delegate" destination="8gV-fw-fOQ" id="zoS-pO-TET"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="03n-Xq-65i"/>
+                    <navigationItem key="navigationItem" id="03n-Xq-65i"/>
+                    <connections>
+                        <segue destination="Ngi-6D-hSP" kind="show" identifier="EasyInfoViewController" id="5FJ-yt-n0g"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uep-mt-eGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

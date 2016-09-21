@@ -68,6 +68,10 @@ AboutThisAppApn = "What's APN?";
 AboutThisAppProfile = "What's configuration profile?";
 AboutThisAppContact = "Contact";
 
+HowAboutApn = "An Access Point Name (APN) is a gateway between a GSM, GPRS, 3G or 4G mobile network and another computer network, frequently the public Internet.";
+HowAboutConfigProfile = "XML file that allows you to distribute configuration information to iOS-based devices. This app bookmarks profiles of released MVNO carriers";
+HowAboutContact = "Please contact us if you have any suggestion, opinion, demands";
+
 GlobalSIM = "Global SIM";
 
 Albania = "Albania";

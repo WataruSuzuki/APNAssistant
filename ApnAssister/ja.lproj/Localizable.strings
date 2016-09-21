@@ -68,6 +68,10 @@ AboutThisAppApn = "APNとは？";
 AboutThisAppProfile = "構成プロファイルとは？";
 AboutThisAppContact = "コンタクト";
 
+HowAboutApn = "APNとは、携帯情報端末などを携帯電話ネットワークに接続してデータ通信を行う際に必要となる、接続先を指定する文字列のことです。";
+HowAboutConfigProfile = "デバイスの構成作業を一括して行うためのファイルです。APNの設定を行うこともできます。このアプリではMVNOが公開しているプロファイルをブックマークしています。";
+HowAboutContact = "アプリに関する要望などはサポートアカウントへお問い合わせください。";
+
 GlobalSIM = "グローバルSIM";
 
 Albania = "アルバニア";

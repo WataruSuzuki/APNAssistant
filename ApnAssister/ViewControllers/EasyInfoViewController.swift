@@ -9,11 +9,18 @@
 import UIKit
 
 class EasyInfoViewController: UIViewController {
+    
+    @IBOutlet weak var infoTextView: UITextView!
+    @IBOutlet weak var infoButton: UIButton!
+    
+    var nextUrl: NSURL!
+    var message = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        infoTextView.text = message
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +28,8 @@ class EasyInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Action
+    @IBAction func tapInfoButton() {
+        UIApplication.sharedApplication().openURL(nextUrl)
     }
-    */
-
 }

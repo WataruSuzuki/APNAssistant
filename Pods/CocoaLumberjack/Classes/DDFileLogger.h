@@ -426,11 +426,11 @@ extern unsigned long long const kDDDefaultLogFilesDiskQuota;
 @property (strong, nonatomic, readonly) NSString *filePath;
 @property (strong, nonatomic, readonly) NSString *fileName;
 
-#if FOUNDATION_SWIFT_SDK_EPOCH_AT_LEAST(8)
-@property (strong, nonatomic, readonly) NSDictionary<NSFileAttributeKey, id> *fileAttributes;
-#else
+//#if FOUNDATION_SWIFT_SDK_EPOCH_AT_LEAST(8)
+//@property (strong, nonatomic, readonly) NSDictionary<NSFileAttributeKey, id> *fileAttributes;
+//#else
 @property (strong, nonatomic, readonly) NSDictionary<NSString *, id> *fileAttributes;
-#endif
+//#endif
 
 @property (strong, nonatomic, readonly) NSDate *creationDate;
 @property (strong, nonatomic, readonly) NSDate *modificationDate;

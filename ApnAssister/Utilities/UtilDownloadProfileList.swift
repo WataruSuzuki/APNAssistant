@@ -394,22 +394,19 @@ class UtilDownloadProfileList: NSObject {
         }
         
         let localUrl = NSURL.fileURLWithPath(filePath)
-        do{
+        do {
             try fileManager.moveItemAtURL(location, toURL: localUrl)
-            let jsonData = NSData(contentsOfURL: localUrl)
-            let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: .MutableContainers) as! NSDictionary
-            
-            let items = json.objectForKey(DownloadProfiles.profileItems) as! NSArray
-            for i in 0  ..< items.count  {
-                print(items[i].objectForKey(DownloadProfiles.profileName) as! NSString)
-            }
-            let section = getUpdateIndexSection(downloadTask)
-            if section != DownloadProfiles.ERROR_INDEX {
-                let offset = getOffsetSection(section)
-                if offset.0 {
-                    customProfileList[offset.1] = items
-                } else {
-                    publicProfileList[offset.1] = items
+            if let jsonData = NSData(contentsOfURL: localUrl) {
+                let items = serializeJsonDeta(downloadTask, jsonData: jsonData)
+                
+                let section = getUpdateIndexSection(downloadTask)
+                if section != DownloadProfiles.ERROR_INDEX {
+                    let offset = getOffsetSection(section)
+                    if offset.0 {
+                        customProfileList[offset.1] = items
+                    } else {
+                        publicProfileList[offset.1] = items
+                    }
                 }
             }
             
@@ -417,6 +414,23 @@ class UtilDownloadProfileList: NSObject {
             let nsError = error as NSError
             print(nsError.description)
         }
+    }
+    
+    func serializeJsonDeta(downloadTask: NSURLSessionDownloadTask, jsonData: NSData) -> NSArray {
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) as! NSDictionary
+            
+            let items = json.objectForKey(DownloadProfiles.profileItems) as! NSArray
+            for i in 0  ..< items.count  {
+                print(items[i].objectForKey(DownloadProfiles.profileName) as! NSString)
+            }
+            return items
+            
+        } catch {
+            let nsError = error as NSError
+            print(nsError.description)
+        }
+        return NSArray()
     }
     
     func startJsonFileDownload(delegate: NSURLSessionDownloadDelegate) {

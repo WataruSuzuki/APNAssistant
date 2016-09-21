@@ -363,13 +363,15 @@ class AvailableUpdateHelper: NSObject {
     func loadCachedJsonList() {
         let filemanager = NSFileManager()
         let files = filemanager.enumeratorAtPath(UtilCocoaHTTPServer().getTargetFilePath("", fileType: ""))
-        while let file = files?.nextObject() {
-            let country = (file as! String).stringByReplacingOccurrencesOfString(".json", withString: "")
-            let path = UtilCocoaHTTPServer().getTargetFilePath(country, fileType: ".json")
-            let localUrl = NSURL.fileURLWithPath(path)
-            if let jsonData = NSData(contentsOfURL: localUrl) {
-                let items = serializeJsonData(jsonData)
-                addProfileList(localUrl, items: items)
+        while let file = files?.nextObject() as? String {
+            if !file.containsString(DownloadProfiles.version) {
+                let country = file.stringByReplacingOccurrencesOfString(".json", withString: "")
+                let path = UtilCocoaHTTPServer().getTargetFilePath(country, fileType: ".json")
+                let localUrl = NSURL.fileURLWithPath(path)
+                if let jsonData = NSData(contentsOfURL: localUrl) {
+                    let items = serializeJsonData(jsonData)
+                    addProfileList(localUrl, items: items)
+                }
             }
         }
     }

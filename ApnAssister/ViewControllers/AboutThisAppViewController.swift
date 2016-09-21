@@ -55,6 +55,12 @@ class AboutThisAppViewController: UITableViewController {
         let section = AboutThisApp.Section(rawValue: indexPath.section)
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = section!.getText()
+        
+        if indexPath.section == 0 {
+            cell.accessoryType = .None
+        } else {
+            cell.accessoryType = .DisclosureIndicator
+        }
 
         return cell
     }
@@ -94,14 +100,11 @@ class AboutThisAppViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

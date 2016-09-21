@@ -184,13 +184,7 @@
                             <outlet property="delegate" destination="wfp-wt-fx9" id="dRJ-8X-HnJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ieL-8f-LjP">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="ys0-MS-Cx8">
-                            <connections>
-                                <segue destination="jlr-mz-5K2" kind="show" id="fdO-jf-seb"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ieL-8f-LjP"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBr-RT-zZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -242,58 +236,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXq-bF-F5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2360" y="360"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="3zo-UZ-20t">
-            <objects>
-                <viewController id="jlr-mz-5K2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="g7O-1D-6Wy"/>
-                        <viewControllerLayoutGuide type="bottom" id="Nxl-lh-WkL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="71P-X7-mfb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUt-V5-bwc" customClass="ProgressIndicatorView" customModule="ApnAssister" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Bnb-fw-Q18">
-                                        <rect key="frame" x="282" y="249" width="37" height="37"/>
-                                    </activityIndicatorView>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-Id-eOP">
-                                        <rect key="frame" x="225" y="294" width="150" height="2"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="AGy-pI-OxY"/>
-                                            <constraint firstAttribute="width" constant="150" id="qjI-1r-lI2"/>
-                                        </constraints>
-                                    </progressView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Bnb-fw-Q18" firstAttribute="centerX" secondItem="zUt-V5-bwc" secondAttribute="centerX" id="59W-n6-3MQ"/>
-                                    <constraint firstItem="Bnb-fw-Q18" firstAttribute="centerY" secondItem="zUt-V5-bwc" secondAttribute="centerY" id="74h-2b-O7z"/>
-                                    <constraint firstItem="d5G-Id-eOP" firstAttribute="top" secondItem="Bnb-fw-Q18" secondAttribute="bottom" constant="8" id="EEi-T9-y5h"/>
-                                    <constraint firstItem="d5G-Id-eOP" firstAttribute="centerX" secondItem="zUt-V5-bwc" secondAttribute="centerX" id="HKX-It-UdF"/>
-                                    <constraint firstItem="d5G-Id-eOP" firstAttribute="top" secondItem="Bnb-fw-Q18" secondAttribute="bottom" constant="8" id="KPb-ve-Wc1"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="progressBar" destination="d5G-Id-eOP" id="JPX-dI-7A1"/>
-                                </connections>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="zUt-V5-bwc" firstAttribute="top" secondItem="g7O-1D-6Wy" secondAttribute="bottom" id="LFu-Hi-zNc"/>
-                            <constraint firstItem="zUt-V5-bwc" firstAttribute="leading" secondItem="71P-X7-mfb" secondAttribute="leading" id="Lvd-lv-Br2"/>
-                            <constraint firstAttribute="bottom" secondItem="zUt-V5-bwc" secondAttribute="bottom" id="Uvg-lE-oTR"/>
-                            <constraint firstAttribute="trailing" secondItem="zUt-V5-bwc" secondAttribute="trailing" id="uJF-MN-M7A"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8pn-cZ-fma" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2360" y="1051"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

@@ -12,12 +12,12 @@ class ProgressIndicatorView: UIView {
     
     @IBOutlet weak var progressBar: UIProgressView!
 
-    class func instanceFromNib(currentView: UIView) -> ProgressIndicatorView {
+    class func instanceFromNib(frame: CGRect) -> ProgressIndicatorView {
         let nib = UINib(nibName: "ProgressIndicatorView", bundle: nil)
         let view = nib.instantiateWithOwner(nil, options: nil)[0] as! ProgressIndicatorView
         
-        view.frame.size.width = currentView.frame.size.width
-        view.frame.size.height = currentView.frame.size.height
+        view.frame.size.width = frame.size.width
+        view.frame.size.height = frame.size.height
         
         return view
     }

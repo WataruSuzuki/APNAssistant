@@ -20,7 +20,7 @@ class AvailableApnListViewController: UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = NSLocalizedString("DownloadList", comment: "")
+        self.navigationItem.title = NSLocalizedString("AvailableList", comment: "")
         let jsonRefreshControl = UIRefreshControl()
         jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
         self.refreshControl = jsonRefreshControl

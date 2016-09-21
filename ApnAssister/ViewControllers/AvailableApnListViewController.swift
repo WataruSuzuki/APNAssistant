@@ -123,7 +123,7 @@ class AvailableApnListViewController: UITableViewController,
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
                 alertController.popoverPresentationController?.sourceView = self.view
-                alertController.popoverPresentationController?.sourceRect = self.view.frame
+                alertController.popoverPresentationController?.sourceRect = CGRect(x: (self.view.frame.width/2), y: self.view.frame.height, width: 0, height: 0)
             }
             
             presentViewController(alertController, animated: true, completion: nil)

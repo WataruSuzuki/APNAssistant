@@ -12,7 +12,7 @@ class AvailableApnListViewController: UITableViewController,
     UIAlertViewDelegate, UIActionSheetDelegate,
     NSURLSessionDownloadDelegate
 {
-    let myUtilDownloadProfileList = UtilDownloadProfileList()
+    let myAvailableUpdateHelper = AvailableUpdateHelper()
     //var selectedIndexPath = NSIndexPath()
     var updateSectionCount = 0
 
@@ -42,15 +42,15 @@ class AvailableApnListViewController: UITableViewController,
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return myUtilDownloadProfileList.customProfileList.count + myUtilDownloadProfileList.publicProfileList.count
+        return myAvailableUpdateHelper.customProfileList.count + myAvailableUpdateHelper.publicProfileList.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let offset = myUtilDownloadProfileList.getOffsetSection(section)
+        let offset = myAvailableUpdateHelper.getOffsetSection(section)
         if offset.0 {
-            return myUtilDownloadProfileList.customProfileList[offset.1].count
+            return myAvailableUpdateHelper.customProfileList[offset.1].count
         } else {
-            return myUtilDownloadProfileList.publicProfileList[offset.1].count
+            return myAvailableUpdateHelper.publicProfileList[offset.1].count
         }
     }
 
@@ -59,11 +59,11 @@ class AvailableApnListViewController: UITableViewController,
 
         let items: NSArray
         // Configure the cell...
-        let offset = myUtilDownloadProfileList.getOffsetSection(indexPath.section)
+        let offset = myAvailableUpdateHelper.getOffsetSection(indexPath.section)
         if offset.0 {
-            items = myUtilDownloadProfileList.customProfileList[offset.1] as NSArray
+            items = myAvailableUpdateHelper.customProfileList[offset.1] as NSArray
         } else {
-            items = myUtilDownloadProfileList.publicProfileList[offset.1] as NSArray
+            items = myAvailableUpdateHelper.publicProfileList[offset.1] as NSArray
         }
         cell.textLabel?.text = items[indexPath.row].objectForKey(DownloadProfiles.profileName) as? String
 
@@ -71,9 +71,9 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let offset = myUtilDownloadProfileList.getOffsetSection(section)
-        if (offset.0 && 0 == myUtilDownloadProfileList.customProfileList[offset.1].count)
-            || (!offset.0 && myUtilDownloadProfileList.publicProfileList[offset.1].count == 0)
+        let offset = myAvailableUpdateHelper.getOffsetSection(section)
+        if (offset.0 && 0 == myAvailableUpdateHelper.customProfileList[offset.1].count)
+            || (!offset.0 && myAvailableUpdateHelper.publicProfileList[offset.1].count == 0)
         {
             return ""
         }
@@ -133,10 +133,10 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {
-        let offset = myUtilDownloadProfileList.getOffsetSection(selectedIndexPath.section)
+        let offset = myAvailableUpdateHelper.getOffsetSection(selectedIndexPath.section)
         let profileData = (offset.0
-            ? myUtilDownloadProfileList.customProfileList[offset.1]
-            : myUtilDownloadProfileList.publicProfileList[offset.1]
+            ? myAvailableUpdateHelper.customProfileList[offset.1]
+            : myAvailableUpdateHelper.publicProfileList[offset.1]
         )
         let url = profileData[selectedIndexPath.row].objectForKey(DownloadProfiles.profileUrl) as! String
         UIApplication.sharedApplication().openURL(NSURL(string: url)!)
@@ -196,9 +196,9 @@ class AvailableApnListViewController: UITableViewController,
     
     // MARK: - NSURLSessionDownloadDelegate
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        myUtilDownloadProfileList.moveJSONFilesFromURLSession(downloadTask, location: location)
+        myAvailableUpdateHelper.moveJSONFilesFromURLSession(downloadTask, location: location)
         
-        let section = myUtilDownloadProfileList.getUpdateIndexSection(downloadTask)
+        let section = myAvailableUpdateHelper.getUpdateIndexSection(downloadTask)
         if section != DownloadProfiles.ERROR_INDEX {
             self.tableView.reloadData()
             //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
@@ -231,6 +231,6 @@ class AvailableApnListViewController: UITableViewController,
     func startJsonFileDownload() {
         updateSectionCount = 0
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        myUtilDownloadProfileList.startJsonFileDownload(self)
+        myAvailableUpdateHelper.startJsonFileDownload(self)
     }
 }

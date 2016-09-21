@@ -1,5 +1,5 @@
 //
-//  UtilDownloadProfileList.swift
+//  AvailableUpdateHelper.swift
 //  ApnAssister
 //
 //  Created by WataruSuzuki on 2016/09/12.
@@ -349,7 +349,7 @@ struct DownloadProfiles {
     }
 }
 
-class UtilDownloadProfileList: NSObject {
+class AvailableUpdateHelper: NSObject {
     
     var publicProfileList = [NSArray](count: DownloadProfiles.json.MAX.rawValue, repeatedValue: [])
     var customProfileList = [NSArray](count: DownloadProfiles.json.MAX.rawValue, repeatedValue: [])

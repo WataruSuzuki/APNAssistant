@@ -465,7 +465,8 @@ class AvailableUpdateHelper: NSObject {
             for i in 0  ..< items.count  {
                 print(items[i].objectForKey(DownloadProfiles.profileName) as! NSString)
             }
-            return items
+            let sortDescriptor = NSSortDescriptor(key: DownloadProfiles.profileName, ascending: true)
+            return items.sortedArrayUsingDescriptors([sortDescriptor])
             
         } catch {
             let nsError = error as NSError

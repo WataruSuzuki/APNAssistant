@@ -7,6 +7,7 @@ target "ApnAssister" do
   pod 'Realm'
   pod 'CMPopTipView'
   pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
+  pod 'MBCircularProgressBar'
 end
 
 target "TodayWidget" do

@@ -26,6 +26,7 @@ FavoriteList = "お気に入り一覧";
 ProfileList = "プロファイル一覧";
 DownloadList = "ダウンロード一覧";
 AvailableList = "利用可能データ一覧";
+AboutThisApp = "このアプリについて";
 edit_apn = "APN編集";
 
 no_settings = "未設定";
@@ -61,6 +62,11 @@ caution = "注意";
 caution_profile = "APNの設定が間違っていると、モバイルデータ通信接続ができなくなったり、追加料金が発生したりすることがあります。\n不安な場合は通信事業者に問い合わせて、正しいAPN設定をご確認ください。";
 update_available_list = "利用可能リストを更新しますか？";
 confirm = "確認";
+
+AboutThisAppSummary = "このアプリはMVNOのAPN情報をブックマークしています。 あなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
+AboutThisAppApn = "APNとは？";
+AboutThisAppProfile = "構成プロファイルとは？";
+AboutThisAppContact = "コンタクト";
 
 GlobalSIM = "グローバルSIM";
 

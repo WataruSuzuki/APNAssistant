@@ -19,6 +19,7 @@ struct DownloadProfiles {
     static let profileItems = "items"
     static let profileName = "name"
     static let profileUrl = "profile_url"
+    static let version = "version"
     static let ERROR_INDEX = (-1)
     
     enum json: Int {

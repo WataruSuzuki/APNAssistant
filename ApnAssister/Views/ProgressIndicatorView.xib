@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressIndicatorView" customModule="ApnAssister" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProgressIndicatorView" customModule="ApnAssister" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6gY-Fb-2Ls">
+                    <rect key="frame" x="282" y="281" width="37" height="37"/>
+                </activityIndicatorView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="amT-2p-DLF">
+                    <rect key="frame" x="225" y="326" width="150" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="TMe-X3-aX6"/>
+                    </constraints>
+                </progressView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="6gY-Fb-2Ls" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="I1b-ql-8Ej"/>
+                <constraint firstItem="amT-2p-DLF" firstAttribute="top" secondItem="6gY-Fb-2Ls" secondAttribute="bottom" constant="8" id="XMT-if-yTW"/>
+                <constraint firstItem="amT-2p-DLF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dgH-b1-nRp"/>
+                <constraint firstItem="6gY-Fb-2Ls" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tVd-S6-nbd"/>
+            </constraints>
+            <connections>
+                <outlet property="progressBar" destination="amT-2p-DLF" id="SXw-Hz-ZGi"/>
+            </connections>
+        </view>
+    </objects>
+</document>

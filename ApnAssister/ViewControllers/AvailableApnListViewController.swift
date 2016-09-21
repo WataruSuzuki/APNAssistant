@@ -15,7 +15,23 @@ class AvailableApnListViewController: UITableViewController,
     let myAvailableUpdateHelper = AvailableUpdateHelper()
     //var selectedIndexPath = NSIndexPath()
     var updateSectionCount = 0
-
+    var indicatorView: ProgressIndicatorView!
+    var indicator = UIActivityIndicatorView()
+    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: self.view.frame)
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+    }
+    
+    func testView() {
+        let view = UIView(frame: self.view.frame)
+        view.backgroundColor = UIColor.darkGrayColor()
+        view.center = self.view.center
+        self.view.addSubview(view)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +42,9 @@ class AvailableApnListViewController: UITableViewController,
         let jsonRefreshControl = UIRefreshControl()
         jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
         self.refreshControl = jsonRefreshControl
+        
+//        activityIndicator()
+        startIndicatorView()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -210,6 +229,7 @@ class AvailableApnListViewController: UITableViewController,
         if updateSectionCount >= self.tableView.numberOfSections {
             self.refreshControl?.endRefreshing()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            indicatorView.removeFromSuperview()
         } else {
             myAvailableUpdateHelper.executeNextDownloadTask()
         }
@@ -235,5 +255,20 @@ class AvailableApnListViewController: UITableViewController,
         updateSectionCount = 0
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         myAvailableUpdateHelper.startJsonFileDownload(self)
+        startIndicatorView()
+    }
+    
+    func startIndicatorView() {
+        indicatorView = ProgressIndicatorView.instanceFromNib(self.view)
+        indicatorView.center = self.view.center
+        self.view.addSubview(indicatorView)
+        //self.view.bringSubviewToFront(indicatorView)
+//        self.view.addConstraints([
+//            NSLayoutConstraint(item: indicatorView, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 0),
+//            NSLayoutConstraint(item: indicatorView, attribute: .Width, relatedBy: .Equal, toItem: self.view,  attribute: .Width, multiplier: 1.0, constant: 0),
+//            NSLayoutConstraint(item: indicatorView, attribute: .Height, relatedBy: .Equal, toItem: self.view, attribute: .Height, multiplier: 1.0, constant: 0)
+//            ]
+//        )
+//        self.tableView.tableHeaderView = indicatorView
     }
 }

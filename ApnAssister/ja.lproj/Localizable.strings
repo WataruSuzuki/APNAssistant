@@ -24,7 +24,8 @@ keyAttachApnProxyServerPort = "デフォルトAPNのプロキシポート番号"
 setAttachApnManual = "データAPNを手動でセットする";
 FavoriteList = "お気に入り一覧";
 ProfileList = "プロファイル一覧";
-DownloadList = "ダウンロード可能一覧";
+DownloadList = "ダウンロード一覧";
+AvailableList = "利用可能データ一覧";
 edit_apn = "APN編集";
 
 no_settings = "未設定";
@@ -58,6 +59,8 @@ public = "公式";
 
 caution = "注意";
 caution_profile = "APNの設定が間違っていると、モバイルデータ通信接続ができなくなったり、追加料金が発生したりすることがあります。\n不安な場合は通信事業者に問い合わせて、正しいAPN設定をご確認ください。";
+update_available_list = "利用可能リストを更新しますか？";
+confirm = "確認";
 
 GlobalSIM = "グローバルSIM";
 

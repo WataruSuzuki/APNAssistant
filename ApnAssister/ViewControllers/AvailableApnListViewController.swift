@@ -13,18 +13,25 @@ class AvailableApnListViewController: UITableViewController,
     NSURLSessionDownloadDelegate
 {
     let myUtilDownloadProfileList = UtilDownloadProfileList()
-    var selectedIndexPath = NSIndexPath()
+    //var selectedIndexPath = NSIndexPath()
     var updateSectionCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        startJsonFileDownload()
+        //ここでダウンロードを試みるとデバイスではうまく動かない(Simulatorだと動くけど)
+        //startJsonFileDownload()
         
         self.navigationItem.title = NSLocalizedString("DownloadList", comment: "")
         let jsonRefreshControl = UIRefreshControl()
         jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
         self.refreshControl = jsonRefreshControl
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        confirmUpdateAvailableList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,11 +82,11 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedIndexPath = indexPath
-        showConfirmInstallProfile()
+        //selectedIndexPath = indexPath
+        installProfileFromNetwork(indexPath)
     }
     
-    func showConfirmInstallProfile() {
+    func confirmUpdateAvailableList() {
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
@@ -94,20 +101,20 @@ class AvailableApnListViewController: UITableViewController,
         sheet.addButtonWithTitle(positiveMessage)
         sheet.addButtonWithTitle(negativeMessage)
         sheet.cancelButtonIndex = 1
-        sheet.destructiveButtonIndex = 0
+        //sheet.destructiveButtonIndex = 0
         
         sheet.showInView(self.view)
     }
     
     func showConfirmAlertController(negativeMessage: String, positiveMessage: String){
-        let title = NSLocalizedString("caution", comment: "")
-        let message = NSLocalizedString("caution_profile", comment: "")
+        let title = NSLocalizedString("confirm", comment: "")
+        let message = NSLocalizedString("update_available_list", comment: "")
         if #available(iOS 8.0, *) {
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
                 action in //do nothing
             }
-            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Destructive){
-                action in self.installProfileFromNetwork()
+            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
+                action in self.startJsonFileDownload()
             }
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
@@ -115,10 +122,8 @@ class AvailableApnListViewController: UITableViewController,
             alertController.addAction(installAction)
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-                if let cell = self.tableView.cellForRowAtIndexPath(selectedIndexPath) {
-                    alertController.popoverPresentationController?.sourceView = self.view
-                    alertController.popoverPresentationController?.sourceRect = cell.frame
-                }
+                alertController.popoverPresentationController?.sourceView = self.view
+                alertController.popoverPresentationController?.sourceRect = self.view.frame
             }
             
             presentViewController(alertController, animated: true, completion: nil)
@@ -127,7 +132,7 @@ class AvailableApnListViewController: UITableViewController,
         }
     }
     
-    func installProfileFromNetwork() {
+    func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {
         let offset = myUtilDownloadProfileList.getOffsetSection(selectedIndexPath.section)
         let profileData = (offset.0
             ? myUtilDownloadProfileList.customProfileList[offset.1]
@@ -175,7 +180,7 @@ class AvailableApnListViewController: UITableViewController,
     // MARK: - UIActionSheetDelegate
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         if 0 == buttonIndex {
-            self.installProfileFromNetwork()
+            self.startJsonFileDownload()
         }
     }
     

@@ -300,11 +300,11 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--Downloads-->
+        <!--Available List-->
         <scene sceneID="OyC-Um-Vbh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NTo-b0-fRu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Downloads" image="ic_cloud_download_36pt" selectedImage="ic_file_download_36pt" id="DwC-Xc-xoU"/>
+                    <tabBarItem key="tabBarItem" title="Available List" image="ic_cloud_download_36pt" selectedImage="ic_cloud_download_36pt" id="DwC-Xc-xoU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kfq-Ka-Sjc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -323,7 +323,6 @@
     <resources>
         <image name="ic_cloud_download_36pt" width="36" height="36"/>
         <image name="ic_favorite_36pt" width="36" height="36"/>
-        <image name="ic_file_download_36pt" width="36" height="36"/>
         <image name="ic_list_36pt" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>

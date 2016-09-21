@@ -68,7 +68,7 @@ class MainTabBarController: UITabBarController {
     }
     
     enum TabIndex: Int {
-        case DownloadList = 0,
+        case AvailableList = 0,
         FavoriteList,
         ProfileList
         

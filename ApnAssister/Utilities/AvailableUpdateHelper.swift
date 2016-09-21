@@ -11,8 +11,10 @@ import UIKit
 struct DownloadProfiles {
     static let serverUrl = "https://watarusuzuki.github.io/"
     
-    static let publicProfilesDir = "public-profiles/"
-    static let customProfilesDir = "custom-profiles/"
+    static let publicProfiles = "public-profiles"
+    static let customProfiles = "custom-profiles"
+    static let publicProfilesDir = publicProfiles + "/"
+    static let customProfilesDir = customProfiles + "/"
     
     static let profileItems = "items"
     static let profileName = "name"
@@ -357,6 +359,20 @@ class AvailableUpdateHelper: NSObject {
     var updateUrl = [NSURL]()
     var senderDelegate: NSURLSessionDownloadDelegate!
     
+    func loadCachedJsonList() {
+        let filemanager = NSFileManager()
+        let files = filemanager.enumeratorAtPath(UtilCocoaHTTPServer().getTargetFilePath("", fileType: ""))
+        while let file = files?.nextObject() {
+            let country = (file as! String).stringByReplacingOccurrencesOfString(".json", withString: "")
+            let path = UtilCocoaHTTPServer().getTargetFilePath(country, fileType: ".json")
+            let localUrl = NSURL.fileURLWithPath(path)
+            if let jsonData = NSData(contentsOfURL: localUrl) {
+                let items = serializeJsonData(jsonData)
+                addProfileList(localUrl, items: items)
+            }
+        }
+    }
+    
     func getOffsetSection(currentSection: Int) -> (Bool, Int) {
         if currentSection > (DownloadProfiles.json.MAX.rawValue - 1) {
             return (true, currentSection - DownloadProfiles.json.MAX.rawValue)
@@ -365,17 +381,33 @@ class AvailableUpdateHelper: NSObject {
         }
     }
     
-    func getUpdateIndexSection(downloadTask: NSURLSessionDownloadTask) -> Int {
+    func getCountryFileUrl(downloadTask: NSURLSessionDownloadTask) -> NSURL? {
         if let response = downloadTask.response {
             if let url = response.URL {
-                if let fileName = url.lastPathComponent {
-                    let country = DownloadProfiles.json.init(fileName: fileName)
-                    if url.absoluteString.containsString(DownloadProfiles.publicProfilesDir) {
-                        return country.rawValue
-                    } else {
-                        return country.rawValue + DownloadProfiles.json.MAX.rawValue
-                    }
-                }
+                return url
+            }
+        }
+        return nil
+    }
+    
+    func getOriginalFileName(fileName: String) -> String {
+        if fileName.containsString(DownloadProfiles.publicProfiles) {
+            let replaced = fileName.stringByReplacingOccurrencesOfString(DownloadProfiles.publicProfiles, withString: "")
+            return replaced.stringByReplacingOccurrencesOfString("-", withString: "")
+        } else if fileName.containsString(DownloadProfiles.customProfiles) {
+            let replaced = fileName.stringByReplacingOccurrencesOfString(DownloadProfiles.customProfiles, withString: "")
+            return replaced.stringByReplacingOccurrencesOfString("-", withString: "")
+        }
+        return fileName
+    }
+    
+    func getUpdateIndexSection(url: NSURL) -> Int {
+        if let fileName = url.lastPathComponent {
+            let country = DownloadProfiles.json.init(fileName: getOriginalFileName(fileName))
+            if url.absoluteString.containsString(DownloadProfiles.publicProfiles) {
+                return country.rawValue
+            } else {
+                return country.rawValue + DownloadProfiles.json.MAX.rawValue
             }
         }
         return DownloadProfiles.ERROR_INDEX
@@ -387,9 +419,9 @@ class AvailableUpdateHelper: NSObject {
         guard let lastPathComponent = responseUrl.lastPathComponent else { return }
         
         let fileManager = NSFileManager.defaultManager()
-        let fileName = (responseUrl.absoluteString.containsString(DownloadProfiles.publicProfilesDir)
-            ? lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.publicProfilesDir).stringByReplacingOccurrencesOfString("/", withString: "")
-            : lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.customProfilesDir).stringByReplacingOccurrencesOfString("/", withString: "")
+        let fileName = (responseUrl.absoluteString.containsString(DownloadProfiles.publicProfiles)
+            ? lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.publicProfiles)
+            : lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.customProfiles)
         )
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
         if fileManager.fileExistsAtPath(filePath) {
@@ -400,16 +432,10 @@ class AvailableUpdateHelper: NSObject {
         do {
             try fileManager.moveItemAtURL(location, toURL: localUrl)
             if let jsonData = NSData(contentsOfURL: localUrl) {
-                let items = serializeJsonDeta(downloadTask, jsonData: jsonData)
+                let items = serializeJsonData(jsonData)
                 
-                let section = getUpdateIndexSection(downloadTask)
-                if section != DownloadProfiles.ERROR_INDEX {
-                    let offset = getOffsetSection(section)
-                    if offset.0 {
-                        customProfileList[offset.1] = items
-                    } else {
-                        publicProfileList[offset.1] = items
-                    }
+                if let countryUrl = getCountryFileUrl(downloadTask) {
+                    addProfileList(countryUrl, items: items)
                 }
             }
             
@@ -419,7 +445,19 @@ class AvailableUpdateHelper: NSObject {
         }
     }
     
-    func serializeJsonDeta(downloadTask: NSURLSessionDownloadTask, jsonData: NSData) -> NSArray {
+    func addProfileList(countryUrl: NSURL, items: NSArray) {
+        let section = getUpdateIndexSection(countryUrl)
+        if section != DownloadProfiles.ERROR_INDEX {
+            let offset = getOffsetSection(section)
+            if offset.0 {
+                customProfileList[offset.1] = items
+            } else {
+                publicProfileList[offset.1] = items
+            }
+        }
+    }
+    
+    func serializeJsonData(jsonData: NSData) -> NSArray {
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) as! NSDictionary
             
@@ -447,11 +485,6 @@ class AvailableUpdateHelper: NSObject {
             } else {
                 url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.publicProfilesDir + DownloadProfiles.json(rawValue: index)!.getFileName())
             }
-            
-            //let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-            //let session = NSURLSession(configuration: config, delegate: delegate, delegateQueue: NSOperationQueue.mainQueue())
-            
-            //session.downloadTaskWithURL(url!).resume()
             updateUrl.append(url!)
         }
         executeNextDownloadTask()

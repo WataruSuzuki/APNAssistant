@@ -109,7 +109,8 @@ class AvailableApnListViewController: UITableViewController,
         let message = NSLocalizedString("update_available_list", comment: "")
         if #available(iOS 8.0, *) {
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
-                action in //do nothing
+                action in self.myAvailableUpdateHelper.loadCachedJsonList()
+                self.tableView.reloadData()
             }
             let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
                 action in self.startJsonFileDownload()
@@ -196,7 +197,8 @@ class AvailableApnListViewController: UITableViewController,
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
         myAvailableUpdateHelper.moveJSONFilesFromURLSession(downloadTask, location: location)
         
-        let section = myAvailableUpdateHelper.getUpdateIndexSection(downloadTask)
+        let countryUrl = myAvailableUpdateHelper.getCountryFileUrl(downloadTask)
+        let section = myAvailableUpdateHelper.getUpdateIndexSection(countryUrl!)
         if section != DownloadProfiles.ERROR_INDEX {
             self.tableView.reloadData()
             //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)

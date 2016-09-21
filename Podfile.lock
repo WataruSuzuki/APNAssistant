@@ -1,4 +1,5 @@
 PODS:
+  - CircleProgressBar (0.32)
   - CMPopTipView (2.3.0)
   - CocoaAsyncSocket (7.5.0):
     - CocoaAsyncSocket/GCD (= 7.5.0)
@@ -15,17 +16,16 @@ PODS:
   - CocoaLumberjack/Extensions (3.0.0):
     - CocoaLumberjack/Default
   - DJKFlatIconAuthors (0.0.1)
-  - MBCircularProgressBar (0.3.2)
   - Realm (1.1.0):
     - Realm/Headers (= 1.1.0)
   - Realm/Headers (1.1.0)
 
 DEPENDENCIES:
+  - CircleProgressBar
   - CMPopTipView
   - CocoaAsyncSocket
   - CocoaHTTPServer
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
-  - MBCircularProgressBar
   - Realm
 
 EXTERNAL SOURCES:
@@ -38,14 +38,14 @@ CHECKOUT OPTIONS:
     :git: https://github.com/WataruSuzuki/DJKFlatIconAuthors.git
 
 SPEC CHECKSUMS:
+  CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
   CMPopTipView: 774e0230b5c73abb3c39051da6d8a383373c4f7f
   CocoaAsyncSocket: 3baeb1ddd969f81cf9fca81053ae49ef2d1cbbfa
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   DJKFlatIconAuthors: aff39c56b33e8a51c298d5750de2f4187edfe72c
-  MBCircularProgressBar: da24e75aa8a231564f10eb8d6d942fa78343486c
   Realm: ceecf1a4540c4ce9efe196fe73fa9855bce05bd8
 
-PODFILE CHECKSUM: 3d37855b89fb40efdba467e9466a8b1ea19fb309
+PODFILE CHECKSUM: 601400da5f2e047d9d26c7c6c92bd89cefb0f1f3
 
 COCOAPODS: 1.0.1

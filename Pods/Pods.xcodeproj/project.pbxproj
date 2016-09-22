@@ -660,9 +660,9 @@
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Pods-ApnAssister</string>
+			<string>Pods-ApnBookmarks</string>
 			<key>path</key>
-			<string>Target Support Files/Pods-ApnAssister</string>
+			<string>Target Support Files/Pods-ApnBookmarks</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -722,9 +722,9 @@
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>name</key>
-			<string>libPods-ApnAssister.a</string>
+			<string>libPods-ApnBookmarks.a</string>
 			<key>path</key>
-			<string>libPods-ApnAssister.a</string>
+			<string>libPods-ApnBookmarks.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
@@ -1010,7 +1010,7 @@
 			<key>lastKnownFileType</key>
 			<string>text.script.sh</string>
 			<key>path</key>
-			<string>Pods-ApnAssister-frameworks.sh</string>
+			<string>Pods-ApnBookmarks-frameworks.sh</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2992,7 +2992,7 @@
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>path</key>
-			<string>Pods-ApnAssister.debug.xcconfig</string>
+			<string>Pods-ApnBookmarks.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -4098,7 +4098,7 @@
 			<key>lastKnownFileType</key>
 			<string>text.script.sh</string>
 			<key>path</key>
-			<string>Pods-ApnAssister-resources.sh</string>
+			<string>Pods-ApnBookmarks-resources.sh</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -4731,7 +4731,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>Pods-ApnAssister-dummy.m</string>
+			<string>Pods-ApnBookmarks-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -5164,9 +5164,9 @@
 			<key>isa</key>
 			<string>PBXNativeTarget</string>
 			<key>name</key>
-			<string>Pods-ApnAssister</string>
+			<string>Pods-ApnBookmarks</string>
 			<key>productName</key>
-			<string>Pods-ApnAssister</string>
+			<string>Pods-ApnBookmarks</string>
 			<key>productReference</key>
 			<string>1D996F342014EEA6E0A3F0C83D3D408A</string>
 			<key>productType</key>
@@ -5391,7 +5391,7 @@
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>path</key>
-			<string>Pods-ApnAssister.release.xcconfig</string>
+			<string>Pods-ApnBookmarks.release.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6096,7 +6096,7 @@
 			<key>lastKnownFileType</key>
 			<string>text</string>
 			<key>path</key>
-			<string>Pods-ApnAssister-acknowledgements.markdown</string>
+			<string>Pods-ApnBookmarks-acknowledgements.markdown</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6434,7 +6434,7 @@
 			<key>lastKnownFileType</key>
 			<string>text.plist.xml</string>
 			<key>path</key>
-			<string>Pods-ApnAssister-acknowledgements.plist</string>
+			<string>Pods-ApnBookmarks-acknowledgements.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>

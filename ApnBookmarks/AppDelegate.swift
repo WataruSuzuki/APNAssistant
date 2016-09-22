@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ApnAssister
+//  ApnBookmarks
 //
 //  Created by 鈴木 航 on 2016/03/18.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.

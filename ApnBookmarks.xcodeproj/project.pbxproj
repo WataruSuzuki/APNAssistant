@@ -45,9 +45,9 @@
 		96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
 		96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
-		96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */; };
-		96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */; };
-		9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
+		96DA6C0D1C9B03FE00E424D5 /* ApnBookmarksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnBookmarksTests.swift */; };
+		96DA6C181C9B03FE00E424D5 /* ApnBookmarksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnBookmarksUITests.swift */; };
+		9EB076198FF9BE7FC26EF8A4 /* libPods-ApnBookmarks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnBookmarks.a */; };
 		E182F50CC564D716129F4139 /* libPods-TodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */; };
 		F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F009F3961D6006A000D428D6 /* NotificationCenter.framework */; };
 		F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3991D6006A100D428D6 /* TodayViewController.swift */; };
@@ -66,14 +66,14 @@
 			containerPortal = 96DA6BEA1C9B03FD00E424D5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 96DA6BF11C9B03FD00E424D5;
-			remoteInfo = ApnAssister;
+			remoteInfo = ApnBookmarks;
 		};
 		96DA6C141C9B03FE00E424D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96DA6BEA1C9B03FD00E424D5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 96DA6BF11C9B03FD00E424D5;
-			remoteInfo = ApnAssister;
+			remoteInfo = ApnBookmarks;
 		};
 		F009F39F1D6006A100D428D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -99,8 +99,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnAssister.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.debug.xcconfig"; sourceTree = "<group>"; };
+		18E70AFA6266B1CDC89A4A1F /* libPods-ApnBookmarks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnBookmarks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D9CFEFEB8283B622418507E /* Pods-ApnBookmarks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnBookmarks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks.debug.xcconfig"; sourceTree = "<group>"; };
 		2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodayWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,7 +122,7 @@
 		6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApnListViewController+Previewing.swift"; sourceTree = "<group>"; };
 		6085D6731D6F1597008FF20A /* UtilShareAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilShareAction.swift; sourceTree = "<group>"; };
 		60AA73A51C9BA3DD00E41CAE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnAssister-Bridging-Header.h"; sourceTree = "<group>"; };
+		60AA73A81C9BA77C00E41CAE /* ApnBookmarks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnBookmarks-Bridging-Header.h"; sourceTree = "<group>"; };
 		60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteApnListViewController.swift; sourceTree = "<group>"; };
 		60BEE4FB1CA3E0EE005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		60BEE4FC1CA3E0EF005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -138,22 +138,22 @@
 		60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableUpdateHelper.swift; sourceTree = "<group>"; };
 		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.release.xcconfig"; sourceTree = "<group>"; };
+		84D32C0BC91843370CFD7DA5 /* Pods-ApnBookmarks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnBookmarks.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks.release.xcconfig"; sourceTree = "<group>"; };
 		9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressIndicatorView.xib; sourceTree = "<group>"; };
 		96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutThisAppViewController.swift; sourceTree = "<group>"; };
 		96A1EF701D932944005EEA31 /* UtilUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilUserDefaults.swift; sourceTree = "<group>"; };
-		96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6BF21C9B03FD00E424D5 /* ApnBookmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnBookmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DA6BFC1C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DA6C011C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96DA6C031C9B03FD00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C081C9B03FE00E424D5 /* ApnAssisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterTests.swift; sourceTree = "<group>"; };
+		96DA6C081C9B03FE00E424D5 /* ApnBookmarksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnBookmarksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C0C1C9B03FE00E424D5 /* ApnBookmarksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnBookmarksTests.swift; sourceTree = "<group>"; };
 		96DA6C0E1C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
+		96DA6C131C9B03FE00E424D5 /* ApnBookmarksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnBookmarksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C171C9B03FE00E424D5 /* ApnBookmarksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnBookmarksUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3961D6006A000D428D6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -165,7 +165,7 @@
 		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 		F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
 		F0244C591D93132D006C6E5F /* EasyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyInfoViewController.swift; sourceTree = "<group>"; };
-		F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnAssister.entitlements; sourceTree = "<group>"; };
+		F06AD47C1D5D859B007B0842 /* ApnBookmarks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnBookmarks.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */,
+				9EB076198FF9BE7FC26EF8A4 /* libPods-ApnBookmarks.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,8 +206,8 @@
 		1DD471A10B4D9499B7C426C5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */,
-				84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */,
+				2D9CFEFEB8283B622418507E /* Pods-ApnBookmarks.debug.xcconfig */,
+				84D32C0BC91843370CFD7DA5 /* Pods-ApnBookmarks.release.xcconfig */,
 				4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */,
 				2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */,
 			);
@@ -271,9 +271,9 @@
 		96DA6BE91C9B03FD00E424D5 = {
 			isa = PBXGroup;
 			children = (
-				96DA6BF41C9B03FD00E424D5 /* ApnAssister */,
-				96DA6C0B1C9B03FE00E424D5 /* ApnAssisterTests */,
-				96DA6C161C9B03FE00E424D5 /* ApnAssisterUITests */,
+				96DA6BF41C9B03FD00E424D5 /* ApnBookmarks */,
+				96DA6C0B1C9B03FE00E424D5 /* ApnBookmarksTests */,
+				96DA6C161C9B03FE00E424D5 /* ApnBookmarksUITests */,
 				F009F3981D6006A100D428D6 /* TodayWidget */,
 				96DA6BF31C9B03FD00E424D5 /* Products */,
 				1DD471A10B4D9499B7C426C5 /* Pods */,
@@ -284,15 +284,15 @@
 		96DA6BF31C9B03FD00E424D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */,
-				96DA6C081C9B03FE00E424D5 /* ApnAssisterTests.xctest */,
-				96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */,
+				96DA6BF21C9B03FD00E424D5 /* ApnBookmarks.app */,
+				96DA6C081C9B03FE00E424D5 /* ApnBookmarksTests.xctest */,
+				96DA6C131C9B03FE00E424D5 /* ApnBookmarksUITests.xctest */,
 				F009F3951D6006A000D428D6 /* TodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		96DA6BF41C9B03FD00E424D5 /* ApnAssister */ = {
+		96DA6BF41C9B03FD00E424D5 /* ApnBookmarks */ = {
 			isa = PBXGroup;
 			children = (
 				F009F3A71D600AE700D428D6 /* Models */,
@@ -305,39 +305,39 @@
 				96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */,
 				96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */,
 				96DA6C031C9B03FD00E424D5 /* Info.plist */,
-				60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */,
+				60AA73A81C9BA77C00E41CAE /* ApnBookmarks-Bridging-Header.h */,
 				60BEE5011CA3E185005B86B9 /* InfoPlist.strings */,
 				60BEE5071CA3E1A4005B86B9 /* Localizable.strings */,
-				F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */,
+				F06AD47C1D5D859B007B0842 /* ApnBookmarks.entitlements */,
 				6082F1B21D536843000B59EA /* htdocs */,
 				F045415E1D561F7800D4388C /* Resources */,
 			);
-			path = ApnAssister;
+			path = ApnBookmarks;
 			sourceTree = "<group>";
 		};
-		96DA6C0B1C9B03FE00E424D5 /* ApnAssisterTests */ = {
+		96DA6C0B1C9B03FE00E424D5 /* ApnBookmarksTests */ = {
 			isa = PBXGroup;
 			children = (
-				96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */,
+				96DA6C0C1C9B03FE00E424D5 /* ApnBookmarksTests.swift */,
 				96DA6C0E1C9B03FE00E424D5 /* Info.plist */,
 			);
-			path = ApnAssisterTests;
+			path = ApnBookmarksTests;
 			sourceTree = "<group>";
 		};
-		96DA6C161C9B03FE00E424D5 /* ApnAssisterUITests */ = {
+		96DA6C161C9B03FE00E424D5 /* ApnBookmarksUITests */ = {
 			isa = PBXGroup;
 			children = (
-				96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */,
+				96DA6C171C9B03FE00E424D5 /* ApnBookmarksUITests.swift */,
 				96DA6C191C9B03FE00E424D5 /* Info.plist */,
 			);
-			path = ApnAssisterUITests;
+			path = ApnBookmarksUITests;
 			sourceTree = "<group>";
 		};
 		ABEAB649DE6ACE49732DE041 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				82086984B027390E9C7FD7A4 /* libPods.a */,
-				18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */,
+				18E70AFA6266B1CDC89A4A1F /* libPods-ApnBookmarks.a */,
 				F009F3961D6006A000D428D6 /* NotificationCenter.framework */,
 				4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */,
 			);
@@ -386,9 +386,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96DA6BF11C9B03FD00E424D5 /* ApnAssister */ = {
+		96DA6BF11C9B03FD00E424D5 /* ApnBookmarks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister" */;
+			buildConfigurationList = 96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnBookmarks" */;
 			buildPhases = (
 				98B00AC8814008A4C2BE48C7 /* [CP] Check Pods Manifest.lock */,
 				96DA6BEE1C9B03FD00E424D5 /* Sources */,
@@ -404,14 +404,14 @@
 			dependencies = (
 				F009F3A01D6006A100D428D6 /* PBXTargetDependency */,
 			);
-			name = ApnAssister;
-			productName = ApnAssister;
-			productReference = 96DA6BF21C9B03FD00E424D5 /* ApnAssister.app */;
+			name = ApnBookmarks;
+			productName = ApnBookmarks;
+			productReference = 96DA6BF21C9B03FD00E424D5 /* ApnBookmarks.app */;
 			productType = "com.apple.product-type.application";
 		};
-		96DA6C071C9B03FE00E424D5 /* ApnAssisterTests */ = {
+		96DA6C071C9B03FE00E424D5 /* ApnBookmarksTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssisterTests" */;
+			buildConfigurationList = 96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnBookmarksTests" */;
 			buildPhases = (
 				96DA6C041C9B03FE00E424D5 /* Sources */,
 				96DA6C051C9B03FE00E424D5 /* Frameworks */,
@@ -422,14 +422,14 @@
 			dependencies = (
 				96DA6C0A1C9B03FE00E424D5 /* PBXTargetDependency */,
 			);
-			name = ApnAssisterTests;
-			productName = ApnAssisterTests;
-			productReference = 96DA6C081C9B03FE00E424D5 /* ApnAssisterTests.xctest */;
+			name = ApnBookmarksTests;
+			productName = ApnBookmarksTests;
+			productReference = 96DA6C081C9B03FE00E424D5 /* ApnBookmarksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		96DA6C121C9B03FE00E424D5 /* ApnAssisterUITests */ = {
+		96DA6C121C9B03FE00E424D5 /* ApnBookmarksUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssisterUITests" */;
+			buildConfigurationList = 96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnBookmarksUITests" */;
 			buildPhases = (
 				96DA6C0F1C9B03FE00E424D5 /* Sources */,
 				96DA6C101C9B03FE00E424D5 /* Frameworks */,
@@ -440,9 +440,9 @@
 			dependencies = (
 				96DA6C151C9B03FE00E424D5 /* PBXTargetDependency */,
 			);
-			name = ApnAssisterUITests;
-			productName = ApnAssisterUITests;
-			productReference = 96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */;
+			name = ApnBookmarksUITests;
+			productName = ApnBookmarksUITests;
+			productReference = 96DA6C131C9B03FE00E424D5 /* ApnBookmarksUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		F009F3941D6006A000D428D6 /* TodayWidget */ = {
@@ -504,7 +504,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnAssister" */;
+			buildConfigurationList = 96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnBookmarks" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -518,9 +518,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96DA6BF11C9B03FD00E424D5 /* ApnAssister */,
-				96DA6C071C9B03FE00E424D5 /* ApnAssisterTests */,
-				96DA6C121C9B03FE00E424D5 /* ApnAssisterUITests */,
+				96DA6BF11C9B03FD00E424D5 /* ApnBookmarks */,
+				96DA6C071C9B03FE00E424D5 /* ApnBookmarksTests */,
+				96DA6C121C9B03FE00E424D5 /* ApnBookmarksUITests */,
 				F009F3941D6006A000D428D6 /* TodayWidget */,
 			);
 		};
@@ -587,7 +587,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */ = {
@@ -617,7 +617,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3857E2DE0DACAF0212AC8594 /* [CP] Embed Pods Frameworks */ = {
@@ -728,7 +728,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */,
+				96DA6C0D1C9B03FE00E424D5 /* ApnBookmarksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +736,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */,
+				96DA6C181C9B03FE00E424D5 /* ApnBookmarksUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,12 +757,12 @@
 /* Begin PBXTargetDependency section */
 		96DA6C0A1C9B03FE00E424D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96DA6BF11C9B03FD00E424D5 /* ApnAssister */;
+			target = 96DA6BF11C9B03FD00E424D5 /* ApnBookmarks */;
 			targetProxy = 96DA6C091C9B03FE00E424D5 /* PBXContainerItemProxy */;
 		};
 		96DA6C151C9B03FE00E424D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96DA6BF11C9B03FD00E424D5 /* ApnAssister */;
+			target = 96DA6BF11C9B03FD00E424D5 /* ApnBookmarks */;
 			targetProxy = 96DA6C141C9B03FE00E424D5 /* PBXContainerItemProxy */;
 		};
 		F009F3A01D6006A100D428D6 /* PBXTargetDependency */ = {
@@ -914,38 +914,38 @@
 		};
 		96DA6C1D1C9B03FE00E424D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */;
+			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-ApnBookmarks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ApnBookmarks/ApnBookmarks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = ApnAssister/Info.plist;
+				INFOPLIST_FILE = ApnBookmarks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApnBookmarks/ApnBookmarks-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		96DA6C1E1C9B03FE00E424D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */;
+			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-ApnBookmarks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ApnBookmarks/ApnBookmarks.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = ApnAssister/Info.plist;
+				INFOPLIST_FILE = ApnBookmarks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApnBookmarks/ApnBookmarks-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -953,11 +953,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ApnAssisterTests/Info.plist;
+				INFOPLIST_FILE = ApnBookmarksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarksTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnAssister.app/ApnAssister";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnBookmarks.app/ApnBookmarks";
 			};
 			name = Debug;
 		};
@@ -965,22 +965,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ApnAssisterTests/Info.plist;
+				INFOPLIST_FILE = ApnBookmarksTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarksTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnAssister.app/ApnAssister";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnBookmarks.app/ApnBookmarks";
 			};
 			name = Release;
 		};
 		96DA6C231C9B03FE00E424D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = ApnAssisterUITests/Info.plist;
+				INFOPLIST_FILE = ApnBookmarksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarksUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ApnAssister;
+				TEST_TARGET_NAME = ApnBookmarks;
 				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
@@ -988,11 +988,11 @@
 		96DA6C241C9B03FE00E424D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = ApnAssisterUITests/Info.plist;
+				INFOPLIST_FILE = ApnBookmarksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarksUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = ApnAssister;
+				TEST_TARGET_NAME = ApnBookmarks;
 				USES_XCTRUNNER = YES;
 			};
 			name = Release;
@@ -1037,7 +1037,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnAssister" */ = {
+		96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnBookmarks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C1A1C9B03FE00E424D5 /* Debug */,
@@ -1046,7 +1046,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister" */ = {
+		96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnBookmarks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C1D1C9B03FE00E424D5 /* Debug */,
@@ -1055,7 +1055,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssisterTests" */ = {
+		96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnBookmarksTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C201C9B03FE00E424D5 /* Debug */,
@@ -1064,7 +1064,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssisterUITests" */ = {
+		96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnBookmarksUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C231C9B03FE00E424D5 /* Debug */,

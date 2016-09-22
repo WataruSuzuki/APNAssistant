@@ -1,6 +1,6 @@
 //
 //  EditApnViewController.swift
-//  ApnAssister
+//  ApnBookmarks
 //
 //  Created by WataruSuzuki on 2016/03/22.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.

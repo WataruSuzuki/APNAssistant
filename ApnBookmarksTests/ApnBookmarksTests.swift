@@ -1,15 +1,15 @@
 //
-//  ApnAssisterTests.swift
-//  ApnAssisterTests
+//  ApnBookmarksTests.swift
+//  ApnBookmarksTests
 //
 //  Created by 鈴木 航 on 2016/03/18.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
 import XCTest
-@testable import ApnAssister
+@testable import ApnBookmarks
 
-class ApnAssisterTests: XCTestCase {
+class ApnBookmarksTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

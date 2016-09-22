@@ -13,9 +13,11 @@ class AvailableApnListViewController: UITableViewController,
     NSURLSessionDownloadDelegate
 {
     let myAvailableUpdateHelper = AvailableUpdateHelper()
-    //var selectedIndexPath = NSIndexPath()
+    let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    
     var updateSectionCount = 0
     var indicatorView: ProgressIndicatorView!
+    var cachedObj: ApnSummaryObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,15 +134,50 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {
+        UIApplication.sharedApplication().openURL(getTargetUrl(selectedIndexPath))
+    }
+    
+    func getTargetUrl(selectedIndexPath: NSIndexPath) -> NSURL {
         let offset = myAvailableUpdateHelper.getOffsetSection(selectedIndexPath.section)
         let profileData = (offset.0
             ? myAvailableUpdateHelper.customProfileList[offset.1]
             : myAvailableUpdateHelper.publicProfileList[offset.1]
         )
-        let url = profileData[selectedIndexPath.row].objectForKey(DownloadProfiles.profileUrl) as! String
-        UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+        let urlPath = profileData[selectedIndexPath.row].objectForKey(DownloadProfiles.profileUrl) as! String
+        return NSURL(string: urlPath)!
     }
     
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        let reqUrl = getTargetUrl(indexPath)
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        let task = session.downloadTaskWithURL(reqUrl) { (location, response, error) in
+            guard let thisResponse = response else { return }
+            guard let thisLocation = location else { return }
+            
+            let helper = AvailableUpdateHelper()
+            let fileName = thisResponse.URL?.lastPathComponent?.stringByReplacingOccurrencesOfString(".json", withString: "")
+            let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName!, fileType: ".json")
+            helper.moveDownloadItemAtURL(filePath, location: thisLocation)
+            
+        }
+        
+        task.resume()
+        startIndicatorView()
+    }
+    
+    func readProfileInfo() {
+        myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
+            if obj.name == NSLocalizedString("unknown", comment: "") {
+                //nothing
+            } else {
+                self.cachedObj = obj
+                self.performSegueWithIdentifier("DetailApnViewController", sender: self)
+            }
+            self.indicatorView.removeFromSuperview()
+        }
+        myUtilCocoaHTTPServer.readLatestSavedMobileConfigProfile()
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -183,15 +220,19 @@ class AvailableApnListViewController: UITableViewController,
         }
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        switch segue.identifier! {
+        case "DetailApnViewController":
+            let destinationVC = segue.destinationViewController as! DetailApnViewController
+            destinationVC.myApnSummaryObject = cachedObj
+            
+        default:
+            break
+        }
     }
-    */
     
     // MARK: - NSURLSessionDownloadDelegate
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {

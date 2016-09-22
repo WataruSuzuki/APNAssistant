@@ -369,7 +369,7 @@ class AvailableUpdateHelper: NSObject {
                 let path = UtilCocoaHTTPServer().getTargetFilePath(country, fileType: ".json")
                 let localUrl = NSURL.fileURLWithPath(path)
                 if let jsonData = NSData(contentsOfURL: localUrl) {
-                    let items = serializeJsonData(jsonData)
+                    let items = serializeCountryJsonData(jsonData)
                     addProfileList(localUrl, items: items)
                 }
             }
@@ -444,9 +444,22 @@ class AvailableUpdateHelper: NSObject {
         guard let responseUrl = response.URL else { return }
         guard let lastPathComponent = responseUrl.lastPathComponent else { return }
         
-        let fileManager = NSFileManager.defaultManager()
         let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent, isCheckVersion: isCheckVersion)
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
+        moveDownloadItemAtURL(filePath, location: location)
+        
+        let localUrl = NSURL.fileURLWithPath(filePath)
+        if let jsonData = NSData(contentsOfURL: localUrl) {
+            if isCheckVersion {
+                parseVersionCheckJson(jsonData)
+            } else {
+                parseCountryJson(response, jsonData: jsonData)
+            }
+        }
+    }
+    
+    func moveDownloadItemAtURL(filePath: String, location: NSURL) {
+        let fileManager = NSFileManager.defaultManager()
         if fileManager.fileExistsAtPath(filePath) {
             try! fileManager.removeItemAtPath(filePath)
         }
@@ -454,19 +467,10 @@ class AvailableUpdateHelper: NSObject {
         let localUrl = NSURL.fileURLWithPath(filePath)
         do {
             try fileManager.moveItemAtURL(location, toURL: localUrl)
-            if let jsonData = NSData(contentsOfURL: localUrl) {
-                if isCheckVersion {
-                    parseVersionCheckJson(jsonData)
-                } else {
-                    parseCountryJson(response, jsonData: jsonData)
-                }
-            }
-            
         } catch {
             let nsError = error as NSError
             print(nsError.description)
         }
-
     }
     
     func parseVersionCheckJson(jsonData: NSData) {

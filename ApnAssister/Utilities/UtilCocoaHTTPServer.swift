@@ -65,6 +65,10 @@ class UtilCocoaHTTPServer: NSObject,
         return targetDirectory!.path! + "/"
     }
     
+    func readDownloadedMobileConfigProfile(path: String) {
+        startReadMobileCongigProfile(path)
+    }
+    
     func readLatestSavedMobileConfigProfile() {
         startReadMobileCongigProfile(getConfigProfileFilePath(fileNameSetting))
     }

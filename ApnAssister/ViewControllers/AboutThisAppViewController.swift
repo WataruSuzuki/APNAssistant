@@ -84,17 +84,14 @@ class AboutThisAppViewController: UITableViewController {
             case .Apn:
                 controller.message = NSLocalizedString("HowAboutApn", comment: "")
                 controller.nextUrl = NSURL(string: "https://wikipedia.org/wiki/APN")
-                break
                 
             case .Profile:
                 controller.message = NSLocalizedString("HowAboutConfigProfile", comment: "")
                 controller.nextUrl = NSURL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
-                break
                 
             case .Contact:
                 controller.message = NSLocalizedString("HowAboutConfigContact", comment: "")
                 controller.nextUrl = NSURL(string: "https://twitter.com/DevJchanKchan")
-                break
                 
             default:
                 break

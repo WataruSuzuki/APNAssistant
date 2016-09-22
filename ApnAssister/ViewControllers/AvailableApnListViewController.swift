@@ -18,6 +18,7 @@ class AvailableApnListViewController: UITableViewController,
     var updateSectionCount = 0
     var indicatorView: ProgressIndicatorView!
     var cachedObj: ApnSummaryObject!
+    var isUpdateConfirm = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,10 @@ class AvailableApnListViewController: UITableViewController,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        confirmUpdateAvailableList()
+        if !isUpdateConfirm {
+            confirmUpdateAvailableList()
+            isUpdateConfirm = true
+        }
     }
 
     override func didReceiveMemoryWarning() {

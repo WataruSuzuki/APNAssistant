@@ -168,13 +168,13 @@ class AvailableApnListViewController: UITableViewController,
         }
         
         task.resume()
-        startIndicatorView()
+        startProgressView()
     }
     
     func readProfileInfo(filePath: String) {
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
             dispatch_async(dispatch_get_main_queue(), {
-                self.stopIndicatorView()
+                self.stopProgressView()
             })
             if obj.name != NSLocalizedString("unknown", comment: "") {
                 dispatch_async(dispatch_get_main_queue(), {
@@ -185,41 +185,7 @@ class AvailableApnListViewController: UITableViewController,
         }
         myUtilCocoaHTTPServer.readDownloadedMobileConfigProfile(filePath)
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    
     // MARK: - UIActionSheetDelegate
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
         if 0 == buttonIndex {
@@ -260,7 +226,7 @@ class AvailableApnListViewController: UITableViewController,
         if updateSectionCount >= self.tableView.numberOfSections {
             self.refreshControl?.endRefreshing()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            stopIndicatorView()
+            stopProgressView()
             myAvailableUpdateHelper.stopDownloadTask()
         } else {
             myAvailableUpdateHelper.executeNextDownloadTask()
@@ -287,10 +253,10 @@ class AvailableApnListViewController: UITableViewController,
         updateSectionCount = 0
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         myAvailableUpdateHelper.startJsonFileDownload(self)
-        startIndicatorView()
+        startProgressView()
     }
     
-    func startIndicatorView() {
+    func startProgressView() {
         indicatorView = ProgressIndicatorView.instanceFromNib(self.tableView.frame)
         indicatorView.center = self.tableView.center
         indicatorView.progressBar.progress = 0.0
@@ -307,7 +273,7 @@ class AvailableApnListViewController: UITableViewController,
         indicatorView.progressBar.progress = Float(updateSectionCount) / Float(self.tableView.numberOfSections)
     }
     
-    func stopIndicatorView() {
+    func stopProgressView() {
         self.tableView.scrollEnabled = true
         indicatorView.removeFromSuperview()
     }

@@ -455,7 +455,6 @@
 				F009F3931D6006A000D428D6 /* Resources */,
 				0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */,
 				F04DB17F1D6494BA00998852 /* ShellScript */,
-				3857E2DE0DACAF0212AC8594 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -618,21 +617,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3857E2DE0DACAF0212AC8594 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60AA73A71C9BA73700E41CAE /* ShellScript */ = {

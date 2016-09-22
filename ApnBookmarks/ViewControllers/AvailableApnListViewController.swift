@@ -47,16 +47,17 @@ class AvailableApnListViewController: UITableViewController,
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return myAvailableUpdateHelper.customProfileList.count + myAvailableUpdateHelper.publicProfileList.count
+        return myAvailableUpdateHelper.publicProfileList.count
+//        return myAvailableUpdateHelper.customProfileList.count + myAvailableUpdateHelper.publicProfileList.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let offset = myAvailableUpdateHelper.getOffsetSection(section)
-        if offset.0 {
-            return myAvailableUpdateHelper.customProfileList[offset.1].count
-        } else {
-            return myAvailableUpdateHelper.publicProfileList[offset.1].count
-        }
+//        let offset = myAvailableUpdateHelper.getOffsetSection(section)
+//        if offset.0 {
+//            return myAvailableUpdateHelper.customProfileList[offset.1].count
+//        } else {
+            return myAvailableUpdateHelper.publicProfileList[section].count
+//        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -64,26 +65,24 @@ class AvailableApnListViewController: UITableViewController,
 
         let items: NSArray
         // Configure the cell...
-        let offset = myAvailableUpdateHelper.getOffsetSection(indexPath.section)
-        if offset.0 {
-            items = myAvailableUpdateHelper.customProfileList[offset.1] as NSArray
-        } else {
-            items = myAvailableUpdateHelper.publicProfileList[offset.1] as NSArray
-        }
+//        let offset = myAvailableUpdateHelper.getOffsetSection(indexPath.section)
+//        if offset.0 {
+//            items = myAvailableUpdateHelper.customProfileList[offset.1] as NSArray
+//        } else {
+            items = myAvailableUpdateHelper.publicProfileList[indexPath.section] as NSArray
+//        }
         cell.textLabel?.text = items[indexPath.row].objectForKey(DownloadProfiles.profileName) as? String
 
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let offset = myAvailableUpdateHelper.getOffsetSection(section)
-        if (offset.0 && 0 == myAvailableUpdateHelper.customProfileList[offset.1].count)
-            || (!offset.0 && myAvailableUpdateHelper.publicProfileList[offset.1].count == 0)
-        {
+//        let offset = myAvailableUpdateHelper.getOffsetSection(section)
+        if myAvailableUpdateHelper.publicProfileList[section].count == 0 {
             return ""
         }
-        let jsonName = DownloadProfiles.json(rawValue: offset.1)!
-        return NSLocalizedString(jsonName.toString(), comment: "") + "(" + NSLocalizedString((offset.0 ? "custom": "public"), comment: "") + ")"
+        let jsonName = DownloadProfiles.json(rawValue: section)!
+        return NSLocalizedString(jsonName.toString(), comment: "") //+ "(" + NSLocalizedString((offset.0 ? "custom": "public"), comment: "") + ")"
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -143,11 +142,8 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func getTargetUrl(selectedIndexPath: NSIndexPath) -> NSURL {
-        let offset = myAvailableUpdateHelper.getOffsetSection(selectedIndexPath.section)
-        let profileData = (offset.0
-            ? myAvailableUpdateHelper.customProfileList[offset.1]
-            : myAvailableUpdateHelper.publicProfileList[offset.1]
-        )
+//        let offset = myAvailableUpdateHelper.getOffsetSection(selectedIndexPath.section)
+        let profileData = myAvailableUpdateHelper.publicProfileList[selectedIndexPath.section]
         let urlPath = profileData[selectedIndexPath.row].objectForKey(DownloadProfiles.profileUrl) as! String
         return NSURL(string: urlPath)!
     }

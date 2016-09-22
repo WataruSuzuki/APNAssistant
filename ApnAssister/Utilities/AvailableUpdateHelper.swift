@@ -364,7 +364,7 @@ class AvailableUpdateHelper: NSObject {
         let filemanager = NSFileManager()
         let files = filemanager.enumeratorAtPath(UtilCocoaHTTPServer().getTargetFilePath("", fileType: ""))
         while let file = files?.nextObject() as? String {
-            if !file.containsString(DownloadProfiles.version) {
+            if isJsonFile(file) {
                 let country = file.stringByReplacingOccurrencesOfString(".json", withString: "")
                 let path = UtilCocoaHTTPServer().getTargetFilePath(country, fileType: ".json")
                 let localUrl = NSURL.fileURLWithPath(path)
@@ -374,6 +374,14 @@ class AvailableUpdateHelper: NSObject {
                 }
             }
         }
+    }
+    
+    func isJsonFile(file: String) -> Bool {
+        if file.containsString(DownloadProfiles.version)
+        || !file.containsString(".json"){
+            return false
+        }
+        return true
     }
     
     func getOffsetSection(currentSection: Int) -> (Bool, Int) {

@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
         loadTabBarTitle()
         
-        if !UtilUserDefaults().isAvailableStore {
+        if !UtilUserDefaults().isAvailableStore || isAppUpdated() {
             hiddenSomeTabbar()
         }
     }
@@ -27,8 +27,8 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !UtilUserDefaults().isAvailableStore {
-            checkAppVersion()
+        if !UtilUserDefaults().isAvailableStore || isAppUpdated() {
+            checkActualAppVersion()
         }
     }
     
@@ -87,7 +87,23 @@ class MainTabBarController: UITabBarController {
         self.viewControllers = controllers
     }
     
-    func checkAppVersion() {
+    func isAppUpdated() -> Bool {
+        let ud = UtilUserDefaults()
+        let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+        let memoryVersion = ud.memoryVersion
+//        print("actualVersion = \(actualVersion)")
+//        print("memoryVersion = \(memoryVersion)")
+        
+        let compareResult = memoryVersion.compare(actualVersion, options: .NumericSearch)
+//        print("compareResult = \(compareResult.rawValue)")
+        if compareResult == .OrderedAscending {
+            ud.isAvailableStore = false
+            return true
+        }
+        return false
+    }
+    
+    func checkActualAppVersion() {
         let path = DownloadProfiles.serverUrl + DownloadProfiles.publicProfilesDir + "resources/version.json"
         let reqUrl = NSURL(string: path)
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()

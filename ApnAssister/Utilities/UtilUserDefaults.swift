@@ -14,6 +14,7 @@ class UtilUserDefaults: NSUserDefaults {
 
     private struct Default {
         static let available_appstore = false
+        static let memory_version = "0.0.0"
     }
     
     var isAvailableStore: Bool {
@@ -23,6 +24,17 @@ class UtilUserDefaults: NSUserDefaults {
         }
         set(nextValue) {
             ud.setBool(nextValue, forKey: "available_appstore")
+            ud.synchronize()
+        }
+    }
+    
+    var memoryVersion: String {
+        get {
+            ud.registerDefaults(["memory_version": Default.memory_version])
+            return ud.stringForKey("memory_version")!
+        }
+        set(nextValue) {
+            ud.setObject(nextValue, forKey:  "memory_version")
             ud.synchronize()
         }
     }

@@ -487,18 +487,20 @@ class AvailableUpdateHelper: NSObject {
             
             let items = json.objectForKey(DownloadProfiles.profileItems) as! NSArray
             let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-            print("actualVersion = \(actualVersion)")
+//            print("actualVersion = \(actualVersion)")
             
             for i in 0  ..< items.count  {
                 if "ApnBookmarks" == items[i].objectForKey(DownloadProfiles.profileName) as! NSString {
                     let requiredVersion = items[i].objectForKey(DownloadProfiles.version) as! NSString
-                    print("requiredVersion = \(requiredVersion)")
+//                    print("requiredVersion = \(requiredVersion)")
                     let compareResult = requiredVersion.compare(actualVersion, options: .NumericSearch)
-                    print("compareResult = \(compareResult.rawValue)")
+//                    print("compareResult = \(compareResult.rawValue)")
                     if compareResult == .OrderedAscending {
                         //do nothing
                     } else {
-                        UtilUserDefaults().isAvailableStore = true
+                        let ud = UtilUserDefaults()
+                        ud.isAvailableStore = true
+                        ud.memoryVersion = actualVersion
                         break
                     }
                 }

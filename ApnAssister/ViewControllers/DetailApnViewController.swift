@@ -49,8 +49,11 @@ class DetailApnViewController: UITableViewController,
         super.viewDidLoad()
 
         loadTargetSummaryObj()
-        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
-        self.navigationItem.rightBarButtonItem = menuButton
+        
+        if UtilUserDefaults().isAvailableStore {
+            let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
+            self.navigationItem.rightBarButtonItem = menuButton
+        }
     }
 
     override func didReceiveMemoryWarning() {

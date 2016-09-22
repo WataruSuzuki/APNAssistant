@@ -416,16 +416,22 @@ class AvailableUpdateHelper: NSObject {
         return DownloadProfiles.ERROR_INDEX
     }
     
+    func getCountryFileName(responseUrl: NSURL, lastPathComponent: String) -> String {
+        let fileName = (responseUrl.absoluteString.containsString(DownloadProfiles.publicProfiles)
+            ? lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.publicProfiles)
+            : lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.customProfiles)
+        )
+        
+        return fileName
+    }
+    
     func moveJSONFilesFromURLSession(downloadTask: NSURLSessionDownloadTask, location: NSURL) {
         guard let response = downloadTask.response else { return }
         guard let responseUrl = response.URL else { return }
         guard let lastPathComponent = responseUrl.lastPathComponent else { return }
         
         let fileManager = NSFileManager.defaultManager()
-        let fileName = (responseUrl.absoluteString.containsString(DownloadProfiles.publicProfiles)
-            ? lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.publicProfiles)
-            : lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.customProfiles)
-        )
+        let fileName = getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
         if fileManager.fileExistsAtPath(filePath) {
             try! fileManager.removeItemAtPath(filePath)

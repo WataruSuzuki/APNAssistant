@@ -174,7 +174,7 @@ class AvailableApnListViewController: UITableViewController,
     func readProfileInfo(filePath: String) {
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
             dispatch_async(dispatch_get_main_queue(), {
-                self.indicatorView.removeFromSuperview()
+                self.stopIndicatorView()
             })
             if obj.name != NSLocalizedString("unknown", comment: "") {
                 dispatch_async(dispatch_get_main_queue(), {
@@ -260,7 +260,8 @@ class AvailableApnListViewController: UITableViewController,
         if updateSectionCount >= self.tableView.numberOfSections {
             self.refreshControl?.endRefreshing()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            indicatorView.removeFromSuperview()
+            stopIndicatorView()
+            myAvailableUpdateHelper.stopDownloadTask()
         } else {
             myAvailableUpdateHelper.executeNextDownloadTask()
         }
@@ -293,11 +294,21 @@ class AvailableApnListViewController: UITableViewController,
         indicatorView = ProgressIndicatorView.instanceFromNib(self.tableView.frame)
         indicatorView.center = self.tableView.center
         indicatorView.progressBar.progress = 0.0
+        indicatorView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), forState: .Normal)
+        indicatorView.didTapCancel = { (button) in
+            self.updateSectionCount = self.tableView.numberOfSections + 1
+        }
         self.view.addSubview(indicatorView)
+        self.tableView.scrollEnabled = false
     }
     
     func updateProgress() {
         updateSectionCount += 1
         indicatorView.progressBar.progress = Float(updateSectionCount) / Float(self.tableView.numberOfSections)
+    }
+    
+    func stopIndicatorView() {
+        self.tableView.scrollEnabled = true
+        indicatorView.removeFromSuperview()
     }
 }

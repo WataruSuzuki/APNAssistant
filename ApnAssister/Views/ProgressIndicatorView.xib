@@ -20,10 +20,19 @@
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6gY-Fb-2Ls">
                     <rect key="frame" x="282" y="254" width="37" height="37"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OO8-xm-RLv">
+                    <rect key="frame" x="276" y="309" width="48" height="30"/>
+                    <state key="normal" title="Cancel"/>
+                    <connections>
+                        <action selector="tapCancel:" destination="iN0-l3-epB" eventType="touchUpInside" id="RpQ-e9-0JM"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="6gY-Fb-2Ls" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="I1b-ql-8Ej"/>
+                <constraint firstItem="OO8-xm-RLv" firstAttribute="top" secondItem="amT-2p-DLF" secondAttribute="bottom" constant="8" id="I5V-6R-4hk"/>
+                <constraint firstItem="OO8-xm-RLv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Kkx-y2-8ct"/>
                 <constraint firstItem="amT-2p-DLF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LZt-aC-P0y"/>
                 <constraint firstItem="amT-2p-DLF" firstAttribute="top" secondItem="6gY-Fb-2Ls" secondAttribute="bottom" constant="8" id="XMT-if-yTW"/>
                 <constraint firstItem="amT-2p-DLF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dgH-b1-nRp"/>
@@ -35,6 +44,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="cancelButton" destination="OO8-xm-RLv" id="pSU-gT-zhT"/>
                 <outlet property="progressBar" destination="amT-2p-DLF" id="SXw-Hz-ZGi"/>
             </connections>
         </view>

@@ -576,4 +576,8 @@ class AvailableUpdateHelper: NSObject {
             updateIndexSection += 1
         }
     }
+    
+    func stopDownloadTask() {
+        updateIndexSection = updateUrl.count + 1
+    }
 }

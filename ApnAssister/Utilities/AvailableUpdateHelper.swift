@@ -486,14 +486,18 @@ class AvailableUpdateHelper: NSObject {
             let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) as! NSDictionary
             
             let items = json.objectForKey(DownloadProfiles.profileItems) as! NSArray
-            let currentVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-            print("currentVersion = \(currentVersion)")
+            let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+            print("actualVersion = \(actualVersion)")
             
             for i in 0  ..< items.count  {
                 if "ApnBookmarks" == items[i].objectForKey(DownloadProfiles.profileName) as! NSString {
-                    let version = items[i].objectForKey(DownloadProfiles.version) as! NSString
-                    print("version = \(version)")
-                    if currentVersion == version {
+                    let requiredVersion = items[i].objectForKey(DownloadProfiles.version) as! NSString
+                    print("requiredVersion = \(requiredVersion)")
+                    let compareResult = requiredVersion.compare(actualVersion, options: .NumericSearch)
+                    print("compareResult = \(compareResult.rawValue)")
+                    if compareResult == .OrderedAscending {
+                        //do nothing
+                    } else {
                         UtilUserDefaults().isAvailableStore = true
                         break
                     }

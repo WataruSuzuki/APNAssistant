@@ -58,6 +58,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @IBAction func tapOpenAppButton(sender: UIButton) {
-        self.extensionContext?.openURL(NSURL(string: "jchankchanapnassister://")!, completionHandler: nil)
+        self.extensionContext?.openURL(NSURL(string: "jchankchanapnbookmarks://")!, completionHandler: nil)
     }
 }

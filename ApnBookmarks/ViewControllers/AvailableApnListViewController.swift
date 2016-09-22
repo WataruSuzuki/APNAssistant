@@ -16,7 +16,8 @@ class AvailableApnListViewController: UITableViewController,
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
     
     var updateSectionCount = 0
-    var indicatorView: ProgressIndicatorView!
+    var progressView: ProgressIndicatorView!
+    var indicator: UIActivityIndicatorView!
     var cachedObj: ApnSummaryObject!
     var isUpdateConfirm = false
     
@@ -168,20 +169,20 @@ class AvailableApnListViewController: UITableViewController,
         }
         
         task.resume()
-        startProgressView()
+        startIndicator()
     }
     
     func readProfileInfo(filePath: String) {
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.stopProgressView()
-            })
             if obj.name != NSLocalizedString("unknown", comment: "") {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.cachedObj = obj
                     self.performSegueWithIdentifier("DetailApnViewController", sender: self)
                 })
             }
+            dispatch_async(dispatch_get_main_queue(), {
+                self.stopIndicator()
+            })
         }
         myUtilCocoaHTTPServer.readDownloadedMobileConfigProfile(filePath)
     }
@@ -257,24 +258,37 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func startProgressView() {
-        indicatorView = ProgressIndicatorView.instanceFromNib(self.tableView.frame)
-        indicatorView.center = self.tableView.center
-        indicatorView.progressBar.progress = 0.0
-        indicatorView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), forState: .Normal)
-        indicatorView.didTapCancel = { (button) in
+        progressView = ProgressIndicatorView.instanceFromNib(self.view.frame)
+        progressView.center = self.view.center
+        progressView.progressBar.progress = 0.0
+        progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), forState: .Normal)
+        progressView.didTapCancel = { (button) in
             self.updateSectionCount = self.tableView.numberOfSections + 1
         }
-        self.view.addSubview(indicatorView)
+        self.view.addSubview(progressView)
         self.tableView.scrollEnabled = false
     }
     
     func updateProgress() {
         updateSectionCount += 1
-        indicatorView.progressBar.progress = Float(updateSectionCount) / Float(self.tableView.numberOfSections)
+        progressView.progressBar.progress = Float(updateSectionCount) / Float(self.tableView.numberOfSections)
     }
     
     func stopProgressView() {
         self.tableView.scrollEnabled = true
-        indicatorView.removeFromSuperview()
+        progressView.removeFromSuperview()
+    }
+    
+    func startIndicator() {
+        indicator = UIActivityIndicatorView(frame: self.view.frame)
+        indicator.center = self.view.center
+        indicator.backgroundColor = UIColor.darkGrayColor()
+        indicator.activityIndicatorViewStyle = .WhiteLarge
+        indicator.startAnimating()
+        self.view.addSubview(indicator)
+    }
+    
+    func stopIndicator() {
+        indicator.removeFromSuperview()
     }
 }

@@ -197,11 +197,13 @@ class AvailableApnListViewController: UITableViewController,
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
         myAvailableUpdateHelper.moveJSONFilesFromURLSession(downloadTask, location: location)
         
-        let countryUrl = myAvailableUpdateHelper.getCountryFileUrl(downloadTask)
-        let section = myAvailableUpdateHelper.getUpdateIndexSection(countryUrl!)
-        if section != DownloadProfiles.ERROR_INDEX {
-            self.tableView.reloadData()
-            //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
+        if let response = downloadTask.response {
+            let countryUrl = myAvailableUpdateHelper.getCountryFileUrl(response)
+            let section = myAvailableUpdateHelper.getUpdateIndexSection(countryUrl!)
+            if section != DownloadProfiles.ERROR_INDEX {
+                self.tableView.reloadData()
+                //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
+            }
         }
         updateProgress()
         

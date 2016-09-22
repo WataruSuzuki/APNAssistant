@@ -384,11 +384,9 @@ class AvailableUpdateHelper: NSObject {
         }
     }
     
-    func getCountryFileUrl(downloadTask: NSURLSessionDownloadTask) -> NSURL? {
-        if let response = downloadTask.response {
-            if let url = response.URL {
-                return url
-            }
+    func getCountryFileUrl(response: NSURLResponse) -> NSURL? {
+        if let url = response.URL {
+            return url
         }
         return nil
     }
@@ -416,6 +414,18 @@ class AvailableUpdateHelper: NSObject {
         return DownloadProfiles.ERROR_INDEX
     }
     
+    func generateFileNameFromLastPathComponent(responseUrl: NSURL, lastPathComponent: String, isCheckVersion: Bool) -> String {
+        if isCheckVersion {
+            return getVersionCheckFileName(lastPathComponent)
+        } else {
+            return getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
+        }
+    }
+    
+    func getVersionCheckFileName(lastPathComponent: String) -> String {
+        return lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "")
+    }
+    
     func getCountryFileName(responseUrl: NSURL, lastPathComponent: String) -> String {
         let fileName = (responseUrl.absoluteString.containsString(DownloadProfiles.publicProfiles)
             ? lastPathComponent.stringByReplacingOccurrencesOfString(".json", withString: "-" + DownloadProfiles.publicProfiles)
@@ -427,11 +437,15 @@ class AvailableUpdateHelper: NSObject {
     
     func moveJSONFilesFromURLSession(downloadTask: NSURLSessionDownloadTask, location: NSURL) {
         guard let response = downloadTask.response else { return }
+        moveJSONFilesFromURLResponse(response, location: location, isCheckVersion: false)
+    }
+    
+    func moveJSONFilesFromURLResponse(response: NSURLResponse, location: NSURL, isCheckVersion: Bool) {
         guard let responseUrl = response.URL else { return }
         guard let lastPathComponent = responseUrl.lastPathComponent else { return }
         
         let fileManager = NSFileManager.defaultManager()
-        let fileName = getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
+        let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent, isCheckVersion: isCheckVersion)
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
         if fileManager.fileExistsAtPath(filePath) {
             try! fileManager.removeItemAtPath(filePath)
@@ -441,16 +455,50 @@ class AvailableUpdateHelper: NSObject {
         do {
             try fileManager.moveItemAtURL(location, toURL: localUrl)
             if let jsonData = NSData(contentsOfURL: localUrl) {
-                let items = serializeJsonData(jsonData)
-                
-                if let countryUrl = getCountryFileUrl(downloadTask) {
-                    addProfileList(countryUrl, items: items)
+                if isCheckVersion {
+                    parseVersionCheckJson(jsonData)
+                } else {
+                    parseCountryJson(response, jsonData: jsonData)
                 }
             }
             
         } catch {
             let nsError = error as NSError
             print(nsError.description)
+        }
+
+    }
+    
+    func parseVersionCheckJson(jsonData: NSData) {
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) as! NSDictionary
+            
+            let items = json.objectForKey(DownloadProfiles.profileItems) as! NSArray
+            let currentVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+            print("currentVersion = \(currentVersion)")
+            
+            for i in 0  ..< items.count  {
+                if "ApnBookmarks" == items[i].objectForKey(DownloadProfiles.profileName) as! NSString {
+                    let version = items[i].objectForKey(DownloadProfiles.version) as! NSString
+                    print("version = \(version)")
+                    if currentVersion == version {
+                        UtilUserDefaults().isAvailableStore = true
+                        break
+                    }
+                }
+            }
+            
+        } catch {
+            let nsError = error as NSError
+            print(nsError.description)
+        }
+    }
+    
+    func parseCountryJson(response: NSURLResponse, jsonData: NSData) {
+        let items = serializeCountryJsonData(jsonData)
+        
+        if let countryUrl = getCountryFileUrl(response) {
+            addProfileList(countryUrl, items: items)
         }
     }
     
@@ -466,7 +514,7 @@ class AvailableUpdateHelper: NSObject {
         }
     }
     
-    func serializeJsonData(jsonData: NSData) -> NSArray {
+    func serializeCountryJsonData(jsonData: NSData) -> NSArray {
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: .MutableContainers) as! NSDictionary
             

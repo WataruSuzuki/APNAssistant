@@ -160,27 +160,30 @@ class AvailableApnListViewController: UITableViewController,
             guard let thisLocation = location else { return }
             
             let helper = AvailableUpdateHelper()
-            let fileName = thisResponse.URL?.lastPathComponent?.stringByReplacingOccurrencesOfString(".json", withString: "")
-            let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName!, fileType: ".json")
+            let fileName = thisResponse.URL?.lastPathComponent?.stringByReplacingOccurrencesOfString(".mobileconfig", withString: "")
+            let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName!, fileType: ".mobileconfig")
             helper.moveDownloadItemAtURL(filePath, location: thisLocation)
             
+            self.readProfileInfo(filePath)
         }
         
         task.resume()
         startIndicatorView()
     }
     
-    func readProfileInfo() {
+    func readProfileInfo(filePath: String) {
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
-            if obj.name == NSLocalizedString("unknown", comment: "") {
-                //nothing
-            } else {
-                self.cachedObj = obj
-                self.performSegueWithIdentifier("DetailApnViewController", sender: self)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.indicatorView.removeFromSuperview()
+            })
+            if obj.name != NSLocalizedString("unknown", comment: "") {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.cachedObj = obj
+                    self.performSegueWithIdentifier("DetailApnViewController", sender: self)
+                })
             }
-            self.indicatorView.removeFromSuperview()
         }
-        myUtilCocoaHTTPServer.readLatestSavedMobileConfigProfile()
+        myUtilCocoaHTTPServer.readDownloadedMobileConfigProfile(filePath)
     }
     /*
     // Override to support conditional editing of the table view.

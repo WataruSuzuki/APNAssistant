@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  APNAssistant
+
+  Created by WataruSuzuki on 2016/09/23.
+  Copyright © 2016年 WataruSuzuki. All rights reserved.
+*/
+CFBundleDisplayName = "APN Assistant";

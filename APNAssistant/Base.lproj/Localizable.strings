@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  APNAssistant
+
+  Created by WataruSuzuki on 2016/09/23.
+  Copyright © 2016年 WataruSuzuki. All rights reserved.
+*/
+payloadDescription = "APN Assistant profile";
+
+keyApnsName = "Data apn name";
+keyApnsAuthenticationType = "Data apn authentication type";
+keyApnsUsername = "Data apn user name";
+keyApnsPassword = "Data apn password";
+keyApnsProxyServer = "Data apn proxy server";
+keyApnsProxyServerPort = "Data apn proxy server port";
+
+keyAttachApnName = "Default apn name";
+keyAttachApnAuthenticationType = "Default apn authentication type";
+keyAttachApnUsername = "Default apn user name";
+keyAttachApnPassword = "Default apn password";
+keyAttachApnProxyServer = "Default apn proxy server";
+keyAttachApnProxyServerPort = "Default apn proxy server port";
+
+setAttachApnManual = "Set Attach Apn manually";
+FavoriteList = "Favorite List";
+ProfileList = "Profile List";
+edit_apn = "Edit APN";
+
+no_settings = "Empty";
+not_this_time = "Not this time";
+yes_update = "Yes, update";
+is_update_now = "Is update setting now?";
+
+config_mobile_network = "Config mobile network";
+mobile_network = "Mobile network";
+
+isThisFavoriteOne = "Is this favorite one?";
+nameOfThisApnProfile = "Name of This APN profile";
+menu = "Menu";
+
+setThisApnToDevice = "Set this APN to Device";
+share = "Share";
+edit = "Edit";
+cancel = "Cancel";
+
+tutorial_message = "No APN profile are available. You can create new one to tap here!!";
+latest_set_profile = "Profile latest set to device";
+unknown = "Unknown...";
+openApp = "Open app";
+
+apn_assistant = "APN Assistant";
+show_favorites = "Show favorites";

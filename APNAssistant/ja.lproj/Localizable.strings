@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  APNAssistant
+
+  Created by WataruSuzuki on 2016/09/23.
+  Copyright © 2016年 WataruSuzuki. All rights reserved.
+*/
+payloadDescription = "APNアシスタントのプロファイル";
+
+keyApnsName = "データAPNの名前";
+keyApnsAuthenticationType = "データAPNの認証方法";
+keyApnsUsername = "データAPNのユーザ名";
+keyApnsPassword = "データAPNのパスワード";
+keyApnsProxyServer = "データAPNのプロキシサーバ";
+keyApnsProxyServerPort = "データAPNのプロキシポート番号";
+
+keyAttachApnName = "デフォルトAPNの名前";
+keyAttachApnAuthenticationType = "デフォルトAPNの認証方法";
+keyAttachApnUsername = "デフォルトAPNのユーザ名";
+keyAttachApnPassword = "デフォルトAPNのパスワード";
+keyAttachApnProxyServer = "デフォルトAPNのプロキシサーバ";
+keyAttachApnProxyServerPort = "デフォルトAPNのプロキシポート番号";
+
+setAttachApnManual = "データAPNを手動でセットする";
+FavoriteList = "お気に入り一覧";
+ProfileList = "プロファイル一覧";
+edit_apn = "APN編集";
+
+no_settings = "未設定";
+not_this_time = "今はしない";
+yes_update = "はい, 更新します";
+is_update_now = "今すぐデバイスへ設定しますか?";
+
+config_mobile_network = "モバイルデータ通信設定を構成します";
+mobile_network = "モバイルデータ通信";
+
+isThisFavoriteOne = "お気に入りにします?";
+nameOfThisApnProfile = "このAPNプロファイル名";
+menu = "メニュー";
+cancel = "キャンセル";
+
+setThisApnToDevice = "このAPNを端末にセットする";
+share = "共有する";
+edit = "編集する";
+
+tutorial_message = "まだAPNプロファイルがありません。こちらから作成しましょう!!";
+latest_set_profile = "アプリからこの端末にセットしたプロファイル";
+unknown = "不明です...";
+openApp = "アプリ起動";
+
+apn_assistant = "APNアシスト";
+show_favorites = "お気に入りを表示する";

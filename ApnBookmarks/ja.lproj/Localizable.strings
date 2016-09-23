@@ -63,7 +63,7 @@ caution_profile = "APNの設定が間違っていると、モバイルデータ�
 update_available_list = "利用可能リストを更新しますか？";
 confirm = "確認";
 
-AboutThisAppSummary = "このアプリはMVNOのAPN情報をブックマークしています。 あなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
+AboutThisAppSummary = "このアプリはMVNOのAPN情報をブックマークしています。\n\nあなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
 AboutThisAppApn = "APNとは？";
 AboutThisAppProfile = "構成プロファイルとは？";
 AboutThisAppContact = "コンタクト";

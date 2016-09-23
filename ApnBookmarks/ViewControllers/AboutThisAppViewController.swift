@@ -90,7 +90,7 @@ class AboutThisAppViewController: UITableViewController {
                 controller.nextUrl = NSURL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
                 
             case .Contact:
-                controller.message = NSLocalizedString("HowAboutConfigContact", comment: "")
+                controller.message = NSLocalizedString("HowAboutContact", comment: "")
                 controller.nextUrl = NSURL(string: "https://twitter.com/DevJchanKchan")
                 
             default:

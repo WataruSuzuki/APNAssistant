@@ -114,6 +114,7 @@ class MainTabBarController: UITabBarController {
             
             let helper = AvailableUpdateHelper()
             helper.moveJSONFilesFromURLResponse(thisResponse, location: thisLocation, isCheckVersion: true)
+            session.invalidateAndCancel()
         }
         
         task.resume()

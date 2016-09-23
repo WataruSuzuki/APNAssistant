@@ -161,6 +161,7 @@ class AvailableApnListViewController: UITableViewController,
             let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName!, fileType: ".mobileconfig")
             helper.moveDownloadItemAtURL(filePath, location: thisLocation)
             
+            session.invalidateAndCancel()
             self.readProfileInfo(filePath)
         }
         
@@ -228,6 +229,7 @@ class AvailableApnListViewController: UITableViewController,
         } else {
             myAvailableUpdateHelper.executeNextDownloadTask()
         }
+        session.invalidateAndCancel()
     }
     
     func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
@@ -235,6 +237,7 @@ class AvailableApnListViewController: UITableViewController,
             updateProgress()
             myAvailableUpdateHelper.executeNextDownloadTask()
         }
+        session.invalidateAndCancel()
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {

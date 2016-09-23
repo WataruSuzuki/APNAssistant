@@ -54,49 +54,46 @@ class AboutThisAppViewController: UITableViewController {
         // Configure the cell...
         let section = AboutThisApp.Section(rawValue: indexPath.section)
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = section!.getText()
         
         if indexPath.section == 0 {
             cell.accessoryType = .None
+            cell.textLabel?.text = section!.getText()
         } else {
-            cell.accessoryType = .DisclosureIndicator
-        }
-
-        return cell
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch AboutThisApp.Section(rawValue: indexPath.section)! {
-        case .Summary:
-            break
-        default:
-            self.performSegueWithIdentifier("EasyInfoViewController", sender: self)
-        }
-    }
-
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-            let controller = segue.destinationViewController as! EasyInfoViewController
-            
+            cell.accessoryType = .DetailButton
             switch AboutThisApp.Section(rawValue: indexPath.section)! {
             case .Apn:
-                controller.message = NSLocalizedString("HowAboutApn", comment: "")
-                controller.nextUrl = NSURL(string: "https://wikipedia.org/wiki/APN")
+                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutApn", comment: "")
                 
             case .Profile:
-                controller.message = NSLocalizedString("HowAboutConfigProfile", comment: "")
-                controller.nextUrl = NSURL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
+                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutConfigProfile", comment: "")
                 
             case .Contact:
-                controller.message = NSLocalizedString("HowAboutContact", comment: "")
-                controller.nextUrl = NSURL(string: "https://twitter.com/DevJchanKchan")
+                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutContact", comment: "")
                 
             default:
                 break
             }
         }
+
+        return cell
     }
 
+    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        switch AboutThisApp.Section(rawValue: indexPath.section)! {
+        case .Apn:
+            let url = NSURL(string: "https://wikipedia.org/wiki/APN")
+            UIApplication.sharedApplication().openURL(url!)
+            
+        case .Profile:
+            let url = NSURL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
+            UIApplication.sharedApplication().openURL(url!)
+            
+        case .Contact:
+            let url = NSURL(string: "https://twitter.com/DevJchanKchan")
+            UIApplication.sharedApplication().openURL(url!)
+            
+        default:
+            break
+        }
+    }
 }

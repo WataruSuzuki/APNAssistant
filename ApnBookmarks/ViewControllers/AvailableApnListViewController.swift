@@ -137,6 +137,28 @@ class AvailableApnListViewController: UITableViewController,
         }
     }
     
+    func showComfirmOldAlert(title: String, message: String, buttonText: String) {
+        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: nil, otherButtonTitles: buttonText)
+        alert.show()
+    }
+    
+    func showFailAlertController(){
+        let buttonText = "OK"
+        let title = NSLocalizedString("error", comment: "")
+        let message = NSLocalizedString("fail_load_profile", comment: "")
+        if #available(iOS 8.0, *) {
+            let okAction = UIAlertAction(title: buttonText, style: UIAlertActionStyle.Default){
+                action in //Do nothing
+            }
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+            alertController.addAction(okAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            showComfirmOldAlert(title, message: message, buttonText: buttonText)
+        }
+    }
+    
     func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {
         UIApplication.sharedApplication().openURL(getTargetUrl(selectedIndexPath))
     }
@@ -153,16 +175,24 @@ class AvailableApnListViewController: UITableViewController,
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)
         let task = session.downloadTaskWithURL(reqUrl) { (location, response, error) in
-            guard let thisResponse = response else { return }
-            guard let thisLocation = location else { return }
-            
-            let helper = AvailableUpdateHelper()
-            let fileName = thisResponse.URL?.lastPathComponent?.stringByReplacingOccurrencesOfString(".mobileconfig", withString: "")
-            let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName!, fileType: ".mobileconfig")
-            helper.moveDownloadItemAtURL(filePath, location: thisLocation)
-            
-            session.invalidateAndCancel()
-            self.readProfileInfo(filePath)
+            if let thisResponse = response, let thisLocation = location {
+                if let lastPathComponent = thisResponse.URL?.lastPathComponent {
+                    if lastPathComponent.containsString(".mobileconfig") {
+                        let helper = AvailableUpdateHelper()
+                        let fileName = lastPathComponent.stringByReplacingOccurrencesOfString(".mobileconfig", withString: "")
+                        let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName, fileType: ".mobileconfig")
+                        helper.moveDownloadItemAtURL(filePath, location: thisLocation)
+                        
+                        self.readProfileInfo(filePath)
+                        return
+                    }
+                }
+            }
+            print(error?.description)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.stopIndicator()
+                self.showFailAlertController()
+            })
         }
         
         task.resume()

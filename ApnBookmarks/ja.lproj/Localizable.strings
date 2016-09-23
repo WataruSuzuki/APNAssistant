@@ -72,8 +72,10 @@ HowAboutApn = "APNとは、携帯情報端末などを携帯電話ネットワ�
 HowAboutConfigProfile = "デバイスの構成作業を一括して行うためのファイルです。APNの設定を行うこともできます。このアプリではMVNOが公開しているプロファイルをブックマークしています。";
 HowAboutContact = "アプリに関する要望などはサポートアカウントへお問い合わせください。";
 
-GlobalSIM = "グローバルSIM";
+error = "エラー";
+fail_load_profile = "情報が読み込めませんでした。該当する事業者の公式サイトをご確認ください。";
 
+GlobalSIM = "グローバルSIM";
 Albania = "アルバニア";
 Algeria = "アルジェリア";
 Angola = "アンゴラ";

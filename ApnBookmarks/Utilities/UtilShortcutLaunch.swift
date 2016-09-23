@@ -42,6 +42,10 @@ class UtilShortcutLaunch: NSObject {
     
     @available(iOS 9.0, *)
     func initDynamicShortcuts(application: UIApplication) {
+        guard UtilUserDefaults().isAvailableStore else {
+            return
+        }
+        
         var loadedItems = [UIApplicationShortcutItem]()
         let favorites = ApnSummaryObject.getFavoriteLists()
         

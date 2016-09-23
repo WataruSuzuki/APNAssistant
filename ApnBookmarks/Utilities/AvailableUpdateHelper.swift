@@ -12,9 +12,7 @@ struct DownloadProfiles {
     static let serverUrl = "https://watarusuzuki.github.io/"
     
     static let apnProfiles = "apn-profiles"
-//    static let customProfiles = "custom-profiles"
     static let apnProfilesDir = apnProfiles + "/"
-//    static let customProfilesDir = customProfiles + "/"
     
     static let profileItems = "items"
     static let profileName = "name"
@@ -355,7 +353,6 @@ struct DownloadProfiles {
 class AvailableUpdateHelper: NSObject {
     
     var publicProfileList = [NSArray](count: DownloadProfiles.json.MAX.rawValue, repeatedValue: [])
-//    var customProfileList = [NSArray](count: DownloadProfiles.json.MAX.rawValue, repeatedValue: [])
     var updateIndexSection = 0
     var updateUrl = [NSURL]()
     var senderDelegate: NSURLSessionDownloadDelegate!
@@ -384,14 +381,6 @@ class AvailableUpdateHelper: NSObject {
         return true
     }
     
-//    func getOffsetSection(currentSection: Int) -> (Bool, Int) {
-//        if currentSection > (DownloadProfiles.json.MAX.rawValue - 1) {
-//            return (true, currentSection - DownloadProfiles.json.MAX.rawValue)
-//        } else {
-//            return (false, currentSection)
-//        }
-//    }
-    
     func getCountryFileUrl(response: NSURLResponse) -> NSURL? {
         if let url = response.URL {
             return url
@@ -403,9 +392,6 @@ class AvailableUpdateHelper: NSObject {
         if fileName.containsString(DownloadProfiles.apnProfiles) {
             let replaced = fileName.stringByReplacingOccurrencesOfString(DownloadProfiles.apnProfiles, withString: "")
             return replaced.stringByReplacingOccurrencesOfString("-", withString: "")
-//        } else if fileName.containsString(DownloadProfiles.customProfiles) {
-//            let replaced = fileName.stringByReplacingOccurrencesOfString(DownloadProfiles.customProfiles, withString: "")
-//            return replaced.stringByReplacingOccurrencesOfString("-", withString: "")
         }
         return fileName
     }
@@ -413,11 +399,7 @@ class AvailableUpdateHelper: NSObject {
     func getUpdateIndexSection(url: NSURL) -> Int {
         if let fileName = url.lastPathComponent {
             let country = DownloadProfiles.json.init(fileName: getOriginalFileName(fileName))
-//            if url.absoluteString.containsString(DownloadProfiles.apnProfiles) {
-                return country.rawValue
-//            } else {
-//                return country.rawValue + DownloadProfiles.json.MAX.rawValue
-//            }
+            return country.rawValue
         }
         return DownloadProfiles.ERROR_INDEX
     }
@@ -519,12 +501,7 @@ class AvailableUpdateHelper: NSObject {
     func addProfileList(countryUrl: NSURL, items: NSArray) {
         let section = getUpdateIndexSection(countryUrl)
         if section != DownloadProfiles.ERROR_INDEX {
-//            let offset = getOffsetSection(section)
-//            if offset.0 {
-//                customProfileList[offset.1] = items
-//            } else {
-                publicProfileList[section] = items
-//            }
+            publicProfileList[section] = items
         }
     }
     
@@ -551,13 +528,7 @@ class AvailableUpdateHelper: NSObject {
         senderDelegate = delegate
         updateUrl = [NSURL]()
         for index in 0..<DownloadProfiles.json.MAX.rawValue {
-//        for index in 0..<(DownloadProfiles.json.MAX.rawValue * 2) {
-            let url: NSURL!
-//            if 0 >= DownloadProfiles.json.MAX.rawValue - index {
-//                url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.customProfilesDir + DownloadProfiles.json(rawValue: index - DownloadProfiles.json.MAX.rawValue)!.getFileName())
-//            } else {
-                url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.apnProfilesDir + DownloadProfiles.json(rawValue: index)!.getFileName())
-//            }
+            let url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.apnProfilesDir + DownloadProfiles.json(rawValue: index)!.getFileName())
             updateUrl.append(url!)
         }
         executeNextDownloadTask()

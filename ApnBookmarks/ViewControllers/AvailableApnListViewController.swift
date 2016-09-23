@@ -286,9 +286,13 @@ class AvailableApnListViewController: UITableViewController,
         startProgressView()
     }
     
+    func getIndicatorFrame() -> CGRect {
+        return CGRect(origin: self.tableView.contentOffset, size: self.view.frame.size)
+    }
+    
     func startProgressView() {
-        progressView = ProgressIndicatorView.instanceFromNib(self.view.frame)
-        progressView.center = self.view.center
+        progressView = ProgressIndicatorView.instanceFromNib(getIndicatorFrame())
+        //progressView.center = self.view.center
         progressView.progressBar.progress = 0.0
         progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), forState: .Normal)
         progressView.didTapCancel = { (button) in
@@ -309,8 +313,8 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func startIndicator() {
-        indicator = UIActivityIndicatorView(frame: self.view.frame)
-        indicator.center = self.view.center
+        indicator = UIActivityIndicatorView(frame: getIndicatorFrame())
+        //indicator.center = self.view.center
         indicator.backgroundColor = UIColor.darkGrayColor()
         indicator.activityIndicatorViewStyle = .WhiteLarge
         indicator.startAnimating()

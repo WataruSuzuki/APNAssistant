@@ -6,6 +6,7 @@ target "ApnBookmarks" do
   pod 'CocoaHTTPServer'
   pod 'Realm'
   pod 'CMPopTipView'
+  pod 'Firebase'
   pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 

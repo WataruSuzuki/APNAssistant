@@ -1,6 +1,6 @@
 CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/CocoaHTTPServer
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/CocoaHTTPServer" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CMPopTipView" "${PODS_ROOT}/Headers/Public/CocoaAsyncSocket" "${PODS_ROOT}/Headers/Public/CocoaHTTPServer" "${PODS_ROOT}/Headers/Public/CocoaLumberjack" "${PODS_ROOT}/Headers/Public/DJKFlatIconAuthors" "${PODS_ROOT}/Headers/Public/Realm" "$(SDKROOT)/usr/include/libxml2"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/CocoaHTTPServer" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CMPopTipView" "${PODS_ROOT}/Headers/Public/CocoaAsyncSocket" "${PODS_ROOT}/Headers/Public/CocoaHTTPServer" "${PODS_ROOT}/Headers/Public/CocoaLumberjack" "${PODS_ROOT}/Headers/Public/DJKFlatIconAuthors" "${PODS_ROOT}/Headers/Public/Firebase" "${PODS_ROOT}/Headers/Public/FirebaseAnalytics" "${PODS_ROOT}/Headers/Public/FirebaseInstanceID" "${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities" "${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities" "${PODS_ROOT}/Headers/Public/GoogleUtilities" "${PODS_ROOT}/Headers/Public/Realm" "$(SDKROOT)/usr/include/libxml2"
 LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/CocoaAsyncSocket" "$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack"
 OTHER_LDFLAGS = -l"xml2" -framework "CFNetwork" -framework "Security"
 PODS_BUILD_DIR = $BUILD_DIR

@@ -48,36 +48,22 @@ class AvailableApnListViewController: UITableViewController,
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return myAvailableUpdateHelper.publicProfileList.count
-//        return myAvailableUpdateHelper.customProfileList.count + myAvailableUpdateHelper.publicProfileList.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let offset = myAvailableUpdateHelper.getOffsetSection(section)
-//        if offset.0 {
-//            return myAvailableUpdateHelper.customProfileList[offset.1].count
-//        } else {
-            return myAvailableUpdateHelper.publicProfileList[section].count
-//        }
+        return myAvailableUpdateHelper.publicProfileList[section].count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DownloadProfileListCell", forIndexPath: indexPath)
 
-        let items: NSArray
-        // Configure the cell...
-//        let offset = myAvailableUpdateHelper.getOffsetSection(indexPath.section)
-//        if offset.0 {
-//            items = myAvailableUpdateHelper.customProfileList[offset.1] as NSArray
-//        } else {
-            items = myAvailableUpdateHelper.publicProfileList[indexPath.section] as NSArray
-//        }
+        let items = myAvailableUpdateHelper.publicProfileList[indexPath.section] as NSArray
         cell.textLabel?.text = items[indexPath.row].objectForKey(DownloadProfiles.profileName) as? String
 
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let offset = myAvailableUpdateHelper.getOffsetSection(section)
         if myAvailableUpdateHelper.publicProfileList[section].count == 0 {
             return ""
         }
@@ -127,8 +113,12 @@ class AvailableApnListViewController: UITableViewController,
             alertController.addAction(installAction)
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-                alertController.popoverPresentationController?.sourceView = self.view
-                alertController.popoverPresentationController?.sourceRect = CGRect(x: (self.view.frame.width/2), y: self.view.frame.height, width: 0, height: 0)
+                let tabBarItemWidth = Int((self.tabBarController?.tabBar.frame.size.width)!) / (self.tabBarController?.tabBar.items!.count)!
+                let x = (tabBarItemWidth * 1) //- (tabBarItemWidth / 5);
+                let newRect = CGRect(x: x, y: 0, width: tabBarItemWidth, height: Int((self.tabBarController?.tabBar.frame.size.height)!))
+                
+                alertController.popoverPresentationController?.sourceRect = newRect
+                alertController.popoverPresentationController?.sourceView = self.tabBarController?.tabBar
             }
             
             presentViewController(alertController, animated: true, completion: nil)
@@ -164,7 +154,6 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func getTargetUrl(selectedIndexPath: NSIndexPath) -> NSURL {
-//        let offset = myAvailableUpdateHelper.getOffsetSection(selectedIndexPath.section)
         let profileData = myAvailableUpdateHelper.publicProfileList[selectedIndexPath.section]
         let urlPath = profileData[selectedIndexPath.row].objectForKey(DownloadProfiles.profileUrl) as! String
         return NSURL(string: urlPath)!
@@ -193,6 +182,7 @@ class AvailableApnListViewController: UITableViewController,
                 self.stopIndicator()
                 self.showFailAlertController()
             })
+            
         }
         
         task.resume()

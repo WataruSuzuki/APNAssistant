@@ -12,7 +12,7 @@ struct DownloadProfiles {
     static let serverUrl = "https://watarusuzuki.github.io/"
     
     static let apnProfiles = "apn-profiles"
-    static let apnProfilesDir = apnProfiles + "/"
+    static let apnProfilesDir = apnProfiles + "/jsons/"
     
     static let profileItems = "items"
     static let profileName = "name"

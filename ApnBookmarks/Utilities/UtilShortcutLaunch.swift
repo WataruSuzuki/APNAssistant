@@ -42,7 +42,7 @@ class UtilShortcutLaunch: NSObject {
     
     @available(iOS 9.0, *)
     func initDynamicShortcuts(application: UIApplication) {
-        guard UtilUserDefaults().isAvailableStore else {
+        guard UtilAppStatus().isAvailableAllFunction() else {
             return
         }
         

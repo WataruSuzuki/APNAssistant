@@ -27,7 +27,7 @@ class UtilAppStatus: NSObject {
         task.resume()
     }
     
-    func checkAllAppStatus() -> Bool {
+    func isAvailableAllFunction() -> Bool {
         if !UtilUserDefaults().isAvailableStore
             || !UtilUserDefaults().isSignInSuccess
             || isAppUpdated() {

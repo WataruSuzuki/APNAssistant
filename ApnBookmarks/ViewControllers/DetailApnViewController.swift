@@ -50,7 +50,7 @@ class DetailApnViewController: UITableViewController,
 
         loadTargetSummaryObj()
         
-        if UtilUserDefaults().isAvailableStore {
+        if UtilAppStatus().isAvailableAllFunction() {
             let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
             self.navigationItem.rightBarButtonItem = menuButton
         }

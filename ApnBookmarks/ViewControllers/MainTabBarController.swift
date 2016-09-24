@@ -21,7 +21,7 @@ class MainTabBarController: UITabBarController {
         loadTabBarTitle()
         appStatus.checkAccountAuth()
         
-        if !appStatus.checkAllAppStatus() {
+        if !appStatus.isAvailableAllFunction() {
             hiddenSomeTabbar()
         }
     }
@@ -29,7 +29,7 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !appStatus.checkAllAppStatus() {
+        if !appStatus.isAvailableAllFunction() {
             appStatus.checkActualAppVersion()
         }
     }

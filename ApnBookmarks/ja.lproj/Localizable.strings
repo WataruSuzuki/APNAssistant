@@ -85,6 +85,7 @@ HowAboutAccount = "更新情報などを受け取れます。\nログインま�
 
 error = "エラー";
 fail_load_profile = "情報が読み込めませんでした。該当する事業者の公式サイトをご確認ください。";
+fail_bacause_apple_not_permit = "Appleはアプリから構成プロファイルを利用してAPN編集を許可していません";
 
 ErrorCodeInvalidCustomToken = "不正なトークン情報です";
 ErrorCodeCustomTokenMismatch = "トークン情報が一致しません";

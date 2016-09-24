@@ -64,6 +64,11 @@ update_available_list = "利用可能リストを更新しますか？";
 confirm = "確認";
 
 account = "アカウント";
+Email = "メールアドレス";
+Password = "パスワード";
+SignIn = "ログイン";
+SignOn = "登録";
+SignOut = "ログアウト";
 
 AboutThisAppSummary = "このアプリはMVNOのAPN情報をブックマークしています。\n\nあなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
 AboutThisAppApn = "APNとは？";

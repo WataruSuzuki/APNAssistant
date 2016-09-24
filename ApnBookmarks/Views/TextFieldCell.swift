@@ -92,4 +92,12 @@ class TextFieldCell: UITableViewCell,
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         return (self.shouldChangeCharactersInRange?(textField, range, string))!
     }
+    
+    func getNewChangeCharactersInRange(textField: UITextField, range: NSRange, string: String) -> String {
+        let newText = (string.isEmpty
+            ? textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location))
+            : textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location)) + string
+        )
+        return newText
+    }
 }

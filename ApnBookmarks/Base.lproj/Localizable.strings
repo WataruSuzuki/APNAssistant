@@ -64,6 +64,11 @@ update_available_list = "Do you update available list now?";
 confirm = "Confirm";
 
 account = "Account";
+Email = "E-mail";
+Password = "Password";
+SignIn = "Sign In";
+SignOn = "Sign On";
+SignOut = "Sign Out";
 
 AboutThisAppSummary = "This app bookmarks APN information of MVNO. \n\nThis app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
 AboutThisAppApn = "What's APN?";

@@ -73,7 +73,7 @@ class AvailableApnListViewController: UITableViewController,
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if !UtilAppStatus().isAvailableAllFunction() {
-            showFailAlertController("fail_bacause_apple_not_permit")
+            showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"))
         } else {
             installProfileFromNetwork(indexPath)
         }
@@ -135,13 +135,16 @@ class AvailableApnListViewController: UITableViewController,
         alert.show()
     }
     
-    func showFailAlertController(key: String){
+    func showFailAlertController(key: String, url: NSURL?){
         let buttonText = "OK"
         let title = NSLocalizedString("error", comment: "")
         let message = NSLocalizedString(key, comment: "")
         if #available(iOS 8.0, *) {
             let okAction = UIAlertAction(title: buttonText, style: UIAlertActionStyle.Default){
-                action in //Do nothing
+                action in
+                if nil != url {
+                    UIApplication.sharedApplication().openURL(url!)
+                }
             }
             
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
@@ -183,7 +186,7 @@ class AvailableApnListViewController: UITableViewController,
             print(error?.description)
             dispatch_async(dispatch_get_main_queue(), {
                 self.stopIndicator()
-                self.showFailAlertController("fail_load_profile")
+                self.showFailAlertController("fail_load_profile", url: nil)
             })
             
         }

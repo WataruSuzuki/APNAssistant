@@ -167,7 +167,10 @@ class AccountManageViewController: UITableViewController {
         switch sectionAccount {
         case .SignOn:
             if let email = authInfo?.currentUser?.email {
-                return (appStatus.checkSignInSuccess(email) ? NSLocalizedString("message_signon", comment: "") : "")
+                appStatus.checkSignInSuccess(email)
+                if appStatus.isAvailableAllFunction() {
+                    return NSLocalizedString("message_signon", comment: "")
+                }
             }
             fallthrough
         default:

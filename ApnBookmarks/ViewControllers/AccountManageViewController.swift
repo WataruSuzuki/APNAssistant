@@ -10,9 +10,6 @@ import UIKit
 
 class AccountManageViewController: UITableViewController {
     
-    @IBOutlet weak var signOnButton: UIButton!
-    @IBOutlet weak var signInButton: UIButton!
-    
     var passStr = ""
     var emailStr = ""
 
@@ -156,6 +153,7 @@ class AccountManageViewController: UITableViewController {
             
             if let user = user {
                 print("user : \(user.email) has been created successfully.")
+                UtilAppStatus().checkAccount(user.email!)
             }
         })
     }
@@ -169,11 +167,13 @@ class AccountManageViewController: UITableViewController {
             
             if let user = user {
                 print("user : \(user.email) has been signed in successfully.")
+                UtilAppStatus().checkAccount(user.email!)
             }
         })
     }
     
     func signOut() {
+        UtilUserDefaults().isSignInSuccess = false
         do {
             try FIRAuth.auth()?.signOut()
         } catch {

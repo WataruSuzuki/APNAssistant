@@ -14,6 +14,7 @@ class UtilUserDefaults: NSUserDefaults {
 
     private struct Default {
         static let available_appstore = false
+        static let signin_success = false
         static let memory_version = "0.0.0"
     }
     
@@ -24,6 +25,17 @@ class UtilUserDefaults: NSUserDefaults {
         }
         set(nextValue) {
             ud.setBool(nextValue, forKey: "available_appstore")
+            ud.synchronize()
+        }
+    }
+    
+    var isSignInSuccess: Bool {
+        get {
+            ud.registerDefaults(["signin_success": Default.signin_success])
+            return ud.boolForKey("signin_success")
+        }
+        set(nextValue) {
+            ud.setBool(nextValue, forKey: "signin_success")
             ud.synchronize()
         }
     }

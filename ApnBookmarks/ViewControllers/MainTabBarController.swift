@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
         loadTabBarTitle()
         
-        if !UtilUserDefaults().isAvailableStore || isAppUpdated() {
+        if !UtilAppStatus().checkAppStatus() {
             hiddenSomeTabbar()
         }
     }
@@ -27,8 +27,8 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !UtilUserDefaults().isAvailableStore || isAppUpdated() {
-            checkActualAppVersion()
+        if !UtilAppStatus().checkAppStatus() {
+            UtilAppStatus().checkActualAppVersion()
         }
     }
     
@@ -85,39 +85,6 @@ class MainTabBarController: UITabBarController {
         controllers?.removeAtIndex(TabIndex.FavoriteList.rawValue)
         
         self.viewControllers = controllers
-    }
-    
-    func isAppUpdated() -> Bool {
-        let ud = UtilUserDefaults()
-        let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-        let memoryVersion = ud.memoryVersion
-//        print("actualVersion = \(actualVersion)")
-//        print("memoryVersion = \(memoryVersion)")
-        
-        let compareResult = memoryVersion.compare(actualVersion, options: .NumericSearch)
-//        print("compareResult = \(compareResult.rawValue)")
-        if compareResult == .OrderedAscending {
-            ud.isAvailableStore = false
-            return true
-        }
-        return false
-    }
-    
-    func checkActualAppVersion() {
-        let path = DownloadProfiles.serverUrl + DownloadProfiles.apnProfilesDir + "resources/version.json"
-        let reqUrl = NSURL(string: path)
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config)
-        let task = session.downloadTaskWithURL(reqUrl!) { (location, response, error) in
-            guard let thisResponse = response else { return }
-            guard let thisLocation = location else { return }
-            
-            let helper = AvailableUpdateHelper()
-            helper.moveJSONFilesFromURLResponse(thisResponse, location: thisLocation, isCheckVersion: true)
-            session.invalidateAndCancel()
-        }
-        
-        task.resume()
     }
     
     enum TabIndex: Int {

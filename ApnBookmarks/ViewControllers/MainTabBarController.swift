@@ -11,6 +11,7 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let appStatus = UtilAppStatus()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,9 @@ class MainTabBarController: UITabBarController {
         // Do any additional setup after loading the view.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
         loadTabBarTitle()
+        appStatus.checkAccountAuth()
         
-        if !UtilAppStatus().checkAppStatus() {
+        if !appStatus.checkAllAppStatus() {
             hiddenSomeTabbar()
         }
     }
@@ -27,8 +29,8 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !UtilAppStatus().checkAppStatus() {
-            UtilAppStatus().checkActualAppVersion()
+        if !appStatus.checkAllAppStatus() {
+            appStatus.checkActualAppVersion()
         }
     }
     

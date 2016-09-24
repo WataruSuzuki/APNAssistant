@@ -27,7 +27,7 @@ class UtilAppStatus: NSObject {
         task.resume()
     }
     
-    func checkAppStatus() -> Bool {
+    func checkAllAppStatus() -> Bool {
         if !UtilUserDefaults().isAvailableStore
             || !UtilUserDefaults().isSignInSuccess
             || isAppUpdated() {
@@ -36,10 +36,20 @@ class UtilAppStatus: NSObject {
         return true
     }
     
-    func checkAccount(userEmail: String) {
-        if userEmail != "devjchankchan@gmail.com" {
-            UtilUserDefaults().isSignInSuccess = true
+    func checkAccountAuth() -> Bool {
+        if let auth = FIRAuth.auth() {
+            if let user = auth.currentUser {
+                return checkSignInSuccess(user.email!)
+            }
         }
+        UtilUserDefaults().isSignInSuccess = false
+        return false
+    }
+    
+    func checkSignInSuccess(userEmail: String) -> Bool {
+        let status = (userEmail != "devjchankchan@gmail.com")
+        UtilUserDefaults().isSignInSuccess = status
+        return status
     }
     
     func isAppUpdated() -> Bool {

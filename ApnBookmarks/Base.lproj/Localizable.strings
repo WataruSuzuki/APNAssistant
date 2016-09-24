@@ -69,6 +69,8 @@ Password = "Password";
 SignIn = "Sign In";
 SignOn = "Sign On";
 SignOut = "Sign Out";
+message_signon = "You have to create account if you don't have.";
+success = "Success";
 
 AboutThisAppSummary = "This app bookmarks APN information of MVNO. \n\nThis app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
 AboutThisAppApn = "What's APN?";
@@ -83,6 +85,30 @@ HowAboutAccount = "You can receive more info. \nSign in or create new account.";
 
 error = "Error";
 fail_load_profile = "Fail to load information. Please ask to your carrier.";
+
+ErrorCodeInvalidCustomToken = "Invalid custom token";
+ErrorCodeCustomTokenMismatch = "Custom token mismatch";
+ErrorCodeInvalidCredential = "Invalid credential";
+ErrorCodeUserDisabled = "Disabled user";
+ErrorCodeOperationNotAllowed = "Operation not allowed";
+ErrorCodeEmailAlreadyInUse = "The email address is already in use by another account.";
+ErrorCodeInvalidEmail = "The email address is badly formatted.";
+ErrorCodeWrongPassword = "The password is invalid or the user does not have a password.";
+ErrorCodeTooManyRequests = "Too many requests. Please try again later.";
+ErrorCodeUserNotFound = "User not found";
+ErrorCodeRequiresRecentLogin = "Requires recent login";
+ErrorCodeProviderAlreadyLinked = "Provider already linked";
+ErrorCodeNoSuchProvider = "No such provider";
+ErrorCodeInvalidUserToken = "Invalid user token";
+ErrorCodeNetworkError = "Network error";
+ErrorCodeUserTokenExpired = "Token expired";
+ErrorCodeInvalidAPIKey = "Invalid API key";
+ErrorCodeUserMismatch = "User mismatch";
+ErrorCodeCredentialAlreadyInUse = "Credential already in use";
+ErrorCodeWeakPassword = "The password must be 6 characters long or more.";
+ErrorCodeAppNotAuthorized = "Not authorized";
+ErrorCodeKeychainError = "Keychain error";
+ErrorCodeInternalError = "Internal error";
 
 GlobalSIM = "Global SIM";
 Albania = "Albania";

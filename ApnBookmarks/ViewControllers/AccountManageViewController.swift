@@ -10,6 +10,9 @@ import UIKit
 
 class AccountManageViewController: UITableViewController {
     
+    let appStatus = UtilAppStatus()
+    
+    var authInfo: FIRAuth?
     var passStr = ""
     var emailStr = ""
 
@@ -22,6 +25,7 @@ class AccountManageViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         registerCustomCell("TextFieldCell")
+        authInfo = FIRAuth.auth()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,10 +48,24 @@ class AccountManageViewController: UITableViewController {
         if section == SectionAccount.Input.rawValue {
             return RowInput.MAX.rawValue
         } else {
-            return 1
+            return getSectionRowByAuthStatus(section)
         }
     }
     
+    func getSectionRowByAuthStatus(section: Int) -> Int {
+        let sectionAccount = SectionAccount(rawValue: section)!
+        switch sectionAccount {
+        case .SignOut:
+            return (appStatus.checkAccountAuth() ? 1 : 0)
+        case .SignOn:
+            if !UtilUserDefaults().isAvailableStore {
+                return 0
+            }
+            fallthrough
+        default:
+            return (appStatus.checkAccountAuth() ? 0 : 1)
+        }
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let sectionAccount = SectionAccount(rawValue: indexPath.section)!
@@ -69,13 +87,13 @@ class AccountManageViewController: UITableViewController {
         
         let rowInput = RowInput(rawValue: indexPath.row)!
         cell.myUILabel?.text = rowInput.getText()
-        //cell.myUITextField.text =
         cell.myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
         
         switch rowInput {
         case .Email:
             cell.myUITextField.keyboardType = .EmailAddress
             cell.myUITextField.secureTextEntry = false
+            cell.myUITextField.text = authInfo?.currentUser?.email
             
         case .Password:
             cell.myUITextField.keyboardType = .Default
@@ -144,16 +162,53 @@ class AccountManageViewController: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        let sectionAccount = SectionAccount(rawValue: section)!
+        switch sectionAccount {
+        case .SignOn:
+            return (appStatus.checkAccountAuth() ? "" : NSLocalizedString("message_signon", comment: ""))
+            
+        default:
+            return ""
+        }
+        
+    }
+    
+    func showOldAlert(title: String, message: String, buttonText: String) {
+        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: nil, otherButtonTitles: buttonText)
+        alert.show()
+    }
+    
+    func showAlertController(message: String, errorCode: String?){
+        let buttonText = "OK"
+        let title = (errorCode == nil ? NSLocalizedString("confirm", comment: "") : errorCode!)
+        if #available(iOS 8.0, *) {
+            let okAction = UIAlertAction(title: buttonText, style: UIAlertActionStyle.Default){
+                action in
+                if nil == errorCode {
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+            }
+            
+            let alertController = UIAlertController(title: title, message: (errorCode == nil ? message : NSLocalizedString(message, comment: "")), preferredStyle: .Alert)
+            alertController.addAction(okAction)
+            presentViewController(alertController, animated: true, completion: nil)
+        } else {
+            showOldAlert(title, message: message, buttonText: buttonText)
+        }
+    }
+    
     func createUser() {
         FIRAuth.auth()?.createUserWithEmail(emailStr, password: passStr, completion: { (user:FIRUser?, error:NSError?) in
             if let error = error {
                 print("Creating the user failed! \(error)")
+                self.handleFIRAuthError(error)
                 return
             }
             
             if let user = user {
                 print("user : \(user.email) has been created successfully.")
-                UtilAppStatus().checkAccount(user.email!)
+                self.appStatus.checkSignInSuccess(user.email!)
             }
         })
     }
@@ -162,20 +217,78 @@ class AccountManageViewController: UITableViewController {
         FIRAuth.auth()?.signInWithEmail(emailStr, password: passStr, completion: { (user:FIRUser?, error:NSError?) in
             if let error = error {
                 print("login failed! \(error)")
+                self.handleFIRAuthError(error)
                 return
             }
             
             if let user = user {
                 print("user : \(user.email) has been signed in successfully.")
-                UtilAppStatus().checkAccount(user.email!)
+                self.appStatus.checkSignInSuccess(user.email!)
             }
+            self.showAlertController(NSLocalizedString("success", comment: ""), errorCode: nil)
         })
+    }
+    
+    func handleFIRAuthError(error: NSError) {
+        if let authErrorCode = FIRAuthErrorCode(rawValue: error.code) {
+            let key: String!
+            switch authErrorCode {
+            case FIRAuthErrorCode.ErrorCodeInvalidCustomToken:
+                key = "ErrorCodeInvalidCustomToken"
+            case FIRAuthErrorCode.ErrorCodeCustomTokenMismatch:
+                key = "ErrorCodeCustomTokenMismatch"
+            case FIRAuthErrorCode.ErrorCodeInvalidCredential:
+                key = "ErrorCodeInvalidCredential"
+            case FIRAuthErrorCode.ErrorCodeUserDisabled:
+                key = "ErrorCodeUserDisabled"
+            case FIRAuthErrorCode.ErrorCodeOperationNotAllowed:
+                key = "ErrorCodeOperationNotAllowed"
+            case FIRAuthErrorCode.ErrorCodeEmailAlreadyInUse:
+                key = "ErrorCodeEmailAlreadyInUse"
+            case FIRAuthErrorCode.ErrorCodeInvalidEmail:
+                key = "ErrorCodeInvalidEmail"
+            case FIRAuthErrorCode.ErrorCodeWrongPassword:
+                key = "ErrorCodeWrongPassword"
+            case FIRAuthErrorCode.ErrorCodeTooManyRequests:
+                key = "ErrorCodeTooManyRequests"
+            case FIRAuthErrorCode.ErrorCodeUserNotFound:
+                key = "ErrorCodeUserNotFound"
+            case FIRAuthErrorCode.ErrorCodeRequiresRecentLogin:
+                key = "ErrorCodeRequiresRecentLogin"
+            case FIRAuthErrorCode.ErrorCodeNoSuchProvider:
+                key = "ErrorCodeNoSuchProvider"
+            case FIRAuthErrorCode.ErrorCodeProviderAlreadyLinked:
+                key = "ErrorCodeProviderAlreadyLinked"
+            case FIRAuthErrorCode.ErrorCodeInvalidUserToken:
+                key = "ErrorCodeInvalidUserToken"
+            case FIRAuthErrorCode.ErrorCodeNetworkError:
+                key = "ErrorCodeNetworkError"
+            case FIRAuthErrorCode.ErrorCodeUserTokenExpired:
+                key = "ErrorCodeUserTokenExpired"
+            case FIRAuthErrorCode.ErrorCodeInvalidAPIKey:
+                key = "ErrorCodeInvalidAPIKey"
+            case FIRAuthErrorCode.ErrorCodeUserMismatch:
+                key = "ErrorCodeUserMismatch"
+            case FIRAuthErrorCode.ErrorCodeCredentialAlreadyInUse:
+                key = "ErrorCodeCredentialAlreadyInUse"
+            case FIRAuthErrorCode.ErrorCodeWeakPassword:
+                key = "ErrorCodeWeakPassword"
+            case FIRAuthErrorCode.ErrorCodeAppNotAuthorized:
+                key = "ErrorCodeAppNotAuthorized"
+            case FIRAuthErrorCode.ErrorCodeKeychainError:
+                key = "ErrorCodeKeychainError"
+            default:
+                key = "ErrorCodeInternalError"
+            }
+            showAlertController(key, errorCode: String(error.code))
+        }
     }
     
     func signOut() {
         UtilUserDefaults().isSignInSuccess = false
         do {
             try FIRAuth.auth()?.signOut()
+            showAlertController(NSLocalizedString("success", comment: ""), errorCode: nil)
         } catch {
             print(error)
         }

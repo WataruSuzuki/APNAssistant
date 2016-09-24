@@ -67,8 +67,10 @@ account = "アカウント";
 Email = "メールアドレス";
 Password = "パスワード";
 SignIn = "ログイン";
-SignOn = "登録";
+SignOn = "新規登録";
 SignOut = "ログアウト";
+message_signon = "まだアカウントがない場合は新規登録が必要です。";
+success = "成功しました";
 
 AboutThisAppSummary = "このアプリはMVNOのAPN情報をブックマークしています。\n\nあなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
 AboutThisAppApn = "APNとは？";
@@ -83,6 +85,30 @@ HowAboutAccount = "更新情報などを受け取れます。\nログインま�
 
 error = "エラー";
 fail_load_profile = "情報が読み込めませんでした。該当する事業者の公式サイトをご確認ください。";
+
+ErrorCodeInvalidCustomToken = "不正なトークン情報です";
+ErrorCodeCustomTokenMismatch = "トークン情報が一致しません";
+ErrorCodeInvalidCredential = "不正な認証情報です";
+ErrorCodeUserDisabled = "無効なユーザ";
+ErrorCodeOperationNotAllowed = "許可されていない操作です";
+ErrorCodeEmailAlreadyInUse = "このメールアドレスはすでに利用されています";
+ErrorCodeInvalidEmail = "不正なメールアドレスです";
+ErrorCodeWrongPassword = "不正なパスワードです";
+ErrorCodeTooManyRequests = "要求過多です。しばらくしてからやり直してください";
+ErrorCodeUserNotFound = "ユーザ情報が見つかりません";
+ErrorCodeRequiresRecentLogin = "最近ログインされています。";
+ErrorCodeProviderAlreadyLinked = "この連携先はすでに連携済みです";
+ErrorCodeNoSuchProvider = "連携先が見つかりません";
+ErrorCodeInvalidUserToken = "ユーザ情報のトークンが不正です";
+ErrorCodeNetworkError = "ネットワーク接続エラー";
+ErrorCodeUserTokenExpired = "トークンが期限切れです";
+ErrorCodeInvalidAPIKey = "APIキーが不正です";
+ErrorCodeUserMismatch = "ユーザ情報が一致しません";
+ErrorCodeCredentialAlreadyInUse = "この認証情報はすでに利用されています";
+ErrorCodeWeakPassword = "パスワードは6文字以上が必要です";
+ErrorCodeAppNotAuthorized = "認証できませんでした";
+ErrorCodeKeychainError = "キーチェーンのエラー";
+ErrorCodeInternalError = "内部エラー";
 
 GlobalSIM = "グローバルSIM";
 Albania = "アルバニア";

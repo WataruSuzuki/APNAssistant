@@ -94,6 +94,10 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
+## FirebaseAuth
+
+Copyright 2016 Google
+
 ## FirebaseDynamicLinks
 
 Copyright 2016 Google
@@ -103,6 +107,10 @@ Copyright 2016 Google
 Copyright 2016 Google
 
 ## GoogleInterchangeUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleNetworkingUtilities
 
 Copyright 2015 Google Inc.
 

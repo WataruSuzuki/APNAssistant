@@ -15,6 +15,7 @@ struct AboutThisApp {
         Apn,
         Profile,
         Contact,
+        Account,
         MAX
         
         func getText() -> String {
@@ -70,12 +71,26 @@ class AboutThisAppViewController: UITableViewController {
             case .Contact:
                 cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutContact", comment: "")
                 
+            case .Account:
+                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutAccount", comment: "")
+                cell.accessoryType = .DisclosureIndicator
+                
             default:
                 break
             }
         }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch AboutThisApp.Section(rawValue: indexPath.section)! {
+        case .Account:
+            self.performSegueWithIdentifier("AccountManageViewController", sender: self)
+            
+        default:
+            break
+        }
     }
 
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {

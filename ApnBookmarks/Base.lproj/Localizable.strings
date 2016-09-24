@@ -63,14 +63,18 @@ caution_profile = "If your APN settings are wrong, you might lose cellular-data 
 update_available_list = "Do you update available list now?";
 confirm = "Confirm";
 
+account = "Account";
+
 AboutThisAppSummary = "This app bookmarks APN information of MVNO. \n\nThis app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
 AboutThisAppApn = "What's APN?";
 AboutThisAppProfile = "What's configuration profile?";
 AboutThisAppContact = "Contact";
+AboutThisAppAccount = "Account";
 
 HowAboutApn = "An Access Point Name (APN) is a gateway between a GSM, GPRS, 3G or 4G mobile network and another computer network, frequently the public Internet.";
 HowAboutConfigProfile = "This file is used to perform the configuration of the iOS-based devices. This app bookmarks profiles of released MVNO carriers or made by MVNO information";
 HowAboutContact = "Please contact us if you have any suggestion, opinion, demands";
+HowAboutAccount = "You can receive more info. Sign in or create new account.";
 
 error = "Error";
 fail_load_profile = "Fail to load information. Please ask to your carrier.";

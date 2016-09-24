@@ -63,14 +63,18 @@ caution_profile = "APNの設定が間違っていると、モバイルデータ�
 update_available_list = "利用可能リストを更新しますか？";
 confirm = "確認";
 
+account = "アカウント";
+
 AboutThisAppSummary = "このアプリはMVNOのAPN情報をブックマークしています。\n\nあなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
 AboutThisAppApn = "APNとは？";
 AboutThisAppProfile = "構成プロファイルとは？";
 AboutThisAppContact = "コンタクト";
+AboutThisAppAccount = "アカウント";
 
 HowAboutApn = "APNとは、携帯情報端末などを携帯電話ネットワークに接続してデータ通信を行う際に必要となる、接続先を指定する文字列のことです。";
 HowAboutConfigProfile = "デバイスの構成作業を一括して行うためのファイルです。APNの設定を行うこともできます。このアプリではMVNOが公開しているプロファイルをブックマークしています。";
 HowAboutContact = "アプリに関する要望などはサポートアカウントへお問い合わせください。";
+HowAboutAccount = "更新情報などを受け取れます。ログインまたは新しいアカウントを作成してください。";
 
 error = "エラー";
 fail_load_profile = "情報が読み込めませんでした。該当する事業者の公式サイトをご確認ください。";

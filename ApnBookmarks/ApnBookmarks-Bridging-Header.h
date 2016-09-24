@@ -7,3 +7,4 @@
 
 #import "CMPopTipView.h"
 #import "Firebase.h"
+#import <FirebaseAuth/FirebaseAuth.h>

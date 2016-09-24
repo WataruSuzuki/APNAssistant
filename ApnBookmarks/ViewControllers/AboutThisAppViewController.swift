@@ -11,11 +11,10 @@ import UIKit
 struct AboutThisApp {
     
     enum Section: Int {
-        case Summary = 0,
+        case Account = 0,
         Apn,
         Profile,
         Contact,
-        Account,
         MAX
         
         func getText() -> String {
@@ -53,27 +52,22 @@ class AboutThisAppViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("AboutThisAppCell", forIndexPath: indexPath)
 
         // Configure the cell...
-        let section = AboutThisApp.Section(rawValue: indexPath.section)
         cell.textLabel?.numberOfLines = 0
         
         if indexPath.section == 0 {
-            cell.accessoryType = .None
-            cell.textLabel?.text = section!.getText()
+            cell.accessoryType = .DisclosureIndicator
+            cell.textLabel?.text = NSLocalizedString("HowAboutAccount", comment: "")
         } else {
             cell.accessoryType = .DetailButton
             switch AboutThisApp.Section(rawValue: indexPath.section)! {
             case .Apn:
-                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutApn", comment: "")
+                cell.textLabel?.text = NSLocalizedString("HowAboutApn", comment: "")
                 
             case .Profile:
-                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutConfigProfile", comment: "")
+                cell.textLabel?.text = NSLocalizedString("HowAboutConfigProfile", comment: "")
                 
             case .Contact:
-                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutContact", comment: "")
-                
-            case .Account:
-                cell.textLabel?.text = section!.getText() + "\n\n" + NSLocalizedString("HowAboutAccount", comment: "")
-                cell.accessoryType = .DisclosureIndicator
+                cell.textLabel?.text = NSLocalizedString("HowAboutContact", comment: "")
                 
             default:
                 break
@@ -81,6 +75,11 @@ class AboutThisAppViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let aboutThisApp = AboutThisApp.Section(rawValue: section)
+        return aboutThisApp!.getText()
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

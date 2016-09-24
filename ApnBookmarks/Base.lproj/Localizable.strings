@@ -72,9 +72,9 @@ AboutThisAppContact = "Contact";
 AboutThisAppAccount = "Account";
 
 HowAboutApn = "An Access Point Name (APN) is a gateway between a GSM, GPRS, 3G or 4G mobile network and another computer network, frequently the public Internet.";
-HowAboutConfigProfile = "This file is used to perform the configuration of the iOS-based devices. This app bookmarks profiles of released MVNO carriers or made by MVNO information";
+HowAboutConfigProfile = "This file is used to perform the configuration of the iOS-based devices. \nThis app bookmarks profiles of released MVNO carriers or made by MVNO information";
 HowAboutContact = "Please contact us if you have any suggestion, opinion, demands";
-HowAboutAccount = "You can receive more info. Sign in or create new account.";
+HowAboutAccount = "You can receive more info. \nSign in or create new account.";
 
 error = "Error";
 fail_load_profile = "Fail to load information. Please ask to your carrier.";

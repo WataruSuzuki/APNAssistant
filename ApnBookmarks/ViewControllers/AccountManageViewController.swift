@@ -132,20 +132,54 @@ class AccountManageViewController: UITableViewController {
         }
     }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
-     }
-     */
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let sectionAccount = SectionAccount(rawValue: indexPath.section)!
+        switch sectionAccount {
+        case .SignIn:
+            signIn()
+        case .SignOn:
+            createUser()
+        case .SignOut:
+            signOut()
+            
+        default:
+            break
+        }
+    }
     
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
+    func createUser() {
+        FIRAuth.auth()?.createUserWithEmail(emailStr, password: passStr, completion: { (user:FIRUser?, error:NSError?) in
+            if let error = error {
+                print("Creating the user failed! \(error)")
+                return
+            }
+            
+            if let user = user {
+                print("user : \(user.email) has been created successfully.")
+            }
+        })
+    }
+    
+    func signIn() {
+        FIRAuth.auth()?.signInWithEmail(emailStr, password: passStr, completion: { (user:FIRUser?, error:NSError?) in
+            if let error = error {
+                print("login failed! \(error)")
+                return
+            }
+            
+            if let user = user {
+                print("user : \(user.email) has been signed in successfully.")
+            }
+        })
+    }
+    
+    func signOut() {
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch {
+            print(error)
+        }
+    }
     
     enum RowInput: Int {
         case Email = 0,

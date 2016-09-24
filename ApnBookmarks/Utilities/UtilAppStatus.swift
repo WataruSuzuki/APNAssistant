@@ -39,7 +39,8 @@ class UtilAppStatus: NSObject {
     func checkAccountAuth() -> Bool {
         if let auth = FIRAuth.auth() {
             if let user = auth.currentUser {
-                return checkSignInSuccess(user.email!)
+                checkSignInSuccess(user.email!)
+                return true
             }
         }
         UtilUserDefaults().isSignInSuccess = false

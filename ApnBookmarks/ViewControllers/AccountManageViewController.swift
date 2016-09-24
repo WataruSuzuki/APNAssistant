@@ -166,8 +166,10 @@ class AccountManageViewController: UITableViewController {
         let sectionAccount = SectionAccount(rawValue: section)!
         switch sectionAccount {
         case .SignOn:
-            return (appStatus.checkAccountAuth() ? "" : NSLocalizedString("message_signon", comment: ""))
-            
+            if let email = authInfo?.currentUser?.email {
+                return (appStatus.checkSignInSuccess(email) ? NSLocalizedString("message_signon", comment: "") : "")
+            }
+            fallthrough
         default:
             return ""
         }
@@ -223,7 +225,11 @@ class AccountManageViewController: UITableViewController {
             
             if let user = user {
                 print("user : \(user.email) has been signed in successfully.")
-                self.appStatus.checkSignInSuccess(user.email!)
+                if self.appStatus.checkSignInSuccess(user.email!) {
+                    let message = NSLocalizedString("success", comment: "") + "\n" + NSLocalizedString("please_restart_app", comment: "")
+                    self.showAlertController(message, errorCode: nil)
+                    return
+                }
             }
             self.showAlertController(NSLocalizedString("success", comment: ""), errorCode: nil)
         })

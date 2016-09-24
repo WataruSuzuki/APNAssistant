@@ -71,6 +71,7 @@ SignOn = "Sign On";
 SignOut = "Sign Out";
 message_signon = "You have to create account if you don't have.";
 success = "Success";
+please_restart_app = "Please restart app to complete activation";
 
 AboutThisAppSummary = "This app bookmarks APN information of MVNO. \n\nThis app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
 AboutThisAppApn = "What's APN?";

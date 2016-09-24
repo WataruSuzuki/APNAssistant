@@ -71,6 +71,7 @@ SignOn = "新規登録";
 SignOut = "ログアウト";
 message_signon = "まだアカウントがない場合は新規登録が必要です。";
 success = "成功しました";
+please_restart_app = "アプリを完全体にするにはアプリを再起動してください。";
 
 AboutThisAppSummary = "このアプリはMVNOのAPN情報をブックマークしています。\n\nあなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
 AboutThisAppApn = "APNとは？";

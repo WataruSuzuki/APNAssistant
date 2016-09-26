@@ -28,45 +28,47 @@ class UtilAppStatus: NSObject {
     }
     
     func isAvailableAllFunction() -> Bool {
-        if !UtilUserDefaults().isAvailableStore
-            || !UtilUserDefaults().isSignInSuccess
-            || isAppUpdated() {
-            return false
-        }
+//        if !UtilUserDefaults().isAvailableStore
+//            || !UtilUserDefaults().isSignInSuccess
+//            || isAppUpdated() {
+//            return false
+//        }
         return true
     }
     
     func checkAccountAuth() -> Bool {
-        if let auth = FIRAuth.auth() {
-            if let user = auth.currentUser {
-                checkSignInSuccess(user.email!)
-                return true
-            }
-        }
-        UtilUserDefaults().isSignInSuccess = false
-        return false
+//        if let auth = FIRAuth.auth() {
+//            if let user = auth.currentUser {
+//                checkSignInSuccess(user.email!)
+//                return true
+//            }
+//        }
+//        UtilUserDefaults().isSignInSuccess = false
+//        return false
+        return true
     }
     
     func checkSignInSuccess(userEmail: String) -> Bool {
-        let status = (userEmail != "devjchankchan@gmail.com")
-        UtilUserDefaults().isSignInSuccess = status
-        return status
+//        let status = (userEmail != "devjchankchan@gmail.com")
+//        UtilUserDefaults().isSignInSuccess = status
+//        return status
+        return true
     }
     
     func isAppUpdated() -> Bool {
-        let ud = UtilUserDefaults()
-        let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-        let memoryVersion = ud.memoryVersion
-        //        print("actualVersion = \(actualVersion)")
-        //        print("memoryVersion = \(memoryVersion)")
-        
-        let compareResult = memoryVersion.compare(actualVersion, options: .NumericSearch)
-        //        print("compareResult = \(compareResult.rawValue)")
-        if compareResult == .OrderedAscending {
-            ud.isAvailableStore = false
+//        let ud = UtilUserDefaults()
+//        let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+//        let memoryVersion = ud.memoryVersion
+//        //        print("actualVersion = \(actualVersion)")
+//        //        print("memoryVersion = \(memoryVersion)")
+//        
+//        let compareResult = memoryVersion.compare(actualVersion, options: .NumericSearch)
+//        //        print("compareResult = \(compareResult.rawValue)")
+//        if compareResult == .OrderedAscending {
+//            ud.isAvailableStore = false
             return true
-        }
-        return false
+//        }
+//        return false
     }
     
 }

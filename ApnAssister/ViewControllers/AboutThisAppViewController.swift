@@ -11,10 +11,10 @@ import UIKit
 struct AboutThisApp {
     
     enum Section: Int {
-        case Account = 0,
-        Apn,
+        case Apn = 0,
         Profile,
         Contact,
+        //Account,
         MAX
         
         func getText() -> String {
@@ -84,8 +84,8 @@ class AboutThisAppViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch AboutThisApp.Section(rawValue: indexPath.section)! {
-        case .Account:
-            self.performSegueWithIdentifier("AccountManageViewController", sender: self)
+//        case .Account:
+//            self.performSegueWithIdentifier("AccountManageViewController", sender: self)
             
         default:
             break

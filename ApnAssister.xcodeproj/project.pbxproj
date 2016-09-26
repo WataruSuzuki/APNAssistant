@@ -461,7 +461,6 @@
 				F009F3931D6006A000D428D6 /* Resources */,
 				0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */,
 				F04DB17F1D6494BA00998852 /* ShellScript */,
-				08434018B5F5368DB98B1719 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -591,21 +590,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08434018B5F5368DB98B1719 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0A709D2A1E243C36B562BF3A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

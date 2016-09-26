@@ -60,6 +60,86 @@
 		F009F3AC1D600D2600D428D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		F0244C581D9307F9006C6E5F /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */; };
 		F0244C5A1D93132D006C6E5F /* AccountManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C591D93132D006C6E5F /* AccountManageViewController.swift */; };
+		F02DA0F81D997944007F6C93 /* SegmentedCtrlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A462F1D65483A00ED22D6 /* SegmentedCtrlCell.swift */; };
+		F02DA0F91D997944007F6C93 /* UtilAppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96007FB31D963A02000FAE04 /* UtilAppStatus.swift */; };
+		F02DA0FA1D997944007F6C93 /* UtilShareAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6731D6F1597008FF20A /* UtilShareAction.swift */; };
+		F02DA0FB1D997944007F6C93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
+		F02DA0FC1D997944007F6C93 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */; };
+		F02DA0FD1D997944007F6C93 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
+		F02DA0FE1D997944007F6C93 /* UtilUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF701D932944005EEA31 /* UtilUserDefaults.swift */; };
+		F02DA0FF1D997944007F6C93 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
+		F02DA1001D997944007F6C93 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
+		F02DA1011D997944007F6C93 /* AvailableUpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */; };
+		F02DA1021D997944007F6C93 /* AccountManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C591D93132D006C6E5F /* AccountManageViewController.swift */; };
+		F02DA1031D997944007F6C93 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
+		F02DA1041D997944007F6C93 /* ApnListViewController+Previewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */; };
+		F02DA1051D997944007F6C93 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
+		F02DA1061D997944007F6C93 /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
+		F02DA1071D997944007F6C93 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */; };
+		F02DA1081D997944007F6C93 /* UISwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */; };
+		F02DA1091D997944007F6C93 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50D1CA4003F005B86B9 /* TextFieldCell.swift */; };
+		F02DA10A1D997944007F6C93 /* AvailableApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */; };
+		F02DA10B1D997944007F6C93 /* UtilShortcutLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */; };
+		F02DA10C1D997944007F6C93 /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */; };
+		F02DA10D1D997944007F6C93 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
+		F02DA10E1D997944007F6C93 /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
+		F02DA10F1D997944007F6C93 /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
+		F02DA1111D997944007F6C93 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
+		F02DA1131D997944007F6C93 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
+		F02DA1141D997944007F6C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
+		F02DA1151D997944007F6C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
+		F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
+		F02DA1171D997944007F6C93 /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
+		F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */; };
+		F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
+		F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */; };
+		F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */; };
+		F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
+		F02DA11D1D997944007F6C93 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
+		F02DA11E1D997944007F6C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
+		F02DA11F1D997944007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
+		F02DA1201D997944007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
+		F02DA1211D997944007F6C93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5011CA3E185005B86B9 /* InfoPlist.strings */; };
+		F02DA1311D99795B007F6C93 /* SegmentedCtrlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A462F1D65483A00ED22D6 /* SegmentedCtrlCell.swift */; };
+		F02DA1321D99795B007F6C93 /* UtilAppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96007FB31D963A02000FAE04 /* UtilAppStatus.swift */; };
+		F02DA1331D99795B007F6C93 /* UtilShareAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6731D6F1597008FF20A /* UtilShareAction.swift */; };
+		F02DA1341D99795B007F6C93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
+		F02DA1351D99795B007F6C93 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */; };
+		F02DA1361D99795B007F6C93 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
+		F02DA1371D99795B007F6C93 /* UtilUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF701D932944005EEA31 /* UtilUserDefaults.swift */; };
+		F02DA1381D99795B007F6C93 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
+		F02DA1391D99795B007F6C93 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
+		F02DA13A1D99795B007F6C93 /* AvailableUpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */; };
+		F02DA13B1D99795B007F6C93 /* AccountManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C591D93132D006C6E5F /* AccountManageViewController.swift */; };
+		F02DA13C1D99795B007F6C93 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
+		F02DA13D1D99795B007F6C93 /* ApnListViewController+Previewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */; };
+		F02DA13E1D99795B007F6C93 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
+		F02DA13F1D99795B007F6C93 /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
+		F02DA1401D99795B007F6C93 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */; };
+		F02DA1411D99795B007F6C93 /* UISwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */; };
+		F02DA1421D99795B007F6C93 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50D1CA4003F005B86B9 /* TextFieldCell.swift */; };
+		F02DA1431D99795B007F6C93 /* AvailableApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */; };
+		F02DA1441D99795B007F6C93 /* UtilShortcutLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */; };
+		F02DA1451D99795B007F6C93 /* DownloadListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */; };
+		F02DA1461D99795B007F6C93 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
+		F02DA1471D99795B007F6C93 /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
+		F02DA1481D99795B007F6C93 /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
+		F02DA14A1D99795B007F6C93 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
+		F02DA14C1D99795B007F6C93 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
+		F02DA14D1D99795B007F6C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
+		F02DA14E1D99795B007F6C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
+		F02DA14F1D99795B007F6C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
+		F02DA1501D99795B007F6C93 /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
+		F02DA1511D99795B007F6C93 /* SegmentedCtrlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */; };
+		F02DA1521D99795B007F6C93 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
+		F02DA1531D99795B007F6C93 /* ic_list_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */; };
+		F02DA1541D99795B007F6C93 /* ic_favorite_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */; };
+		F02DA1551D99795B007F6C93 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
+		F02DA1561D99795B007F6C93 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
+		F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
+		F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
+		F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
+		F02DA15A1D99795B007F6C93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5011CA3E185005B86B9 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +249,10 @@
 		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 		F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
 		F0244C591D93132D006C6E5F /* AccountManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManageViewController.swift; sourceTree = "<group>"; };
+		F02DA12A1D997944007F6C93 /* ApnMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02DA12B1D997944007F6C93 /* ApnMemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ApnMemo-Info.plist"; path = "/Users/watarusuzuki/programming_iOS/MyProjects/ApnAssister/ApnMemo-Info.plist"; sourceTree = "<absolute>"; };
+		F02DA1631D99795B007F6C93 /* ApnBookmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnBookmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F02DA1641D99795C007F6C93 /* ApnBookmarks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ApnBookmarks-Info.plist"; path = "/Users/watarusuzuki/programming_iOS/MyProjects/ApnAssister/ApnBookmarks-Info.plist"; sourceTree = "<absolute>"; };
 		F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnAssister.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +285,22 @@
 			files = (
 				F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */,
 				E182F50CC564D716129F4139 /* libPods-TodayWidget.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02DA1101D997944007F6C93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02DA1111D997944007F6C93 /* libPods-ApnAssister.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02DA1491D99795B007F6C93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02DA14A1D99795B007F6C93 /* libPods-ApnAssister.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +393,8 @@
 				96DA6C081C9B03FE00E424D5 /* ApnAssisterTests.xctest */,
 				96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */,
 				F009F3951D6006A000D428D6 /* TodayWidget.appex */,
+				F02DA12A1D997944007F6C93 /* ApnMemo.app */,
+				F02DA1631D99795B007F6C93 /* ApnBookmarks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -311,6 +413,8 @@
 				96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */,
 				96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */,
 				96DA6C031C9B03FD00E424D5 /* Info.plist */,
+				F02DA12B1D997944007F6C93 /* ApnMemo-Info.plist */,
+				F02DA1641D99795C007F6C93 /* ApnBookmarks-Info.plist */,
 				60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */,
 				60BEE5011CA3E185005B86B9 /* InfoPlist.strings */,
 				60BEE5071CA3E1A4005B86B9 /* Localizable.strings */,
@@ -471,6 +575,48 @@
 			productReference = F009F3951D6006A000D428D6 /* TodayWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F02DA0F31D997944007F6C93 /* ApnMemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "ApnMemo" */;
+			buildPhases = (
+				F02DA0F61D997944007F6C93 /* [CP] Check Pods Manifest.lock */,
+				F02DA0F71D997944007F6C93 /* Sources */,
+				F02DA1101D997944007F6C93 /* Frameworks */,
+				F02DA1121D997944007F6C93 /* Resources */,
+				F02DA1221D997944007F6C93 /* [CP] Embed Pods Frameworks */,
+				F02DA1231D997944007F6C93 /* [CP] Copy Pods Resources */,
+				F02DA1241D997944007F6C93 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ApnMemo;
+			productName = ApnAssister;
+			productReference = F02DA12A1D997944007F6C93 /* ApnMemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F02DA12C1D99795B007F6C93 /* ApnBookmarks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F02DA1601D99795B007F6C93 /* Build configuration list for PBXNativeTarget "ApnBookmarks" */;
+			buildPhases = (
+				F02DA12F1D99795B007F6C93 /* [CP] Check Pods Manifest.lock */,
+				F02DA1301D99795B007F6C93 /* Sources */,
+				F02DA1491D99795B007F6C93 /* Frameworks */,
+				F02DA14B1D99795B007F6C93 /* Resources */,
+				F02DA15B1D99795B007F6C93 /* [CP] Embed Pods Frameworks */,
+				F02DA15C1D99795B007F6C93 /* [CP] Copy Pods Resources */,
+				F02DA15D1D99795B007F6C93 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ApnBookmarks;
+			productName = ApnAssister;
+			productReference = F02DA1631D99795B007F6C93 /* ApnBookmarks.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -516,6 +662,22 @@
 							};
 						};
 					};
+					F02DA0F31D997944007F6C93 = {
+						DevelopmentTeam = F35G39V2UB;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
+					};
+					F02DA12C1D99795B007F6C93 = {
+						DevelopmentTeam = F35G39V2UB;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = 96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnAssister" */;
@@ -536,6 +698,8 @@
 				96DA6C071C9B03FE00E424D5 /* ApnAssisterTests */,
 				96DA6C121C9B03FE00E424D5 /* ApnAssisterUITests */,
 				F009F3941D6006A000D428D6 /* TodayWidget */,
+				F02DA0F31D997944007F6C93 /* ApnMemo */,
+				F02DA12C1D99795B007F6C93 /* ApnBookmarks */,
 			);
 		};
 /* End PBXProject section */
@@ -584,6 +748,50 @@
 				F009F39D1D6006A100D428D6 /* MainInterface.storyboard in Resources */,
 				602A462B1D65377000ED22D6 /* InfoPlist.strings in Resources */,
 				F009F3AC1D600D2600D428D6 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02DA1121D997944007F6C93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02DA1131D997944007F6C93 /* Settings.bundle in Resources */,
+				F02DA1141D997944007F6C93 /* Localizable.strings in Resources */,
+				F02DA1151D997944007F6C93 /* GoogleService-Info.plist in Resources */,
+				F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */,
+				F02DA1171D997944007F6C93 /* configrationProfile.html in Resources */,
+				F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */,
+				F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */,
+				F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */,
+				F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */,
+				F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */,
+				F02DA11D1D997944007F6C93 /* index.html in Resources */,
+				F02DA11E1D997944007F6C93 /* Assets.xcassets in Resources */,
+				F02DA11F1D997944007F6C93 /* UISwitchCell.xib in Resources */,
+				F02DA1201D997944007F6C93 /* Main.storyboard in Resources */,
+				F02DA1211D997944007F6C93 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02DA14B1D99795B007F6C93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02DA14C1D99795B007F6C93 /* Settings.bundle in Resources */,
+				F02DA14D1D99795B007F6C93 /* Localizable.strings in Resources */,
+				F02DA14E1D99795B007F6C93 /* GoogleService-Info.plist in Resources */,
+				F02DA14F1D99795B007F6C93 /* LaunchScreen.storyboard in Resources */,
+				F02DA1501D99795B007F6C93 /* configrationProfile.html in Resources */,
+				F02DA1511D99795B007F6C93 /* SegmentedCtrlCell.xib in Resources */,
+				F02DA1521D99795B007F6C93 /* TextFieldCell.xib in Resources */,
+				F02DA1531D99795B007F6C93 /* ic_list_shortcut.png in Resources */,
+				F02DA1541D99795B007F6C93 /* ic_favorite_shortcut.png in Resources */,
+				F02DA1551D99795B007F6C93 /* ProgressIndicatorView.xib in Resources */,
+				F02DA1561D99795B007F6C93 /* index.html in Resources */,
+				F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */,
+				F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */,
+				F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */,
+				F02DA15A1D99795B007F6C93 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +870,122 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		F02DA0F61D997944007F6C93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA1221D997944007F6C93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA1231D997944007F6C93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA1241D997944007F6C93 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/\\./ })\n    \n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n# get the minor version from the last array element\nminorVersion=${arrIN[${lastElementPosition}]}\n# Increase it by 1\nminorVersion=$((minorVersion+1))\n# Format it as 3 digit\n#minorVersion=`printf \"%03d\" $minorVersion`\necho \"New minor version $minorVersion\"\n# Update it on the array\narrIN[$lastElementPosition]=$minorVersion\n\n# construct the build number now by joining the array\nbuildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n\necho \"New Build number $buildNumber\"\n\n#update it in plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi";
+		};
+		F02DA12F1D99795B007F6C93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA15B1D99795B007F6C93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA15C1D99795B007F6C93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA15D1D99795B007F6C93 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/\\./ })\n    \n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n# get the minor version from the last array element\nminorVersion=${arrIN[${lastElementPosition}]}\n# Increase it by 1\nminorVersion=$((minorVersion+1))\n# Format it as 3 digit\n#minorVersion=`printf \"%03d\" $minorVersion`\necho \"New minor version $minorVersion\"\n# Update it on the array\narrIN[$lastElementPosition]=$minorVersion\n\n# construct the build number now by joining the array\nbuildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n\necho \"New Build number $buildNumber\"\n\n#update it in plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi";
 		};
 		F04DB17F1D6494BA00998852 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -750,6 +1074,68 @@
 				6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */,
 				6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */,
 				6052A1951D63E34C00A3B8CE /* UtilCocoaHTTPServer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02DA0F71D997944007F6C93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02DA0F81D997944007F6C93 /* SegmentedCtrlCell.swift in Sources */,
+				F02DA0F91D997944007F6C93 /* UtilAppStatus.swift in Sources */,
+				F02DA0FA1D997944007F6C93 /* UtilShareAction.swift in Sources */,
+				F02DA0FB1D997944007F6C93 /* AppDelegate.swift in Sources */,
+				F02DA0FC1D997944007F6C93 /* MainTabBarController.swift in Sources */,
+				F02DA0FD1D997944007F6C93 /* UtilHandleRLMObject.swift in Sources */,
+				F02DA0FE1D997944007F6C93 /* UtilUserDefaults.swift in Sources */,
+				F02DA0FF1D997944007F6C93 /* ApnListViewController.swift in Sources */,
+				F02DA1001D997944007F6C93 /* ApnProfileObject.swift in Sources */,
+				F02DA1011D997944007F6C93 /* AvailableUpdateHelper.swift in Sources */,
+				F02DA1021D997944007F6C93 /* AccountManageViewController.swift in Sources */,
+				F02DA1031D997944007F6C93 /* AboutThisAppViewController.swift in Sources */,
+				F02DA1041D997944007F6C93 /* ApnListViewController+Previewing.swift in Sources */,
+				F02DA1051D997944007F6C93 /* FavoriteApnListViewController.swift in Sources */,
+				F02DA1061D997944007F6C93 /* ApnSummaryObject.swift in Sources */,
+				F02DA1071D997944007F6C93 /* ProgressIndicatorView.swift in Sources */,
+				F02DA1081D997944007F6C93 /* UISwitchCell.swift in Sources */,
+				F02DA1091D997944007F6C93 /* TextFieldCell.swift in Sources */,
+				F02DA10A1D997944007F6C93 /* AvailableApnListViewController.swift in Sources */,
+				F02DA10B1D997944007F6C93 /* UtilShortcutLaunch.swift in Sources */,
+				F02DA10C1D997944007F6C93 /* DownloadListViewController.swift in Sources */,
+				F02DA10D1D997944007F6C93 /* EditApnViewController.swift in Sources */,
+				F02DA10E1D997944007F6C93 /* UtilCocoaHTTPServer.swift in Sources */,
+				F02DA10F1D997944007F6C93 /* DetailApnViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02DA1301D99795B007F6C93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02DA1311D99795B007F6C93 /* SegmentedCtrlCell.swift in Sources */,
+				F02DA1321D99795B007F6C93 /* UtilAppStatus.swift in Sources */,
+				F02DA1331D99795B007F6C93 /* UtilShareAction.swift in Sources */,
+				F02DA1341D99795B007F6C93 /* AppDelegate.swift in Sources */,
+				F02DA1351D99795B007F6C93 /* MainTabBarController.swift in Sources */,
+				F02DA1361D99795B007F6C93 /* UtilHandleRLMObject.swift in Sources */,
+				F02DA1371D99795B007F6C93 /* UtilUserDefaults.swift in Sources */,
+				F02DA1381D99795B007F6C93 /* ApnListViewController.swift in Sources */,
+				F02DA1391D99795B007F6C93 /* ApnProfileObject.swift in Sources */,
+				F02DA13A1D99795B007F6C93 /* AvailableUpdateHelper.swift in Sources */,
+				F02DA13B1D99795B007F6C93 /* AccountManageViewController.swift in Sources */,
+				F02DA13C1D99795B007F6C93 /* AboutThisAppViewController.swift in Sources */,
+				F02DA13D1D99795B007F6C93 /* ApnListViewController+Previewing.swift in Sources */,
+				F02DA13E1D99795B007F6C93 /* FavoriteApnListViewController.swift in Sources */,
+				F02DA13F1D99795B007F6C93 /* ApnSummaryObject.swift in Sources */,
+				F02DA1401D99795B007F6C93 /* ProgressIndicatorView.swift in Sources */,
+				F02DA1411D99795B007F6C93 /* UISwitchCell.swift in Sources */,
+				F02DA1421D99795B007F6C93 /* TextFieldCell.swift in Sources */,
+				F02DA1431D99795B007F6C93 /* AvailableApnListViewController.swift in Sources */,
+				F02DA1441D99795B007F6C93 /* UtilShortcutLaunch.swift in Sources */,
+				F02DA1451D99795B007F6C93 /* DownloadListViewController.swift in Sources */,
+				F02DA1461D99795B007F6C93 /* EditApnViewController.swift in Sources */,
+				F02DA1471D99795B007F6C93 /* UtilCocoaHTTPServer.swift in Sources */,
+				F02DA1481D99795B007F6C93 /* DetailApnViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,6 +1423,76 @@
 			};
 			name = Release;
 		};
+		F02DA1281D997944007F6C93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "ApnMemo-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F02DA1291D997944007F6C93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "ApnMemo-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		F02DA1611D99795B007F6C93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "ApnBookmarks-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F02DA1621D99795B007F6C93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "ApnBookmarks-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1081,6 +1537,24 @@
 			buildConfigurations = (
 				F009F3A21D6006A100D428D6 /* Debug */,
 				F009F3A31D6006A100D428D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "ApnMemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F02DA1281D997944007F6C93 /* Debug */,
+				F02DA1291D997944007F6C93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F02DA1601D99795B007F6C93 /* Build configuration list for PBXNativeTarget "ApnBookmarks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F02DA1611D99795B007F6C93 /* Debug */,
+				F02DA1621D99795B007F6C93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

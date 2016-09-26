@@ -49,6 +49,8 @@
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */; };
+		96FC93571D997D9800BCD4FF /* ApnBookmarks-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FC93551D997D9800BCD4FF /* ApnBookmarks-Info.plist */; };
+		96FC93581D997D9800BCD4FF /* ApnMemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FC93561D997D9800BCD4FF /* ApnMemo-Info.plist */; };
 		9EB076198FF9BE7FC26EF8A4 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
 		E182F50CC564D716129F4139 /* libPods-TodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */; };
 		F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F009F3961D6006A000D428D6 /* NotificationCenter.framework */; };
@@ -239,6 +241,8 @@
 		96DA6C131C9B03FE00E424D5 /* ApnAssisterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssisterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96FC93551D997D9800BCD4FF /* ApnBookmarks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ApnBookmarks-Info.plist"; sourceTree = "<group>"; };
+		96FC93561D997D9800BCD4FF /* ApnMemo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ApnMemo-Info.plist"; sourceTree = "<group>"; };
 		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3961D6006A000D428D6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F009F3991D6006A100D428D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -250,9 +254,7 @@
 		F0244C571D9307F9006C6E5F /* DownloadListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadListViewController.swift; sourceTree = "<group>"; };
 		F0244C591D93132D006C6E5F /* AccountManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManageViewController.swift; sourceTree = "<group>"; };
 		F02DA12A1D997944007F6C93 /* ApnMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F02DA12B1D997944007F6C93 /* ApnMemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ApnMemo-Info.plist"; path = "/Users/watarusuzuki/programming_iOS/MyProjects/ApnAssister/ApnMemo-Info.plist"; sourceTree = "<absolute>"; };
 		F02DA1631D99795B007F6C93 /* ApnBookmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnBookmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F02DA1641D99795C007F6C93 /* ApnBookmarks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ApnBookmarks-Info.plist"; path = "/Users/watarusuzuki/programming_iOS/MyProjects/ApnAssister/ApnBookmarks-Info.plist"; sourceTree = "<absolute>"; };
 		F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnAssister.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -413,8 +415,8 @@
 				96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */,
 				96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */,
 				96DA6C031C9B03FD00E424D5 /* Info.plist */,
-				F02DA12B1D997944007F6C93 /* ApnMemo-Info.plist */,
-				F02DA1641D99795C007F6C93 /* ApnBookmarks-Info.plist */,
+				96FC93551D997D9800BCD4FF /* ApnBookmarks-Info.plist */,
+				96FC93561D997D9800BCD4FF /* ApnMemo-Info.plist */,
 				60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */,
 				60BEE5011CA3E185005B86B9 /* InfoPlist.strings */,
 				60BEE5071CA3E1A4005B86B9 /* Localizable.strings */,
@@ -709,8 +711,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96FC93581D997D9800BCD4FF /* ApnMemo-Info.plist in Resources */,
 				60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */,
 				60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */,
+				96FC93571D997D9800BCD4FF /* ApnBookmarks-Info.plist in Resources */,
 				965C7C961D955064007E0A26 /* GoogleService-Info.plist in Resources */,
 				96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */,
 				6082F1B51D536843000B59EA /* configrationProfile.html in Resources */,
@@ -1432,7 +1436,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "ApnMemo-Info.plist";
+				INFOPLIST_FILE = "ApnAssister/ApnMemo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1450,7 +1454,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "ApnMemo-Info.plist";
+				INFOPLIST_FILE = "ApnAssister/ApnMemo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1467,7 +1471,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "ApnBookmarks-Info.plist";
+				INFOPLIST_FILE = "ApnAssister/ApnBookmarks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1485,7 +1489,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "ApnBookmarks-Info.plist";
+				INFOPLIST_FILE = "ApnAssister/ApnBookmarks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";

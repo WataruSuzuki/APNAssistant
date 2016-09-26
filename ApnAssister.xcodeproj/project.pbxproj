@@ -1431,7 +1431,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Memo";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
@@ -1449,7 +1449,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Memo";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
@@ -1466,7 +1466,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Bookmarks";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
@@ -1484,7 +1484,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Bookmarks";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;

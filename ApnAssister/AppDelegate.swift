@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UtilHandleRLMObject.copyToGroupDB()
         UtilHandleRLMObject.setupGroupDB()
         
-        FIROptions.defaultOptions().deepLinkURLScheme = "jchankchanapnabookmarks://"
+        FIROptions.defaultOptions().deepLinkURLScheme = "jchankchanapnassistant://"
         FIRApp.configure()
         if #available(iOS 9.0, *) {
             return shouldPerformAdditionalDelegateHandling(application, didFinishLaunchingWithOptions: launchOptions)

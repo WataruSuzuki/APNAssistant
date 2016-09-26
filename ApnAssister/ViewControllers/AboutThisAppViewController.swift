@@ -54,12 +54,13 @@ class AboutThisAppViewController: UITableViewController {
         // Configure the cell...
         cell.textLabel?.numberOfLines = 0
         
-        if indexPath.section == 0 {
-            cell.accessoryType = .DisclosureIndicator
-            cell.textLabel?.text = NSLocalizedString("HowAboutAccount", comment: "")
-        } else {
+        let aboutThis = AboutThisApp.Section(rawValue: indexPath.section)!
+//        if aboutThis == .Account {
+//            cell.accessoryType = .DisclosureIndicator
+//            cell.textLabel?.text = NSLocalizedString("HowAboutAccount", comment: "")
+//        } else {
             cell.accessoryType = .DetailButton
-            switch AboutThisApp.Section(rawValue: indexPath.section)! {
+            switch aboutThis {
             case .Apn:
                 cell.textLabel?.text = NSLocalizedString("HowAboutApn", comment: "")
                 
@@ -72,7 +73,7 @@ class AboutThisAppViewController: UITableViewController {
             default:
                 break
             }
-        }
+//        }
 
         return cell
     }

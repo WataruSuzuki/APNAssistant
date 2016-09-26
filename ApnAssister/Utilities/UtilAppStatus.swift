@@ -66,9 +66,9 @@ class UtilAppStatus: NSObject {
 //        //        print("compareResult = \(compareResult.rawValue)")
 //        if compareResult == .OrderedAscending {
 //            ud.isAvailableStore = false
-            return true
+//            return true
 //        }
-//        return false
+        return false
     }
     
 }

@@ -5,7 +5,7 @@
   Created by WataruSuzuki on 2016/03/24.
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
-payloadDescription = "APNブックマークのプロファイル";
+payloadDescription = "APNアシスタントのプロファイル";
 
 keyApnsName = "データAPNの名前";
 keyApnsAuthenticationType = "データAPNの認証方法";
@@ -52,7 +52,7 @@ latest_set_profile = "アプリからこの端末にセットしたプロファ�
 unknown = "不明です...";
 openApp = "アプリ起動";
 
-apn_assistant = "APNブックマーク";
+apn_assistant = "APNアシスタント";
 show_favorites = "お気に入りを表示する";
 
 custom = "カスタム:事業者からの情報を元に作成";

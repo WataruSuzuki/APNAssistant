@@ -1,5 +1,5 @@
-PROJ_FILE_PATH="ApnBookmarks.xcworkspace"
-TARGET_HOST="ApnBookmarks"
+PROJ_FILE_PATH="ApnAssister.xcworkspace"
+TARGET_HOST="ApnAssister"
 OUT_ARCHIVES_DIR="out_archives"
 OUT_IPA_DIR="out_ipa"
 ALTTOOL="/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool"

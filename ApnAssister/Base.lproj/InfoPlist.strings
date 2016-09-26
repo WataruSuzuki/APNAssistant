@@ -2,7 +2,7 @@
   InfoPlist.strings
   ApnAssister
 
-  Created by WataruSuzuki on 2016/08/18.
+  Created by WataruSuzuki on 2016/03/24.
   Copyright © 2016年 WataruSuzuki. All rights reserved.
 */
-CFBundleDisplayName = "APNブックマーク";
+CFBundleDisplayName = "APN Bookmarks";

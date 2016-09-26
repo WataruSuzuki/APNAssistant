@@ -1,7 +1,7 @@
 platform :ios, "7.0"
 inhibit_all_warnings!
 
-target "ApnBookmarks" do
+target "ApnAssister" do
   pod 'CocoaAsyncSocket'
   pod 'CocoaHTTPServer'
   pod 'Realm'
@@ -22,5 +22,5 @@ end
 
 post_install do | installer |
   require 'fileutils'
-  FileUtils.cp_r('Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks-acknowledgements.plist', 'ApnBookmarks/Settings.bundle/Pods-acknowledgements.plist')
+  FileUtils.cp_r('Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister-acknowledgements.plist', 'ApnAssister/Settings.bundle/Pods-acknowledgements.plist')
 end

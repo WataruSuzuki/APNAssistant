@@ -1317,6 +1317,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D IS_APN_ASSISTER";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
@@ -1336,6 +1337,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D IS_APN_ASSISTER";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
@@ -1438,6 +1440,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ApnAssister/ApnMemo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D IS_APN_MEMO";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
@@ -1456,6 +1459,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ApnAssister/ApnMemo-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D IS_APN_MEMO";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
@@ -1473,6 +1477,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ApnAssister/ApnBookmarks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D IS_APN_BOOKMARKS";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
@@ -1491,6 +1496,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ApnAssister/ApnBookmarks-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D IS_APN_BOOKMARKS";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnBookmarks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";

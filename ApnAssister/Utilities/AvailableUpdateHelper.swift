@@ -465,14 +465,16 @@ class AvailableUpdateHelper: NSObject {
             
             let items = json.objectForKey(DownloadProfiles.profileItems) as! NSArray
             let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-//            print("actualVersion = \(actualVersion)")
+            print("actualVersion = \(actualVersion)")
+            let myAppName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
+            print("myAppName = \(myAppName)")
             
             for i in 0  ..< items.count  {
-                if "ApnAssister" == items[i].objectForKey(DownloadProfiles.profileName) as! NSString {
+                if myAppName == items[i].objectForKey(DownloadProfiles.profileName) as? NSString {
                     let requiredVersion = items[i].objectForKey(DownloadProfiles.version) as! NSString
-//                    print("requiredVersion = \(requiredVersion)")
+                    print("requiredVersion = \(requiredVersion)")
                     let compareResult = requiredVersion.compare(actualVersion, options: .NumericSearch)
-//                    print("compareResult = \(compareResult.rawValue)")
+                    print("compareResult = \(compareResult.rawValue)")
                     if compareResult == .OrderedAscending {
                         //do nothing
                     } else {

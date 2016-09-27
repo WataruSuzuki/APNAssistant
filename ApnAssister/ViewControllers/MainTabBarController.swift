@@ -21,9 +21,7 @@ class MainTabBarController: UITabBarController {
         loadTabBarTitle()
         appStatus.checkAccountAuth()
         
-        if !appStatus.isAvailableAllFunction() {
-            hiddenSomeTabbar()
-        }
+        hiddenSomeTabbar()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -91,8 +89,6 @@ class MainTabBarController: UITabBarController {
         #else
             //do nothing
         #endif
-        controllers?.removeAtIndex(TabIndex.ProfileList.rawValue)
-        controllers?.removeAtIndex(TabIndex.FavoriteList.rawValue)
         
         self.viewControllers = controllers
     }

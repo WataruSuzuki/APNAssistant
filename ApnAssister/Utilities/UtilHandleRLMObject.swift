@@ -132,7 +132,9 @@ class UtilHandleRLMObject: NSObject {
     }
     
     static func getAppGroupPathURL() -> NSURL? {
-        return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group." + NSBundle.mainBundle().bundleIdentifier!.stringByReplacingOccurrencesOfString(".TodayWidget", withString: ""))
+        let path = "group.jp.co.JchanKchan.ApnAssister"
+        //let path = "group." + NSBundle.mainBundle().bundleIdentifier!.stringByReplacingOccurrencesOfString(".TodayWidget", withString: "")
+        return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(path)
     }
     
     static func getDatabasePathOfAppGroupPathURL() -> NSURL? {

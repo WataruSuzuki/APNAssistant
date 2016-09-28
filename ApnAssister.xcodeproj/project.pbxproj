@@ -140,6 +140,7 @@
 		F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
 		F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
 		F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
+		F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +263,7 @@
 		F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnAssister.entitlements; sourceTree = "<group>"; };
 		F0A74DCA1D9BBBC4009D799E /* ApnBookmarks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnBookmarks.entitlements; sourceTree = "<group>"; };
 		F0A74DCB1D9BBBE0009D799E /* ApnMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnMemo.entitlements; sourceTree = "<group>"; };
+		F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAlertSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +364,7 @@
 				60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */,
 				96A1EF701D932944005EEA31 /* UtilUserDefaults.swift */,
 				96007FB31D963A02000FAE04 /* UtilAppStatus.swift */,
+				F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1090,6 +1093,7 @@
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,
 				6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */,
 				602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */,
+				F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

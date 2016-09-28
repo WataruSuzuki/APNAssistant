@@ -14,7 +14,7 @@ struct AboutThisApp {
         case Summary = 0,
         Apn,
         Profile,
-        Contact,
+        //Contact,
         //Account,
         MAX
         
@@ -73,8 +73,8 @@ class AboutThisAppViewController: UITableViewController {
             case .Profile:
                 cell.textLabel?.text = NSLocalizedString("HowAboutConfigProfile", comment: "")
                 
-            case .Contact:
-                cell.textLabel?.text = NSLocalizedString("HowAboutContact", comment: "")
+//            case .Contact:
+//                cell.textLabel?.text = NSLocalizedString("HowAboutContact", comment: "")
                 
             default:
                 break
@@ -113,9 +113,9 @@ class AboutThisAppViewController: UITableViewController {
             let url = NSURL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
             UIApplication.sharedApplication().openURL(url!)
             
-        case .Contact:
-            let url = NSURL(string: "https://twitter.com/DevJchanKchan")
-            UIApplication.sharedApplication().openURL(url!)
+//        case .Contact:
+//            let url = NSURL(string: "https://twitter.com/DevJchanKchan")
+//            UIApplication.sharedApplication().openURL(url!)
             
         default:
             break

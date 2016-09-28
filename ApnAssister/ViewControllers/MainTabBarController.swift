@@ -17,7 +17,10 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupTintColor()
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        
         loadTabBarTitle()
         appStatus.checkAccountAuth()
         
@@ -91,6 +94,19 @@ class MainTabBarController: UITabBarController {
         #endif
         
         self.viewControllers = controllers
+    }
+    
+    func setupTintColor() {
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        #if IS_APN_MEMO
+            delegate.window!.tintColor = nil
+            UIView.appearance().tintColor = nil
+        #elseif IS_APN_BOOKMARKS
+            delegate.window!.tintColor = UIColor.darkGrayColor()
+            UIView.appearance().tintColor = UIColor.darkGrayColor()
+        #else
+            //Use Storyboard defined.
+        #endif
     }
     
     enum TabIndex: Int {

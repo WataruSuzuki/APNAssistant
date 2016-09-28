@@ -29,10 +29,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>ApnAssister</string>
+			<string>ApnMemo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>jchankchanapnassistant</string>
+				<string>jchankchanapnmemo</string>
 			</array>
 		</dict>
 	</array>

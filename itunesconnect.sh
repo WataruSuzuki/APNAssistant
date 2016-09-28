@@ -28,3 +28,5 @@ itunes_connect () {
 
 #Release
 itunes_connect ApnAssister Release
+itunes_connect ApnMemo Release
+itunes_connect ApnBookmarks Release

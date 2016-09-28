@@ -1,5 +1,4 @@
 PROJ_FILE_PATH="ApnAssister.xcworkspace"
-TARGET_HOST="ApnAssister"
 OUT_ARCHIVES_DIR="out_archives"
 OUT_IPA_DIR="out_ipa"
 ALTTOOL="/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool"
@@ -21,11 +20,11 @@ fi
 # -------------------------
 itunes_connect () {
     xcodebuild clean -workspace "${PROJ_FILE_PATH}"
-    xcodebuild archive -workspace "${PROJ_FILE_PATH}" -scheme "${TARGET_HOST}" -archivePath "${PWD}/${OUT_ARCHIVES_DIR}/$1.xcarchive" -configuration $1
+    xcodebuild archive -workspace "${PROJ_FILE_PATH}" -scheme $1 -archivePath "${PWD}/${OUT_ARCHIVES_DIR}/$1.xcarchive" -configuration $2
     xcodebuild -exportArchive -archivePath "${PWD}/${OUT_ARCHIVES_DIR}/$1.xcarchive" -exportPath "${PWD}/${OUT_IPA_DIR}" -exportOptionsPlist "${PWD}/exportOptions.Plist"
-    "${ALTTOOL}" --validate-app -f "${PWD}/${OUT_IPA_DIR}/${TARGET_HOST}.ipa"  -u ${ITUNES_ID} -p ${ITUNES_PW}
-    "${ALTTOOL}" --upload-app -f "${PWD}/${OUT_IPA_DIR}/${TARGET_HOST}.ipa"  -u ${ITUNES_ID} -p ${ITUNES_PW}
+    "${ALTTOOL}" --validate-app -f "${PWD}/${OUT_IPA_DIR}/$1.ipa"  -u ${ITUNES_ID} -p ${ITUNES_PW}
+    "${ALTTOOL}" --upload-app -f "${PWD}/${OUT_IPA_DIR}/$1.ipa"  -u ${ITUNES_ID} -p ${ITUNES_PW}
 }
 
 #Release
-itunes_connect Release
+itunes_connect ApnAssister Release

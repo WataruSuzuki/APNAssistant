@@ -274,13 +274,13 @@ class EditApnViewController: UITableViewController,
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
                 action in self.handleUpdateDeviceApn(false)
             }
-            let deleteAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Destructive){
+            let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Destructive){
                 action in self.handleUpdateDeviceApn(true)
             }
             
             let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
             alertController.addAction(cancelAction)
-            alertController.addAction(deleteAction)
+            alertController.addAction(updateAction)
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
                 alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem

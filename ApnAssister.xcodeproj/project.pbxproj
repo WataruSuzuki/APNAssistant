@@ -44,6 +44,8 @@
 		9651C2171D9B9399008A4A9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9651C2191D9B9399008A4A9D /* InfoPlist.strings */; };
 		9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21C1D9BA27C008A4A9D /* configrationProfile.html */; };
 		9651C21F1D9BA27C008A4A9D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21D1D9BA27C008A4A9D /* index.html */; };
+		9651C2201D9BCA7B008A4A9D /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
+		9651C2211D9BCA7C008A4A9D /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
 		965C7C961D955064007E0A26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
 		96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
 		96A1EF711D932944005EEA31 /* UtilUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF701D932944005EEA31 /* UtilUserDefaults.swift */; };
@@ -1149,6 +1151,7 @@
 				F02DA10D1D997944007F6C93 /* EditApnViewController.swift in Sources */,
 				F02DA10E1D997944007F6C93 /* UtilCocoaHTTPServer.swift in Sources */,
 				F02DA10F1D997944007F6C93 /* DetailApnViewController.swift in Sources */,
+				9651C2201D9BCA7B008A4A9D /* UtilAlertSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1180,6 +1183,7 @@
 				F02DA1461D99795B007F6C93 /* EditApnViewController.swift in Sources */,
 				F02DA1471D99795B007F6C93 /* UtilCocoaHTTPServer.swift in Sources */,
 				F02DA1481D99795B007F6C93 /* DetailApnViewController.swift in Sources */,
+				9651C2211D9BCA7C008A4A9D /* UtilAlertSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

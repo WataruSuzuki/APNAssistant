@@ -19,8 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UtilHandleRLMObject.copyToGroupDB()
         UtilHandleRLMObject.setupGroupDB()
         
-        FIROptions.defaultOptions().deepLinkURLScheme = "jchankchanapnassistant://"
-        FIRApp.configure()
+        #if IS_APN_ASSISTER
+            FIROptions.defaultOptions().deepLinkURLScheme = "jchankchanapnassistant://"
+            FIRApp.configure()
+        #endif
         if #available(iOS 9.0, *) {
             return shouldPerformAdditionalDelegateHandling(application, didFinishLaunchingWithOptions: launchOptions)
         } else {

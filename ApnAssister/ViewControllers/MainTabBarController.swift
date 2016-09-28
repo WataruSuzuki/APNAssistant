@@ -113,7 +113,7 @@ class MainTabBarController: UITabBarController {
         #if IS_APN_MEMO
             UIView.appearance().tintColor = nil
         #elseif IS_APN_BOOKMARKS
-            UIView.appearance().tintColor = color
+            UIView.appearance().tintColor = UIColor.darkGrayColor()
         #else
             //Use Storyboard defined.
         #endif

@@ -15,9 +15,10 @@ protocol EditApnViewControllerDelegate {
 class EditApnViewController: UITableViewController,
     UIAlertViewDelegate, UIActionSheetDelegate
 {
-    var myUtilHandleRLMObject: UtilHandleRLMObject!
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let appStatus = UtilAppStatus()
     
+    var myUtilHandleRLMObject: UtilHandleRLMObject!
     var editingApnSummaryObj: ApnSummaryObject?
     var isCompFirstRespond = false
     var isSetDataApnManually = false
@@ -237,12 +238,11 @@ class EditApnViewController: UITableViewController,
         self.delegate.didFinishEditApn(myUtilHandleRLMObject.apnSummaryObj)
         self.dismissViewControllerAnimated(true) { 
             if isUpdateNow {
-                let appStatus = UtilAppStatus()
-                if appStatus.isAvailableAllFunction() {
+                if self.appStatus.isAvailableAllFunction() {
                     let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
                     UIApplication.sharedApplication().openURL(url)
                 } else {
-                    appStatus.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: self)
+                    self.appStatus.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: self)
                 }
             }
         }
@@ -312,7 +312,11 @@ class EditApnViewController: UITableViewController,
         let realm = RLMRealm.defaultRealm()
         myUtilHandleRLMObject.saveUpdateApnDataObj(realm, isSetDataApnManually: isSetDataApnManually)
         
-        showConfirmUpdatingDeviceApn()
+        if appStatus.isShowImportantMenu() {
+            showConfirmUpdatingDeviceApn()
+        } else {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     @IBAction func tapCancel(sender: AnyObject) {

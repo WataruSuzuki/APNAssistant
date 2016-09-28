@@ -173,7 +173,9 @@ class DetailApnViewController: UITableViewController,
             
             let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
             alertController.addAction(cancelAction)
-            alertController.addAction(setApnAction)
+            if appStatus.isShowImportantMenu() {
+                alertController.addAction(setApnAction)
+            }
             alertController.addAction(shareAction)
             alertController.addAction(editAction)
             

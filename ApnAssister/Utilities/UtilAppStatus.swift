@@ -78,6 +78,16 @@ class UtilAppStatus: NSObject {
         return false
     }
     
+    func isShowImportantMenu() -> Bool {
+        #if IS_APN_MEMO
+            return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnbookmarks://")!)
+        #elseif IS_APN_MEMO
+            return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnmemo://")!)
+        #else
+            return true
+        #endif
+    }
+    
     func showComfirmOldAlert(title: String, message: String, buttonText: String) {
         let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: nil, otherButtonTitles: buttonText)
         alert.show()

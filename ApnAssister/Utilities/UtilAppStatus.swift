@@ -61,7 +61,9 @@ class UtilAppStatus: NSObject {
     }
     
     func isAppUpdated() -> Bool {
-        #if false
+        #if IS_APN_ASSISTER
+            //do nothing
+        #else
             let ud = UtilUserDefaults()
             let actualVersion = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
             let memoryVersion = ud.memoryVersion

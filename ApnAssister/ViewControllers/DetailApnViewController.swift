@@ -43,7 +43,11 @@ class DetailApnViewController: UITableViewController,
         //let subAction2 = previewActionForTitle("Sub Action 2")
         //let groupedActions = UIPreviewActionGroup(title: "Sub Actions…", style: .Default, actions: [subAction1, subAction2] )
         
-        return [setApnAction, shareAction, editAction/*, groupedActions*/]
+        if UtilAppStatus().isShowImportantMenu() {
+            return [setApnAction, shareAction, editAction/*, groupedActions*/]
+        } else {
+            return [shareAction, editAction]
+        }
     }()
     
     override func viewDidLoad() {

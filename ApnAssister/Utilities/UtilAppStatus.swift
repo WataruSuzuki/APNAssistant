@@ -88,6 +88,31 @@ class UtilAppStatus: NSObject {
         #endif
     }
     
+    func showCautionProfile(sender: AnyObject) {
+        let title = NSLocalizedString("caution", comment: "")
+        let message = NSLocalizedString("caution_profile", comment: "")
+        let negativeMessage = NSLocalizedString("cancel", comment: "")
+        let positiveMessage = NSLocalizedString("understand", comment: "")
+        
+        var actions = [AnyObject]()
+        if #available(iOS 8.0, *) {
+            let controller = sender as! UIViewController
+            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
+                action in //do nothing
+            }
+            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Destructive){
+                action in controller.performSegueWithIdentifier("EditApnViewController", sender: controller)
+            }
+            actions.append(cancelAction)
+            actions.append(installAction)
+        } else {
+            actions.append(positiveMessage)
+            actions.append(negativeMessage)
+        }
+        
+        UtilAlertSheet.showConfirmAlertController(title, message: message, actions: actions, sender: sender)
+    }
+    
     func showStatuLimitByApple(vc: UIViewController){
         UtilAlertSheet.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: vc)
     }

@@ -34,4 +34,40 @@ class UtilAlertSheet: NSObject {
             showComfirmOldAlert(title, message: message, buttonText: buttonText)
         }
     }
+    
+    class func showComfirmOldSheet(title: String, messages: [AnyObject], tag:Int, sender: AnyObject) {
+        let sheet = UIActionSheet()
+        sheet.tag = tag
+        sheet.delegate = sender as? UIActionSheetDelegate
+        sheet.title = title
+        for message in messages {
+            sheet.addButtonWithTitle(message as? String)
+        }
+        sheet.cancelButtonIndex = 1
+        sheet.destructiveButtonIndex = 0
+        
+        if let controller = sender as? UIViewController {
+            sheet.showInView(controller.view)
+        }
+    }
+    
+    class func showConfirmAlertController(title: String, message: String, actions: [AnyObject], sender: AnyObject){
+        if #available(iOS 8.0, *) {
+            if let controller = sender as? UIViewController {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
+                for action in actions {
+                    alertController.addAction(action as! UIAlertAction)
+                }
+                
+                if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
+                    alertController.popoverPresentationController?.barButtonItem = controller.navigationItem.rightBarButtonItem
+                }
+                
+                controller.presentViewController(alertController, animated: true, completion: nil)
+            }
+        } else {
+            showComfirmOldSheet(title + "\n" + message, messages: actions, tag: 0, sender: sender)
+        }
+    }
+    
 }

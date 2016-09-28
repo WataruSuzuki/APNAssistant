@@ -18,6 +18,7 @@ class ApnListViewController: UITableViewController,
 {
     let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
+    let appStatus = UtilAppStatus()
     
     var allApnSummaryObjs: RLMResults!
     var previewApnSummaryObj: ApnSummaryObject?
@@ -204,53 +205,12 @@ class ApnListViewController: UITableViewController,
         }
     }
     
-    func showCautionCreateProfile() {
-        let negativeMessage = NSLocalizedString("cancel", comment: "")
-        let positiveMessage = NSLocalizedString("understand", comment: "")
-        
-        showConfirmAlertController(negativeMessage, positiveMessage: positiveMessage)
-    }
-    
-    func showComfirmOldSheet(title: String, negativeMessage: String, positiveMessage: String) {
-        let sheet = UIActionSheet()
-        //sheet.tag =
-        sheet.delegate = self
-        sheet.title = title
-        sheet.addButtonWithTitle(positiveMessage)
-        sheet.addButtonWithTitle(negativeMessage)
-        sheet.cancelButtonIndex = 1
-        sheet.destructiveButtonIndex = 0
-        
-        sheet.showInView(self.view)
-    }
-    
-    func showConfirmAlertController(negativeMessage: String, positiveMessage: String){
-        let title = NSLocalizedString("caution", comment: "")
-        let message = NSLocalizedString("caution_profile", comment: "")
-        if #available(iOS 8.0, *) {
-            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
-                action in //do nothing
-            }
-            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Destructive){
-                action in self.performSegueWithIdentifier("EditApnViewController", sender: self)
-            }
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
-            alertController.addAction(cancelAction)
-            alertController.addAction(installAction)
-            
-            if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-            }
-            
-            presentViewController(alertController, animated: true, completion: nil)
-        } else {
-            showComfirmOldSheet(title + "\n" + message, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
-        }
-    }
-    
     // MARK: - Action
     @IBAction func tapAddButton(sender: UIBarButtonItem) {
-        showCautionCreateProfile()
+        if appStatus.isAvailableAllFunction() {
+            appStatus.showCautionProfile(self)
+        } else {
+            self.performSegueWithIdentifier("EditApnViewController", sender: self)
+        }
     }
 }

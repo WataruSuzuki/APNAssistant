@@ -12,7 +12,8 @@ struct DownloadProfiles {
     static let serverUrl = "https://watarusuzuki.github.io/"
     
     static let apnProfiles = "apn-profiles"
-    static let apnProfilesDir = apnProfiles + "/jsons/"
+    static let jsonsDir = apnProfiles + "/jsons/"
+    static let resourcesDir = apnProfiles + "/resources/"
     
     static let profileItems = "items"
     static let profileName = "name"
@@ -530,7 +531,7 @@ class AvailableUpdateHelper: NSObject {
         senderDelegate = delegate
         updateUrl = [NSURL]()
         for index in 0..<DownloadProfiles.json.MAX.rawValue {
-            let url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.apnProfilesDir + DownloadProfiles.json(rawValue: index)!.getFileName())
+            let url = NSURL(string: DownloadProfiles.serverUrl + DownloadProfiles.jsonsDir + DownloadProfiles.json(rawValue: index)!.getFileName())
             updateUrl.append(url!)
         }
         executeNextDownloadTask()

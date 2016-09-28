@@ -11,7 +11,7 @@ import UIKit
 class UtilAppStatus: NSObject {
 
     func checkActualAppVersion() {
-        let path = DownloadProfiles.serverUrl + DownloadProfiles.apnProfilesDir + "resources/version.json"
+        let path = DownloadProfiles.serverUrl + DownloadProfiles.resourcesDir + "version.json"
         let reqUrl = NSURL(string: path)
         let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: config)

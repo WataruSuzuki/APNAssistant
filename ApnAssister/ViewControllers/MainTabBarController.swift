@@ -91,19 +91,29 @@ class MainTabBarController: UITabBarController {
             controllers?.removeAtIndex(TabIndex.FavoriteList.rawValue)
         #else
             //do nothing
+            return
         #endif
         
         self.viewControllers = controllers
+        
+        /*
+         なぜかwindow.tintColorでは変更ができず、UIView.appearanceをいじると
+         tabが全てアクティブになるので、ここで初期化する
+         */
+        
+        let selected = self.selectedIndex
+        for item in self.viewControllers! {
+            self.selectedViewController = item
+        }
+        
+        self.selectedViewController = self.viewControllers![selected]
     }
     
     func setupTintColor() {
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         #if IS_APN_MEMO
-            delegate.window!.tintColor = nil
             UIView.appearance().tintColor = nil
         #elseif IS_APN_BOOKMARKS
-            delegate.window!.tintColor = UIColor.darkGrayColor()
-            UIView.appearance().tintColor = UIColor.darkGrayColor()
+            UIView.appearance().tintColor = color
         #else
             //Use Storyboard defined.
         #endif

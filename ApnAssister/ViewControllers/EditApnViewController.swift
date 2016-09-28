@@ -237,8 +237,13 @@ class EditApnViewController: UITableViewController,
         self.delegate.didFinishEditApn(myUtilHandleRLMObject.apnSummaryObj)
         self.dismissViewControllerAnimated(true) { 
             if isUpdateNow {
-                let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-                UIApplication.sharedApplication().openURL(url)
+                let appStatus = UtilAppStatus()
+                if appStatus.isAvailableAllFunction() {
+                    let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
+                    UIApplication.sharedApplication().openURL(url)
+                } else {
+                    appStatus.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: self)
+                }
             }
         }
     }

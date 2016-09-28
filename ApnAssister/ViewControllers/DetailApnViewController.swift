@@ -18,6 +18,7 @@ class DetailApnViewController: UITableViewController,
     EditApnViewControllerDelegate
 {
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let appStatus = UtilAppStatus()
     
     var myUtilHandleRLMObject: UtilHandleRLMObject!
     var myApnSummaryObject: ApnSummaryObject!
@@ -50,7 +51,7 @@ class DetailApnViewController: UITableViewController,
 
         loadTargetSummaryObj()
         
-        if UtilAppStatus().isAvailableAllFunction() {
+        if appStatus.isAvailableAllFunction() {
             let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
             self.navigationItem.rightBarButtonItem = menuButton
         }
@@ -208,8 +209,12 @@ class DetailApnViewController: UITableViewController,
     }
     
     func handleUpdateDeviceApn(){
-        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-        UIApplication.sharedApplication().openURL(url)
+        if appStatus.isAvailableAllFunction() {
+            let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
+            UIApplication.sharedApplication().openURL(url)
+        } else {
+            appStatus.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: self)
+        }
     }
         
     // MARK: Preview actions

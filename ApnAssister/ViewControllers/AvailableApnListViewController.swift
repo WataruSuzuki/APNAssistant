@@ -14,6 +14,7 @@ class AvailableApnListViewController: UITableViewController,
 {
     let myAvailableUpdateHelper = AvailableUpdateHelper()
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let appStatus = UtilAppStatus()
     
     var updateSectionCount = 0
     var progressView: ProgressIndicatorView!
@@ -72,8 +73,8 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if !UtilAppStatus().isAvailableAllFunction() {
-            showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"))
+        if !appStatus.isAvailableAllFunction() {
+            appStatus.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: self)
         } else {
             installProfileFromNetwork(indexPath)
         }
@@ -130,31 +131,6 @@ class AvailableApnListViewController: UITableViewController,
         }
     }
     
-    func showComfirmOldAlert(title: String, message: String, buttonText: String) {
-        let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: nil, otherButtonTitles: buttonText)
-        alert.show()
-    }
-    
-    func showFailAlertController(key: String, url: NSURL?){
-        let buttonText = "OK"
-        let title = NSLocalizedString("error", comment: "")
-        let message = NSLocalizedString(key, comment: "")
-        if #available(iOS 8.0, *) {
-            let okAction = UIAlertAction(title: buttonText, style: UIAlertActionStyle.Default){
-                action in
-                if nil != url {
-                    UIApplication.sharedApplication().openURL(url!)
-                }
-            }
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-            alertController.addAction(okAction)
-            presentViewController(alertController, animated: true, completion: nil)
-        } else {
-            showComfirmOldAlert(title, message: message, buttonText: buttonText)
-        }
-    }
-    
     func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {
         UIApplication.sharedApplication().openURL(getTargetUrl(selectedIndexPath))
     }
@@ -186,7 +162,7 @@ class AvailableApnListViewController: UITableViewController,
             print(error?.description)
             dispatch_async(dispatch_get_main_queue(), {
                 self.stopIndicator()
-                self.showFailAlertController("fail_load_profile", url: nil)
+                self.appStatus.showFailAlertController("fail_load_profile", url: nil, vc: self)
             })
             
         }

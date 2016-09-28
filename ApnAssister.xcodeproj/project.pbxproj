@@ -42,6 +42,8 @@
 		9618C8C71D92D21C008B25F3 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
 		9651C2131D9B938A008A4A9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9651C2151D9B938A008A4A9D /* InfoPlist.strings */; };
 		9651C2171D9B9399008A4A9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9651C2191D9B9399008A4A9D /* InfoPlist.strings */; };
+		9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21C1D9BA27C008A4A9D /* configrationProfile.html */; };
+		9651C21F1D9BA27C008A4A9D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21D1D9BA27C008A4A9D /* index.html */; };
 		965C7C961D955064007E0A26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
 		96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
 		96A1EF711D932944005EEA31 /* UtilUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF701D932944005EEA31 /* UtilUserDefaults.swift */; };
@@ -93,13 +95,11 @@
 		F02DA1141D997944007F6C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		F02DA1151D997944007F6C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
 		F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
-		F02DA1171D997944007F6C93 /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
 		F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */; };
 		F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
 		F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */; };
 		F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */; };
 		F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
-		F02DA11D1D997944007F6C93 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
 		F02DA11E1D997944007F6C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
 		F02DA11F1D997944007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
 		F02DA1201D997944007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
@@ -132,13 +132,11 @@
 		F02DA14D1D99795B007F6C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		F02DA14E1D99795B007F6C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
 		F02DA14F1D99795B007F6C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
-		F02DA1501D99795B007F6C93 /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
 		F02DA1511D99795B007F6C93 /* SegmentedCtrlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */; };
 		F02DA1521D99795B007F6C93 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
 		F02DA1531D99795B007F6C93 /* ic_list_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */; };
 		F02DA1541D99795B007F6C93 /* ic_favorite_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */; };
 		F02DA1551D99795B007F6C93 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
-		F02DA1561D99795B007F6C93 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
 		F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
 		F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
 		F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
@@ -230,6 +228,8 @@
 		9651C2161D9B9393008A4A9D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9651C2181D9B9399008A4A9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9651C21A1D9B939A008A4A9D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9651C21C1D9BA27C008A4A9D /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
+		9651C21D1D9BA27C008A4A9D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		965C7C951D955064007E0A26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutThisAppViewController.swift; sourceTree = "<group>"; };
 		96A1EF701D932944005EEA31 /* UtilUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilUserDefaults.swift; sourceTree = "<group>"; };
@@ -390,9 +390,19 @@
 		9651C20E1D9B9355008A4A9D /* ApnMemo */ = {
 			isa = PBXGroup;
 			children = (
+				9651C21B1D9BA27C008A4A9D /* htdocs */,
 				9651C2151D9B938A008A4A9D /* InfoPlist.strings */,
 			);
 			path = ApnMemo;
+			sourceTree = "<group>";
+		};
+		9651C21B1D9BA27C008A4A9D /* htdocs */ = {
+			isa = PBXGroup;
+			children = (
+				9651C21C1D9BA27C008A4A9D /* configrationProfile.html */,
+				9651C21D1D9BA27C008A4A9D /* index.html */,
+			);
+			path = htdocs;
 			sourceTree = "<group>";
 		};
 		96DA6BE91C9B03FD00E424D5 = {
@@ -781,18 +791,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9651C21F1D9BA27C008A4A9D /* index.html in Resources */,
 				F02DA1131D997944007F6C93 /* Settings.bundle in Resources */,
 				9651C2131D9B938A008A4A9D /* InfoPlist.strings in Resources */,
 				F02DA1141D997944007F6C93 /* Localizable.strings in Resources */,
 				F02DA1151D997944007F6C93 /* GoogleService-Info.plist in Resources */,
 				F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */,
-				F02DA1171D997944007F6C93 /* configrationProfile.html in Resources */,
 				F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */,
 				F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */,
+				9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */,
 				F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */,
 				F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */,
 				F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */,
-				F02DA11D1D997944007F6C93 /* index.html in Resources */,
 				F02DA11E1D997944007F6C93 /* Assets.xcassets in Resources */,
 				F02DA11F1D997944007F6C93 /* UISwitchCell.xib in Resources */,
 				F02DA1201D997944007F6C93 /* Main.storyboard in Resources */,
@@ -808,13 +818,11 @@
 				F02DA14D1D99795B007F6C93 /* Localizable.strings in Resources */,
 				F02DA14E1D99795B007F6C93 /* GoogleService-Info.plist in Resources */,
 				F02DA14F1D99795B007F6C93 /* LaunchScreen.storyboard in Resources */,
-				F02DA1501D99795B007F6C93 /* configrationProfile.html in Resources */,
 				F02DA1511D99795B007F6C93 /* SegmentedCtrlCell.xib in Resources */,
 				F02DA1521D99795B007F6C93 /* TextFieldCell.xib in Resources */,
 				F02DA1531D99795B007F6C93 /* ic_list_shortcut.png in Resources */,
 				F02DA1541D99795B007F6C93 /* ic_favorite_shortcut.png in Resources */,
 				F02DA1551D99795B007F6C93 /* ProgressIndicatorView.xib in Resources */,
-				F02DA1561D99795B007F6C93 /* index.html in Resources */,
 				F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */,
 				F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */,
 				F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */,

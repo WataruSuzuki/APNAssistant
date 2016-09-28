@@ -288,6 +288,7 @@ class AvailableApnListViewController: UITableViewController,
         indicator = UIActivityIndicatorView(frame: getIndicatorFrame())
         //indicator.center = self.view.center
         indicator.backgroundColor = UIColor.darkGrayColor()
+        indicator.alpha = 0.5
         indicator.activityIndicatorViewStyle = .WhiteLarge
         indicator.startAnimating()
         self.view.addSubview(indicator)

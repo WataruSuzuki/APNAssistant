@@ -139,9 +139,6 @@
 		F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
 		F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
 		F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
-		F0A74DCE1D9BF7FB009D799E /* ApnBookmarks-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FC93551D997D9800BCD4FF /* ApnBookmarks-Info.plist */; };
-		F0A74DCF1D9BF803009D799E /* ApnMemo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96FC93561D997D9800BCD4FF /* ApnMemo-Info.plist */; };
-		F0A74DD01D9BF808009D799E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C031C9B03FD00E424D5 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -666,7 +663,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = WataruSuzuki;
 				TargetAttributes = {
 					96DA6BF11C9B03FD00E424D5 = {
@@ -757,7 +754,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0A74DD01D9BF808009D799E /* Info.plist in Resources */,
 				60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */,
 				60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */,
 				965C7C961D955064007E0A26 /* GoogleService-Info.plist in Resources */,
@@ -807,7 +803,6 @@
 				9651C21F1D9BA27C008A4A9D /* index.html in Resources */,
 				F02DA1131D997944007F6C93 /* Settings.bundle in Resources */,
 				9651C2131D9B938A008A4A9D /* InfoPlist.strings in Resources */,
-				F0A74DCF1D9BF803009D799E /* ApnMemo-Info.plist in Resources */,
 				F02DA1141D997944007F6C93 /* Localizable.strings in Resources */,
 				F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */,
 				F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */,
@@ -838,7 +833,6 @@
 				F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */,
 				F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */,
 				F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */,
-				F0A74DCE1D9BF7FB009D799E /* ApnBookmarks-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

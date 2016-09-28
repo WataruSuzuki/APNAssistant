@@ -219,7 +219,7 @@ class DetailApnViewController: UITableViewController,
             let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
             UIApplication.sharedApplication().openURL(url)
         } else {
-            appStatus.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: self)
+            appStatus.showStatuLimitByApple(self)
         }
     }
         

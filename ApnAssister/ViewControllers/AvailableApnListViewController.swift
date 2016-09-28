@@ -74,7 +74,7 @@ class AvailableApnListViewController: UITableViewController,
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if !appStatus.isAvailableAllFunction() {
-            appStatus.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: self)
+            appStatus.showStatuLimitByApple(self)
         } else {
             installProfileFromNetwork(indexPath)
         }
@@ -162,7 +162,7 @@ class AvailableApnListViewController: UITableViewController,
             print(error?.description)
             dispatch_async(dispatch_get_main_queue(), {
                 self.stopIndicator()
-                self.appStatus.showFailAlertController("fail_load_profile", url: nil, vc: self)
+                UtilAlertSheet.showFailAlertController("fail_load_profile", url: nil, vc: self)
             })
             
         }

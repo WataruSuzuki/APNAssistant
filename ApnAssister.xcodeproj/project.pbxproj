@@ -93,7 +93,6 @@
 		F02DA1111D997944007F6C93 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
 		F02DA1131D997944007F6C93 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		F02DA1141D997944007F6C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
-		F02DA1151D997944007F6C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
 		F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */; };
 		F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
@@ -130,7 +129,6 @@
 		F02DA14A1D99795B007F6C93 /* libPods-ApnAssister.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */; };
 		F02DA14C1D99795B007F6C93 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		F02DA14D1D99795B007F6C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
-		F02DA14E1D99795B007F6C93 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
 		F02DA14F1D99795B007F6C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		F02DA1511D99795B007F6C93 /* SegmentedCtrlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */; };
 		F02DA1521D99795B007F6C93 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
@@ -808,7 +806,6 @@
 				F02DA1131D997944007F6C93 /* Settings.bundle in Resources */,
 				9651C2131D9B938A008A4A9D /* InfoPlist.strings in Resources */,
 				F02DA1141D997944007F6C93 /* Localizable.strings in Resources */,
-				F02DA1151D997944007F6C93 /* GoogleService-Info.plist in Resources */,
 				F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */,
 				F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */,
 				F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */,
@@ -829,7 +826,6 @@
 				F02DA14C1D99795B007F6C93 /* Settings.bundle in Resources */,
 				9651C2171D9B9399008A4A9D /* InfoPlist.strings in Resources */,
 				F02DA14D1D99795B007F6C93 /* Localizable.strings in Resources */,
-				F02DA14E1D99795B007F6C93 /* GoogleService-Info.plist in Resources */,
 				F02DA14F1D99795B007F6C93 /* LaunchScreen.storyboard in Resources */,
 				F02DA1511D99795B007F6C93 /* SegmentedCtrlCell.xib in Resources */,
 				F02DA1521D99795B007F6C93 /* TextFieldCell.xib in Resources */,

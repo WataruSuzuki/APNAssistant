@@ -1,9 +1,9 @@
 PROJ_FILE_PATH="ApnAssister.xcworkspace"
 OUT_ARCHIVES_DIR="out_archives"
 OUT_IPA_DIR="out_ipa"
-ALTTOOL="/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool"
 ITUNES_ID=""
 ITUNES_PW=""
+ALTTOOL="/Applications/Xcode-7.3.1.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool"
 
 # 出力先ipaディレクトリ作成
 # -------------------------
@@ -27,6 +27,8 @@ itunes_connect () {
 }
 
 #Release
+export DEVELOPER_DIR=/Applications/Xcode-7.3.1.app
+
 itunes_connect ApnAssister Release
 itunes_connect ApnMemo Release
 itunes_connect ApnBookmarks Release

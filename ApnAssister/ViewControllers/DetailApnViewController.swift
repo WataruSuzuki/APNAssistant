@@ -56,9 +56,9 @@ class DetailApnViewController: UITableViewController,
         loadTargetSummaryObj()
         
         if appStatus.isAvailableAllFunction() {
-            let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
-            self.navigationItem.rightBarButtonItem = menuButton
         }
+        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
+        self.navigationItem.rightBarButtonItem = menuButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -145,7 +145,7 @@ class DetailApnViewController: UITableViewController,
     
     func showMenuSheet() {
         let menuArray = loadMenuArray()
-        showConfirmAlertController(NSLocalizedString("menu", comment: ""), menuArray: menuArray)
+        showMenuAlertController(NSLocalizedString("menu", comment: ""), menuArray: menuArray)
     }
     
     func showComfirmOldSheet(title: String, menuArray: [String]) {
@@ -153,16 +153,23 @@ class DetailApnViewController: UITableViewController,
         //sheet.tag =
         sheet.delegate = self
         sheet.title = title
-        for message in menuArray {
+        
+        var dispMenuArray = menuArray
+        if !appStatus.isShowImportantMenu() {
+            dispMenuArray.removeAtIndex(Menu.setThisApnToDevice.rawValue)
+        }
+        for message in dispMenuArray {
             sheet.addButtonWithTitle(message)
         }
-        sheet.cancelButtonIndex = menuArray.count - 1
-        sheet.destructiveButtonIndex = 0
+        sheet.cancelButtonIndex = dispMenuArray.count - 1
+        if appStatus.isShowImportantMenu() {
+            sheet.destructiveButtonIndex = 0
+        }
         
         sheet.showInView(self.view)
     }
     
-    func showConfirmAlertController(title: String, menuArray: [String]){
+    func showMenuAlertController(title: String, menuArray: [String]){
         if #available(iOS 8.0, *) {
             let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Destructive){
                 action in self.handleUpdateDeviceApn()
@@ -195,7 +202,7 @@ class DetailApnViewController: UITableViewController,
     
     // MARK: - UIActionSheetDelegate
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
-        switch Menu(rawValue: buttonIndex)! {
+        switch Menu(rawValue: (appStatus.isShowImportantMenu() ? buttonIndex : buttonIndex + 1))! {
         case .setThisApnToDevice:
             self.handleUpdateDeviceApn()
             

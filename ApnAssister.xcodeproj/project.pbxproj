@@ -1376,7 +1376,7 @@
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D IS_APN_ASSISTER";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1396,7 +1396,7 @@
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D IS_APN_ASSISTER";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
 			};
@@ -1461,7 +1461,7 @@
 				INFOPLIST_FILE = TodayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister.TodayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "TodayWidget/TodayWidget-Bridging-Header.h";
@@ -1480,7 +1480,7 @@
 				INFOPLIST_FILE = TodayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister.TodayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "TodayWidget/TodayWidget-Bridging-Header.h";

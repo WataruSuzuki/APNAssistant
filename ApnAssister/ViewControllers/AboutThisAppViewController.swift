@@ -23,7 +23,7 @@ struct AboutThisApp {
             let key = (self == .Summary
                 ?"AboutThisApp" + String(self) + appName
                 :"AboutThisApp" + String(self))
-            print(key)
+            //print(key)
             return NSLocalizedString(key, comment: "")
         }
     }
@@ -35,7 +35,7 @@ class AboutThisAppViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = NSLocalizedString("AboutThisApp", comment: "")
-        self.tableView.estimatedRowHeight = 90
+        self.tableView.estimatedRowHeight = 200
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
 
@@ -90,6 +90,14 @@ class AboutThisAppViewController: UITableViewController {
             return ""
         } else {
             return aboutThisApp!.getText()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if #available(iOS 8.0, *) {
+            return tableView.rowHeight
+        } else {
+            return 200
         }
     }
     

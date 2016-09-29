@@ -185,7 +185,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ieL-8f-LjP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="W2s-wF-J52">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="W2s-wF-J52">
                             <connections>
                                 <action selector="tapRefreshBarButton:" destination="wfp-wt-fx9" id="gcm-FI-4xN"/>
                             </connections>

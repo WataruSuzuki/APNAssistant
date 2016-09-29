@@ -125,7 +125,7 @@ class AvailableApnListViewController: UITableViewController,
 //                
 //                alertController.popoverPresentationController?.sourceRect = newRect
 //                alertController.popoverPresentationController?.sourceView = self.tabBarController?.tabBar
-                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.leftBarButtonItem
+                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
             }
             
             presentViewController(alertController, animated: true, completion: nil)

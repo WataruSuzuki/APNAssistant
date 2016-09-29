@@ -503,7 +503,7 @@ class AvailableUpdateHelper: NSObject {
     
     func addProfileList(countryUrl: NSURL, items: NSArray) {
         let section = getUpdateIndexSection(countryUrl)
-        if section != DownloadProfiles.ERROR_INDEX {
+        if section != DownloadProfiles.ERROR_INDEX && section < publicProfileList.count {
             publicProfileList[section] = items
         }
     }

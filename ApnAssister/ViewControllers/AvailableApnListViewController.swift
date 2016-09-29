@@ -22,6 +22,8 @@ class AvailableApnListViewController: UITableViewController,
     var cachedObj: ApnSummaryObject!
     var isUpdateConfirm = false
     
+    @IBOutlet weak var refreshBarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -117,12 +119,13 @@ class AvailableApnListViewController: UITableViewController,
             alertController.addAction(installAction)
             
             if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-                let tabBarItemWidth = Int((self.tabBarController?.tabBar.frame.size.width)!) / (self.tabBarController?.tabBar.items!.count)!
-                let x = (tabBarItemWidth * 1) //- (tabBarItemWidth / 5);
-                let newRect = CGRect(x: x, y: 0, width: tabBarItemWidth, height: Int((self.tabBarController?.tabBar.frame.size.height)!))
-                
-                alertController.popoverPresentationController?.sourceRect = newRect
-                alertController.popoverPresentationController?.sourceView = self.tabBarController?.tabBar
+//                let tabBarItemWidth = Int((self.tabBarController?.tabBar.frame.size.width)!) / (self.tabBarController?.tabBar.items!.count)!
+//                let x = (tabBarItemWidth * 1) //- (tabBarItemWidth / 5);
+//                let newRect = CGRect(x: x, y: 0, width: tabBarItemWidth, height: Int((self.tabBarController?.tabBar.frame.size.height)!))
+//                
+//                alertController.popoverPresentationController?.sourceRect = newRect
+//                alertController.popoverPresentationController?.sourceView = self.tabBarController?.tabBar
+                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.leftBarButtonItem
             }
             
             presentViewController(alertController, animated: true, completion: nil)
@@ -193,8 +196,12 @@ class AvailableApnListViewController: UITableViewController,
         }
     }
     
+    // MARK: - Action
+    @IBAction func tapRefreshBarButton(sender: UIBarButtonItem) {
+        startJsonFileDownload()
+    }
+    
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {

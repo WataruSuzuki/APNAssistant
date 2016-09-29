@@ -8,7 +8,7 @@
         <!--Edit Apn View Controller-->
         <scene sceneID="jPo-rp-Nlg">
             <objects>
-                <tableViewController storyboardIdentifier="EditApnViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EGI-pn-bNT" customClass="EditApnViewController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditApnViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EGI-pn-bNT" customClass="EditApnViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="vhY-S5-kYr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
         <!--Favorite Apn List View Controller-->
         <scene sceneID="yrN-Bu-Icd">
             <objects>
-                <tableViewController storyboardIdentifier="FavoriteApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9tw-py-a3e" customClass="FavoriteApnListViewController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FavoriteApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9tw-py-a3e" customClass="FavoriteApnListViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FCN-qI-ggf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,7 @@
         <!--Apn List View Controller-->
         <scene sceneID="y8L-7e-LKD">
             <objects>
-                <tableViewController storyboardIdentifier="ApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b6B-zi-O2E" customClass="ApnListViewController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="b6B-zi-O2E" customClass="ApnListViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LnX-VE-5I9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +164,7 @@
         <!--Available Apn List View Controller-->
         <scene sceneID="7kI-Li-yBg">
             <objects>
-                <tableViewController storyboardIdentifier="AvailableApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wfp-wt-fx9" customClass="AvailableApnListViewController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AvailableApnListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wfp-wt-fx9" customClass="AvailableApnListViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kJR-Eq-dDi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,8 +184,15 @@
                             <outlet property="delegate" destination="wfp-wt-fx9" id="dRJ-8X-HnJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ieL-8f-LjP"/>
+                    <navigationItem key="navigationItem" id="ieL-8f-LjP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="W2s-wF-J52">
+                            <connections>
+                                <action selector="tapRefreshBarButton:" destination="wfp-wt-fx9" id="gcm-FI-4xN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="refreshBarButton" destination="W2s-wF-J52" id="Iuf-sm-ltr"/>
                         <segue destination="WfF-Xh-ygA" kind="show" identifier="DetailApnViewController" id="UUK-eh-ZPs"/>
                     </connections>
                 </tableViewController>
@@ -196,7 +203,7 @@
         <!--Detail Apn View Controller-->
         <scene sceneID="OK9-cF-jaP">
             <objects>
-                <tableViewController storyboardIdentifier="DetailApnViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WfF-Xh-ygA" customClass="DetailApnViewController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DetailApnViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WfF-Xh-ygA" customClass="DetailApnViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="IKJ-hM-T15">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -243,7 +250,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="MainTabBarController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" customClass="MainTabBarController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -307,7 +314,7 @@
         <!--About This App View Controller-->
         <scene sceneID="S2M-zB-IJ0">
             <objects>
-                <tableViewController storyboardIdentifier="AboutThisAppViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8gV-fw-fOQ" customClass="AboutThisAppViewController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AboutThisAppViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8gV-fw-fOQ" customClass="AboutThisAppViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Tv5-Ho-BEK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,7 +346,7 @@
         <!--Account Manage View Controller-->
         <scene sceneID="tCx-e1-foe">
             <objects>
-                <tableViewController storyboardIdentifier="AccountManageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ey6-VA-eKZ" customClass="AccountManageViewController" customModule="ApnBookmarks" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AccountManageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ey6-VA-eKZ" customClass="AccountManageViewController" customModule="ApnAssister" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="y7u-O4-XgV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

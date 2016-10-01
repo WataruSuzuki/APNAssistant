@@ -61,7 +61,7 @@ class UtilAppStatus: NSObject {
     }
     
     func isAppUpdated() -> Bool {
-        #if IS_APN_ASSISTER
+        #if false//IS_APN_ASSISTER
             //do nothing
         #else
             let ud = UtilUserDefaults()

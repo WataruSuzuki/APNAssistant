@@ -89,7 +89,7 @@ class UtilAppStatus: NSObject {
             return true
         #elseif IS_APN_MEMO
             return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnbookmarks://")!)
-        #elseif IS_APN_MEMO
+        #elseif IS_APN_BOOKMARKS
             return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnmemo://")!)
         #elseif IS_APN_ASSISTER
             return UtilAppStatus().isAvailableAllFunction()

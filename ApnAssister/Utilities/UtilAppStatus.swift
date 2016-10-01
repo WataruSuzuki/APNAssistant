@@ -28,12 +28,16 @@ class UtilAppStatus: NSObject {
     }
     
     func isAvailableAllFunction() -> Bool {
-        if !UtilUserDefaults().isAvailableStore
-//            || !UtilUserDefaults().isSignInSuccess
-            || isAppUpdated() 
-        {
-            return false
-        }
+        #if DEBUG_SWIFT_XCODE7
+            //allways available
+        #else
+            if !UtilUserDefaults().isAvailableStore
+                || !UtilUserDefaults().isSignInSuccess
+                || isAppUpdated()
+            {
+                return false
+            }
+        #endif
         return true
     }
     
@@ -81,10 +85,14 @@ class UtilAppStatus: NSObject {
     }
     
     func isShowImportantMenu() -> Bool {
-        #if IS_APN_MEMO
+        #if DEBUG_SWIFT_XCODE7
+            return true
+        #elseif IS_APN_MEMO
             return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnbookmarks://")!)
         #elseif IS_APN_MEMO
             return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnmemo://")!)
+        #elseif IS_APN_ASSISTER
+            return UtilAppStatus().isAvailableAllFunction()
         #else
             return true
         #endif

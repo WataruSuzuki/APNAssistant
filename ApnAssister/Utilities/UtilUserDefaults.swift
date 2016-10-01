@@ -32,7 +32,11 @@ class UtilUserDefaults: NSUserDefaults {
     var isSignInSuccess: Bool {
         get {
             ud.registerDefaults(["signin_success": Default.signin_success])
-            return ud.boolForKey("signin_success")
+            #if false
+                return ud.boolForKey("signin_success")
+            #else
+                return true
+            #endif
         }
         set(nextValue) {
             ud.setBool(nextValue, forKey: "signin_success")

@@ -83,28 +83,12 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func confirmUpdateAvailableList() {
+        let title = NSLocalizedString("confirm", comment: "")
+        let message = NSLocalizedString("update_available_list", comment: "")
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
-        showConfirmAlertController(negativeMessage, positiveMessage: positiveMessage)
-    }
-    
-    func showComfirmOldSheet(title: String, negativeMessage: String, positiveMessage: String) {
-        let sheet = UIActionSheet()
-        //sheet.tag =
-        sheet.delegate = self
-        sheet.title = title
-        sheet.addButtonWithTitle(positiveMessage)
-        sheet.addButtonWithTitle(negativeMessage)
-        sheet.cancelButtonIndex = 1
-        //sheet.destructiveButtonIndex = 0
-        
-        sheet.showInView(self.view)
-    }
-    
-    func showConfirmAlertController(negativeMessage: String, positiveMessage: String){
-        let title = NSLocalizedString("confirm", comment: "")
-        let message = NSLocalizedString("update_available_list", comment: "")
+        var actions = [AnyObject]()
         if #available(iOS 8.0, *) {
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
                 action in self.myAvailableUpdateHelper.loadCachedJsonList()
@@ -113,25 +97,14 @@ class AvailableApnListViewController: UITableViewController,
             let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
                 action in self.startJsonFileDownload()
             }
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
-            alertController.addAction(cancelAction)
-            alertController.addAction(installAction)
-            
-            if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
-//                let tabBarItemWidth = Int((self.tabBarController?.tabBar.frame.size.width)!) / (self.tabBarController?.tabBar.items!.count)!
-//                let x = (tabBarItemWidth * 1) //- (tabBarItemWidth / 5);
-//                let newRect = CGRect(x: x, y: 0, width: tabBarItemWidth, height: Int((self.tabBarController?.tabBar.frame.size.height)!))
-//                
-//                alertController.popoverPresentationController?.sourceRect = newRect
-//                alertController.popoverPresentationController?.sourceView = self.tabBarController?.tabBar
-                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-            }
-            
-            presentViewController(alertController, animated: true, completion: nil)
+            actions.append(cancelAction)
+            actions.append(installAction)
         } else {
-            showComfirmOldSheet(title + "\n" + message, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
+            actions.append(positiveMessage)
+            actions.append(negativeMessage)
         }
+        
+        UtilAlertSheet.showConfirmAlertController(title, message: message, actions: actions, sender: self)
     }
     
     func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {

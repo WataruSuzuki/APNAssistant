@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>441110380624-ens1c7s9r7o0s9g0rgq19o0np4kpa690.apps.googleusercontent.com</string>
+	<string>441110380624-febsqmgf7cjjb8luc7keohmb2j5hdcmk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.441110380624-ens1c7s9r7o0s9g0rgq19o0np4kpa690</string>
+	<string>com.googleusercontent.apps.441110380624-febsqmgf7cjjb8luc7keohmb2j5hdcmk</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDwx2Y3chHrc5CulADfXCeJs8cCd6p3Nz8</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>jp.co.JchanKchan.ApnAssister</string>
+	<string>jp.co.JchanKchan.ApnAssister2</string>
 	<key>PROJECT_ID</key>
 	<string>apnassister</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:441110380624:ios:2f6d9f853b690fd8</string>
+	<string>1:441110380624:ios:a886e932d4d5fdf8</string>
 	<key>DATABASE_URL</key>
 	<string>https://apnassister.firebaseio.com</string>
 </dict>

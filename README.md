@@ -18,12 +18,13 @@ But this app rejected from Apple.
 
 
 So, I'll release source code to Open Source.
-You can use this app if you have a Apple Developer Program License.
+You can use this app if you have a Apple Developer Program License.  
+[Other concept app](https://itunes.apple.com/app/apn-memo/id1158896621?mt=8)
 
 
 このアプリは構成プロファイルを利用してAPNを編集するアプリです。
 
-日本等のケースではAPN設定はAppleや通信事業者の意向により隠されています。
+日本等のケースではAPN設定はAppleや通信事業者の意向により隠されています。  
 [Appleからの説明](https://support.apple.com/HT201699)
 
 
@@ -35,6 +36,7 @@ You can use this app if you have a Apple Developer Program License.
 [しばらくは販売されていたんですけど...](https://itunes.apple.com/ja/app/apn-assistant/id969847336?mt=8)
 
 
-せっかくなのでオープンソースにソースコードを公開します。Appleデベロッパプログラムのライセンスを持っている場合は、このアプリをビルドして使用することができます。
+せっかくなのでオープンソースにソースコードを公開します。Appleデベロッパプログラムのライセンスを持っている場合は、このアプリをビルドして使用することができます。  
+[別コンセプトアプリ](https://itunes.apple.com/ja/app/apn-memo/id1158896621?mt=8)
 
 

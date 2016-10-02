@@ -1,4 +1,4 @@
-PROJ_FILE_PATH="ApnAssister.xcworkspace"
+PROJ_FILE_PATH="ApnAssister2.xcworkspace"
 OUT_ARCHIVES_DIR="out_archives"
 OUT_IPA_DIR="out_ipa"
 ITUNES_ID=""
@@ -27,8 +27,7 @@ itunes_connect () {
 }
 
 #Release
-export DEVELOPER_DIR=/Applications/Xcode-7.3.1.app
 
-itunes_connect ApnAssister Release
 itunes_connect ApnMemo Release
 itunes_connect ApnBookmarks Release
+itunes_connect ApnAssister2 Release

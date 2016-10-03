@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600F95691DA2317E00045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
+		600F956B1DA231A200045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
 		602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
@@ -188,6 +190,8 @@
 		447ECA4EC159403B1CE196C1 /* Pods-ApnMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnMemo/Pods-ApnMemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodayWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		600F95681DA2317E00045495 /* MsgNoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgNoDataView.swift; sourceTree = "<group>"; };
+		600F956A1DA231A200045495 /* MsgNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgNoDataView.xib; sourceTree = "<group>"; };
 		602211F61CC7395B0065D37D /* DetailApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailApnViewController.swift; sourceTree = "<group>"; };
 		60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditApnViewController.swift; sourceTree = "<group>"; };
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */,
 				9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */,
 				9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */,
+				600F95681DA2317E00045495 /* MsgNoDataView.swift */,
+				600F956A1DA231A200045495 /* MsgNoDataView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -783,6 +789,7 @@
 				6085D66B1D6EC46D008FF20A /* ic_favorite_shortcut.png in Resources */,
 				9618C8C71D92D21C008B25F3 /* ProgressIndicatorView.xib in Resources */,
 				6082F1B61D536843000B59EA /* index.html in Resources */,
+				600F956B1DA231A200045495 /* MsgNoDataView.xib in Resources */,
 				96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */,
 				60BEE5121CA4009E005B86B9 /* UISwitchCell.xib in Resources */,
 				96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */,
@@ -1106,6 +1113,7 @@
 				6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */,
 				602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */,
 				F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */,
+				600F95691DA2317E00045495 /* MsgNoDataView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

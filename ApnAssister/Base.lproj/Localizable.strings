@@ -73,7 +73,7 @@ message_signon = "You have to create account if you don't have.";
 success = "Success";
 please_restart_app = "Please restart app to complete activation";
 
-AboutThisAppSummaryApnAssister = "This app manages APN information of MVNO. \n\nThis app also bookmarks APN information of MVNO. This app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
+AboutThisAppSummaryApnAssister2 = "This app manages APN information of MVNO. \n\nThis app also bookmarks APN information of MVNO. This app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
 AboutThisAppSummaryApnMemo = "This app manage APN information as Memo. \n\nPlease get other link app or share E-mail if you modify APN setting.";
 AboutThisAppSummaryApnBookmarks = "This app bookmarks APN information of MVNO. \n\nThis app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
 AboutThisAppApn = "What's APN?";

@@ -22,10 +22,10 @@ keyAttachApnProxyServer = "デフォルトAPNのプロキシサーバ";
 keyAttachApnProxyServerPort = "デフォルトAPNのプロキシポート番号";
 
 setAttachApnManual = "データAPNを手動でセットする";
-FavoriteList = "お気に入り一覧";
-ProfileList = "プロファイル一覧";
-DownloadList = "ダウンロード一覧";
-AvailableList = "利用可能データ一覧";
+FavoriteList = "お気に入り";
+ProfileList = "プロファイル";
+DownloadList = "ダウンロード";
+AvailableList = "利用可能データ";
 AboutThisApp = "このアプリについて";
 edit_apn = "APN編集";
 
@@ -73,7 +73,7 @@ message_signon = "まだアカウントがない場合は新規登録が必要�
 success = "成功しました";
 please_restart_app = "アプリを完全体にするにはアプリを再起動してください。";
 
-AboutThisAppSummaryApnAssister = "このアプリはMVNOなどのAPN情報を管理するためのアプリです。\n\nまた、このアプリはMVNOのAPN情報をブックマークしています。あなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
+AboutThisAppSummaryApnAssister2 = "このアプリはMVNOなどのAPN情報を管理するためのアプリです。\n\nまた、このアプリはMVNOのAPN情報をブックマークしています。あなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
 AboutThisAppSummaryApnMemo = "このアプリはAPN情報をメモするアプリです。\n\nもしAPN設定を変更した場合は、メール共有など連携アプリを利用ください。";
 AboutThisAppSummaryApnBookmarks = "このアプリはMVNOのAPN情報をブックマークしています。\n\nあなたが利用するMVNOがAPN情報を公開していたり構成プロファイルを公開している場合は、そのURLリンクもブックマークしています。";
 AboutThisAppApn = "APNとは？";

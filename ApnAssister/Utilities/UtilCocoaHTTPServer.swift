@@ -172,8 +172,9 @@ class UtilCocoaHTTPServer: NSObject,
             try! fileManager.removeItemAtPath(filePath)
         }
         
-        let resourcePath = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType)
-        try! fileManager.copyItemAtPath(resourcePath!, toPath: filePath)
+        if let resourcePath = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType) {
+            try! fileManager.copyItemAtPath(resourcePath, toPath: filePath)
+        }
     }
     
     // MARK: - NSXMLParserDelegate

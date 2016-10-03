@@ -9,6 +9,8 @@
 import UIKit
 
 class MsgNoDataView: UIView {
+    
+    @IBOutlet weak var labelMsgNoData: UILabel!
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -18,4 +20,13 @@ class MsgNoDataView: UIView {
     }
     */
 
+    class func instanceFromNib(frame: CGRect) -> MsgNoDataView {
+        let nib = UINib(nibName: "MsgNoDataView", bundle: nil)
+        let view = nib.instantiateWithOwner(nil, options: nil)[0] as! MsgNoDataView
+        
+        view.frame.size.width = frame.size.width
+        view.frame.size.height = frame.size.height
+        
+        return view
+    }
 }

@@ -20,6 +20,7 @@ class ApnListViewController: UITableViewController,
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
     let appStatus = UtilAppStatus()
     
+    var msgNodataView: MsgNoDataView?
     var allApnSummaryObjs: RLMResults!
     var previewApnSummaryObj: ApnSummaryObject?
     //var searchedApnSummaryObjs: RLMResults!
@@ -44,6 +45,16 @@ class ApnListViewController: UITableViewController,
         
         updateApnSummaryObjs()
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if 0 == Int(allApnSummaryObjs.count) {
+            showNodataMessage()
+        } else {
+            dismissNodataMossage()
+        }
     }
     
     func updateApnSummaryObjs() {
@@ -111,22 +122,23 @@ class ApnListViewController: UITableViewController,
         // Delete the row from the data source
         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    func showNodataMessage() {
+        msgNodataView = MsgNoDataView.instanceFromNib(getTableViewFrame())
+        msgNodataView!.labelMsgNoData.text = NSLocalizedString("nodata_available", comment: "")
+        self.view.addSubview(msgNodataView!)
+        self.tableView.scrollEnabled = false
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func getTableViewFrame() -> CGRect {
+        return CGRect(origin: self.tableView.contentOffset, size: self.view.frame.size)
     }
-    */
-
+    
+    func dismissNodataMossage() {
+        msgNodataView?.removeFromSuperview()
+        self.tableView.scrollEnabled = true
+    }
+    
     // MARK: - EditApnViewControllerDelegate
     func didFinishEditApn(newObj: ApnSummaryObject) {
         //Do nothing. Because this VC checking update in viewDidAppear.

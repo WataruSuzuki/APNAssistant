@@ -19,6 +19,16 @@ class FavoriteApnListViewController: ApnListViewController {
         allFavoriteApnSummaryObjs = ApnSummaryObject.getFavoriteLists()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if 0 == Int(allFavoriteApnSummaryObjs.count) {
+            showNodataMessage()
+        } else {
+            dismissNodataMossage()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

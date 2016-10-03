@@ -11,6 +11,8 @@
 		600F956B1DA231A200045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
 		600F956C1DA235E700045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
 		600F956D1DA235E800045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
+		600F956E1DA2568600045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
+		600F956F1DA2568700045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
 		602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
@@ -836,6 +838,7 @@
 				F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */,
 				9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */,
 				F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */,
+				600F956E1DA2568600045495 /* MsgNoDataView.xib in Resources */,
 				F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */,
 				F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */,
 				F02DA11E1D997944007F6C93 /* Assets.xcassets in Resources */,
@@ -860,6 +863,7 @@
 				F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */,
 				F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */,
 				F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */,
+				600F956F1DA2568700045495 /* MsgNoDataView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

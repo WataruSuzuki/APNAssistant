@@ -57,23 +57,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        if let dynamicLink = FIRDynamicLinks.dynamicLinks()?.dynamicLinkFromCustomSchemeURL(url) {
-            // Handle the deep link. For example, show the deep-linked content or
-            // apply a promotional offer to the user's account.
-            // ...
-            print(dynamicLink)
-            return true
-        }
+        #if IS_APN_ASSISTER
+            if let dynamicLink = FIRDynamicLinks.dynamicLinks()?.dynamicLinkFromCustomSchemeURL(url) {
+                // Handle the deep link. For example, show the deep-linked content or
+                // apply a promotional offer to the user's account.
+                // ...
+                print(dynamicLink)
+                return true
+            }
+        #endif
         
         return false
     }
     
     @available(iOS 8.0, *)
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        let handled = FIRDynamicLinks.dynamicLinks()?.handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
-            // ...
-        }
-        return handled!
+        #if IS_APN_ASSISTER
+            let handled = FIRDynamicLinks.dynamicLinks()?.handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+                // ...
+            }
+            return handled!
+        #endif
+        return false
     }
     
     @available(iOS 9.0, *)

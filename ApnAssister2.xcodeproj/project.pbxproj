@@ -138,8 +138,6 @@
 		F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
 		F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
 		F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
-		F07BB2241DA0116200728B9D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F07BB2231DA0116200728B9D /* Info.plist */; };
-		F07BB2261DA0117000728B9D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F07BB2251DA0117000728B9D /* Info.plist */; };
 		F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
 /* End PBXBuildFile section */
 
@@ -828,7 +826,6 @@
 				F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */,
 				F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */,
 				9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */,
-				F07BB2241DA0116200728B9D /* Info.plist in Resources */,
 				F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */,
 				F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */,
 				F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */,
@@ -854,7 +851,6 @@
 				F02DA1571D99795B007F6C93 /* Assets.xcassets in Resources */,
 				F02DA1581D99795B007F6C93 /* UISwitchCell.xib in Resources */,
 				F02DA1591D99795B007F6C93 /* Main.storyboard in Resources */,
-				F07BB2261DA0117000728B9D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

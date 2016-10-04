@@ -65,6 +65,11 @@ class MainTabBarController: UITabBarController {
     }
     
     func execureShortcutUpdateApn(type: String) {
+        guard appStatus.isAvailableAllFunction() else {
+            appStatus.showStatuLimitByApple(self)
+            return
+        }
+        
         let results = ApnSummaryObject.getFavoriteLists()
         let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
         let shortcutApn = results.objectsWithPredicate(NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as! ApnSummaryObject

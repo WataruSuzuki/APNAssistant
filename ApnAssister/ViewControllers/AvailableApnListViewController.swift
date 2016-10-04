@@ -28,6 +28,8 @@ class AvailableApnListViewController: UITableViewController,
         super.viewDidLoad()
 
         self.navigationItem.title = NSLocalizedString("AvailableList", comment: "")
+        reloadCachedData()
+        
         let jsonRefreshControl = UIRefreshControl()
         jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
         self.refreshControl = jsonRefreshControl
@@ -91,8 +93,7 @@ class AvailableApnListViewController: UITableViewController,
         var actions = [AnyObject]()
         if #available(iOS 8.0, *) {
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
-                action in self.myAvailableUpdateHelper.loadCachedJsonList()
-                self.tableView.reloadData()
+                action in self.reloadCachedData()
             }
             let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
                 action in self.startJsonFileDownload()
@@ -105,6 +106,11 @@ class AvailableApnListViewController: UITableViewController,
         }
         
         UtilAlertSheet.showConfirmAlertController(title, message: message, actions: actions, sender: self)
+    }
+    
+    func reloadCachedData() {
+        self.myAvailableUpdateHelper.loadCachedJsonList()
+        self.tableView.reloadData()
     }
     
     func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {

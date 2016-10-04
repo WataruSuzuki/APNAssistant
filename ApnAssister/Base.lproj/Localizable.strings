@@ -46,6 +46,7 @@ setThisApnToDevice = "Set this APN to Device";
 share = "Share";
 edit = "Edit";
 cancel = "Cancel";
+cache = "Cache";
 
 tutorial_message = "No APN profile are available. You can create new one to tap here!!";
 latest_set_profile = "Profile latest set to device";
@@ -58,6 +59,7 @@ show_favorites = "Show favorites";
 custom = "Custom: created by carrier info";
 public = "Public";
 
+complete = "Complete";
 caution = "Caution";
 caution_profile = "If your APN settings are wrong, you might lose cellular-data connectivity and receive additional charges. \nPlease contact your carrier to verify the correct APN settings if you worried.";
 update_available_list = "Do you update available list now?";

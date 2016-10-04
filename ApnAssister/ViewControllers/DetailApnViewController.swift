@@ -23,6 +23,7 @@ class DetailApnViewController: UITableViewController,
     var myUtilHandleRLMObject: UtilHandleRLMObject!
     var myApnSummaryObject: ApnSummaryObject!
 
+    var isShowCloudData = false
     var delegate: DetailApnPreviewDelegate!
     
     @available(iOS 9.0, *)
@@ -140,6 +141,11 @@ class DetailApnViewController: UITableViewController,
         for index in Menu.setThisApnToDevice.rawValue..<Menu.MAX.rawValue {
             menuArray.append(NSLocalizedString(Menu(rawValue: index)!.toString(), comment: ""))
         }
+        
+        if isShowCloudData {
+            menuArray[Menu.edit.rawValue] = NSLocalizedString("cache", comment: "")
+        }
+
         return menuArray
     }
     
@@ -218,7 +224,17 @@ class DetailApnViewController: UITableViewController,
     }
     
     func showEditApnViewController() {
-        self.performSegueWithIdentifier("EditApnViewController", sender: self)
+        if isShowCloudData {
+            let obj = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
+            obj.prepareKeepApnProfileColumn(myApnSummaryObject!.apnProfile)
+            obj.profileName = myApnSummaryObject.name
+            let realm = RLMRealm.defaultRealm()
+            obj.saveUpdateApnDataObj(realm, isSetDataApnManually: true)
+            
+            UtilAlertSheet.showAlertController("confirm", messagekey: "complete", url: nil, vc: self)
+        } else {
+            self.performSegueWithIdentifier("EditApnViewController", sender: self)
+        }
     }
     
     func handleUpdateDeviceApn(){

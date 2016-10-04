@@ -186,6 +186,7 @@ class AvailableApnListViewController: UITableViewController,
         case "DetailApnViewController":
             let destinationVC = segue.destinationViewController as! DetailApnViewController
             destinationVC.myApnSummaryObject = cachedObj
+            destinationVC.isShowCloudData = true
             
         default:
             break

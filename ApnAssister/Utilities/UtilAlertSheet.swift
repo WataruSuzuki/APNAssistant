@@ -15,10 +15,10 @@ class UtilAlertSheet: NSObject {
         alert.show()
     }
     
-    class func showFailAlertController(key: String, url: NSURL?, vc: UIViewController){
+    class func showAlertController(titlekey: String, messagekey: String, url: NSURL?, vc: UIViewController){
         let buttonText = "OK"
-        let title = NSLocalizedString("error", comment: "")
-        let message = NSLocalizedString(key, comment: "")
+        let title = NSLocalizedString(titlekey, comment: "")
+        let message = NSLocalizedString(messagekey, comment: "")
         if #available(iOS 8.0, *) {
             let okAction = UIAlertAction(title: buttonText, style: UIAlertActionStyle.Default){
                 action in
@@ -51,7 +51,7 @@ class UtilAlertSheet: NSObject {
         }
     }
     
-    class func showConfirmAlertController(title: String, message: String, actions: [AnyObject], sender: AnyObject){
+    class func showSheetController(title: String, message: String, actions: [AnyObject], sender: AnyObject){
         if #available(iOS 8.0, *) {
             if let controller = sender as? UIViewController {
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)

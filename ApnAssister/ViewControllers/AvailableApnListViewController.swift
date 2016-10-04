@@ -18,7 +18,6 @@ class AvailableApnListViewController: UITableViewController,
     
     var updateSectionCount = 0
     var progressView: ProgressIndicatorView!
-    var indicator: UIActivityIndicatorView!
     var cachedObj: ApnSummaryObject!
     var isUpdateConfirm = false
     
@@ -105,7 +104,7 @@ class AvailableApnListViewController: UITableViewController,
             actions.append(negativeMessage)
         }
         
-        UtilAlertSheet.showConfirmAlertController(title, message: message, actions: actions, sender: self)
+        UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: self)
     }
     
     func reloadCachedData() {
@@ -143,14 +142,14 @@ class AvailableApnListViewController: UITableViewController,
             }
             print(error?.description)
             dispatch_async(dispatch_get_main_queue(), {
-                self.stopIndicator()
-                UtilAlertSheet.showFailAlertController("fail_load_profile", url: nil, vc: self)
+                self.appStatus.stopIndicator()
+                UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
             })
             
         }
         
         task.resume()
-        startIndicator()
+        appStatus.startIndicator(self.tableView)
     }
     
     func readProfileInfo(filePath: String) {
@@ -162,7 +161,7 @@ class AvailableApnListViewController: UITableViewController,
                 })
             }
             dispatch_async(dispatch_get_main_queue(), {
-                self.stopIndicator()
+                self.appStatus.stopIndicator()
             })
         }
         myUtilCocoaHTTPServer.readDownloadedMobileConfigProfile(filePath)
@@ -244,12 +243,8 @@ class AvailableApnListViewController: UITableViewController,
         startProgressView()
     }
     
-    func getIndicatorFrame() -> CGRect {
-        return CGRect(origin: self.tableView.contentOffset, size: self.view.frame.size)
-    }
-    
     func startProgressView() {
-        progressView = ProgressIndicatorView.instanceFromNib(getIndicatorFrame())
+        progressView = ProgressIndicatorView.instanceFromNib(appStatus.getIndicatorFrame(self.tableView))
         //progressView.center = self.view.center
         progressView.progressBar.progress = 0.0
         progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), forState: .Normal)
@@ -268,19 +263,5 @@ class AvailableApnListViewController: UITableViewController,
     func stopProgressView() {
         self.tableView.scrollEnabled = true
         progressView.removeFromSuperview()
-    }
-    
-    func startIndicator() {
-        indicator = UIActivityIndicatorView(frame: getIndicatorFrame())
-        //indicator.center = self.view.center
-        indicator.backgroundColor = UIColor.darkGrayColor()
-        indicator.alpha = 0.5
-        indicator.activityIndicatorViewStyle = .WhiteLarge
-        indicator.startAnimating()
-        self.view.addSubview(indicator)
-    }
-    
-    func stopIndicator() {
-        indicator.removeFromSuperview()
     }
 }

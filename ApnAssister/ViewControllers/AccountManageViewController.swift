@@ -179,12 +179,12 @@ class AccountManageViewController: UITableViewController {
         
     }
     
-    func showOldAlert(title: String, message: String, buttonText: String) {
+    func showCompOldAlert(title: String, message: String, buttonText: String) {
         let alert = UIAlertView(title: title, message: message, delegate: nil, cancelButtonTitle: nil, otherButtonTitles: buttonText)
         alert.show()
     }
     
-    func showAlertController(message: String, errorCode: String?){
+    func showCompAlertController(message: String, errorCode: String?){
         let buttonText = "OK"
         let title = (errorCode == nil ? NSLocalizedString("confirm", comment: "") : errorCode!)
         if #available(iOS 8.0, *) {
@@ -199,7 +199,7 @@ class AccountManageViewController: UITableViewController {
             alertController.addAction(okAction)
             presentViewController(alertController, animated: true, completion: nil)
         } else {
-            showOldAlert(title, message: message, buttonText: buttonText)
+            showCompOldAlert(title, message: message, buttonText: buttonText)
         }
     }
     

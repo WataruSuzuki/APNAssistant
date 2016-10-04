@@ -253,7 +253,7 @@ class EditApnViewController: UITableViewController,
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         let sheetTitle = NSLocalizedString("is_update_now", comment: "")
         
-        showConfirmAlertController(sheetTitle, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
+        showSheetController(sheetTitle, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
     }
     
     func showComfirmOldSheet(title: String, negativeMessage: String, positiveMessage: String) {
@@ -269,7 +269,7 @@ class EditApnViewController: UITableViewController,
         sheet.showInView(self.view)
     }
     
-    func showConfirmAlertController(title: String, negativeMessage: String, positiveMessage: String){
+    func showSheetController(title: String, negativeMessage: String, positiveMessage: String){
         if #available(iOS 8.0, *) {
             let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
                 action in self.handleUpdateDeviceApn(false)

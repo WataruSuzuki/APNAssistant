@@ -10,6 +10,8 @@ import UIKit
 
 class UtilAppStatus: NSObject {
 
+    var indicator: UIActivityIndicatorView!
+    
     func checkActualAppVersion() {
         let path = DownloadProfiles.serverUrl + DownloadProfiles.resourcesDir + "version.json"
         let reqUrl = NSURL(string: path)
@@ -84,6 +86,24 @@ class UtilAppStatus: NSObject {
         return false
     }
     
+    func getIndicatorFrame(scrollView: UIScrollView) -> CGRect {
+        return CGRect(origin: scrollView.contentOffset, size: scrollView.frame.size)
+    }
+    
+    func startIndicator(currentView: UIScrollView) {
+        indicator = UIActivityIndicatorView(frame: getIndicatorFrame(currentView))
+        //indicator.center = self.view.center
+        indicator.backgroundColor = UIColor.darkGrayColor()
+        indicator.alpha = 0.5
+        indicator.activityIndicatorViewStyle = .WhiteLarge
+        indicator.startAnimating()
+        currentView.addSubview(indicator)
+    }
+    
+    func stopIndicator() {
+        indicator.removeFromSuperview()
+    }
+    
     func isShowImportantMenu() -> Bool {
         #if DEBUG_SWIFT_XCODE7
             return true
@@ -120,10 +140,10 @@ class UtilAppStatus: NSObject {
             actions.append(negativeMessage)
         }
         
-        UtilAlertSheet.showConfirmAlertController(title, message: message, actions: actions, sender: sender)
+        UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: sender)
     }
     
     func showStatuLimitByApple(vc: UIViewController){
-        UtilAlertSheet.showFailAlertController("fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: vc)
+        UtilAlertSheet.showAlertController("error", messagekey: "fail_bacause_apple_not_permit", url: NSURL(string: "https://support.apple.com/HT201699"), vc: vc)
     }
 }

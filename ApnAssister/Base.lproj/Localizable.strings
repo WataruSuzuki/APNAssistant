@@ -90,6 +90,7 @@ how_about_account = "You can receive more info. \nSign in or create new account.
 
 error = "Error";
 fail_load_profile = "Fail to load information. Please ask to your carrier.";
+fail_load_profile_security = "Fail to load information because this server is may not safe. Please ask to your carrier.";
 fail_bacause_apple_not_permit = "Apple does not permit to install configuration profile from app.\nPlease ask to Apple or Mobile operator if APN setting is not display.";
 nodata_available = "No data available";
 

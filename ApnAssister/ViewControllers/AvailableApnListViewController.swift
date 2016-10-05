@@ -142,9 +142,17 @@ class AvailableApnListViewController: UITableViewController,
                     }
                 }
             }
-            print(error?.localizedDescription)
+            print(error)
             DispatchQueue.main.async(execute: {
                 self.appStatus.stopIndicator()
+                if let nsError = error as? NSError {
+                    if #available(iOS 9.0, *) {
+                        if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
+                            UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
+                            return
+                        }
+                    }
+                }
                 UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
             })
             

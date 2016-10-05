@@ -3,7 +3,7 @@ OUT_ARCHIVES_DIR="out_archives"
 OUT_IPA_DIR="out_ipa"
 ITUNES_ID=""
 ITUNES_PW=""
-ALTTOOL="/Applications/Xcode-7.3.1.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool"
+ALTTOOL="/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Support/altool"
 
 # 出力先ipaディレクトリ作成
 # -------------------------

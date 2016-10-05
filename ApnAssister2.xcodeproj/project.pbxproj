@@ -1527,7 +1527,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1547,7 +1547,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -21,10 +21,14 @@ struct AboutThisApp {
         func getText() -> String {
             let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
             let key = (self == .summary
-                ?"AboutThisApp" + String(describing: self) + appName
-                :"AboutThisApp" + String(describing: self))
+                ?"ata_" + String(describing: self) + appName
+                :"ata_" + String(describing: self))
             //print(key)
             return NSLocalizedString(key, comment: "")
+        }
+        
+        func toString() -> String {
+            return String(describing: self)
         }
     }
 }
@@ -34,7 +38,7 @@ class AboutThisAppViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = NSLocalizedString("AboutThisApp", comment: "")
+        self.navigationItem.title = NSLocalizedString("aboutThisApp", comment: "")
         self.tableView.estimatedRowHeight = 200
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -66,19 +70,7 @@ class AboutThisAppViewController: UITableViewController {
             cell.textLabel?.text = aboutThis.getText()
         } else {
             cell.accessoryType = .detailButton
-            switch aboutThis {
-            case .apn:
-                cell.textLabel?.text = NSLocalizedString("HowAboutApn", comment: "")
-                
-            case .profile:
-                cell.textLabel?.text = NSLocalizedString("HowAboutConfigProfile", comment: "")
-                
-//            case .Contact:
-//                cell.textLabel?.text = NSLocalizedString("HowAboutContact", comment: "")
-                
-            default:
-                break
-            }
+            cell.textLabel?.text = NSLocalizedString("how_about_" + aboutThis.toString(), comment: "")
         }
 
         return cell

@@ -26,7 +26,7 @@ class AvailableApnListViewController: UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = NSLocalizedString("AvailableList", comment: "")
+        self.navigationItem.title = NSLocalizedString("availableList", comment: "")
         reloadCachedData()
         
         let jsonRefreshControl = UIRefreshControl()

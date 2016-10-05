@@ -30,7 +30,7 @@ class ApnListViewController: UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        self.navigationItem.title = NSLocalizedString("ProfileList", comment: "")
+        self.navigationItem.title = NSLocalizedString("profileList", comment: "")
         allApnSummaryObjs = ApnSummaryObject.allObjects()
         if #available(iOS 9.0, *) {
             if self.traitCollection.forceTouchCapability == .available {

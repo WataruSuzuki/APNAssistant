@@ -22,11 +22,11 @@ keyAttachApnProxyServer = "Default apn proxy server";
 keyAttachApnProxyServerPort = "Default apn proxy server port";
 
 setAttachApnManual = "Set Attach Apn manually";
-FavoriteList = "Favorite List";
-ProfileList = "Profile List";
-DownloadList = "Download List";
-AvailableList = "Available List";
-AboutThisApp = "About this App";
+favoriteList = "Favorite List";
+profileList = "Profile List";
+downloadList = "Download List";
+availableList = "Available List";
+aboutThisApp = "About this App";
 edit_apn = "Edit APN";
 
 no_settings = "Empty";
@@ -66,27 +66,27 @@ update_available_list = "Do you update available list now?";
 confirm = "Confirm";
 
 account = "Account";
-Email = "E-mail";
-Password = "Password";
-SignIn = "Sign In";
-SignOn = "Sign On";
-SignOut = "Sign Out";
+email = "E-mail";
+password = "Password";
+signIn = "Sign In";
+signOn = "Sign On";
+signOut = "Sign Out";
 message_signon = "You have to create account if you don't have.";
 success = "Success";
 please_restart_app = "Please restart app to complete activation";
 
-AboutThisAppSummaryApnAssister2 = "This app manages APN information of MVNO. \n\nThis app also bookmarks APN information of MVNO. This app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
-AboutThisAppSummaryApnMemo = "This app manage APN information as Memo. \n\nPlease get other link app or share E-mail if you modify APN setting.";
-AboutThisAppSummaryApnBookmarks = "This app bookmarks APN information of MVNO. \n\nThis app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
-AboutThisAppApn = "What's APN?";
-AboutThisAppProfile = "What's configuration profile?";
-AboutThisAppContact = "Contact";
-AboutThisAppAccount = "Account";
+ata_summaryApnAssister2 = "This app manages APN information of MVNO. \n\nThis app also bookmarks APN information of MVNO. This app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
+ata_summaryApnMemo = "This app manage APN information as Memo. \n\nPlease get other link app or share E-mail if you modify APN setting.";
+ata_summaryApnBookmarks = "This app bookmarks APN information of MVNO. \n\nThis app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
+ata_apn = "What's APN?";
+ata_profile = "What's configuration profile?";
+ata_contact = "Contact";
+ata_account = "Account";
 
-HowAboutApn = "An Access Point Name (APN) is a gateway between a GSM, GPRS, 3G or 4G mobile network and another computer network, frequently the public Internet.";
-HowAboutConfigProfile = "This file is used to perform the configuration of the iOS-based devices. \nThis app bookmarks profiles of released MVNO carriers or made by MVNO information";
-HowAboutContact = "Please contact us if you have any suggestion, opinion, demands";
-HowAboutAccount = "You can receive more info. \nSign in or create new account.";
+how_about_apn = "An Access Point Name (APN) is a gateway between a GSM, GPRS, 3G or 4G mobile network and another computer network, frequently the public Internet.";
+how_about_profile = "This file is used to perform the configuration of the iOS-based devices. \nThis app bookmarks profiles of released MVNO carriers or made by MVNO information";
+how_about_contact = "Please contact us if you have any suggestion, opinion, demands";
+how_about_account = "You can receive more info. \nSign in or create new account.";
 
 error = "Error";
 fail_load_profile = "Fail to load information. Please ask to your carrier.";

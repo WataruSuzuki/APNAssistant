@@ -22,322 +22,322 @@ struct DownloadProfiles {
     static let ERROR_INDEX = (-1)
     
     enum json: Int {
-        case globalSIM = 0,
-        albania,
-        algeria,
-        angola,
-        anguilla,
-        antigua_and_Barbuda,
-        argentina,
-        armenia,
-        australia,
-        austria,
-        azerbaijan,
-        bahamas,
-        bahrain,
-        barbados,
-        belarus,
-        belgium,
-        belize,
-        benin,
-        bermuda,
-        bhutan,
-        bolivia,
-        botswana,
-        brazil,
-        british_Virgin_Islands,
-        brunei,
-        bulgaria,
-        burkina_Faso,
-        cambodia,
-        canada,
-        cape_Verde,
-        cayman_Islands,
-        chad,
-        chile,
-        china,
-        colombia,
-        congo_Republic_of,
-        costa_Rica,
-        croatia,
-        cyprus,
-        czech_Republic,
-        denmark,
-        dominica,
-        dominican_Republic,
-        ecuador,
-        egypt,
-        el_Salvador,
-        estonia,
-        fiji,
-        finland,
-        france,
-        gambia,
-        germany,
-        ghana,
-        greece,
-        grenada,
-        guatemala,
-        guinea_Bissau,
-        guyana,
-        honduras,
-        hong_Kong,
-        hungary,
-        iceland,
-        india,
-        indonesia,
-        ireland,
-        israel,
-        italy,
-        jamaica,
-        japan,
-        jordan,
-        kazakhstan,
-        kenya,
-        kuwait,
-        kyrgyzstan,
-        laos,
-        latvia,
-        lebanon,
-        liberia,
-        lithuania,
-        luxembourg,
-        macao,
-        macedonia,
-        madagascar,
-        malawi,
-        malaysia,
-        mali,
-        malta,
-        mauritania,
-        mauritius,
-        mexico,
-        micronesia,
-        moldova,
-        mongolia,
-        montserrat,
-        mozambique,
-        namibia,
-        nepal,
-        netherlands,
-        new_Zealand,
-        nicaragua,
-        niger,
-        nigeria,
-        norway,
-        oman,
-        pakistan,
-        palau,
-        panama,
-        papua_New_Guinea,
-        paraguay,
-        peru,
-        philippines,
-        poland,
-        portugal,
-        qatar,
-        republic_of_Korea,
-        romania,
-        russia,
-        saudi_Arabia,
-        senegal,
-        seychelles,
-        sierra_Leone,
-        singapore,
-        slovakia,
-        slovenia,
-        solomon_Islands,
-        south_Africa,
-        spain,
-        sri_Lanka,
-        st_Kitts,
-        st_Lucia,
-        st_Vincent_and_the_Grenadines,
-        suriname,
-        swaziland,
-        sweden,
-        switzerland,
-        taiwan,
-        tajikistan,
-        tanzania,
-        thailand,
-        trinidad_and_Tobago,
-        tunisia,
-        turkey,
-        turkmenistan,
-        turks_and_Caicos,
-        uganda,
-        uk,
-        ukraine,
-        united_Arab_Emirates,
-        uruguay,
-        usa,
-        uzbekistan,
-        venezuela,
-        vietnam,
-        yemen,
-        zimbabwe,
-        max
+        case GlobalSIM = 0,
+        Albania,
+        Algeria,
+        Angola,
+        Anguilla,
+        Antigua_and_Barbuda,
+        Argentina,
+        Armenia,
+        Australia,
+        Austria,
+        Azerbaijan,
+        Bahamas,
+        Bahrain,
+        Barbados,
+        Belarus,
+        Belgium,
+        Belize,
+        Benin,
+        Bermuda,
+        Bhutan,
+        Bolivia,
+        Botswana,
+        Brazil,
+        British_Virgin_Islands,
+        Brunei,
+        Bulgaria,
+        Burkina_Faso,
+        Cambodia,
+        Canada,
+        Cape_Verde,
+        Cayman_Islands,
+        Chad,
+        Chile,
+        China,
+        Colombia,
+        Congo_Republic_of,
+        Costa_Rica,
+        Croatia,
+        Cyprus,
+        Czech_Republic,
+        Denmark,
+        Dominica,
+        Dominican_Republic,
+        Ecuador,
+        Egypt,
+        El_Salvador,
+        Estonia,
+        Fiji,
+        Finland,
+        France,
+        Gambia,
+        Germany,
+        Ghana,
+        Greece,
+        Grenada,
+        Guatemala,
+        Guinea_Bissau,
+        Guyana,
+        Honduras,
+        Hong_Kong,
+        Hungary,
+        Iceland,
+        India,
+        Indonesia,
+        Ireland,
+        Israel,
+        Italy,
+        Jamaica,
+        Japan,
+        Jordan,
+        Kazakhstan,
+        Kenya,
+        Kuwait,
+        Kyrgyzstan,
+        Laos,
+        Latvia,
+        Lebanon,
+        Liberia,
+        Lithuania,
+        Luxembourg,
+        Macao,
+        Macedonia,
+        Madagascar,
+        Malawi,
+        Malaysia,
+        Mali,
+        Malta,
+        Mauritania,
+        Mauritius,
+        Mexico,
+        Micronesia,
+        Moldova,
+        Mongolia,
+        Montserrat,
+        Mozambique,
+        Namibia,
+        Nepal,
+        Netherlands,
+        New_Zealand,
+        Nicaragua,
+        Niger,
+        Nigeria,
+        Norway,
+        Oman,
+        Pakistan,
+        Palau,
+        Panama,
+        Papua_New_Guinea,
+        Paraguay,
+        Peru,
+        Philippines,
+        Poland,
+        Portugal,
+        Qatar,
+        Republic_of_Korea,
+        Romania,
+        Russia,
+        Saudi_Arabia,
+        Senegal,
+        Seychelles,
+        Sierra_Leone,
+        Singapore,
+        Slovakia,
+        Slovenia,
+        Solomon_Islands,
+        South_Africa,
+        Spain,
+        Sri_Lanka,
+        St_Kitts,
+        St_Lucia,
+        St_Vincent_and_the_Grenadines,
+        Suriname,
+        Swaziland,
+        Sweden,
+        Switzerland,
+        Taiwan,
+        Tajikistan,
+        Tanzania,
+        Thailand,
+        Trinidad_and_Tobago,
+        Tunisia,
+        Turkey,
+        Turkmenistan,
+        Turks_and_Caicos,
+        Uganda,
+        UK,
+        Ukraine,
+        United_Arab_Emirates,
+        Uruguay,
+        USA,
+        Uzbekistan,
+        Venezuela,
+        Vietnam,
+        Yemen,
+        Zimbabwe,
+        MAX
         
         init(fileName: String) {
             switch fileName {
-            case json.globalSIM.getFileName():  self = json.globalSIM
-            case json.albania.getFileName():	self = json.albania
-            case json.algeria.getFileName():	self = json.algeria
-            case json.angola.getFileName():     self = json.angola
-            case json.anguilla.getFileName():	self = json.anguilla
-            case json.antigua_and_Barbuda.getFileName():	self = json.antigua_and_Barbuda
-            case json.argentina.getFileName():	self = json.argentina
-            case json.armenia.getFileName():	self = json.armenia
-            case json.australia.getFileName():	self = json.australia
-            case json.austria.getFileName():	self = json.austria
-            case json.azerbaijan.getFileName():	self = json.azerbaijan
-            case json.bahamas.getFileName():	self = json.bahamas
-            case json.bahrain.getFileName():	self = json.bahrain
-            case json.barbados.getFileName():	self = json.barbados
-            case json.belarus.getFileName():	self = json.belarus
-            case json.belgium.getFileName():	self = json.belgium
-            case json.belize.getFileName():     self = json.belize
-            case json.benin.getFileName():      self = json.benin
-            case json.bermuda.getFileName():	self = json.bermuda
-            case json.bhutan.getFileName():     self = json.bhutan
-            case json.bolivia.getFileName():	self = json.bolivia
-            case json.botswana.getFileName():	self = json.botswana
-            case json.brazil.getFileName():     self = json.brazil
-            case json.british_Virgin_Islands.getFileName():	self = json.british_Virgin_Islands
-            case json.brunei.getFileName():     self = json.brunei
-            case json.bulgaria.getFileName():	self = json.bulgaria
-            case json.burkina_Faso.getFileName():	self = json.burkina_Faso
-            case json.cambodia.getFileName():	self = json.cambodia
-            case json.canada.getFileName():     self = json.canada
-            case json.cape_Verde.getFileName():	self = json.cape_Verde
-            case json.cayman_Islands.getFileName():	self = json.cayman_Islands
-            case json.chad.getFileName():       self = json.chad
-            case json.chile.getFileName():      self = json.chile
-            case json.china.getFileName():      self = json.china
-            case json.colombia.getFileName():	self = json.colombia
-            case json.congo_Republic_of.getFileName():	self = json.congo_Republic_of
-            case json.costa_Rica.getFileName():	self = json.costa_Rica
-            case json.croatia.getFileName():	self = json.croatia
-            case json.cyprus.getFileName():     self = json.cyprus
-            case json.czech_Republic.getFileName():	self = json.czech_Republic
-            case json.denmark.getFileName():	self = json.denmark
-            case json.dominica.getFileName():	self = json.dominica
-            case json.dominican_Republic.getFileName():	self = json.dominican_Republic
-            case json.ecuador.getFileName():	self = json.ecuador
-            case json.egypt.getFileName():      self = json.egypt
-            case json.el_Salvador.getFileName():self = json.el_Salvador
-            case json.estonia.getFileName():	self = json.estonia
-            case json.fiji.getFileName():       self = json.fiji
-            case json.finland.getFileName():	self = json.finland
-            case json.france.getFileName():     self = json.france
-            case json.gambia.getFileName():     self = json.gambia
-            case json.germany.getFileName():	self = json.germany
-            case json.ghana.getFileName():      self = json.ghana
-            case json.greece.getFileName():     self = json.greece
-            case json.grenada.getFileName():	self = json.grenada
-            case json.guatemala.getFileName():	self = json.guatemala
-            case json.guinea_Bissau.getFileName():	self = json.guinea_Bissau
-            case json.guyana.getFileName():     self = json.guyana
-            case json.honduras.getFileName():	self = json.honduras
-            case json.hong_Kong.getFileName():	self = json.hong_Kong
-            case json.hungary.getFileName():	self = json.hungary
-            case json.iceland.getFileName():	self = json.iceland
-            case json.india.getFileName():      self = json.india
-            case json.indonesia.getFileName():	self = json.indonesia
-            case json.ireland.getFileName():	self = json.ireland
-            case json.israel.getFileName():     self = json.israel
-            case json.italy.getFileName():      self = json.italy
-            case json.jamaica.getFileName():	self = json.jamaica
-            case json.japan.getFileName():      self = json.japan
-            case json.jordan.getFileName():     self = json.jordan
-            case json.kazakhstan.getFileName():	self = json.kazakhstan
-            case json.kenya.getFileName():      self = json.kenya
-            case json.kuwait.getFileName():     self = json.kuwait
-            case json.kyrgyzstan.getFileName():	self = json.kyrgyzstan
-            case json.laos.getFileName():       self = json.laos
-            case json.latvia.getFileName():     self = json.latvia
-            case json.lebanon.getFileName():	self = json.lebanon
-            case json.liberia.getFileName():	self = json.liberia
-            case json.lithuania.getFileName():	self = json.lithuania
-            case json.luxembourg.getFileName():	self = json.luxembourg
-            case json.macao.getFileName():      self = json.macao
-            case json.macedonia.getFileName():	self = json.macedonia
-            case json.madagascar.getFileName():	self = json.madagascar
-            case json.malawi.getFileName():     self = json.malawi
-            case json.malaysia.getFileName():	self = json.malaysia
-            case json.mali.getFileName():       self = json.mali
-            case json.malta.getFileName():      self = json.malta
-            case json.mauritania.getFileName():	self = json.mauritania
-            case json.mauritius.getFileName():	self = json.mauritius
-            case json.mexico.getFileName():     self = json.mexico
-            case json.micronesia.getFileName():	self = json.micronesia
-            case json.moldova.getFileName():	self = json.moldova
-            case json.mongolia.getFileName():	self = json.mongolia
-            case json.montserrat.getFileName():	self = json.montserrat
-            case json.mozambique.getFileName():	self = json.mozambique
-            case json.namibia.getFileName():	self = json.namibia
-            case json.nepal.getFileName():      self = json.nepal
-            case json.netherlands.getFileName():self = json.netherlands
-            case json.new_Zealand.getFileName():self = json.new_Zealand
-            case json.nicaragua.getFileName():	self = json.nicaragua
-            case json.niger.getFileName():      self = json.niger
-            case json.nigeria.getFileName():	self = json.nigeria
-            case json.norway.getFileName():     self = json.norway
-            case json.oman.getFileName():       self = json.oman
-            case json.pakistan.getFileName():	self = json.pakistan
-            case json.palau.getFileName():      self = json.palau
-            case json.panama.getFileName():     self = json.panama
-            case json.papua_New_Guinea.getFileName():	self = json.papua_New_Guinea
-            case json.paraguay.getFileName():	self = json.paraguay
-            case json.peru.getFileName():       self = json.peru
-            case json.philippines.getFileName():self = json.philippines
-            case json.poland.getFileName():     self = json.poland
-            case json.portugal.getFileName():	self = json.portugal
-            case json.qatar.getFileName():      self = json.qatar
-            case json.republic_of_Korea.getFileName():	self = json.republic_of_Korea
-            case json.romania.getFileName():	self = json.romania
-            case json.russia.getFileName():     self = json.russia
-            case json.saudi_Arabia.getFileName():	self = json.saudi_Arabia
-            case json.senegal.getFileName():	self = json.senegal
-            case json.seychelles.getFileName():	self = json.seychelles
-            case json.sierra_Leone.getFileName():	self = json.sierra_Leone
-            case json.singapore.getFileName():	self = json.singapore
-            case json.slovakia.getFileName():	self = json.slovakia
-            case json.slovenia.getFileName():	self = json.slovenia
-            case json.solomon_Islands.getFileName():	self = json.solomon_Islands
-            case json.south_Africa.getFileName():   self = json.south_Africa
-            case json.spain.getFileName():      self = json.spain
-            case json.sri_Lanka.getFileName():	self = json.sri_Lanka
-            case json.st_Kitts.getFileName():	self = json.st_Kitts
-            case json.st_Lucia.getFileName():	self = json.st_Lucia
-            case json.st_Vincent_and_the_Grenadines.getFileName():	self = json.st_Vincent_and_the_Grenadines
-            case json.suriname.getFileName():	self = json.suriname
-            case json.swaziland.getFileName():	self = json.swaziland
-            case json.sweden.getFileName():     self = json.sweden
-            case json.switzerland.getFileName():self = json.switzerland
-            case json.taiwan.getFileName():     self = json.taiwan
-            case json.tajikistan.getFileName():	self = json.tajikistan
-            case json.tanzania.getFileName():	self = json.tanzania
-            case json.thailand.getFileName():	self = json.thailand
-            case json.trinidad_and_Tobago.getFileName():	self = json.trinidad_and_Tobago
-            case json.tunisia.getFileName():	self = json.tunisia
-            case json.turkey.getFileName():     self = json.turkey
-            case json.turkmenistan.getFileName():	self = json.turkmenistan
-            case json.turks_and_Caicos.getFileName():	self = json.turks_and_Caicos
-            case json.uganda.getFileName():     self = json.uganda
-            case json.uk.getFileName():         self = json.uk
-            case json.ukraine.getFileName():	self = json.ukraine
-            case json.united_Arab_Emirates.getFileName():	self = json.united_Arab_Emirates
-            case json.uruguay.getFileName():	self = json.uruguay
-            case json.usa.getFileName():        self = json.usa
-            case json.uzbekistan.getFileName():	self = json.uzbekistan
-            case json.venezuela.getFileName():	self = json.venezuela
-            case json.vietnam.getFileName():	self = json.vietnam
-            case json.yemen.getFileName():      self = json.yemen
-            case json.zimbabwe.getFileName():	self = json.zimbabwe
+            case json.GlobalSIM.getFileName():  self = json.GlobalSIM
+            case json.Albania.getFileName():	self = json.Albania
+            case json.Algeria.getFileName():	self = json.Algeria
+            case json.Angola.getFileName():     self = json.Angola
+            case json.Anguilla.getFileName():	self = json.Anguilla
+            case json.Antigua_and_Barbuda.getFileName():	self = json.Antigua_and_Barbuda
+            case json.Argentina.getFileName():	self = json.Argentina
+            case json.Armenia.getFileName():	self = json.Armenia
+            case json.Australia.getFileName():	self = json.Australia
+            case json.Austria.getFileName():	self = json.Austria
+            case json.Azerbaijan.getFileName():	self = json.Azerbaijan
+            case json.Bahamas.getFileName():	self = json.Bahamas
+            case json.Bahrain.getFileName():	self = json.Bahrain
+            case json.Barbados.getFileName():	self = json.Barbados
+            case json.Belarus.getFileName():	self = json.Belarus
+            case json.Belgium.getFileName():	self = json.Belgium
+            case json.Belize.getFileName():     self = json.Belize
+            case json.Benin.getFileName():      self = json.Benin
+            case json.Bermuda.getFileName():	self = json.Bermuda
+            case json.Bhutan.getFileName():     self = json.Bhutan
+            case json.Bolivia.getFileName():	self = json.Bolivia
+            case json.Botswana.getFileName():	self = json.Botswana
+            case json.Brazil.getFileName():     self = json.Brazil
+            case json.British_Virgin_Islands.getFileName():	self = json.British_Virgin_Islands
+            case json.Brunei.getFileName():     self = json.Brunei
+            case json.Bulgaria.getFileName():	self = json.Bulgaria
+            case json.Burkina_Faso.getFileName():	self = json.Burkina_Faso
+            case json.Cambodia.getFileName():	self = json.Cambodia
+            case json.Canada.getFileName():     self = json.Canada
+            case json.Cape_Verde.getFileName():	self = json.Cape_Verde
+            case json.Cayman_Islands.getFileName():	self = json.Cayman_Islands
+            case json.Chad.getFileName():       self = json.Chad
+            case json.Chile.getFileName():      self = json.Chile
+            case json.China.getFileName():      self = json.China
+            case json.Colombia.getFileName():	self = json.Colombia
+            case json.Congo_Republic_of.getFileName():	self = json.Congo_Republic_of
+            case json.Costa_Rica.getFileName():	self = json.Costa_Rica
+            case json.Croatia.getFileName():	self = json.Croatia
+            case json.Cyprus.getFileName():     self = json.Cyprus
+            case json.Czech_Republic.getFileName():	self = json.Czech_Republic
+            case json.Denmark.getFileName():	self = json.Denmark
+            case json.Dominica.getFileName():	self = json.Dominica
+            case json.Dominican_Republic.getFileName():	self = json.Dominican_Republic
+            case json.Ecuador.getFileName():	self = json.Ecuador
+            case json.Egypt.getFileName():      self = json.Egypt
+            case json.El_Salvador.getFileName():self = json.El_Salvador
+            case json.Estonia.getFileName():	self = json.Estonia
+            case json.Fiji.getFileName():       self = json.Fiji
+            case json.Finland.getFileName():	self = json.Finland
+            case json.France.getFileName():     self = json.France
+            case json.Gambia.getFileName():     self = json.Gambia
+            case json.Germany.getFileName():	self = json.Germany
+            case json.Ghana.getFileName():      self = json.Ghana
+            case json.Greece.getFileName():     self = json.Greece
+            case json.Grenada.getFileName():	self = json.Grenada
+            case json.Guatemala.getFileName():	self = json.Guatemala
+            case json.Guinea_Bissau.getFileName():	self = json.Guinea_Bissau
+            case json.Guyana.getFileName():     self = json.Guyana
+            case json.Honduras.getFileName():	self = json.Honduras
+            case json.Hong_Kong.getFileName():	self = json.Hong_Kong
+            case json.Hungary.getFileName():	self = json.Hungary
+            case json.Iceland.getFileName():	self = json.Iceland
+            case json.India.getFileName():      self = json.India
+            case json.Indonesia.getFileName():	self = json.Indonesia
+            case json.Ireland.getFileName():	self = json.Ireland
+            case json.Israel.getFileName():     self = json.Israel
+            case json.Italy.getFileName():      self = json.Italy
+            case json.Jamaica.getFileName():	self = json.Jamaica
+            case json.Japan.getFileName():      self = json.Japan
+            case json.Jordan.getFileName():     self = json.Jordan
+            case json.Kazakhstan.getFileName():	self = json.Kazakhstan
+            case json.Kenya.getFileName():      self = json.Kenya
+            case json.Kuwait.getFileName():     self = json.Kuwait
+            case json.Kyrgyzstan.getFileName():	self = json.Kyrgyzstan
+            case json.Laos.getFileName():       self = json.Laos
+            case json.Latvia.getFileName():     self = json.Latvia
+            case json.Lebanon.getFileName():	self = json.Lebanon
+            case json.Liberia.getFileName():	self = json.Liberia
+            case json.Lithuania.getFileName():	self = json.Lithuania
+            case json.Luxembourg.getFileName():	self = json.Luxembourg
+            case json.Macao.getFileName():      self = json.Macao
+            case json.Macedonia.getFileName():	self = json.Macedonia
+            case json.Madagascar.getFileName():	self = json.Madagascar
+            case json.Malawi.getFileName():     self = json.Malawi
+            case json.Malaysia.getFileName():	self = json.Malaysia
+            case json.Mali.getFileName():       self = json.Mali
+            case json.Malta.getFileName():      self = json.Malta
+            case json.Mauritania.getFileName():	self = json.Mauritania
+            case json.Mauritius.getFileName():	self = json.Mauritius
+            case json.Mexico.getFileName():     self = json.Mexico
+            case json.Micronesia.getFileName():	self = json.Micronesia
+            case json.Moldova.getFileName():	self = json.Moldova
+            case json.Mongolia.getFileName():	self = json.Mongolia
+            case json.Montserrat.getFileName():	self = json.Montserrat
+            case json.Mozambique.getFileName():	self = json.Mozambique
+            case json.Namibia.getFileName():	self = json.Namibia
+            case json.Nepal.getFileName():      self = json.Nepal
+            case json.Netherlands.getFileName():self = json.Netherlands
+            case json.New_Zealand.getFileName():self = json.New_Zealand
+            case json.Nicaragua.getFileName():	self = json.Nicaragua
+            case json.Niger.getFileName():      self = json.Niger
+            case json.Nigeria.getFileName():	self = json.Nigeria
+            case json.Norway.getFileName():     self = json.Norway
+            case json.Oman.getFileName():       self = json.Oman
+            case json.Pakistan.getFileName():	self = json.Pakistan
+            case json.Palau.getFileName():      self = json.Palau
+            case json.Panama.getFileName():     self = json.Panama
+            case json.Papua_New_Guinea.getFileName():	self = json.Papua_New_Guinea
+            case json.Paraguay.getFileName():	self = json.Paraguay
+            case json.Peru.getFileName():       self = json.Peru
+            case json.Philippines.getFileName():self = json.Philippines
+            case json.Poland.getFileName():     self = json.Poland
+            case json.Portugal.getFileName():	self = json.Portugal
+            case json.Qatar.getFileName():      self = json.Qatar
+            case json.Republic_of_Korea.getFileName():	self = json.Republic_of_Korea
+            case json.Romania.getFileName():	self = json.Romania
+            case json.Russia.getFileName():     self = json.Russia
+            case json.Saudi_Arabia.getFileName():	self = json.Saudi_Arabia
+            case json.Senegal.getFileName():	self = json.Senegal
+            case json.Seychelles.getFileName():	self = json.Seychelles
+            case json.Sierra_Leone.getFileName():	self = json.Sierra_Leone
+            case json.Singapore.getFileName():	self = json.Singapore
+            case json.Slovakia.getFileName():	self = json.Slovakia
+            case json.Slovenia.getFileName():	self = json.Slovenia
+            case json.Solomon_Islands.getFileName():	self = json.Solomon_Islands
+            case json.South_Africa.getFileName():   self = json.South_Africa
+            case json.Spain.getFileName():      self = json.Spain
+            case json.Sri_Lanka.getFileName():	self = json.Sri_Lanka
+            case json.St_Kitts.getFileName():	self = json.St_Kitts
+            case json.St_Lucia.getFileName():	self = json.St_Lucia
+            case json.St_Vincent_and_the_Grenadines.getFileName():	self = json.St_Vincent_and_the_Grenadines
+            case json.Suriname.getFileName():	self = json.Suriname
+            case json.Swaziland.getFileName():	self = json.Swaziland
+            case json.Sweden.getFileName():     self = json.Sweden
+            case json.Switzerland.getFileName():self = json.Switzerland
+            case json.Taiwan.getFileName():     self = json.Taiwan
+            case json.Tajikistan.getFileName():	self = json.Tajikistan
+            case json.Tanzania.getFileName():	self = json.Tanzania
+            case json.Thailand.getFileName():	self = json.Thailand
+            case json.Trinidad_and_Tobago.getFileName():	self = json.Trinidad_and_Tobago
+            case json.Tunisia.getFileName():	self = json.Tunisia
+            case json.Turkey.getFileName():     self = json.Turkey
+            case json.Turkmenistan.getFileName():	self = json.Turkmenistan
+            case json.Turks_and_Caicos.getFileName():	self = json.Turks_and_Caicos
+            case json.Uganda.getFileName():     self = json.Uganda
+            case json.UK.getFileName():         self = json.UK
+            case json.Ukraine.getFileName():	self = json.Ukraine
+            case json.United_Arab_Emirates.getFileName():	self = json.United_Arab_Emirates
+            case json.Uruguay.getFileName():	self = json.Uruguay
+            case json.USA.getFileName():        self = json.USA
+            case json.Uzbekistan.getFileName():	self = json.Uzbekistan
+            case json.Venezuela.getFileName():	self = json.Venezuela
+            case json.Vietnam.getFileName():	self = json.Vietnam
+            case json.Yemen.getFileName():      self = json.Yemen
+            case json.Zimbabwe.getFileName():	self = json.Zimbabwe
             default:
-                self = json.max
+                self = json.MAX
             }
         }
         
@@ -353,7 +353,7 @@ struct DownloadProfiles {
 
 class AvailableUpdateHelper: NSObject {
     
-    var publicProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.max.rawValue)
+    var publicProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.MAX.rawValue)
     var updateIndexSection = 0
     var updateUrl = [URL]()
     var senderDelegate: URLSessionDownloadDelegate!
@@ -528,7 +528,7 @@ class AvailableUpdateHelper: NSObject {
         updateIndexSection = 0
         senderDelegate = delegate
         updateUrl = [URL]()
-        for index in 0..<DownloadProfiles.json.max.rawValue {
+        for index in 0..<DownloadProfiles.json.MAX.rawValue {
             let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.jsonsDir + DownloadProfiles.json(rawValue: index)!.getFileName())
             updateUrl.append(url!)
         }

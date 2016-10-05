@@ -77,8 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // ...
             }
             return handled!
+        #else
+            return false
         #endif
-        return false
     }
     
     @available(iOS 9.0, *)

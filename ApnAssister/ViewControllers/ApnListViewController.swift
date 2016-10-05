@@ -21,7 +21,7 @@ class ApnListViewController: UITableViewController,
     let appStatus = UtilAppStatus()
     
     var msgNodataView: MsgNoDataView?
-    var allApnSummaryObjs: RLMResults!
+    var allApnSummaryObjs: RLMResults<RLMObject>!
     var previewApnSummaryObj: ApnSummaryObject?
     //var searchedApnSummaryObjs: RLMResults!
     
@@ -33,21 +33,21 @@ class ApnListViewController: UITableViewController,
         self.navigationItem.title = NSLocalizedString("ProfileList", comment: "")
         allApnSummaryObjs = ApnSummaryObject.allObjects()
         if #available(iOS 9.0, *) {
-            if self.traitCollection.forceTouchCapability == .Available {
-                self.registerForPreviewingWithDelegate(self, sourceView: self.tableView)
+            if self.traitCollection.forceTouchCapability == .available {
+                self.registerForPreviewing(with: self, sourceView: self.tableView)
             }
         }
-        self.tableView.keyboardDismissMode = .Interactive
+        self.tableView.keyboardDismissMode = .interactive
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         updateApnSummaryObjs()
         self.tableView.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if 0 == Int(allApnSummaryObjs.count) {
@@ -60,13 +60,13 @@ class ApnListViewController: UITableViewController,
     func updateApnSummaryObjs() {
         allApnSummaryObjs = ApnSummaryObject.allObjects()
         if 0 < allApnSummaryObjs.count {
-            tutorialPopView.dismissAnimated(true)
+            tutorialPopView?.dismiss(animated: true)
         } else {
-            tutorialPopView.has3DStyle = false
-            tutorialPopView.presentPointingAtBarButtonItem(self.navigationItem.rightBarButtonItem, animated: true)
+            tutorialPopView?.has3DStyle = false
+            tutorialPopView?.presentPointing(at: self.navigationItem.rightBarButtonItem, animated: true)
         }
         if #available(iOS 9.0, *) {
-            UtilShortcutLaunch().initDynamicShortcuts(UIApplication.sharedApplication())
+            UtilShortcutLaunch().initDynamicShortcuts(UIApplication.shared)
         }
     }
     
@@ -76,23 +76,23 @@ class ApnListViewController: UITableViewController,
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Int(allApnSummaryObjs.count)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return loadApnListFromResults(allApnSummaryObjs, tableView: tableView, indexPath: indexPath)
     }
     
-    func loadApnListFromResults(results: RLMResults, tableView: UITableView, indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ApnListCell", forIndexPath: indexPath)
+    func loadApnListFromResults(_ results: RLMResults<RLMObject>, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ApnListCell", for: indexPath)
         
         // Configure the cell...
-        let apnSummary = results.objectAtIndex(UInt(indexPath.row)) as! ApnSummaryObject
+        let apnSummary = results.object(at: UInt(indexPath.row)) as! ApnSummaryObject
         cell.textLabel?.text = apnSummary.name
         
         return cell
@@ -100,34 +100,34 @@ class ApnListViewController: UITableViewController,
     
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
 
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             deleteSeletedApn(allApnSummaryObjs, indexPath: indexPath)
             
-        } else if editingStyle == .Insert {
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
     
-    func deleteSeletedApn(objs: RLMResults, indexPath: NSIndexPath) {
-        let apnSummary = objs.objectAtIndex(UInt(indexPath.row)) as! ApnSummaryObject
+    func deleteSeletedApn(_ objs: RLMResults<RLMObject>, indexPath: IndexPath) {
+        let apnSummary = objs.object(at: UInt(indexPath.row)) as! ApnSummaryObject
         myUtilHandleRLMObject.deleteApnSummaryObj(apnSummary)
         
         // Delete the row from the data source
-        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
     func showNodataMessage() {
         msgNodataView = MsgNoDataView.instanceFromNib(getTableViewFrame())
         msgNodataView!.labelMsgNoData.text = NSLocalizedString("nodata_available", comment: "")
         self.view.addSubview(msgNodataView!)
-        self.tableView.scrollEnabled = false
+        self.tableView.isScrollEnabled = false
     }
     
     func getTableViewFrame() -> CGRect {
@@ -136,50 +136,50 @@ class ApnListViewController: UITableViewController,
     
     func dismissNodataMossage() {
         msgNodataView?.removeFromSuperview()
-        self.tableView.scrollEnabled = true
+        self.tableView.isScrollEnabled = true
     }
     
     // MARK: - EditApnViewControllerDelegate
-    func didFinishEditApn(newObj: ApnSummaryObject) {
+    func didFinishEditApn(_ newObj: ApnSummaryObject) {
         //Do nothing. Because this VC checking update in viewDidAppear.
     }
     
     // MARK: - DetailApnPreviewDelegate
-    func selectShareAction(handleObj: UtilHandleRLMObject) {
+    func selectShareAction(_ handleObj: UtilHandleRLMObject) {
         UtilShareAction.handleShareApn(UtilCocoaHTTPServer(), obj: handleObj, sender: self)
     }
     
-    func selectEditAction(newObj: ApnSummaryObject) {
+    func selectEditAction(_ newObj: ApnSummaryObject) {
         previewApnSummaryObj = newObj
-        self.performSegueWithIdentifier("EditApnViewController", sender: self)
+        self.performSegue(withIdentifier: "EditApnViewController", sender: self)
     }
     
     // MARK: - CMPopTipViewDelegate
-    func popTipViewWasDismissedByUser(popTipView: CMPopTipView!) {
+    func popTipViewWasDismissed(byUser popTipView: CMPopTipView!) {
         //TODO
     }
     
     // MARK: - UISearchDisplayDelegate
-    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
         loadTargetApnSummaryObjs(searchString!)
         return true
     }
     
     // MARK: - UISearchBarDelegate
-    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (text.isEmpty
-            ? searchBar.text!.substringToIndex(searchBar.text!.startIndex.advancedBy(range.location))
-            : searchBar.text!.substringToIndex(searchBar.text!.startIndex.advancedBy(range.location)) + text
+            ? searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location))
+            : searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location)) + text
         )
         loadTargetApnSummaryObjs(newText)
         return true
     }
     
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         loadTargetApnSummaryObjs(searchText)
     }
     
-    func loadTargetApnSummaryObjs(searchString: String) {
+    func loadTargetApnSummaryObjs(_ searchString: String) {
         if searchString.isEmpty {
             allApnSummaryObjs = ApnSummaryObject.allObjects()
         } else {
@@ -189,23 +189,23 @@ class ApnListViewController: UITableViewController,
     }
     
     // MARK: - UIActionSheetDelegate
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
         if 0 == buttonIndex {
-            self.performSegueWithIdentifier("EditApnViewController", sender: self)
+            self.performSegue(withIdentifier: "EditApnViewController", sender: self)
         }
     }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
         case "DetailApnViewController":
             let indexPath = self.tableView.indexPathForSelectedRow
-            let destinationVC = segue.destinationViewController as! DetailApnViewController
-            destinationVC.myApnSummaryObject = allApnSummaryObjs.objectAtIndex(UInt((indexPath?.row)!)) as! ApnSummaryObject
+            let destinationVC = segue.destination as! DetailApnViewController
+            destinationVC.myApnSummaryObject = allApnSummaryObjs.object(at: UInt(((indexPath as NSIndexPath?)?.row)!)) as! ApnSummaryObject
             
         case "EditApnViewController":
-            if let navigationController = segue.destinationViewController as? UINavigationController {
+            if let navigationController = segue.destination as? UINavigationController {
                 let controller = navigationController.viewControllers.last as! EditApnViewController
                 controller.editingApnSummaryObj = previewApnSummaryObj
                 controller.delegate = self
@@ -218,11 +218,11 @@ class ApnListViewController: UITableViewController,
     }
     
     // MARK: - Action
-    @IBAction func tapAddButton(sender: UIBarButtonItem) {
+    @IBAction func tapAddButton(_ sender: UIBarButtonItem) {
         if appStatus.isAvailableAllFunction() {
             appStatus.showCautionProfile(self)
         } else {
-            self.performSegueWithIdentifier("EditApnViewController", sender: self)
+            self.performSegue(withIdentifier: "EditApnViewController", sender: self)
         }
     }
 }

@@ -9,17 +9,17 @@
 import UIKit
 
 class UtilCocoaHTTPServer: NSObject,
-    NSXMLParserDelegate
+    XMLParserDelegate
 {
     let cocoaHTTPServer = HTTPServer()
     let fileNameSetting = "set-to-device"
     let fileNameShare = "apn-assistant"
     
-    var didEndParse:((NSXMLParser, ApnSummaryObject) -> Void)?
+    var didEndParse:((XMLParser, ApnSummaryObject) -> Void)?
     
     var readSummaryObjFromFile: ApnSummaryObject!
-    var currentParseType = ApnSummaryObject.ApnInfoColumn.MAX
-    var currentParseTag = ApnProfileObject.KeyAPNs.MAX
+    var currentParseType = ApnSummaryObject.ApnInfoColumn.max
+    var currentParseTag = ApnProfileObject.KeyAPNs.max
     
     var isTagKey = false
     var isTagValue = false
@@ -37,16 +37,16 @@ class UtilCocoaHTTPServer: NSObject,
         }
     }
     
-    func getProfileUrl(rlmObject: UtilHandleRLMObject) -> NSURL {
+    func getProfileUrl(_ rlmObject: UtilHandleRLMObject) -> URL {
         writeMobileConfigProfile(rlmObject, fileName: fileNameShare)
-        return NSURL(fileURLWithPath: getConfigProfileFilePath(fileNameShare))
+        return URL(fileURLWithPath: getConfigProfileFilePath(fileNameShare))
     }
     
-    func getConfigProfileFilePath(fileName: String) -> String {
+    func getConfigProfileFilePath(_ fileName: String) -> String {
         return getTargetFilePath(fileName, fileType: ".mobileconfig")
     }
     
-    func getTargetFilePath(fileName: String, fileType: String) -> String {
+    func getTargetFilePath(_ fileName: String, fileType: String) -> String {
         let filePath = getProfilesAppGroupPath() + fileName + fileType
         print(filePath)
         
@@ -54,18 +54,18 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func getProfilesAppGroupPath() -> String {
-        let fileManager = NSFileManager.defaultManager()
-        let targetDirectory = UtilHandleRLMObject.getAppGroupPathURL()?.URLByAppendingPathComponent("apnassistant")
+        let fileManager = FileManager.default
+        let targetDirectory = UtilHandleRLMObject.getAppGroupPathURL()?.appendingPathComponent("apnassistant")
         if nil == targetDirectory?.path
-            || !fileManager.fileExistsAtPath(targetDirectory!.path!)
+            || !fileManager.fileExists(atPath: targetDirectory!.path)
         {
-            try! fileManager.createDirectoryAtURL(targetDirectory!, withIntermediateDirectories: true, attributes: nil)
+            try! fileManager.createDirectory(at: targetDirectory!, withIntermediateDirectories: true, attributes: nil)
         }
         
-        return targetDirectory!.path! + "/"
+        return targetDirectory!.path + "/"
     }
     
-    func readDownloadedMobileConfigProfile(path: String) {
+    func readDownloadedMobileConfigProfile(_ path: String) {
         startReadMobileCongigProfile(path)
     }
     
@@ -73,11 +73,11 @@ class UtilCocoaHTTPServer: NSObject,
         startReadMobileCongigProfile(getConfigProfileFilePath(fileNameSetting))
     }
     
-    func startReadMobileCongigProfile(path: String) {
+    func startReadMobileCongigProfile(_ path: String) {
         readSummaryObjFromFile = ApnSummaryObject()
-        let fileManager = NSFileManager.defaultManager()
-        if fileManager.fileExistsAtPath(path) {
-            if let parser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: path)) {
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: path) {
+            if let parser = XMLParser(contentsOf: URL(fileURLWithPath: path)) {
                 parser.delegate = self
                 readSummaryObjFromFile.apnProfile = ApnProfileObject()
                 parser.parse()
@@ -85,12 +85,12 @@ class UtilCocoaHTTPServer: NSObject,
             }
         }
         readSummaryObjFromFile.name = NSLocalizedString("unknown", comment: "")
-        self.didEndParse?(NSXMLParser(), readSummaryObjFromFile)
+        self.didEndParse?(XMLParser(), readSummaryObjFromFile)
     }
     
-    func writeMobileConfigProfile(rlmObject: UtilHandleRLMObject, fileName: String) {
+    func writeMobileConfigProfile(_ rlmObject: UtilHandleRLMObject, fileName: String) {
         let payloadDescription = NSLocalizedString("payloadDescription", comment: "")
-        let bundleID = NSBundle.mainBundle().bundleIdentifier!
+        let bundleID = Bundle.main.bundleIdentifier!
         let UUID_forIdentifier = "f9dbd18b-90ff-58c1-8605-5abae9c50691"
         let UUID_forDescription = "4be0643f-1d98-573b-97cd-ca98a65347dd"
         
@@ -147,46 +147,46 @@ class UtilCocoaHTTPServer: NSObject,
         
         // save the String that contains the HTML to a file
         //try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
-        try! profileXml.writeToFile(getConfigProfileFilePath(fileName), atomically: true, encoding: NSUTF8StringEncoding)
+        try! profileXml.write(toFile: getConfigProfileFilePath(fileName), atomically: true, encoding: String.Encoding.utf8)
         
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         copyHtmlFilesFromResource(fileManager, fileName: "index",fileType: ".html")
         copyHtmlFilesFromResource(fileManager, fileName: "configrationProfile",fileType: ".html")
     }
     
-    func prepareOpenSettingAppToSetProfile(rlmObject: UtilHandleRLMObject) -> NSURL {
+    func prepareOpenSettingAppToSetProfile(_ rlmObject: UtilHandleRLMObject) -> URL {
         writeMobileConfigProfile(rlmObject, fileName: fileNameSetting)
         startCocoaHTTPServer()
         
         if #available(iOS 9.0, *) {
-            return NSURL(string: "http://localhost:8080")!
+            return URL(string: "http://localhost:8080")!
         } else {
-            return NSURL(string: "http://localhost:8080" + "/" + fileNameSetting + ".mobileconfig")!
+            return URL(string: "http://localhost:8080" + "/" + fileNameSetting + ".mobileconfig")!
         }
     }
     
-    func copyHtmlFilesFromResource(fileManager: NSFileManager, fileName: String, fileType: String) {
+    func copyHtmlFilesFromResource(_ fileManager: FileManager, fileName: String, fileType: String) {
         let filePath = getTargetFilePath(fileName, fileType: fileType)
         
-        if fileManager.fileExistsAtPath(filePath) {
-            try! fileManager.removeItemAtPath(filePath)
+        if fileManager.fileExists(atPath: filePath) {
+            try! fileManager.removeItem(atPath: filePath)
         }
         
-        if let resourcePath = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType) {
-            try! fileManager.copyItemAtPath(resourcePath, toPath: filePath)
+        if let resourcePath = Bundle.main.path(forResource: fileName, ofType: fileType) {
+            try! fileManager.copyItem(atPath: resourcePath, toPath: filePath)
         }
     }
     
     // MARK: - NSXMLParserDelegate
-    func parserDidStartDocument(parser: NSXMLParser) {
+    func parserDidStartDocument(_ parser: XMLParser) {
         //do nothing
     }
     
-    func parserDidEndDocument(parser: NSXMLParser) {
+    func parserDidEndDocument(_ parser: XMLParser) {
         self.didEndParse?(parser, readSummaryObjFromFile)
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         
         switch elementName {
         case "key":
@@ -201,13 +201,13 @@ class UtilCocoaHTTPServer: NSObject,
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         if isTagKey {
             switch string {
             case ProfileXmlTag.AttachAPN:
-                currentParseType = ApnSummaryObject.ApnInfoColumn.ATTACH_APN
+                currentParseType = ApnSummaryObject.ApnInfoColumn.attach_APN
             case ProfileXmlTag.APNs:
-                currentParseType = ApnSummaryObject.ApnInfoColumn.APNS
+                currentParseType = ApnSummaryObject.ApnInfoColumn.apns
             default:
                 if string == "PayloadDisplayName" {
                     isPayloadDisplayName = true
@@ -228,7 +228,7 @@ class UtilCocoaHTTPServer: NSObject,
         
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         isTagKey = false
         isTagValue = false
     }

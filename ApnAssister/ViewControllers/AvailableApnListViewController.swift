@@ -10,7 +10,7 @@ import UIKit
 
 class AvailableApnListViewController: UITableViewController,
     UIAlertViewDelegate, UIActionSheetDelegate,
-    NSURLSessionDownloadDelegate
+    URLSessionDownloadDelegate
 {
     let myAvailableUpdateHelper = AvailableUpdateHelper()
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
@@ -30,11 +30,11 @@ class AvailableApnListViewController: UITableViewController,
         reloadCachedData()
         
         let jsonRefreshControl = UIRefreshControl()
-        jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), forControlEvents: .ValueChanged)
+        jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), for: .valueChanged)
         self.refreshControl = jsonRefreshControl
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if !isUpdateConfirm {
@@ -50,24 +50,25 @@ class AvailableApnListViewController: UITableViewController,
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return myAvailableUpdateHelper.publicProfileList.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myAvailableUpdateHelper.publicProfileList[section].count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DownloadProfileListCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DownloadProfileListCell", for: indexPath)
 
         let items = myAvailableUpdateHelper.publicProfileList[indexPath.section] as NSArray
-        cell.textLabel?.text = items[indexPath.row].objectForKey(DownloadProfiles.profileName) as? String
+        let item = items[indexPath.row] as! NSDictionary
+        cell.textLabel?.text = item.object(forKey: DownloadProfiles.profileName) as? String
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if myAvailableUpdateHelper.publicProfileList[section].count == 0 {
             return ""
         }
@@ -75,7 +76,7 @@ class AvailableApnListViewController: UITableViewController,
         return NSLocalizedString(jsonName.toString(), comment: "") //+ "(" + NSLocalizedString((offset.0 ? "custom": "public"), comment: "") + ")"
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !appStatus.isAvailableAllFunction() {
             appStatus.showStatuLimitByApple(self)
         } else {
@@ -89,12 +90,12 @@ class AvailableApnListViewController: UITableViewController,
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
-        var actions = [AnyObject]()
+        var actions = [Any]()
         if #available(iOS 8.0, *) {
-            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.Cancel){
+            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
                 action in self.reloadCachedData()
             }
-            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.Default){
+            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
                 action in self.startJsonFileDownload()
             }
             actions.append(cancelAction)
@@ -112,26 +113,27 @@ class AvailableApnListViewController: UITableViewController,
         self.tableView.reloadData()
     }
     
-    func installProfileFromNetwork(selectedIndexPath: NSIndexPath) {
-        UIApplication.sharedApplication().openURL(getTargetUrl(selectedIndexPath))
+    func installProfileFromNetwork(_ selectedIndexPath: IndexPath) {
+        UIApplication.shared.openURL(getTargetUrl(selectedIndexPath))
     }
     
-    func getTargetUrl(selectedIndexPath: NSIndexPath) -> NSURL {
-        let profileData = myAvailableUpdateHelper.publicProfileList[selectedIndexPath.section]
-        let urlPath = profileData[selectedIndexPath.row].objectForKey(DownloadProfiles.profileUrl) as! String
-        return NSURL(string: urlPath)!
+    func getTargetUrl(_ selectedIndexPath: IndexPath) -> URL {
+        let profileData = myAvailableUpdateHelper.publicProfileList[(selectedIndexPath as NSIndexPath).section]
+        let item = profileData[selectedIndexPath.row] as! NSDictionary
+        let urlPath = item.object(forKey: DownloadProfiles.profileUrl) as! String
+        return URL(string: urlPath)!
     }
     
-    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         let reqUrl = getTargetUrl(indexPath)
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: config)
-        let task = session.downloadTaskWithURL(reqUrl) { (location, response, error) in
+        let config = URLSessionConfiguration.default
+        let session = Foundation.URLSession(configuration: config)
+        let task = session.downloadTask(with: reqUrl, completionHandler: { (location, response, error) in
             if let thisResponse = response, let thisLocation = location {
-                if let lastPathComponent = thisResponse.URL?.lastPathComponent {
-                    if lastPathComponent.containsString(".mobileconfig") {
+                if let lastPathComponent = thisResponse.url?.lastPathComponent {
+                    if lastPathComponent.contains(".mobileconfig") {
                         let helper = AvailableUpdateHelper()
-                        let fileName = lastPathComponent.stringByReplacingOccurrencesOfString(".mobileconfig", withString: "")
+                        let fileName = lastPathComponent.replacingOccurrences(of: ".mobileconfig", with: "")
                         let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName, fileType: ".mobileconfig")
                         helper.moveDownloadItemAtURL(filePath, location: thisLocation)
                         
@@ -140,27 +142,27 @@ class AvailableApnListViewController: UITableViewController,
                     }
                 }
             }
-            print(error?.description)
-            dispatch_async(dispatch_get_main_queue(), {
+            print(error?.localizedDescription)
+            DispatchQueue.main.async(execute: {
                 self.appStatus.stopIndicator()
                 UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
             })
             
-        }
+        }) 
         
         task.resume()
         appStatus.startIndicator(self.tableView)
     }
     
-    func readProfileInfo(filePath: String) {
+    func readProfileInfo(_ filePath: String) {
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
             if obj.name != NSLocalizedString("unknown", comment: "") {
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.cachedObj = obj
-                    self.performSegueWithIdentifier("DetailApnViewController", sender: self)
+                    self.performSegue(withIdentifier: "DetailApnViewController", sender: self)
                 })
             }
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.appStatus.stopIndicator()
             })
         }
@@ -168,23 +170,23 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     // MARK: - UIActionSheetDelegate
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
         if 0 == buttonIndex {
             self.startJsonFileDownload()
         }
     }
     
     // MARK: - Action
-    @IBAction func tapRefreshBarButton(sender: UIBarButtonItem) {
+    @IBAction func tapRefreshBarButton(_ sender: UIBarButtonItem) {
         startJsonFileDownload()
     }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
         case "DetailApnViewController":
-            let destinationVC = segue.destinationViewController as! DetailApnViewController
+            let destinationVC = segue.destination as! DetailApnViewController
             destinationVC.myApnSummaryObject = cachedObj
             destinationVC.isShowCloudData = true
             
@@ -194,7 +196,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     // MARK: - NSURLSessionDownloadDelegate
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         myAvailableUpdateHelper.moveJSONFilesFromURLSession(downloadTask, location: location)
         
         if let response = downloadTask.response {
@@ -211,7 +213,7 @@ class AvailableApnListViewController: UITableViewController,
         print("numberOfSections = \(self.tableView.numberOfSections)")
         if updateSectionCount >= self.tableView.numberOfSections {
             self.refreshControl?.endRefreshing()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             stopProgressView()
             myAvailableUpdateHelper.stopDownloadTask()
         } else {
@@ -220,7 +222,7 @@ class AvailableApnListViewController: UITableViewController,
         session.invalidateAndCancel()
     }
     
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if nil != error {
             updateProgress()
             myAvailableUpdateHelper.executeNextDownloadTask()
@@ -228,18 +230,18 @@ class AvailableApnListViewController: UITableViewController,
         session.invalidateAndCancel()
     }
     
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
         //TODO
     }
     
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         print("progress = \(Float((bytesWritten / totalBytesWritten) * 100))%")
         //TODO
     }
     
     func startJsonFileDownload() {
         updateSectionCount = 0
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         myAvailableUpdateHelper.startJsonFileDownload(self)
         startProgressView()
     }
@@ -248,12 +250,12 @@ class AvailableApnListViewController: UITableViewController,
         progressView = ProgressIndicatorView.instanceFromNib(appStatus.getIndicatorFrame(self.tableView))
         //progressView.center = self.view.center
         progressView.progressBar.progress = 0.0
-        progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), forState: .Normal)
+        progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: UIControlState())
         progressView.didTapCancel = { (button) in
             self.updateSectionCount = self.tableView.numberOfSections + 1
         }
         self.view.addSubview(progressView)
-        self.tableView.scrollEnabled = false
+        self.tableView.isScrollEnabled = false
     }
     
     func updateProgress() {
@@ -262,7 +264,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func stopProgressView() {
-        self.tableView.scrollEnabled = true
+        self.tableView.isScrollEnabled = true
         progressView.removeFromSuperview()
     }
 }

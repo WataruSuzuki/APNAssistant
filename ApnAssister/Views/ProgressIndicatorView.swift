@@ -15,9 +15,9 @@ class ProgressIndicatorView: UIView {
     @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var cancelButton: UIButton!
 
-    class func instanceFromNib(frame: CGRect) -> ProgressIndicatorView {
+    class func instanceFromNib(_ frame: CGRect) -> ProgressIndicatorView {
         let nib = UINib(nibName: "ProgressIndicatorView", bundle: nil)
-        let view = nib.instantiateWithOwner(nil, options: nil)[0] as! ProgressIndicatorView
+        let view = nib.instantiate(withOwner: nil, options: nil)[0] as! ProgressIndicatorView
         
         view.frame.size.width = frame.size.width
         view.frame.size.height = frame.size.height
@@ -25,7 +25,7 @@ class ProgressIndicatorView: UIView {
         return view
     }
     
-    @IBAction func tapCancel(sender: UIButton) {
+    @IBAction func tapCancel(_ sender: UIButton) {
         self.didTapCancel?(sender)
     }
 }

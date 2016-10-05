@@ -8,11 +8,11 @@
 
 import UIKit
 
-class UtilUserDefaults: NSUserDefaults {
+class UtilUserDefaults: UserDefaults {
     
-    let ud = NSUserDefaults.standardUserDefaults()
+    let ud = UserDefaults.standard
 
-    private struct Default {
+    fileprivate struct Default {
         static let available_appstore = false
         static let signin_success = false
         static let memory_version = "0.0.0"
@@ -20,18 +20,18 @@ class UtilUserDefaults: NSUserDefaults {
     
     var isAvailableStore: Bool {
         get {
-            ud.registerDefaults(["available_appstore": Default.available_appstore])
-            return ud.boolForKey("available_appstore")
+            ud.register(defaults: ["available_appstore": Default.available_appstore])
+            return ud.bool(forKey: "available_appstore")
         }
         set(nextValue) {
-            ud.setBool(nextValue, forKey: "available_appstore")
+            ud.set(nextValue, forKey: "available_appstore")
             ud.synchronize()
         }
     }
     
     var isSignInSuccess: Bool {
         get {
-            ud.registerDefaults(["signin_success": Default.signin_success])
+            ud.register(defaults: ["signin_success": Default.signin_success])
             #if false
                 return ud.boolForKey("signin_success")
             #else
@@ -39,18 +39,18 @@ class UtilUserDefaults: NSUserDefaults {
             #endif
         }
         set(nextValue) {
-            ud.setBool(nextValue, forKey: "signin_success")
+            ud.set(nextValue, forKey: "signin_success")
             ud.synchronize()
         }
     }
     
     var memoryVersion: String {
         get {
-            ud.registerDefaults(["memory_version": Default.memory_version])
-            return ud.stringForKey("memory_version")!
+            ud.register(defaults: ["memory_version": Default.memory_version])
+            return ud.string(forKey: "memory_version")!
         }
         set(nextValue) {
-            ud.setObject(nextValue, forKey:  "memory_version")
+            ud.set(nextValue, forKey:  "memory_version")
             ud.synchronize()
         }
     }

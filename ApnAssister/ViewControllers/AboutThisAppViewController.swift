@@ -11,18 +11,18 @@ import UIKit
 struct AboutThisApp {
     
     enum Section: Int {
-        case Summary = 0,
-        Apn,
-        Profile,
+        case summary = 0,
+        apn,
+        profile,
         //Contact,
         //Account,
-        MAX
+        max
         
         func getText() -> String {
-            let appName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as! String
-            let key = (self == .Summary
-                ?"AboutThisApp" + String(self) + appName
-                :"AboutThisApp" + String(self))
+            let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+            let key = (self == .summary
+                ?"AboutThisApp" + String(describing: self) + appName
+                :"AboutThisApp" + String(describing: self))
             //print(key)
             return NSLocalizedString(key, comment: "")
         }
@@ -46,31 +46,31 @@ class AboutThisAppViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return AboutThisApp.Section.MAX.rawValue
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return AboutThisApp.Section.max.rawValue
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("AboutThisAppCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutThisAppCell", for: indexPath)
 
         // Configure the cell...
         cell.textLabel?.numberOfLines = 0
         
         let aboutThis = AboutThisApp.Section(rawValue: indexPath.section)!
-        if aboutThis == .Summary {
-            cell.accessoryType = .None
+        if aboutThis == .summary {
+            cell.accessoryType = .none
             cell.textLabel?.text = aboutThis.getText()
         } else {
-            cell.accessoryType = .DetailButton
+            cell.accessoryType = .detailButton
             switch aboutThis {
-            case .Apn:
+            case .apn:
                 cell.textLabel?.text = NSLocalizedString("HowAboutApn", comment: "")
                 
-            case .Profile:
+            case .profile:
                 cell.textLabel?.text = NSLocalizedString("HowAboutConfigProfile", comment: "")
                 
 //            case .Contact:
@@ -84,16 +84,16 @@ class AboutThisAppViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let aboutThisApp = AboutThisApp.Section(rawValue: section)
-        if aboutThisApp == .Summary {
+        if aboutThisApp == .summary {
             return ""
         } else {
             return aboutThisApp!.getText()
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if #available(iOS 8.0, *) {
             return tableView.rowHeight
         } else {
@@ -101,7 +101,7 @@ class AboutThisAppViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch AboutThisApp.Section(rawValue: indexPath.section)! {
 //        case .Account:
 //            self.performSegueWithIdentifier("AccountManageViewController", sender: self)
@@ -111,15 +111,15 @@ class AboutThisAppViewController: UITableViewController {
         }
     }
 
-    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         switch AboutThisApp.Section(rawValue: indexPath.section)! {
-        case .Apn:
-            let url = NSURL(string: "https://en.m.wikipedia.org/wiki/APN")
-            UIApplication.sharedApplication().openURL(url!)
+        case .apn:
+            let url = URL(string: "https://en.m.wikipedia.org/wiki/APN")
+            UIApplication.shared.openURL(url!)
             
-        case .Profile:
-            let url = NSURL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
-            UIApplication.sharedApplication().openURL(url!)
+        case .profile:
+            let url = URL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
+            UIApplication.shared.openURL(url!)
             
 //        case .Contact:
 //            let url = NSURL(string: "https://twitter.com/DevJchanKchan")

@@ -23,34 +23,34 @@ class TextFieldCell: UITableViewCell,
         super.awakeFromNib()
         // Initialization code
         
-        myUITextField.returnKeyType = .Next
+        myUITextField.returnKeyType = .next
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
     // MARK: - UITextFieldDelegate
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textFieldShouldClear(textField: UITextField) -> Bool {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return true
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var searchedView = self.superview
         var tableView: UITableView? = nil
         
         while ((searchedView) != nil) {
-            if searchedView!.isKindOfClass(UITableView) {
+            if searchedView!.isKind(of: UITableView.self) {
                 tableView = searchedView as? UITableView
                 break
             }
@@ -58,11 +58,11 @@ class TextFieldCell: UITableViewCell,
         }
         
         if nil != tableView {
-            let indexPath = tableView?.indexPathForCell(self)
-            let nextIndexPath = NSIndexPath(forRow: (indexPath?.row)! + 1, inSection: (indexPath?.section)!)
+            let indexPath = tableView?.indexPath(for: self)
+            let nextIndexPath = IndexPath(row: ((indexPath as NSIndexPath?)?.row)! + 1, section: ((indexPath as NSIndexPath?)?.section)!)
             if !becomeCellTextFieldResponder(tableView!, nextIndexPath: nextIndexPath) {
-                let section = (indexPath?.section)! + 1
-                let fallbackIndexPath = NSIndexPath(forRow: (indexPath?.section)!, inSection: section)
+                let section = ((indexPath as NSIndexPath?)?.section)! + 1
+                let fallbackIndexPath = IndexPath(row: ((indexPath as NSIndexPath?)?.section)!, section: section)
                 if !becomeCellTextFieldResponder(tableView!, nextIndexPath: fallbackIndexPath) {
                     print("Not found next target myUITextField...")
                 }
@@ -72,8 +72,8 @@ class TextFieldCell: UITableViewCell,
         return true
     }
     
-    func becomeCellTextFieldResponder(tableView: UITableView, nextIndexPath: NSIndexPath) -> Bool {
-        if let nextCell = tableView.cellForRowAtIndexPath(nextIndexPath) as? TextFieldCell {
+    func becomeCellTextFieldResponder(_ tableView: UITableView, nextIndexPath: IndexPath) -> Bool {
+        if let nextCell = tableView.cellForRow(at: nextIndexPath) as? TextFieldCell {
             nextCell.myUITextField.becomeFirstResponder()
             return true
         } else {
@@ -81,22 +81,22 @@ class TextFieldCell: UITableViewCell,
         }
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         self.didBeginEditing?(textField)
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         self.didEndEditing?(textField)
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return (self.shouldChangeCharactersInRange?(textField, range, string))!
     }
     
-    func getNewChangeCharactersInRange(textField: UITextField, range: NSRange, string: String) -> String {
+    func getNewChangeCharactersInRange(_ textField: UITextField, range: NSRange, string: String) -> String {
         let newText = (string.isEmpty
-            ? textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location))
-            : textField.text!.substringToIndex(textField.text!.startIndex.advancedBy(range.location)) + string
+            ? textField.text!.substring(to: textField.text!.characters.index(textField.text!.startIndex, offsetBy: range.location))
+            : textField.text!.substring(to: textField.text!.characters.index(textField.text!.startIndex, offsetBy: range.location)) + string
         )
         return newText
     }

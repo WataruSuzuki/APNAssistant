@@ -20,9 +20,9 @@ class MsgNoDataView: UIView {
     }
     */
 
-    class func instanceFromNib(frame: CGRect) -> MsgNoDataView {
+    class func instanceFromNib(_ frame: CGRect) -> MsgNoDataView {
         let nib = UINib(nibName: "MsgNoDataView", bundle: nil)
-        let view = nib.instantiateWithOwner(nil, options: nil)[0] as! MsgNoDataView
+        let view = nib.instantiate(withOwner: nil, options: nil)[0] as! MsgNoDataView
         
         view.frame.size.width = frame.size.width
         view.frame.size.height = frame.size.height

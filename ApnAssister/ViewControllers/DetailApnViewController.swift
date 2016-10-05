@@ -9,8 +9,8 @@
 import UIKit
 
 protocol DetailApnPreviewDelegate {
-    func selectShareAction(handleObj: UtilHandleRLMObject)
-    func selectEditAction(newObj: ApnSummaryObject)
+    func selectShareAction(_ handleObj: UtilHandleRLMObject)
+    func selectEditAction(_ newObj: ApnSummaryObject)
 }
 
 class DetailApnViewController: UITableViewController,
@@ -30,13 +30,13 @@ class DetailApnViewController: UITableViewController,
     lazy var previewActions: [UIPreviewActionItem] = {
         let menuArray = self.loadMenuArray()
         
-        let setApnAction = UIPreviewAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Destructive, handler: { (action, viewcontroller) in
+        let setApnAction = UIPreviewAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .destructive, handler: { (action, viewcontroller) in
             self.handleUpdateDeviceApn()
         })
-        let shareAction = UIPreviewAction(title: menuArray[Menu.share.rawValue], style: .Default, handler: { (action, viewcontroller) in
+        let shareAction = UIPreviewAction(title: menuArray[Menu.share.rawValue], style: .default, handler: { (action, viewcontroller) in
             self.delegate.selectShareAction(self.myUtilHandleRLMObject)
         })
-        let editAction = UIPreviewAction(title: menuArray[Menu.edit.rawValue], style: .Default, handler: { (action, viewcontroller) in
+        let editAction = UIPreviewAction(title: menuArray[Menu.edit.rawValue], style: .default, handler: { (action, viewcontroller) in
             self.delegate.selectEditAction(self.myApnSummaryObject)
         })
         
@@ -58,7 +58,7 @@ class DetailApnViewController: UITableViewController,
         
         if appStatus.isAvailableAllFunction() {
         }
-        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .Bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
+        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
         self.navigationItem.rightBarButtonItem = menuButton
     }
 
@@ -69,26 +69,26 @@ class DetailApnViewController: UITableViewController,
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return ApnSummaryObject.ApnInfoColumn.MAX.rawValue - 1
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return ApnSummaryObject.ApnInfoColumn.max.rawValue - 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: section + 1)
-        if sectionType == ApnSummaryObject.ApnInfoColumn.SUMMARY {
+        if sectionType == ApnSummaryObject.ApnInfoColumn.summary {
             return 0
         }
         return ApnProfileObject.KeyAPNs.maxRaw(sectionType!)
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DetailApnCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailApnCell", for: indexPath)
 
         let type = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section + 1)!
         let column = ApnProfileObject.KeyAPNs(rawValue: indexPath.row)!
         cell.textLabel?.text = column.getTitle(type)
         switch column {
-        case ApnProfileObject.KeyAPNs.PASSWORD:
+        case ApnProfileObject.KeyAPNs.password:
             cell.detailTextLabel?.text = "*******"
             
         default:
@@ -99,13 +99,13 @@ class DetailApnViewController: UITableViewController,
     }
     
     // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return false
     }
 
     // MARK: - EditApnViewControllerDelegate
-    func didFinishEditApn(newObj: ApnSummaryObject) {
+    func didFinishEditApn(_ newObj: ApnSummaryObject) {
         myApnSummaryObject = newObj
         loadTargetSummaryObj()
         
@@ -121,11 +121,11 @@ class DetailApnViewController: UITableViewController,
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard (segue.identifier != nil) else { return }
         switch segue.identifier! {
         case "EditApnViewController":
-            let navigationController = segue.destinationViewController as! UINavigationController
+            let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! EditApnViewController
             controller.editingApnSummaryObj = myApnSummaryObject
             controller.delegate = self
@@ -138,7 +138,7 @@ class DetailApnViewController: UITableViewController,
     func loadMenuArray() -> [String] {
         var menuArray = [String]()
         
-        for index in Menu.setThisApnToDevice.rawValue..<Menu.MAX.rawValue {
+        for index in Menu.setThisApnToDevice.rawValue..<Menu.max.rawValue {
             menuArray.append(NSLocalizedString(Menu(rawValue: index)!.toString(), comment: ""))
         }
         
@@ -154,7 +154,7 @@ class DetailApnViewController: UITableViewController,
         showMenuAlertController(NSLocalizedString("menu", comment: ""), menuArray: menuArray)
     }
     
-    func showComfirmOldSheet(title: String, menuArray: [String]) {
+    func showComfirmOldSheet(_ title: String, menuArray: [String]) {
         let sheet = UIActionSheet()
         //sheet.tag =
         sheet.delegate = self
@@ -162,33 +162,33 @@ class DetailApnViewController: UITableViewController,
         
         var dispMenuArray = menuArray
         if !appStatus.isShowImportantMenu() {
-            dispMenuArray.removeAtIndex(Menu.setThisApnToDevice.rawValue)
+            dispMenuArray.remove(at: Menu.setThisApnToDevice.rawValue)
         }
         for message in dispMenuArray {
-            sheet.addButtonWithTitle(message)
+            sheet.addButton(withTitle: message)
         }
         sheet.cancelButtonIndex = dispMenuArray.count - 1
         if appStatus.isShowImportantMenu() {
             sheet.destructiveButtonIndex = 0
         }
         
-        sheet.showInView(self.view)
+        sheet.show(in: self.view)
     }
     
-    func showMenuAlertController(title: String, menuArray: [String]){
+    func showMenuAlertController(_ title: String, menuArray: [String]){
         if #available(iOS 8.0, *) {
-            let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .Destructive){
+            let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .destructive){
                 action in self.handleUpdateDeviceApn()
             }
-            let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .Default){
+            let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .default){
                 action in UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
             }
-            let editAction = UIAlertAction(title: menuArray[Menu.edit.rawValue], style: .Default){
+            let editAction = UIAlertAction(title: menuArray[Menu.edit.rawValue], style: .default){
                 action in self.showEditApnViewController()
             }
-            let cancelAction = UIAlertAction(title: menuArray[Menu.cancel.rawValue], style: .Cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: menuArray[Menu.cancel.rawValue], style: .cancel, handler: nil)
             
-            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .ActionSheet)
+            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
             alertController.addAction(cancelAction)
             if appStatus.isShowImportantMenu() {
                 alertController.addAction(setApnAction)
@@ -196,18 +196,18 @@ class DetailApnViewController: UITableViewController,
             alertController.addAction(shareAction)
             alertController.addAction(editAction)
             
-            if UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad {
+            if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
                 alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
             }
             
-            presentViewController(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
         } else {
             showComfirmOldSheet(title, menuArray: menuArray)
         }
     }
     
     // MARK: - UIActionSheetDelegate
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
         switch Menu(rawValue: (appStatus.isShowImportantMenu() ? buttonIndex : buttonIndex + 1))! {
         case .setThisApnToDevice:
             self.handleUpdateDeviceApn()
@@ -228,19 +228,19 @@ class DetailApnViewController: UITableViewController,
             let obj = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
             obj.prepareKeepApnProfileColumn(myApnSummaryObject!.apnProfile)
             obj.profileName = myApnSummaryObject.name
-            let realm = RLMRealm.defaultRealm()
+            let realm = RLMRealm.default()
             obj.saveUpdateApnDataObj(realm, isSetDataApnManually: true)
             
             UtilAlertSheet.showAlertController("confirm", messagekey: "complete", url: nil, vc: self)
         } else {
-            self.performSegueWithIdentifier("EditApnViewController", sender: self)
+            self.performSegue(withIdentifier: "EditApnViewController", sender: self)
         }
     }
     
     func handleUpdateDeviceApn(){
         if appStatus.isAvailableAllFunction() {
             let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url)
         } else {
             appStatus.showStatuLimitByApple(self)
         }
@@ -248,7 +248,7 @@ class DetailApnViewController: UITableViewController,
         
     // MARK: Preview actions
     @available(iOS 9.0, *)
-    override func previewActionItems() -> [UIPreviewActionItem] {
+    override var previewActionItems : [UIPreviewActionItem] {
         return previewActions
     }
     
@@ -257,10 +257,10 @@ class DetailApnViewController: UITableViewController,
         share,
         edit,
         cancel,
-        MAX
+        max
         
         func toString() -> String {
-            return String(self)
+            return String(describing: self)
         }
     }
 }

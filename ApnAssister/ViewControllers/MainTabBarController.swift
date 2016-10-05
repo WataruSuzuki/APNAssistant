@@ -19,7 +19,7 @@ class MainTabBarController: UITabBarController {
         // Do any additional setup after loading the view.
         setupTintColor()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         loadTabBarTitle()
         appStatus.checkAccountAuth()
@@ -27,7 +27,7 @@ class MainTabBarController: UITabBarController {
         hiddenSomeTabbar()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if !appStatus.isAvailableAllFunction() {
@@ -40,7 +40,7 @@ class MainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    func appDidBecomeActive(notification: NSNotification) {
+    func appDidBecomeActive(_ notification: Notification) {
         if #available(iOS 9.0, *) {
             executeShortcutActions()
         }
@@ -48,13 +48,13 @@ class MainTabBarController: UITabBarController {
     
     @available(iOS 9.0, *)
     func executeShortcutActions() {
-        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
             guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {
                 return
             }
             switch shortcutItem.type {
-            case UtilShortcutLaunch.ShortcutIdentifier.First.type:
-                self.selectedViewController = self.viewControllers![MainTabBarController.TabIndex.FavoriteList.rawValue] as! UINavigationController
+            case UtilShortcutLaunch.ShortcutIdentifier.first.type:
+                self.selectedViewController = self.viewControllers![MainTabBarController.TabIndex.favoriteList.rawValue] as! UINavigationController
                 
             default:
                 execureShortcutUpdateApn(shortcutItem.type)
@@ -64,7 +64,7 @@ class MainTabBarController: UITabBarController {
         }
     }
     
-    func execureShortcutUpdateApn(type: String) {
+    func execureShortcutUpdateApn(_ type: String) {
         guard appStatus.isAvailableAllFunction() else {
             appStatus.showStatuLimitByApple(self)
             return
@@ -72,11 +72,11 @@ class MainTabBarController: UITabBarController {
         
         let results = ApnSummaryObject.getFavoriteLists()
         let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
-        let shortcutApn = results.objectsWithPredicate(NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as! ApnSummaryObject
+        let shortcutApn = results.objects(with: NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as! ApnSummaryObject
         
         let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
         let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
-        UIApplication.sharedApplication().openURL(url)
+        UIApplication.shared.openURL(url)
     }
     
     func loadTabBarTitle() {
@@ -125,17 +125,17 @@ class MainTabBarController: UITabBarController {
     }
     
     enum TabIndex: Int {
-        case AvailableList = 0,
-        FavoriteList,
-        ProfileList,
-        AboutThisApp
+        case availableList = 0,
+        favoriteList,
+        profileList,
+        aboutThisApp
         
-        func toStoring() -> String {
-            return String(self)
+        func toString() -> String {
+            return String(describing: self)
         }
         
         func getTitle() -> String {
-            return NSLocalizedString(self.toStoring(), comment: "(・∀・)")
+            return NSLocalizedString(self.toString(), comment: "(・∀・)")
         }
     }
 }

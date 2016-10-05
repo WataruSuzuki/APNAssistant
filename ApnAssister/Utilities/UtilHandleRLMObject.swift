@@ -25,10 +25,10 @@ class UtilHandleRLMObject: NSObject {
     let apnProfileObj: ApnProfileObject!
     let apnSummaryObj: ApnSummaryObject!
     
-    var arrayKeyApns = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
-    var arrayKeyAttachApn = [String](count: ApnProfileObject.KeyAPNs.MAX.rawValue, repeatedValue:"")
+    var arrayKeyApns = [String](repeating: "", count: ApnProfileObject.KeyAPNs.max.rawValue)
+    var arrayKeyAttachApn = [String](repeating: "", count: ApnProfileObject.KeyAPNs.max.rawValue)
     var profileName = ""
-    var summaryDataType = ApnSummaryObject.DataTypes.NORMAL
+    var summaryDataType = ApnSummaryObject.DataTypes.normal
     
     required init(id: Int, profileObj: ApnProfileObject, summaryObj: ApnSummaryObject) {
         primaryId = id
@@ -39,10 +39,10 @@ class UtilHandleRLMObject: NSObject {
         summaryDataType = ApnSummaryObject.DataTypes(rawValue: summaryObj.dataType)!
     }
     
-    func saveUpdateApnDataObj(realm: RLMRealm, isSetDataApnManually: Bool) {
+    func saveUpdateApnDataObj(_ realm: RLMRealm, isSetDataApnManually: Bool) {
         realm.beginWriteTransaction()
         prepareApnData(isSetDataApnManually)
-        realm.addOrUpdateObject(apnSummaryObj)
+        realm.addOrUpdate(apnSummaryObj)
         do {
             try realm.commitWriteTransaction()
         } catch let error as NSError{
@@ -50,10 +50,10 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    func deleteApnSummaryObj(obj: ApnSummaryObject) {
-        let realm = RLMRealm.defaultRealm()
+    func deleteApnSummaryObj(_ obj: ApnSummaryObject) {
+        let realm = RLMRealm.default()
         realm.beginWriteTransaction()
-        realm.deleteObject(obj)
+        realm.delete(obj)
         do {
             try realm.commitWriteTransaction()
         } catch let error as NSError{
@@ -61,7 +61,7 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    func prepareKeepApnProfileColumn(prepareObj: ApnProfileObject) {
+    func prepareKeepApnProfileColumn(_ prepareObj: ApnProfileObject) {
         var index = 0
         arrayKeyApns[index] = prepareObj.apnsName
         index += 1
@@ -89,33 +89,33 @@ class UtilHandleRLMObject: NSObject {
         //arrayKeyAttachApn[index] = prepareObj.attachApnProxyServerPort
     }
     
-    func keepApnProfileColumnValue(type: ApnSummaryObject.ApnInfoColumn, column: ApnProfileObject.KeyAPNs, newText: String) {
-        if type == .APNS {
+    func keepApnProfileColumnValue(_ type: ApnSummaryObject.ApnInfoColumn, column: ApnProfileObject.KeyAPNs, newText: String) {
+        if type == .apns {
             arrayKeyApns[column.rawValue] = newText
         } else {
             arrayKeyAttachApn[column.rawValue] = newText
         }
     }
     
-    func getKeptApnProfileColumnValue(type: ApnSummaryObject.ApnInfoColumn, column: ApnProfileObject.KeyAPNs) -> String {
-        if type == .APNS {
+    func getKeptApnProfileColumnValue(_ type: ApnSummaryObject.ApnInfoColumn, column: ApnProfileObject.KeyAPNs) -> String {
+        if type == .apns {
             return arrayKeyApns[column.rawValue]
         } else {
             return arrayKeyAttachApn[column.rawValue]
         }
     }
     
-    func prepareApnData(isSetDataApnManually: Bool) {
-        prepareApnProfileColumn(.ATTACH_APN, columnArray: arrayKeyAttachApn)
-        prepareApnProfileColumn(.APNS, columnArray: (isSetDataApnManually ? arrayKeyApns : arrayKeyAttachApn))
+    func prepareApnData(_ isSetDataApnManually: Bool) {
+        prepareApnProfileColumn(.attach_APN, columnArray: arrayKeyAttachApn)
+        prepareApnProfileColumn(.apns, columnArray: (isSetDataApnManually ? arrayKeyApns : arrayKeyAttachApn))
         
         prepareApnSummaryData()
     }
     
     func prepareApnSummaryData() {
-        let now = NSDate()
+        let now = Date()
         apnSummaryObj.createdDate = now.timeIntervalSinceReferenceDate
-        apnSummaryObj.name = (profileName.isEmpty ? String(now) : profileName)
+        apnSummaryObj.name = (profileName.isEmpty ? String(describing: now) : profileName)
         apnSummaryObj.dataType = summaryDataType.rawValue
         if 0 > primaryId {
             apnSummaryObj.id = ApnSummaryObject.getLastId()
@@ -123,7 +123,7 @@ class UtilHandleRLMObject: NSObject {
         apnSummaryObj.apnProfile = apnProfileObj
     }
     
-    func prepareApnProfileColumn(type: ApnSummaryObject.ApnInfoColumn, columnArray: Array<String>) {
+    func prepareApnProfileColumn(_ type: ApnSummaryObject.ApnInfoColumn, columnArray: Array<String>) {
         var index = 0
         for columnValue in columnArray {
             apnProfileObj.updateApnProfileColumn(type, column: ApnProfileObject.KeyAPNs(rawValue: index)!, newText: columnValue)
@@ -131,18 +131,18 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    static func getAppGroupPathURL() -> NSURL? {
+    static func getAppGroupPathURL() -> URL? {
         let path = "group.jp.co.JchanKchan.ApnAssister"
         //let path = "group." + NSBundle.mainBundle().bundleIdentifier!.stringByReplacingOccurrencesOfString(".TodayWidget", withString: "")
-        return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(path)
+        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: path)
     }
     
-    static func getDatabasePathOfAppGroupPathURL() -> NSURL? {
-        return getAppGroupPathURL()?.URLByAppendingPathComponent("profiledatabases")
+    static func getDatabasePathOfAppGroupPathURL() -> URL? {
+        return getAppGroupPathURL()?.appendingPathComponent("profiledatabases")
     }
     
-    static func getDefaultRealmDatabaseURL(directoryURL: NSURL?) -> NSURL? {
-        let containerURL = directoryURL?.URLByAppendingPathComponent("default.realm")
+    static func getDefaultRealmDatabaseURL(_ directoryURL: URL?) -> URL? {
+        let containerURL = directoryURL?.appendingPathComponent("default.realm")
         
         return containerURL
     }
@@ -151,7 +151,7 @@ class UtilHandleRLMObject: NSObject {
         let containerURL = getDefaultRealmDatabaseURL(getDatabasePathOfAppGroupPathURL())
         print(containerURL?.path)
         
-        let config = RLMRealmConfiguration.defaultConfiguration()
+        let config = RLMRealmConfiguration.default()
         config.fileURL = containerURL
         config.schemaVersion = UtilHandleRLMConst.CURRENT_SCHEMA_VERSION
         config.migrationBlock = {(migration, oldSchemaVersion) in
@@ -162,29 +162,29 @@ class UtilHandleRLMObject: NSObject {
                 // そしてディスク上のスキーマを自動的にアップデートします。
             }
         }
-        RLMRealmConfiguration.setDefaultConfiguration(config)
+        RLMRealmConfiguration.setDefault(config)
     }
     
-    static func getRealmDatabaseFiles(targetURL: NSURL?) -> [NSURL?] {
+    static func getRealmDatabaseFiles(_ targetURL: URL?) -> [URL?] {
         let URLs = [
             targetURL,
-            targetURL?.URLByAppendingPathExtension("lock"),
-            targetURL?.URLByAppendingPathExtension("management")
+            targetURL?.appendingPathExtension("lock"),
+            targetURL?.appendingPathExtension("management")
         ]
         
         return URLs
     }
     
     static func copyToGroupDB() {
-        let manager = NSFileManager.defaultManager()
-        let config = RLMRealmConfiguration.defaultConfiguration()
+        let manager = FileManager.default
+        let config = RLMRealmConfiguration.default()
         let oldURLs = getRealmDatabaseFiles(config.fileURL)
         
         let containerDirectory = getDatabasePathOfAppGroupPathURL()
         if nil == containerDirectory?.path
-            || !manager.fileExistsAtPath(containerDirectory!.path!)
+            || !manager.fileExists(atPath: containerDirectory!.path)
         {
-            try! manager.createDirectoryAtURL(containerDirectory!, withIntermediateDirectories: true, attributes: nil)
+            try! manager.createDirectory(at: containerDirectory!, withIntermediateDirectories: true, attributes: nil)
         }
         
         let containerURL = getDefaultRealmDatabaseURL(containerDirectory)
@@ -193,9 +193,9 @@ class UtilHandleRLMObject: NSObject {
         var index = 0
         for oldURL in oldURLs {
             do {
-                try manager.copyItemAtURL(oldURL!, toURL: newURLs[index]!)
+                try manager.copyItem(at: oldURL!, to: newURLs[index]!)
                 index += 1
-                try manager.removeItemAtURL(oldURL!)
+                try manager.removeItem(at: oldURL!)
             } catch {
                 let nsError = error as NSError
                 print(nsError.description)

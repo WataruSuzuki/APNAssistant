@@ -10,22 +10,22 @@ import UIKit
 
 class UtilShareAction: NSObject {
 
-    static func handleShareApn(httpServer: UtilCocoaHTTPServer, obj: UtilHandleRLMObject, sender: UIViewController){
+    static func handleShareApn(_ httpServer: UtilCocoaHTTPServer, obj: UtilHandleRLMObject, sender: UIViewController){
         let configProfileUrl = httpServer.getProfileUrl(obj)
         
         let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)
         contoller.excludedActivityTypes = [
-            UIActivityTypePostToWeibo,
-            UIActivityTypeSaveToCameraRoll,
-            UIActivityTypePrint
+            UIActivityType.postToWeibo,
+            UIActivityType.saveToCameraRoll,
+            UIActivityType.print
         ]
         
         if #available(iOS 8.0, *) {
-            if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            if UIDevice.current.userInterfaceIdiom == .pad {
                 contoller.popoverPresentationController?.barButtonItem = sender.navigationItem.rightBarButtonItem
             }
         }
         
-        sender.presentViewController(contoller, animated: true, completion: nil)
+        sender.present(contoller, animated: true, completion: nil)
     }
 }

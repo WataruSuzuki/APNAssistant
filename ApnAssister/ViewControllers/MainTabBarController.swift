@@ -31,7 +31,7 @@ class MainTabBarController: UITabBarController {
         super.viewWillAppear(animated)
         
         if !appStatus.isAvailableAllFunction() {
-            appStatus.checkActualAppVersion()
+            appStatus.startCheckActualAppVersion()
         }
     }
     

@@ -12,7 +12,7 @@ class UtilAppStatus: NSObject {
 
     var indicator: UIActivityIndicatorView!
     
-    func checkActualAppVersion() {
+    func startCheckActualAppVersion() {
         let path = DownloadProfiles.serverUrl + DownloadProfiles.resourcesDir + "version.json"
         let reqUrl = URL(string: path)
         let config = URLSessionConfiguration.default

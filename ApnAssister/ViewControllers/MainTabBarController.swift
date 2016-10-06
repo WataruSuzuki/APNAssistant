@@ -90,7 +90,7 @@ class MainTabBarController: UITabBarController {
     func hiddenSomeTabbar() {
         var controllers = self.viewControllers
         #if IS_APN_MEMO
-            controllers?.removeAtIndex(TabIndex.AvailableList.rawValue)
+            controllers?.remove(at: TabIndex.availableList.rawValue)
         #elseif IS_APN_BOOKMARKS
             controllers?.remove(at: TabIndex.profileList.rawValue)
             controllers?.remove(at: TabIndex.favoriteList.rawValue)

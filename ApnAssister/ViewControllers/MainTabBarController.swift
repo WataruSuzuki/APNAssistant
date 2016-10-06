@@ -92,8 +92,8 @@ class MainTabBarController: UITabBarController {
         #if IS_APN_MEMO
             controllers?.removeAtIndex(TabIndex.AvailableList.rawValue)
         #elseif IS_APN_BOOKMARKS
-            controllers?.removeAtIndex(TabIndex.ProfileList.rawValue)
-            controllers?.removeAtIndex(TabIndex.FavoriteList.rawValue)
+            controllers?.remove(at: TabIndex.profileList.rawValue)
+            controllers?.remove(at: TabIndex.favoriteList.rawValue)
         #else
             //do nothing
             return
@@ -118,7 +118,7 @@ class MainTabBarController: UITabBarController {
         #if IS_APN_MEMO
             UIView.appearance().tintColor = nil
         #elseif IS_APN_BOOKMARKS
-            UIView.appearance().tintColor = UIColor.blackColor()
+            UIView.appearance().tintColor = UIColor.black
         #else
             //Use Storyboard defined.
         #endif

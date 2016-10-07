@@ -62,31 +62,17 @@ class UtilHandleRLMObject: NSObject {
     }
     
     func prepareKeepApnProfileColumn(_ prepareObj: ApnProfileObject) {
-        var index = 0
-        arrayKeyApns[index] = prepareObj.apnsName
-        index += 1
-        arrayKeyApns[index] = prepareObj.apnsAuthenticationType
-        index += 1
-        arrayKeyApns[index] = prepareObj.apnsUserName
-        index += 1
-        arrayKeyApns[index] = prepareObj.apnsPassword
-        index += 1
-        arrayKeyApns[index] = prepareObj.apnsProxyServer
-        index += 1
-        arrayKeyApns[index] = prepareObj.apnsProxyServerPort
+        for index in 0..<ApnProfileObject.KeyAPNs.max.rawValue {
+            if let keyApns = ApnProfileObject.KeyAPNs(rawValue: index) {
+                arrayKeyApns[index] = keyApns.getPreparedAPNValue(prepareObj: prepareObj)
+            }
+        }
         
-        index = 0
-        arrayKeyAttachApn[index] = prepareObj.attachApnName
-        index += 1
-        arrayKeyAttachApn[index] = prepareObj.attachApnAuthenticationType
-        index += 1
-        arrayKeyAttachApn[index] = prepareObj.attachApnUserName
-        index += 1
-        arrayKeyAttachApn[index] = prepareObj.attachApnPassword
-        index += 1
-        //arrayKeyAttachApn[index] = prepareObj.attachApnProxyServer
-        //index += 1
-        //arrayKeyAttachApn[index] = prepareObj.attachApnProxyServerPort
+        for index in 0..<ApnProfileObject.KeyAPNs.max.rawValue {
+            if let keyApns = ApnProfileObject.KeyAPNs(rawValue: index) {
+                arrayKeyAttachApn[index] = keyApns.getPreparedAttachValue(prepareObj: prepareObj)
+            }
+        }
     }
     
     func keepApnProfileColumnValue(_ type: ApnSummaryObject.ApnInfoColumn, column: ApnProfileObject.KeyAPNs, newText: String) {

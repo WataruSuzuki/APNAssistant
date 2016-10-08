@@ -72,11 +72,11 @@ class MainTabBarController: UITabBarController {
         
         let results = ApnSummaryObject.getFavoriteLists()
         let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
-        let shortcutApn = results.objects(with: NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as! ApnSummaryObject
-        
-        let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
-        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
-        UIApplication.shared.openURL(url)
+        if let shortcutApn = results.objects(with: NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as? ApnSummaryObject {
+            let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
+            let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
+            UIApplication.shared.openURL(url)
+        }
     }
     
     func loadTabBarTitle() {

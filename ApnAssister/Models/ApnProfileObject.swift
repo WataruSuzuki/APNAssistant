@@ -46,7 +46,7 @@ class ApnProfileObject: RLMObject {
                 self.attachApnName = newText
             }
             
-        case .authentication_TYPE:
+        case .authentication_type:
             if type == .apns {
                 self.apnsAuthenticationType = (newText.isEmpty ? "CHAP" : newText)
             } else {
@@ -67,12 +67,12 @@ class ApnProfileObject: RLMObject {
                 self.attachApnPassword = newText
             }
             
-        case .proxy_SERVER:
+        case .proxy_server:
             if type == .apns {
                 self.apnsProxyServer = newText
             }
             
-        case .proxy_SERVER_PORT:
+        case .proxy_server_port:
             if type == .apns {
                 self.apnsProxyServerPort = newText
             }
@@ -84,11 +84,11 @@ class ApnProfileObject: RLMObject {
     
     enum KeyAPNs : Int {
         case name = 0,
-        authentication_TYPE,
+        authentication_type,
         username,
         password,
-        proxy_SERVER,
-        proxy_SERVER_PORT,
+        proxy_server,
+        proxy_server_port,
         max
         
         init(tag: String) {
@@ -96,15 +96,15 @@ class ApnProfileObject: RLMObject {
             case ProfileXmlTag.Name:
                 self = .name
             case ProfileXmlTag.AuthenticationType:
-                self = .authentication_TYPE
+                self = .authentication_type
             case ProfileXmlTag.Username:
                 self = .username
             case ProfileXmlTag.Password:
                 self = .password
             case ProfileXmlTag.ProxyServer:
-                self = .proxy_SERVER
+                self = .proxy_server
             case ProfileXmlTag.ProxyPort:
-                self = .proxy_SERVER_PORT
+                self = .proxy_server_port
             default:
                 self = .max
             }
@@ -114,16 +114,52 @@ class ApnProfileObject: RLMObject {
             switch self {
             case KeyAPNs.name:
                 return NSLocalizedString((type == .apns ? "keyApnsName" : "keyAttachApnName"), comment: "")
-            case KeyAPNs.authentication_TYPE:
+            case KeyAPNs.authentication_type:
                 return NSLocalizedString((type == .apns ? "keyApnsAuthenticationType" : "keyAttachApnAuthenticationType"), comment: "")
             case KeyAPNs.username:
                 return NSLocalizedString((type == .apns ? "keyApnsUsername" : "keyAttachApnUsername"), comment: "")
             case KeyAPNs.password:
                 return NSLocalizedString((type == .apns ? "keyApnsPassword" : "keyAttachApnPassword"), comment: "")
-            case KeyAPNs.proxy_SERVER:
+            case KeyAPNs.proxy_server:
                 return NSLocalizedString((type == .apns ? "keyApnsProxyServer" : "keyAttachApnProxyServer"), comment: "")
-            case KeyAPNs.proxy_SERVER_PORT:
+            case KeyAPNs.proxy_server_port:
                 return NSLocalizedString((type == .apns ? "keyApnsProxyServerPort" : "keyAttachApnProxyServerPort"), comment: "")
+            default:
+                return ""
+            }
+        }
+        
+        func getPreparedAPNValue(prepareObj: ApnProfileObject) -> String {
+            switch self {
+            case .name:
+                return prepareObj.apnsName
+            case .authentication_type:
+                return prepareObj.apnsAuthenticationType
+            case .username:
+                return prepareObj.apnsUserName
+            case .password:
+                return prepareObj.apnsPassword
+            case.proxy_server:
+                return prepareObj.apnsProxyServer
+            case .proxy_server_port:
+                return prepareObj.apnsProxyServerPort
+                
+            default:
+                return ""
+            }
+        }
+        
+        func getPreparedAttachValue(prepareObj: ApnProfileObject) -> String {
+            switch self {
+            case .name:
+                return prepareObj.attachApnName
+            case .authentication_type:
+                return prepareObj.attachApnAuthenticationType
+            case .username:
+                return prepareObj.attachApnUserName
+            case .password:
+                return prepareObj.attachApnPassword
+                
             default:
                 return ""
             }

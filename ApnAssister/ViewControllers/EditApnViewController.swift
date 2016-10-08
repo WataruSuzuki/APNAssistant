@@ -99,7 +99,7 @@ class EditApnViewController: UITableViewController,
         default: break
         }
         
-        if indexPath.row == ApnProfileObject.KeyAPNs.authentication_TYPE.rawValue {
+        if indexPath.row == ApnProfileObject.KeyAPNs.authentication_type.rawValue {
             return loadSegmentedCtrlCell(tableView, cellForRowAtIndexPath: indexPath)
         } else {
             return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
@@ -184,7 +184,7 @@ class EditApnViewController: UITableViewController,
         cell.myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
         
         switch typeAndColumn.1 {
-        case ApnProfileObject.KeyAPNs.proxy_SERVER_PORT:
+        case ApnProfileObject.KeyAPNs.proxy_server_port:
             cell.myUITextField.keyboardType = .numberPad
             cell.myUITextField.isSecureTextEntry = false
             

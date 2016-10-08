@@ -12,7 +12,7 @@ class AccountManageViewController: UITableViewController {
     
     let appStatus = UtilAppStatus()
     
-    var authInfo: FIRAuth?
+//    var authInfo: FIRAuth?
     var passStr = ""
     var emailStr = ""
 
@@ -25,7 +25,7 @@ class AccountManageViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         registerCustomCell("TextFieldCell")
-        authInfo = FIRAuth.auth()
+//        authInfo = FIRAuth.auth()
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,7 +93,7 @@ class AccountManageViewController: UITableViewController {
         case .email:
             cell.myUITextField.keyboardType = .emailAddress
             cell.myUITextField.isSecureTextEntry = false
-            cell.myUITextField.text = authInfo?.currentUser?.email
+//            cell.myUITextField.text = authInfo?.currentUser?.email
             
         case .password:
             cell.myUITextField.keyboardType = .default
@@ -166,12 +166,12 @@ class AccountManageViewController: UITableViewController {
         let sectionAccount = SectionAccount(rawValue: section)!
         switch sectionAccount {
         case .signOn:
-            if let email = authInfo?.currentUser?.email {
-                appStatus.checkSignInSuccess(email)
-                if appStatus.isAvailableAllFunction() {
-                    return NSLocalizedString("message_signon", comment: "")
-                }
-            }
+//            if let email = authInfo?.currentUser?.email {
+//                appStatus.checkSignInSuccess(email)
+//                if appStatus.isAvailableAllFunction() {
+//                    return NSLocalizedString("message_signon", comment: "")
+//                }
+//            }
             fallthrough
         default:
             return ""
@@ -204,103 +204,103 @@ class AccountManageViewController: UITableViewController {
     }
     
     func createUser() {
-        FIRAuth.auth()?.createUser(withEmail: emailStr, password: passStr, completion: { (user, error) in
-            if let error = error {
-                print("Creating the user failed! \(error)")
-                self.handleFIRAuthError(error as NSError)
-                return
-            }
-            
-            if let user = user {
-                print("user : \(user.email) has been created successfully.")
-                self.appStatus.checkSignInSuccess(user.email!)
-            }
-        })
+//        FIRAuth.auth()?.createUser(withEmail: emailStr, password: passStr, completion: { (user, error) in
+//            if let error = error {
+//                print("Creating the user failed! \(error)")
+//                self.handleFIRAuthError(error as NSError)
+//                return
+//            }
+//            
+//            if let user = user {
+//                print("user : \(user.email) has been created successfully.")
+//                self.appStatus.checkSignInSuccess(user.email!)
+//            }
+//        })
     }
     
     func signIn() {
-        FIRAuth.auth()?.signIn(withEmail: emailStr, password: passStr, completion: { (user, error) in
-            if let error = error {
-                print("login failed! \(error)")
-                self.handleFIRAuthError(error as NSError)
-                return
-            }
-            
-            if let user = user {
-                print("user : \(user.email) has been signed in successfully.")
-                if self.appStatus.checkSignInSuccess(user.email!) {
-                    let message = NSLocalizedString("success", comment: "") + "\n" + NSLocalizedString("please_restart_app", comment: "")
-                    self.showCompAlertController(message, errorCode: nil)
-                    return
-                }
-            }
-            self.showCompAlertController(NSLocalizedString("success", comment: ""), errorCode: nil)
-        })
+//        FIRAuth.auth()?.signIn(withEmail: emailStr, password: passStr, completion: { (user, error) in
+//            if let error = error {
+//                print("login failed! \(error)")
+//                self.handleFIRAuthError(error as NSError)
+//                return
+//            }
+//            
+//            if let user = user {
+//                print("user : \(user.email) has been signed in successfully.")
+//                if self.appStatus.checkSignInSuccess(user.email!) {
+//                    let message = NSLocalizedString("success", comment: "") + "\n" + NSLocalizedString("please_restart_app", comment: "")
+//                    self.showCompAlertController(message, errorCode: nil)
+//                    return
+//                }
+//            }
+//            self.showCompAlertController(NSLocalizedString("success", comment: ""), errorCode: nil)
+//        })
     }
     
     func handleFIRAuthError(_ error: NSError) {
-        if let authErrorCode = FIRAuthErrorCode(rawValue: error.code) {
-            let key: String!
-            switch authErrorCode {
-            case FIRAuthErrorCode.errorCodeInvalidCustomToken:
-                key = "ErrorCodeInvalidCustomToken"
-            case FIRAuthErrorCode.errorCodeCustomTokenMismatch:
-                key = "ErrorCodeCustomTokenMismatch"
-            case FIRAuthErrorCode.errorCodeInvalidCredential:
-                key = "ErrorCodeInvalidCredential"
-            case FIRAuthErrorCode.errorCodeUserDisabled:
-                key = "ErrorCodeUserDisabled"
-            case FIRAuthErrorCode.errorCodeOperationNotAllowed:
-                key = "ErrorCodeOperationNotAllowed"
-            case FIRAuthErrorCode.errorCodeEmailAlreadyInUse:
-                key = "ErrorCodeEmailAlreadyInUse"
-            case FIRAuthErrorCode.errorCodeInvalidEmail:
-                key = "ErrorCodeInvalidEmail"
-            case FIRAuthErrorCode.errorCodeWrongPassword:
-                key = "ErrorCodeWrongPassword"
-            case FIRAuthErrorCode.errorCodeTooManyRequests:
-                key = "ErrorCodeTooManyRequests"
-            case FIRAuthErrorCode.errorCodeUserNotFound:
-                key = "ErrorCodeUserNotFound"
-            case FIRAuthErrorCode.errorCodeRequiresRecentLogin:
-                key = "ErrorCodeRequiresRecentLogin"
-            case FIRAuthErrorCode.errorCodeNoSuchProvider:
-                key = "ErrorCodeNoSuchProvider"
-            case FIRAuthErrorCode.errorCodeProviderAlreadyLinked:
-                key = "ErrorCodeProviderAlreadyLinked"
-            case FIRAuthErrorCode.errorCodeInvalidUserToken:
-                key = "ErrorCodeInvalidUserToken"
-            case FIRAuthErrorCode.errorCodeNetworkError:
-                key = "ErrorCodeNetworkError"
-            case FIRAuthErrorCode.errorCodeUserTokenExpired:
-                key = "ErrorCodeUserTokenExpired"
-            case FIRAuthErrorCode.errorCodeInvalidAPIKey:
-                key = "ErrorCodeInvalidAPIKey"
-            case FIRAuthErrorCode.errorCodeUserMismatch:
-                key = "ErrorCodeUserMismatch"
-            case FIRAuthErrorCode.errorCodeCredentialAlreadyInUse:
-                key = "ErrorCodeCredentialAlreadyInUse"
-            case FIRAuthErrorCode.errorCodeWeakPassword:
-                key = "ErrorCodeWeakPassword"
-            case FIRAuthErrorCode.errorCodeAppNotAuthorized:
-                key = "ErrorCodeAppNotAuthorized"
-            case FIRAuthErrorCode.errorCodeKeychainError:
-                key = "ErrorCodeKeychainError"
-            default:
-                key = "ErrorCodeInternalError"
-            }
-            showCompAlertController(key, errorCode: String(error.code))
-        }
+//        if let authErrorCode = FIRAuthErrorCode(rawValue: error.code) {
+//            let key: String!
+//            switch authErrorCode {
+//            case FIRAuthErrorCode.errorCodeInvalidCustomToken:
+//                key = "ErrorCodeInvalidCustomToken"
+//            case FIRAuthErrorCode.errorCodeCustomTokenMismatch:
+//                key = "ErrorCodeCustomTokenMismatch"
+//            case FIRAuthErrorCode.errorCodeInvalidCredential:
+//                key = "ErrorCodeInvalidCredential"
+//            case FIRAuthErrorCode.errorCodeUserDisabled:
+//                key = "ErrorCodeUserDisabled"
+//            case FIRAuthErrorCode.errorCodeOperationNotAllowed:
+//                key = "ErrorCodeOperationNotAllowed"
+//            case FIRAuthErrorCode.errorCodeEmailAlreadyInUse:
+//                key = "ErrorCodeEmailAlreadyInUse"
+//            case FIRAuthErrorCode.errorCodeInvalidEmail:
+//                key = "ErrorCodeInvalidEmail"
+//            case FIRAuthErrorCode.errorCodeWrongPassword:
+//                key = "ErrorCodeWrongPassword"
+//            case FIRAuthErrorCode.errorCodeTooManyRequests:
+//                key = "ErrorCodeTooManyRequests"
+//            case FIRAuthErrorCode.errorCodeUserNotFound:
+//                key = "ErrorCodeUserNotFound"
+//            case FIRAuthErrorCode.errorCodeRequiresRecentLogin:
+//                key = "ErrorCodeRequiresRecentLogin"
+//            case FIRAuthErrorCode.errorCodeNoSuchProvider:
+//                key = "ErrorCodeNoSuchProvider"
+//            case FIRAuthErrorCode.errorCodeProviderAlreadyLinked:
+//                key = "ErrorCodeProviderAlreadyLinked"
+//            case FIRAuthErrorCode.errorCodeInvalidUserToken:
+//                key = "ErrorCodeInvalidUserToken"
+//            case FIRAuthErrorCode.errorCodeNetworkError:
+//                key = "ErrorCodeNetworkError"
+//            case FIRAuthErrorCode.errorCodeUserTokenExpired:
+//                key = "ErrorCodeUserTokenExpired"
+//            case FIRAuthErrorCode.errorCodeInvalidAPIKey:
+//                key = "ErrorCodeInvalidAPIKey"
+//            case FIRAuthErrorCode.errorCodeUserMismatch:
+//                key = "ErrorCodeUserMismatch"
+//            case FIRAuthErrorCode.errorCodeCredentialAlreadyInUse:
+//                key = "ErrorCodeCredentialAlreadyInUse"
+//            case FIRAuthErrorCode.errorCodeWeakPassword:
+//                key = "ErrorCodeWeakPassword"
+//            case FIRAuthErrorCode.errorCodeAppNotAuthorized:
+//                key = "ErrorCodeAppNotAuthorized"
+//            case FIRAuthErrorCode.errorCodeKeychainError:
+//                key = "ErrorCodeKeychainError"
+//            default:
+//                key = "ErrorCodeInternalError"
+//            }
+//            showCompAlertController(key, errorCode: String(error.code))
+//        }
     }
     
     func signOut() {
-        UtilUserDefaults().isSignInSuccess = false
-        do {
-            try FIRAuth.auth()?.signOut()
-            showCompAlertController(NSLocalizedString("success", comment: ""), errorCode: nil)
-        } catch {
-            print(error)
-        }
+//        UtilUserDefaults().isSignInSuccess = false
+//        do {
+//            try FIRAuth.auth()?.signOut()
+//            showCompAlertController(NSLocalizedString("success", comment: ""), errorCode: nil)
+//        } catch {
+//            print(error)
+//        }
     }
     
     enum RowInput: Int {

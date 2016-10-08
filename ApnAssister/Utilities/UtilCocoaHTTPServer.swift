@@ -158,11 +158,7 @@ class UtilCocoaHTTPServer: NSObject,
         writeMobileConfigProfile(rlmObject, fileName: fileNameSetting)
         startCocoaHTTPServer()
         
-        if #available(iOS 9.0, *) {
-            return URL(string: "http://localhost:8080")!
-        } else {
-            return URL(string: "http://localhost:8080" + "/" + fileNameSetting + ".mobileconfig")!
-        }
+        return URL(string: "http://localhost:8080")!
     }
     
     func copyHtmlFilesFromResource(_ fileManager: FileManager, fileName: String, fileType: String) {

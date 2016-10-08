@@ -31,7 +31,7 @@ class MainTabBarController: UITabBarController {
         super.viewWillAppear(animated)
         
         if !appStatus.isAvailableAllFunction() {
-            appStatus.checkActualAppVersion()
+            appStatus.startCheckActualAppVersion()
         }
     }
     
@@ -72,11 +72,13 @@ class MainTabBarController: UITabBarController {
         
         let results = ApnSummaryObject.getFavoriteLists()
         let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
-        let shortcutApn = results.objects(with: NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as! ApnSummaryObject
         
-        let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
-        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
-        UIApplication.shared.openURL(url)
+        if let shortcutApn = results.object(at: UInt(shortcut!.rawValue - 1)) as? ApnSummaryObject {
+        //if let shortcutApn = results.objects(with: NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as? ApnSummaryObject {
+            let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
+            let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
+            UIApplication.shared.openURL(url)
+        }
     }
     
     func loadTabBarTitle() {
@@ -90,10 +92,10 @@ class MainTabBarController: UITabBarController {
     func hiddenSomeTabbar() {
         var controllers = self.viewControllers
         #if IS_APN_MEMO
-            controllers?.removeAtIndex(TabIndex.AvailableList.rawValue)
+            controllers?.remove(at: TabIndex.availableList.rawValue)
         #elseif IS_APN_BOOKMARKS
-            controllers?.removeAtIndex(TabIndex.ProfileList.rawValue)
-            controllers?.removeAtIndex(TabIndex.FavoriteList.rawValue)
+            controllers?.remove(at: TabIndex.profileList.rawValue)
+            controllers?.remove(at: TabIndex.favoriteList.rawValue)
         #else
             //do nothing
             return
@@ -118,7 +120,7 @@ class MainTabBarController: UITabBarController {
         #if IS_APN_MEMO
             UIView.appearance().tintColor = nil
         #elseif IS_APN_BOOKMARKS
-            UIView.appearance().tintColor = UIColor.blackColor()
+            UIView.appearance().tintColor = UIColor.black
         #else
             //Use Storyboard defined.
         #endif

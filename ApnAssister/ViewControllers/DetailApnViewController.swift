@@ -108,6 +108,9 @@ class DetailApnViewController: UITableViewController,
     func didFinishEditApn(_ newObj: ApnSummaryObject) {
         myApnSummaryObject = newObj
         loadTargetSummaryObj()
+        if #available(iOS 9.0, *) {
+            UtilShortcutLaunch().initDynamicShortcuts(UIApplication.shared)
+        }
         
         self.tableView.reloadData()
     }

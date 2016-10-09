@@ -19,8 +19,7 @@ class ProgressIndicatorView: UIView {
         let nib = UINib(nibName: "ProgressIndicatorView", bundle: nil)
         let view = nib.instantiate(withOwner: nil, options: nil)[0] as! ProgressIndicatorView
         
-        view.frame.size.width = frame.size.width
-        view.frame.size.height = frame.size.height
+        view.frame = frame
         
         return view
     }

@@ -49,7 +49,7 @@ edit = "編集する";
 cache = "キープする";
 
 tutorial_message = "まだAPNプロファイルがありません。こちらから作成しましょう!!";
-latest_set_profile = "アプリからこの端末にセットしたプロファイル";
+latest_set_profile = "このアプリから端末にセットしたプロファイル";
 unknown = "不明です...";
 openApp = "アプリ起動";
 

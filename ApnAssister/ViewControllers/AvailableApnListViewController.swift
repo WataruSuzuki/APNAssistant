@@ -264,6 +264,8 @@ class AvailableApnListViewController: UITableViewController,
         }
         self.view.addSubview(progressView)
         self.tableView.isScrollEnabled = false
+        
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func updateProgress() {
@@ -272,6 +274,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func stopProgressView() {
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
         self.tableView.isScrollEnabled = true
         progressView.removeFromSuperview()
     }

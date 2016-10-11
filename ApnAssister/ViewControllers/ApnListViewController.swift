@@ -25,7 +25,7 @@ class ApnListViewController: UITableViewController,
     var previewApnSummaryObj: ApnSummaryObject?
     //var searchedApnSummaryObjs: RLMResults!
     
-    @IBOutlet var apnSearchBar: UISearchBar!
+    @IBOutlet weak var apnSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()

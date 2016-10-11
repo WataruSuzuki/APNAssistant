@@ -9,6 +9,8 @@
 import UIKit
 
 class AvailableApnListViewController: UITableViewController,
+    UISearchDisplayDelegate,
+    UISearchBarDelegate,
     UIAlertViewDelegate, UIActionSheetDelegate,
     URLSessionDownloadDelegate
 {
@@ -20,8 +22,10 @@ class AvailableApnListViewController: UITableViewController,
     var progressView: ProgressIndicatorView!
     var cachedObj: ApnSummaryObject!
     var isUpdateConfirm = false
+    var targetProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.MAX.rawValue)
     
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
+    @IBOutlet weak var profileSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,8 @@ class AvailableApnListViewController: UITableViewController,
         let jsonRefreshControl = UIRefreshControl()
         jsonRefreshControl.addTarget(self, action: #selector(AvailableApnListViewController.startJsonFileDownload), for: .valueChanged)
         self.refreshControl = jsonRefreshControl
+        
+        self.tableView.keyboardDismissMode = .interactive
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,19 +55,18 @@ class AvailableApnListViewController: UITableViewController,
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return myAvailableUpdateHelper.publicProfileList.count
+        return targetProfileList.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myAvailableUpdateHelper.publicProfileList[section].count
+        return targetProfileList[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DownloadProfileListCell", for: indexPath)
 
-        let items = myAvailableUpdateHelper.publicProfileList[indexPath.section] as NSArray
+        let items = targetProfileList[indexPath.section] as NSArray
         let item = items[indexPath.row] as! NSDictionary
         cell.textLabel?.text = item.object(forKey: DownloadProfiles.profileName) as? String
 
@@ -69,7 +74,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if myAvailableUpdateHelper.publicProfileList[section].count == 0 {
+        if targetProfileList[section].count == 0 {
             return ""
         }
         let jsonName = DownloadProfiles.json(rawValue: section)!
@@ -110,6 +115,7 @@ class AvailableApnListViewController: UITableViewController,
     
     func reloadCachedData() {
         self.myAvailableUpdateHelper.loadCachedJsonList()
+        targetProfileList = myAvailableUpdateHelper.publicProfileList
         self.tableView.reloadData()
     }
     
@@ -118,7 +124,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func getTargetUrl(_ selectedIndexPath: IndexPath) -> URL {
-        let profileData = myAvailableUpdateHelper.publicProfileList[(selectedIndexPath as NSIndexPath).section]
+        let profileData = targetProfileList[(selectedIndexPath as NSIndexPath).section]
         let item = profileData[selectedIndexPath.row] as! NSDictionary
         let urlPath = item.object(forKey: DownloadProfiles.profileUrl) as! String
         return URL(string: urlPath)!
@@ -184,6 +190,58 @@ class AvailableApnListViewController: UITableViewController,
         }
     }
     
+    // MARK: - UISearchDisplayDelegate
+    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
+        loadTargetProfileList(searchString!)
+        return true
+    }
+    
+    // MARK: - UISearchBarDelegate
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (text.isEmpty
+            ? searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location))
+            : searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location)) + text
+        )
+        loadTargetProfileList(newText)
+        return true
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        loadTargetProfileList(searchText)
+    }
+    
+    func loadTargetProfileList(_ searchString: String) {
+        if searchString.isEmpty {
+            targetProfileList = myAvailableUpdateHelper.publicProfileList
+        } else {
+            targetProfileList = filteringTargetProfileList(searchString: searchString)
+        }
+        self.tableView.reloadData()
+    }
+    
+    func filteringTargetProfileList(searchString: String) -> [NSArray] {
+        var profileList = myAvailableUpdateHelper.publicProfileList
+        
+        let sectionCount = profileList.count
+        for section in 0..<sectionCount {
+            let items = NSMutableArray(array: profileList[section])
+            let rowCount = items.count
+            for row in (0..<rowCount).reversed() {
+                let item = items[row] as! NSDictionary
+                if let name = item.object(forKey: DownloadProfiles.profileName) as? String {
+                    if name.contains(searchString) {
+                        //Hit!!
+                    } else {
+                        items.removeObject(at: row)
+                    }
+                }
+            }
+            profileList[section] = items
+        }
+        
+        return profileList
+    }
+    
     // MARK: - Action
     @IBAction func tapRefreshBarButton(_ sender: UIBarButtonItem) {
         startJsonFileDownload()
@@ -211,6 +269,7 @@ class AvailableApnListViewController: UITableViewController,
             let countryUrl = myAvailableUpdateHelper.getCountryFileUrl(response)
             let section = myAvailableUpdateHelper.getUpdateIndexSection(countryUrl!)
             if section != DownloadProfiles.ERROR_INDEX {
+                targetProfileList = myAvailableUpdateHelper.publicProfileList
                 self.tableView.reloadData()
                 //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
             }

@@ -21,9 +21,8 @@ So, I'll release source code to Open Source.
 You can use this app if you have a Apple Developer Program License.  
 
 And I released new version, some upgraded.  
+[New upgraded version](https://itunes.apple.com/jp/app/apnashisutanto2/id1160309695?mt=8&ign-mpt=uo%3D4)  
+![](assistant2.png)
 
-[New upgraded app](https://itunes.apple.com/jp/app/apnashisutanto2/id1160309695?mt=8&ign-mpt=uo%3D4)
-
-[Lite app](https://itunes.apple.com/app/apn-memo/id1158896621?mt=8)
-
-
+[Lite version](https://itunes.apple.com/app/apn-memo/id1158896621?mt=8)  
+![](memo.png)

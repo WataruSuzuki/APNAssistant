@@ -93,9 +93,6 @@ class MainTabBarController: UITabBarController {
         var controllers = self.viewControllers
         #if IS_APN_MEMO
             controllers?.remove(at: TabIndex.availableList.rawValue)
-        #elseif IS_APN_BOOKMARKS
-            controllers?.remove(at: TabIndex.profileList.rawValue)
-            controllers?.remove(at: TabIndex.favoriteList.rawValue)
         #else
             //do nothing
             return
@@ -119,8 +116,6 @@ class MainTabBarController: UITabBarController {
     func setupTintColor() {
         #if IS_APN_MEMO
             UIView.appearance().tintColor = nil
-        #elseif IS_APN_BOOKMARKS
-            UIView.appearance().tintColor = UIColor.black
         #else
             //Use Storyboard defined.
         #endif

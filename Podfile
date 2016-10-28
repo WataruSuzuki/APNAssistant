@@ -21,15 +21,6 @@ target "ApnMemo" do
   pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 
-target "ApnBookmarks" do
-  inherit! :search_paths
-  pod 'CocoaAsyncSocket'
-  pod 'CocoaHTTPServer'
-  pod 'Realm'
-  pod 'CMPopTipView'
-  pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
-end
-
 target "TodayWidget" do
   inherit! :search_paths
   pod 'CocoaAsyncSocket'

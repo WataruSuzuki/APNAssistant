@@ -1204,7 +1204,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D IS_APN_ASSISTER";
+				OTHER_SWIFT_FLAGS = "-D FULL_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
 				PRODUCT_NAME = ApnAssister2;
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
@@ -1225,7 +1225,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ApnAssister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D IS_APN_ASSISTER";
+				OTHER_SWIFT_FLAGS = "-D FULL_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
 				PRODUCT_NAME = ApnAssister2;
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";

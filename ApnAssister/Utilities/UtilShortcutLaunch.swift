@@ -25,7 +25,7 @@ class UtilShortcutLaunch: NSObject {
     
     @available(iOS 9.0, *)
     func shouldPerformAdditionalDelegateHandling(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
-        #if IS_APN_ASSISTER
+        #if FULL_VERSION
             // Install initial versions of our two extra dynamic shortcuts.
             initDynamicShortcuts(application)
             
@@ -37,13 +37,13 @@ class UtilShortcutLaunch: NSObject {
                 // This will block "performActionForShortcutItem:completionHandler" from being called.
                 return false
             }
-        #endif//IS_APN_ASSISTER
+        #endif//FULL_VERSION
         return true
     }
     
     @available(iOS 9.0, *)
     func initDynamicShortcuts(_ application: UIApplication) {
-        #if IS_APN_ASSISTER
+        #if FULL_VERSION
             var loadedItems = [UIApplicationShortcutItem]()
             let favorites = ApnSummaryObject.getFavoriteLists()
             
@@ -53,7 +53,7 @@ class UtilShortcutLaunch: NSObject {
                 loadedItems.append(shortcut)
             }
             application.shortcutItems = loadedItems
-        #endif//IS_APN_ASSISTER
+        #endif//FULL_VERSION
     }
     
     @available(iOS 9.0, *)

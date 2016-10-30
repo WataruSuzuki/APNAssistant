@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UtilHandleRLMObject.copyToGroupDB()
         UtilHandleRLMObject.setupGroupDB()
         
-        #if IS_APN_ASSISTER
+        #if FULL_VERSION
             FIROptions.default().deepLinkURLScheme = "jchankchanapnassistant://"
             FIRApp.configure()
         #endif
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        #if IS_APN_ASSISTER
+        #if FULL_VERSION
             if let dynamicLink = FIRDynamicLinks.dynamicLinks()?.dynamicLink(fromCustomSchemeURL: url) {
                 // Handle the deep link. For example, show the deep-linked content or
                 // apply a promotional offer to the user's account.
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 8.0, *)
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        #if IS_APN_ASSISTER
+        #if FULL_VERSION
             let handled = FIRDynamicLinks.dynamicLinks()?.handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
                 // ...
             }

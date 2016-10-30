@@ -67,7 +67,7 @@ class UtilAppStatus: NSObject {
     }
     
     func isAppUpdated() -> Bool {
-        #if false//IS_APN_ASSISTER
+        #if false//FULL_VERSION
             //do nothing
         #else
             let ud = UtilUserDefaults()
@@ -109,7 +109,7 @@ class UtilAppStatus: NSObject {
             return true
         #elseif IS_APN_MEMO
             return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnbookmarks://")!)
-        #elseif IS_APN_ASSISTER
+        #elseif FULL_VERSION
             return UtilAppStatus().isAvailableAllFunction()
         #else
             return true

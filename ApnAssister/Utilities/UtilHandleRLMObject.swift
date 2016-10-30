@@ -134,8 +134,10 @@ class UtilHandleRLMObject: NSObject {
     }
     
     static func setupGroupDB() {
-        let containerURL = getDefaultRealmDatabaseURL(getDatabasePathOfAppGroupPathURL())
-        print(containerURL?.path)
+        guard let containerURL = getDefaultRealmDatabaseURL(getDatabasePathOfAppGroupPathURL()) else {
+            return
+        }
+        print(containerURL.path)
         
         let config = RLMRealmConfiguration.default()
         config.fileURL = containerURL

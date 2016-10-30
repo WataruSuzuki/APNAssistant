@@ -148,7 +148,7 @@ class AvailableApnListViewController: UITableViewController,
                     }
                 }
             }
-            print(error)
+            print(error as Any)
             DispatchQueue.main.async(execute: {
                 self.appStatus.stopIndicator()
                 if let nsError = error as? NSError {

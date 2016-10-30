@@ -30,7 +30,7 @@ class UtilAppStatus: NSObject {
     }
     
     func isAvailableAllFunction() -> Bool {
-        #if DEBUG//DEBUG_SWIFT_XCODE7
+        #if DEBUG
             //allways available
         #else
             if !UtilUserDefaults().isAvailableStore
@@ -105,9 +105,9 @@ class UtilAppStatus: NSObject {
     }
     
     func isShowImportantMenu() -> Bool {
-        #if DEBUG//DEBUG_SWIFT_XCODE7
+        #if DEBUG
             return true
-        #elseif IS_APN_MEMO
+        #elseif STAND_ALONE_VERSION
             return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnbookmarks://")!)
         #elseif FULL_VERSION
             return UtilAppStatus().isAvailableAllFunction()

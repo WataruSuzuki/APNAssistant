@@ -91,7 +91,7 @@ class MainTabBarController: UITabBarController {
     
     func hiddenSomeTabbar() {
         var controllers = self.viewControllers
-        #if IS_APN_MEMO
+        #if STAND_ALONE_VERSION
             controllers?.remove(at: TabIndex.availableList.rawValue)
         #else
             //do nothing
@@ -114,7 +114,7 @@ class MainTabBarController: UITabBarController {
     }
     
     func setupTintColor() {
-        #if IS_APN_MEMO
+        #if STAND_ALONE_VERSION
             UIView.appearance().tintColor = nil
         #else
             //Use Storyboard defined.

@@ -1323,7 +1323,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ApnMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D IS_APN_MEMO";
+				OTHER_SWIFT_FLAGS = "-D STAND_ALONE_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
@@ -1343,7 +1343,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ApnMemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D IS_APN_MEMO";
+				OTHER_SWIFT_FLAGS = "-D STAND_ALONE_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";

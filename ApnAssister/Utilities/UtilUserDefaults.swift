@@ -14,7 +14,6 @@ class UtilUserDefaults: UserDefaults {
 
     fileprivate struct Default {
         static let available_appstore = false
-        static let signin_success = false
         static let memory_version = "0.0.0"
     }
     
@@ -25,21 +24,6 @@ class UtilUserDefaults: UserDefaults {
         }
         set(nextValue) {
             ud.set(nextValue, forKey: "available_appstore")
-            ud.synchronize()
-        }
-    }
-    
-    var isSignInSuccess: Bool {
-        get {
-            ud.register(defaults: ["signin_success": Default.signin_success])
-            #if false
-                return ud.boolForKey("signin_success")
-            #else
-                return true
-            #endif
-        }
-        set(nextValue) {
-            ud.set(nextValue, forKey: "signin_success")
             ud.synchronize()
         }
     }

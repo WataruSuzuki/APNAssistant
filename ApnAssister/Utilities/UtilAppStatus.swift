@@ -34,34 +34,10 @@ class UtilAppStatus: NSObject {
             //allways available
         #else
             if !UtilUserDefaults().isAvailableStore
-                || !UtilUserDefaults().isSignInSuccess
                 || isAppUpdated()
             {
                 return false
             }
-        #endif
-        return true
-    }
-    
-    func checkAccountAuth() -> Bool {
-        #if false
-            if let auth = FIRAuth.auth() {
-                if let user = auth.currentUser {
-                    checkSignInSuccess(user.email!)
-                    return true
-                }
-            }
-            UtilUserDefaults().isSignInSuccess = false
-            return false
-        #endif
-        return true
-    }
-    
-    func checkSignInSuccess(_ userEmail: String) -> Bool {
-        #if false
-            let status = (userEmail != "devjchankchan@gmail.com")
-            UtilUserDefaults().isSignInSuccess = status
-            return status
         #endif
         return true
     }

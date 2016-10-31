@@ -7,7 +7,7 @@ target "ApnAssister2" do
   pod 'Realm'
   pod 'CMPopTipView'
   pod 'Firebase'
-  pod 'Firebase/DynamicLinks'
+  # pod 'Firebase/DynamicLinks'
   pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 

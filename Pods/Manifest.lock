@@ -20,9 +20,6 @@ PODS:
   - Firebase/Core (3.8.0):
     - FirebaseAnalytics (= 3.5.1)
     - FirebaseCore (= 3.4.4)
-  - Firebase/DynamicLinks (3.8.0):
-    - Firebase/Core
-    - FirebaseDynamicLinks (= 1.3.1)
   - FirebaseAnalytics (3.5.1):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
@@ -32,8 +29,6 @@ PODS:
   - FirebaseCore (3.4.4):
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseDynamicLinks (1.3.1):
-    - FirebaseAnalytics (~> 3.4)
   - FirebaseInstanceID (1.0.8)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
@@ -51,7 +46,6 @@ DEPENDENCIES:
   - CocoaHTTPServer
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
   - Firebase
-  - Firebase/DynamicLinks
   - Realm
 
 EXTERNAL SOURCES:
@@ -72,13 +66,12 @@ SPEC CHECKSUMS:
   Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
-  FirebaseDynamicLinks: 33f0d2092de7b30e0670c02d5747a54e70cf7700
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
 
-PODFILE CHECKSUM: b2aefa9fe69db6adff86c15c2870a4a56cff1c77
+PODFILE CHECKSUM: ec37538f34eb97cd65e4a2f7a2a29a6dd6475bb6
 
 COCOAPODS: 1.1.1

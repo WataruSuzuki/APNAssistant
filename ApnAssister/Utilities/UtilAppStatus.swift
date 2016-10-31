@@ -84,7 +84,7 @@ class UtilAppStatus: NSObject {
         #if DEBUG
             return true
         #elseif STAND_ALONE_VERSION
-            return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchanapnbookmarks://")!)
+            return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchandatausagecat://")!)
         #elseif FULL_VERSION
             return UtilAppStatus().isAvailableAllFunction()
         #else

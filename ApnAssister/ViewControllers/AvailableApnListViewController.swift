@@ -82,11 +82,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !appStatus.isAvailableAllFunction() {
-            appStatus.showStatuLimitByApple(self)
-        } else {
-            installProfileFromNetwork(indexPath)
-        }
+        installProfileFromNetwork(indexPath)
     }
     
     func confirmUpdateAvailableList() {

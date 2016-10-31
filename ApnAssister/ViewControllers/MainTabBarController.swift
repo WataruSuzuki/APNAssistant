@@ -26,14 +26,6 @@ class MainTabBarController: UITabBarController {
         hiddenSomeTabbar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if !appStatus.isAvailableAllFunction() {
-            appStatus.startCheckActualAppVersion()
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,11 +56,6 @@ class MainTabBarController: UITabBarController {
     }
     
     func execureShortcutUpdateApn(_ type: String) {
-        guard appStatus.isAvailableAllFunction() else {
-            appStatus.showStatuLimitByApple(self)
-            return
-        }
-        
         let results = ApnSummaryObject.getFavoriteLists()
         let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
         

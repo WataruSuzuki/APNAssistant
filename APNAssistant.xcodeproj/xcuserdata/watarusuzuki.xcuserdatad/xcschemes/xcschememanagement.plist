@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>APNAssistant.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>APNAssistantLite.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>TodayWidget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>96DA6BF11C9B03FD00E424D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96DA6C071C9B03FE00E424D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96DA6C121C9B03FE00E424D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F009F3941D6006A000D428D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F02DA0F31D997944007F6C93</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F02DA12C1D99795B007F6C93</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

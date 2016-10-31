@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33BD8AE26A327F1D860E5BA1 /* libPods-APNAssistantLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */; };
 		600F95691DA2317E00045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
 		600F956B1DA231A200045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
 		600F956C1DA235E700045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
@@ -41,8 +42,8 @@
 		60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */; };
 		60DC0F0E1D6E94FB00A4DD29 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */; };
 		60FCDBA81D86879900DA5726 /* AvailableUpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */; };
-		679E56632082DC9B5AA60097 /* libPods-ApnMemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7066E1C528D83FA6C95E5F /* libPods-ApnMemo.a */; };
-		6D58EEFAC160010639AC0280 /* libPods-ApnAssister2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E669FD92FF0BDF64AF2B64E4 /* libPods-ApnAssister2.a */; };
+		612AF03939ED94BA0E6352D3 /* libPods-APNAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */; };
+		6D58EEFAC160010639AC0280 /* libPods-APNAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */; };
 		96007FB41D963A02000FAE04 /* UtilAppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96007FB31D963A02000FAE04 /* UtilAppStatus.swift */; };
 		9618C8C51D92D1F8008B25F3 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */; };
 		9618C8C71D92D21C008B25F3 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
@@ -56,8 +57,8 @@
 		96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
 		96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
-		96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */; };
-		96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */; };
+		96DA6C0D1C9B03FE00E424D5 /* APNAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */; };
+		96DA6C181C9B03FE00E424D5 /* APNAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */; };
 		E182F50CC564D716129F4139 /* libPods-TodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */; };
 		F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F009F3961D6006A000D428D6 /* NotificationCenter.framework */; };
 		F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3991D6006A100D428D6 /* TodayViewController.swift */; };
@@ -107,14 +108,14 @@
 			containerPortal = 96DA6BEA1C9B03FD00E424D5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 96DA6BF11C9B03FD00E424D5;
-			remoteInfo = ApnAssister;
+			remoteInfo = APNAssistant;
 		};
 		96DA6C141C9B03FE00E424D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96DA6BEA1C9B03FD00E424D5 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 96DA6BF11C9B03FD00E424D5;
-			remoteInfo = ApnAssister;
+			remoteInfo = APNAssistant;
 		};
 		F009F39F1D6006A100D428D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -141,11 +142,10 @@
 
 /* Begin PBXFileReference section */
 		0C7066E1C528D83FA6C95E5F /* libPods-ApnMemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnMemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnAssister.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.debug.xcconfig"; sourceTree = "<group>"; };
+		128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistantLite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D9CFEFEB8283B622418507E /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
 		2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
-		36B84B35EE8DF6D817379645 /* Pods-ApnBookmarks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnBookmarks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks.debug.xcconfig"; sourceTree = "<group>"; };
-		447ECA4EC159403B1CE196C1 /* Pods-ApnMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnMemo/Pods-ApnMemo.debug.xcconfig"; sourceTree = "<group>"; };
 		4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodayWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		600F95681DA2317E00045495 /* MsgNoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgNoDataView.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApnListViewController+Previewing.swift"; sourceTree = "<group>"; };
 		6085D6731D6F1597008FF20A /* UtilShareAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilShareAction.swift; sourceTree = "<group>"; };
 		60AA73A51C9BA3DD00E41CAE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ApnAssister-Bridging-Header.h"; sourceTree = "<group>"; };
+		60AA73A81C9BA77C00E41CAE /* APNAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APNAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
 		60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteApnListViewController.swift; sourceTree = "<group>"; };
 		60BEE4FB1CA3E0EE005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		60BEE4FC1CA3E0EF005B86B9 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -185,9 +185,8 @@
 		60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableUpdateHelper.swift; sourceTree = "<group>"; };
 		6A78525D0FE48CB6F5F6435F /* libPods-ApnBookmarks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnBookmarks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister/Pods-ApnAssister.release.xcconfig"; sourceTree = "<group>"; };
-		90C2D6408ECDE2931D748ADE /* Pods-ApnBookmarks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnBookmarks.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnBookmarks/Pods-ApnBookmarks.release.xcconfig"; sourceTree = "<group>"; };
-		91DC163925F165B50CB55BA8 /* Pods-ApnAssister2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister2.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister2/Pods-ApnAssister2.release.xcconfig"; sourceTree = "<group>"; };
+		84D32C0BC91843370CFD7DA5 /* Pods-APNAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.release.xcconfig"; sourceTree = "<group>"; };
+		91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.release.xcconfig"; sourceTree = "<group>"; };
 		96007FB31D963A02000FAE04 /* UtilAppStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAppStatus.swift; sourceTree = "<group>"; };
 		9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressIndicatorView.xib; sourceTree = "<group>"; };
@@ -197,21 +196,21 @@
 		9651C21D1D9BA27C008A4A9D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		965C7C951D955064007E0A26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutThisAppViewController.swift; sourceTree = "<group>"; };
-		96DA6BF21C9B03FD00E424D5 /* ApnAssister2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnAssister2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DA6BFC1C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DA6C011C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96DA6C031C9B03FD00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C081C9B03FE00E424D5 /* ApnAssister2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssister2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterTests.swift; sourceTree = "<group>"; };
+		96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistant.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNAssistantTests.swift; sourceTree = "<group>"; };
 		96DA6C0E1C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C131C9B03FE00E424D5 /* ApnAssister2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApnAssister2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApnAssisterUITests.swift; sourceTree = "<group>"; };
+		96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistant.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNAssistantUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9683B2EB997F294A51F39E2 /* Pods-ApnMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApnMemo/Pods-ApnMemo.release.xcconfig"; sourceTree = "<group>"; };
-		C0F77DB63DFB28631659C55F /* Pods-ApnAssister2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApnAssister2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApnAssister2/Pods-ApnAssister2.debug.xcconfig"; sourceTree = "<group>"; };
-		E669FD92FF0BDF64AF2B64E4 /* libPods-ApnAssister2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnAssister2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.release.xcconfig"; sourceTree = "<group>"; };
+		E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3961D6006A000D428D6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F009F3991D6006A100D428D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -220,11 +219,12 @@
 		F009F3A61D60088A00D428D6 /* TodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayWidget.entitlements; sourceTree = "<group>"; };
 		F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnProfileObject.swift; sourceTree = "<group>"; };
 		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
-		F02DA12A1D997944007F6C93 /* ApnMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApnMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnAssister.entitlements; sourceTree = "<group>"; };
+		F02DA12A1D997944007F6C93 /* APNAssistantLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNAssistantLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F06AD47C1D5D859B007B0842 /* APNAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = APNAssistant.entitlements; sourceTree = "<group>"; };
 		F07BB2231DA0116200728B9D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0A74DCB1D9BBBE0009D799E /* ApnMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnMemo.entitlements; sourceTree = "<group>"; };
 		F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAlertSheet.swift; sourceTree = "<group>"; };
+		FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +232,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D58EEFAC160010639AC0280 /* libPods-ApnAssister2.a in Frameworks */,
+				6D58EEFAC160010639AC0280 /* libPods-APNAssistant.a in Frameworks */,
+				612AF03939ED94BA0E6352D3 /* libPods-APNAssistant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				679E56632082DC9B5AA60097 /* libPods-ApnMemo.a in Frameworks */,
+				33BD8AE26A327F1D860E5BA1 /* libPods-APNAssistantLite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,16 +274,14 @@
 		1DD471A10B4D9499B7C426C5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2D9CFEFEB8283B622418507E /* Pods-ApnAssister.debug.xcconfig */,
-				84D32C0BC91843370CFD7DA5 /* Pods-ApnAssister.release.xcconfig */,
+				2D9CFEFEB8283B622418507E /* Pods-APNAssistant.debug.xcconfig */,
+				84D32C0BC91843370CFD7DA5 /* Pods-APNAssistant.release.xcconfig */,
 				4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */,
 				2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */,
-				C0F77DB63DFB28631659C55F /* Pods-ApnAssister2.debug.xcconfig */,
-				91DC163925F165B50CB55BA8 /* Pods-ApnAssister2.release.xcconfig */,
-				36B84B35EE8DF6D817379645 /* Pods-ApnBookmarks.debug.xcconfig */,
-				90C2D6408ECDE2931D748ADE /* Pods-ApnBookmarks.release.xcconfig */,
-				447ECA4EC159403B1CE196C1 /* Pods-ApnMemo.debug.xcconfig */,
-				A9683B2EB997F294A51F39E2 /* Pods-ApnMemo.release.xcconfig */,
+				C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */,
+				91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */,
+				FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */,
+				E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -365,10 +364,10 @@
 		96DA6BE91C9B03FD00E424D5 = {
 			isa = PBXGroup;
 			children = (
-				96DA6BF41C9B03FD00E424D5 /* ApnAssister */,
+				96DA6BF41C9B03FD00E424D5 /* APNAssistant */,
 				9651C20E1D9B9355008A4A9D /* ApnMemo */,
-				96DA6C0B1C9B03FE00E424D5 /* ApnAssisterTests */,
-				96DA6C161C9B03FE00E424D5 /* ApnAssisterUITests */,
+				96DA6C0B1C9B03FE00E424D5 /* APNAssistantTests */,
+				96DA6C161C9B03FE00E424D5 /* APNAssistantUITests */,
 				F009F3981D6006A100D428D6 /* TodayWidget */,
 				96DA6BF31C9B03FD00E424D5 /* Products */,
 				1DD471A10B4D9499B7C426C5 /* Pods */,
@@ -379,16 +378,16 @@
 		96DA6BF31C9B03FD00E424D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96DA6BF21C9B03FD00E424D5 /* ApnAssister2.app */,
-				96DA6C081C9B03FE00E424D5 /* ApnAssister2.xctest */,
-				96DA6C131C9B03FE00E424D5 /* ApnAssister2.xctest */,
+				96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */,
+				96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */,
+				96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */,
 				F009F3951D6006A000D428D6 /* TodayWidget.appex */,
-				F02DA12A1D997944007F6C93 /* ApnMemo.app */,
+				F02DA12A1D997944007F6C93 /* APNAssistantLite.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		96DA6BF41C9B03FD00E424D5 /* ApnAssister */ = {
+		96DA6BF41C9B03FD00E424D5 /* APNAssistant */ = {
 			isa = PBXGroup;
 			children = (
 				965C7C951D955064007E0A26 /* GoogleService-Info.plist */,
@@ -402,44 +401,45 @@
 				96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */,
 				96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */,
 				96DA6C031C9B03FD00E424D5 /* Info.plist */,
-				60AA73A81C9BA77C00E41CAE /* ApnAssister-Bridging-Header.h */,
+				60AA73A81C9BA77C00E41CAE /* APNAssistant-Bridging-Header.h */,
 				60BEE5011CA3E185005B86B9 /* InfoPlist.strings */,
 				60BEE5071CA3E1A4005B86B9 /* Localizable.strings */,
-				F06AD47C1D5D859B007B0842 /* ApnAssister.entitlements */,
+				F06AD47C1D5D859B007B0842 /* APNAssistant.entitlements */,
 				6082F1B21D536843000B59EA /* htdocs */,
 				F045415E1D561F7800D4388C /* Resources */,
 			);
-			path = ApnAssister;
+			path = APNAssistant;
 			sourceTree = "<group>";
 		};
-		96DA6C0B1C9B03FE00E424D5 /* ApnAssisterTests */ = {
+		96DA6C0B1C9B03FE00E424D5 /* APNAssistantTests */ = {
 			isa = PBXGroup;
 			children = (
-				96DA6C0C1C9B03FE00E424D5 /* ApnAssisterTests.swift */,
+				96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */,
 				96DA6C0E1C9B03FE00E424D5 /* Info.plist */,
 			);
-			path = ApnAssisterTests;
+			path = APNAssistantTests;
 			sourceTree = "<group>";
 		};
-		96DA6C161C9B03FE00E424D5 /* ApnAssisterUITests */ = {
+		96DA6C161C9B03FE00E424D5 /* APNAssistantUITests */ = {
 			isa = PBXGroup;
 			children = (
-				96DA6C171C9B03FE00E424D5 /* ApnAssisterUITests.swift */,
+				96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */,
 				96DA6C191C9B03FE00E424D5 /* Info.plist */,
 			);
-			path = ApnAssisterUITests;
+			path = APNAssistantUITests;
 			sourceTree = "<group>";
 		};
 		ABEAB649DE6ACE49732DE041 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				82086984B027390E9C7FD7A4 /* libPods.a */,
-				18E70AFA6266B1CDC89A4A1F /* libPods-ApnAssister.a */,
+				18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */,
 				F009F3961D6006A000D428D6 /* NotificationCenter.framework */,
 				4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */,
-				E669FD92FF0BDF64AF2B64E4 /* libPods-ApnAssister2.a */,
+				E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */,
 				6A78525D0FE48CB6F5F6435F /* libPods-ApnBookmarks.a */,
 				0C7066E1C528D83FA6C95E5F /* libPods-ApnMemo.a */,
+				128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -486,9 +486,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96DA6BF11C9B03FD00E424D5 /* ApnAssister2 */ = {
+		96DA6BF11C9B03FD00E424D5 /* APNAssistant */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister2" */;
+			buildConfigurationList = 96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "APNAssistant" */;
 			buildPhases = (
 				98B00AC8814008A4C2BE48C7 /* [CP] Check Pods Manifest.lock */,
 				96DA6BEE1C9B03FD00E424D5 /* Sources */,
@@ -504,14 +504,14 @@
 			dependencies = (
 				F009F3A01D6006A100D428D6 /* PBXTargetDependency */,
 			);
-			name = ApnAssister2;
-			productName = ApnAssister;
-			productReference = 96DA6BF21C9B03FD00E424D5 /* ApnAssister2.app */;
+			name = APNAssistant;
+			productName = APNAssistant;
+			productReference = 96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */;
 			productType = "com.apple.product-type.application";
 		};
-		96DA6C071C9B03FE00E424D5 /* ApnAssister2Tests */ = {
+		96DA6C071C9B03FE00E424D5 /* APNAssistantTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister2Tests" */;
+			buildConfigurationList = 96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "APNAssistantTests" */;
 			buildPhases = (
 				96DA6C041C9B03FE00E424D5 /* Sources */,
 				96DA6C051C9B03FE00E424D5 /* Frameworks */,
@@ -522,14 +522,14 @@
 			dependencies = (
 				96DA6C0A1C9B03FE00E424D5 /* PBXTargetDependency */,
 			);
-			name = ApnAssister2Tests;
-			productName = ApnAssisterTests;
-			productReference = 96DA6C081C9B03FE00E424D5 /* ApnAssister2.xctest */;
+			name = APNAssistantTests;
+			productName = APNAssistantTests;
+			productReference = 96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		96DA6C121C9B03FE00E424D5 /* ApnAssister2UITests */ = {
+		96DA6C121C9B03FE00E424D5 /* APNAssistantUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister2UITests" */;
+			buildConfigurationList = 96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "APNAssistantUITests" */;
 			buildPhases = (
 				96DA6C0F1C9B03FE00E424D5 /* Sources */,
 				96DA6C101C9B03FE00E424D5 /* Frameworks */,
@@ -540,9 +540,9 @@
 			dependencies = (
 				96DA6C151C9B03FE00E424D5 /* PBXTargetDependency */,
 			);
-			name = ApnAssister2UITests;
-			productName = ApnAssisterUITests;
-			productReference = 96DA6C131C9B03FE00E424D5 /* ApnAssister2.xctest */;
+			name = APNAssistantUITests;
+			productName = APNAssistantUITests;
+			productReference = 96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		F009F3941D6006A000D428D6 /* TodayWidget */ = {
@@ -565,9 +565,9 @@
 			productReference = F009F3951D6006A000D428D6 /* TodayWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		F02DA0F31D997944007F6C93 /* ApnMemo */ = {
+		F02DA0F31D997944007F6C93 /* APNAssistantLite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "ApnMemo" */;
+			buildConfigurationList = F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "APNAssistantLite" */;
 			buildPhases = (
 				F02DA0F61D997944007F6C93 /* [CP] Check Pods Manifest.lock */,
 				F02DA0F71D997944007F6C93 /* Sources */,
@@ -581,9 +581,9 @@
 			);
 			dependencies = (
 			);
-			name = ApnMemo;
-			productName = ApnAssister;
-			productReference = F02DA12A1D997944007F6C93 /* ApnMemo.app */;
+			name = APNAssistantLite;
+			productName = APNAssistant;
+			productReference = F02DA12A1D997944007F6C93 /* APNAssistantLite.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -649,7 +649,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnAssister2" */;
+			buildConfigurationList = 96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "APNAssistant" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -663,11 +663,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96DA6BF11C9B03FD00E424D5 /* ApnAssister2 */,
-				96DA6C071C9B03FE00E424D5 /* ApnAssister2Tests */,
-				96DA6C121C9B03FE00E424D5 /* ApnAssister2UITests */,
+				96DA6BF11C9B03FD00E424D5 /* APNAssistant */,
+				96DA6C071C9B03FE00E424D5 /* APNAssistantTests */,
+				96DA6C121C9B03FE00E424D5 /* APNAssistantUITests */,
 				F009F3941D6006A000D428D6 /* TodayWidget */,
-				F02DA0F31D997944007F6C93 /* ApnMemo */,
+				F02DA0F31D997944007F6C93 /* APNAssistantLite */,
 			);
 		};
 /* End PBXProject section */
@@ -757,7 +757,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister2/Pods-ApnAssister2-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */ = {
@@ -787,7 +787,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnAssister2/Pods-ApnAssister2-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60AA73A71C9BA73700E41CAE /* ShellScript */ = {
@@ -845,7 +845,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnMemo/Pods-ApnMemo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F02DA1231D997944007F6C93 /* [CP] Copy Pods Resources */ = {
@@ -860,7 +860,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApnMemo/Pods-ApnMemo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F02DA1241D997944007F6C93 /* ShellScript */ = {
@@ -941,7 +941,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DA6C0D1C9B03FE00E424D5 /* ApnAssisterTests.swift in Sources */,
+				96DA6C0D1C9B03FE00E424D5 /* APNAssistantTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,7 +949,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DA6C181C9B03FE00E424D5 /* ApnAssisterUITests.swift in Sources */,
+				96DA6C181C9B03FE00E424D5 /* APNAssistantUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,12 +1000,12 @@
 /* Begin PBXTargetDependency section */
 		96DA6C0A1C9B03FE00E424D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96DA6BF11C9B03FD00E424D5 /* ApnAssister2 */;
+			target = 96DA6BF11C9B03FD00E424D5 /* APNAssistant */;
 			targetProxy = 96DA6C091C9B03FE00E424D5 /* PBXContainerItemProxy */;
 		};
 		96DA6C151C9B03FE00E424D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96DA6BF11C9B03FD00E424D5 /* ApnAssister2 */;
+			target = 96DA6BF11C9B03FD00E424D5 /* APNAssistant */;
 			targetProxy = 96DA6C141C9B03FE00E424D5 /* PBXContainerItemProxy */;
 		};
 		F009F3A01D6006A100D428D6 /* PBXTargetDependency */ = {
@@ -1176,19 +1176,19 @@
 		};
 		96DA6C1D1C9B03FE00E424D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0F77DB63DFB28631659C55F /* Pods-ApnAssister2.debug.xcconfig */;
+			baseConfigurationReference = C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_ENTITLEMENTS = APNAssistant/APNAssistant.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = ApnAssister/Info.plist;
+				INFOPLIST_FILE = APNAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D FULL_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
-				PRODUCT_NAME = ApnAssister2;
-				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				PRODUCT_NAME = APNAssistant;
+				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1196,19 +1196,19 @@
 		};
 		96DA6C1E1C9B03FE00E424D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91DC163925F165B50CB55BA8 /* Pods-ApnAssister2.release.xcconfig */;
+			baseConfigurationReference = 91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = ApnAssister/ApnAssister.entitlements;
+				CODE_SIGN_ENTITLEMENTS = APNAssistant/APNAssistant.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = ApnAssister/Info.plist;
+				INFOPLIST_FILE = APNAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D FULL_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
-				PRODUCT_NAME = ApnAssister2;
-				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				PRODUCT_NAME = APNAssistant;
+				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -1217,12 +1217,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ApnAssisterTests/Info.plist;
+				INFOPLIST_FILE = APNAssistantTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterTests;
-				PRODUCT_NAME = ApnAssister2;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
+				PRODUCT_NAME = APNAssistant;
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnAssister2.app/ApnAssister2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
 			name = Debug;
 		};
@@ -1230,24 +1230,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = ApnAssisterTests/Info.plist;
+				INFOPLIST_FILE = APNAssistantTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterTests;
-				PRODUCT_NAME = ApnAssister2;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
+				PRODUCT_NAME = APNAssistant;
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApnAssister2.app/ApnAssister2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
 			name = Release;
 		};
 		96DA6C231C9B03FE00E424D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = ApnAssisterUITests/Info.plist;
+				INFOPLIST_FILE = APNAssistantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterUITests;
-				PRODUCT_NAME = ApnAssister2;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
+				PRODUCT_NAME = APNAssistant;
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = ApnAssister;
+				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;
 			};
 			name = Debug;
@@ -1255,12 +1255,12 @@
 		96DA6C241C9B03FE00E424D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = ApnAssisterUITests/Info.plist;
+				INFOPLIST_FILE = APNAssistantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssisterUITests;
-				PRODUCT_NAME = ApnAssister2;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
+				PRODUCT_NAME = APNAssistant;
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = ApnAssister;
+				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;
 			};
 			name = Release;
@@ -1306,7 +1306,7 @@
 		};
 		F02DA1281D997944007F6C93 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 447ECA4EC159403B1CE196C1 /* Pods-ApnMemo.debug.xcconfig */;
+			baseConfigurationReference = FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Memo";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1318,7 +1318,7 @@
 				OTHER_SWIFT_FLAGS = "-D STAND_ALONE_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1326,7 +1326,7 @@
 		};
 		F02DA1291D997944007F6C93 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9683B2EB997F294A51F39E2 /* Pods-ApnMemo.release.xcconfig */;
+			baseConfigurationReference = E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Memo";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1338,7 +1338,7 @@
 				OTHER_SWIFT_FLAGS = "-D STAND_ALONE_VERSION";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ApnAssister/ApnAssister-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -1346,7 +1346,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "ApnAssister2" */ = {
+		96DA6BED1C9B03FD00E424D5 /* Build configuration list for PBXProject "APNAssistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C1A1C9B03FE00E424D5 /* Debug */,
@@ -1355,7 +1355,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister2" */ = {
+		96DA6C1C1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "APNAssistant" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C1D1C9B03FE00E424D5 /* Debug */,
@@ -1364,7 +1364,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister2Tests" */ = {
+		96DA6C1F1C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "APNAssistantTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C201C9B03FE00E424D5 /* Debug */,
@@ -1373,7 +1373,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "ApnAssister2UITests" */ = {
+		96DA6C221C9B03FE00E424D5 /* Build configuration list for PBXNativeTarget "APNAssistantUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA6C231C9B03FE00E424D5 /* Debug */,
@@ -1391,7 +1391,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "ApnMemo" */ = {
+		F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "APNAssistantLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F02DA1281D997944007F6C93 /* Debug */,

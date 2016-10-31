@@ -1,7 +1,7 @@
 platform :ios, "7.0"
 #inhibit_all_warnings!
 
-target "ApnAssister2" do
+target "APNAssistant" do
   pod 'CocoaAsyncSocket'
   pod 'CocoaHTTPServer'
   pod 'Realm'
@@ -11,7 +11,7 @@ target "ApnAssister2" do
   pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 
-target "ApnMemo" do
+target "APNAssistantLite" do
   inherit! :search_paths
   pod 'CocoaAsyncSocket'
   pod 'CocoaHTTPServer'
@@ -29,5 +29,5 @@ end
 
 post_install do | installer |
   require 'fileutils'
-  FileUtils.cp_r('Pods/Target Support Files/Pods-ApnAssister2/Pods-ApnAssister2-acknowledgements.plist', 'ApnAssister/Settings.bundle/Pods-acknowledgements.plist')
+  FileUtils.cp_r('Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant-acknowledgements.plist', 'APNAssistant/Settings.bundle/Pods-acknowledgements.plist')
 end

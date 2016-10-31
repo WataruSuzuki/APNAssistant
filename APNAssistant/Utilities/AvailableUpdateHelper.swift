@@ -402,8 +402,12 @@ class AvailableUpdateHelper: NSObject {
         return country.rawValue
     }
     
-    func generateFileNameFromLastPathComponent(_ responseUrl: URL, lastPathComponent: String) -> String {
-        return getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
+    func generateFileNameFromLastPathComponent(_ responseUrl: URL, lastPathComponent: String, isCheckVersion: Bool) -> String {
+        if isCheckVersion {
+            return getVersionCheckFileName(lastPathComponent)
+        } else {
+            return getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
+        }
     }
     
     func getVersionCheckFileName(_ lastPathComponent: String) -> String {
@@ -417,20 +421,24 @@ class AvailableUpdateHelper: NSObject {
     
     func moveJSONFilesFromURLSession(_ downloadTask: URLSessionDownloadTask, location: URL) {
         guard let response = downloadTask.response else { return }
-        moveJSONFilesFromURLResponse(response, location: location)
+        moveJSONFilesFromURLResponse(response, location: location, isCheckVersion: false)
     }
     
-    func moveJSONFilesFromURLResponse(_ response: URLResponse, location: URL) {
+    func moveJSONFilesFromURLResponse(_ response: URLResponse, location: URL, isCheckVersion: Bool) {
         guard let responseUrl = response.url else { return }
         let lastPathComponent = responseUrl.lastPathComponent
         
-        let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent)
+        let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent, isCheckVersion: isCheckVersion)
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
         moveDownloadItemAtURL(filePath, location: location)
         
         let localUrl = URL(fileURLWithPath: filePath)
         if let jsonData = try? Data(contentsOf: localUrl) {
-            parseCountryJson(response, jsonData: jsonData)
+            if isCheckVersion {
+                parseVersionCheckJson(jsonData)
+            } else {
+                parseCountryJson(response, jsonData: jsonData)
+            }
         }
     }
     
@@ -443,6 +451,40 @@ class AvailableUpdateHelper: NSObject {
         let localUrl = URL(fileURLWithPath: filePath)
         do {
             try fileManager.moveItem(at: location, to: localUrl)
+        } catch {
+            let nsError = error as NSError
+            print(nsError.description)
+        }
+    }
+    
+    func parseVersionCheckJson(_ jsonData: Data) {
+        do {
+            let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! NSDictionary
+            
+            let items = json.object(forKey: DownloadProfiles.profileItems) as! NSArray
+            let actualVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+            print("actualVersion = \(actualVersion)")
+            let myAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+            print("myAppName = \(myAppName)")
+            
+            for i in 0  ..< items.count  {
+                let item = items[i] as! NSDictionary
+                if myAppName == item.object(forKey: DownloadProfiles.profileName) as! String {
+                    let requiredVersion = item.object(forKey: DownloadProfiles.version) as! String
+                    print("requiredVersion = \(requiredVersion)")
+                    let compareResult = requiredVersion.compare(actualVersion, options: .numeric)
+                    print("compareResult = \(compareResult.rawValue)")
+                    if compareResult == .orderedAscending {
+                        //do nothing
+                    } else {
+                        let ud = UtilUserDefaults()
+                        ud.isAvailableStore = true
+                        ud.memoryVersion = actualVersion
+                        break
+                    }
+                }
+            }
+            
         } catch {
             let nsError = error as NSError
             print(nsError.description)

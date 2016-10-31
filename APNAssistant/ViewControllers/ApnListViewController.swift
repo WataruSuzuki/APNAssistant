@@ -219,6 +219,10 @@ class ApnListViewController: UITableViewController,
     
     // MARK: - Action
     @IBAction func tapAddButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "EditApnViewController", sender: self)
+        if appStatus.isAvailableAllFunction() {
+            appStatus.showCautionProfile(self)
+        } else {
+            self.performSegue(withIdentifier: "EditApnViewController", sender: self)
+        }
     }
 }

@@ -44,7 +44,11 @@ class DetailApnViewController: UITableViewController,
         //let subAction2 = previewActionForTitle("Sub Action 2")
         //let groupedActions = UIPreviewActionGroup(title: "Sub Actions…", style: .Default, actions: [subAction1, subAction2] )
         
-        return [setApnAction, shareAction, editAction/*, groupedActions*/]
+        if UtilAppStatus().isShowImportantMenu() {
+            return [setApnAction, shareAction, editAction/*, groupedActions*/]
+        } else {
+            return [shareAction, editAction]
+        }
     }()
     
     override func viewDidLoad() {
@@ -52,6 +56,8 @@ class DetailApnViewController: UITableViewController,
 
         loadTargetSummaryObj()
         
+        if appStatus.isAvailableAllFunction() {
+        }
         let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
         self.navigationItem.rightBarButtonItem = menuButton
     }
@@ -157,11 +163,17 @@ class DetailApnViewController: UITableViewController,
         sheet.delegate = self
         sheet.title = title
         
-        for message in menuArray {
+        var dispMenuArray = menuArray
+        if !appStatus.isShowImportantMenu() {
+            dispMenuArray.remove(at: Menu.setThisApnToDevice.rawValue)
+        }
+        for message in dispMenuArray {
             sheet.addButton(withTitle: message)
         }
-        sheet.cancelButtonIndex = menuArray.count - 1
-        sheet.destructiveButtonIndex = 0
+        sheet.cancelButtonIndex = dispMenuArray.count - 1
+        if appStatus.isShowImportantMenu() {
+            sheet.destructiveButtonIndex = 0
+        }
         
         sheet.show(in: self.view)
     }
@@ -181,7 +193,9 @@ class DetailApnViewController: UITableViewController,
             
             let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
             alertController.addAction(cancelAction)
-            alertController.addAction(setApnAction)
+            if appStatus.isShowImportantMenu() {
+                alertController.addAction(setApnAction)
+            }
             alertController.addAction(shareAction)
             alertController.addAction(editAction)
             
@@ -197,7 +211,7 @@ class DetailApnViewController: UITableViewController,
     
     // MARK: - UIActionSheetDelegate
     func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        switch Menu(rawValue: buttonIndex)! {
+        switch Menu(rawValue: (appStatus.isShowImportantMenu() ? buttonIndex : buttonIndex + 1))! {
         case .setThisApnToDevice:
             self.handleUpdateDeviceApn()
             
@@ -227,10 +241,14 @@ class DetailApnViewController: UITableViewController,
     }
     
     func handleUpdateDeviceApn(){
-        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-        UIApplication.shared.openURL(url)
+        if appStatus.isAvailableAllFunction() {
+            let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
+            UIApplication.shared.openURL(url)
+        } else {
+            appStatus.showStatuLimitByApple(self)
+        }
     }
-    
+        
     // MARK: Preview actions
     @available(iOS 9.0, *)
     override var previewActionItems : [UIPreviewActionItem] {

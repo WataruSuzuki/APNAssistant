@@ -238,8 +238,12 @@ class EditApnViewController: UITableViewController,
         self.delegate.didFinishEditApn(myUtilHandleRLMObject.apnSummaryObj)
         self.dismiss(animated: true) { 
             if isUpdateNow {
-                let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-                UIApplication.shared.openURL(url)
+                if self.appStatus.isAvailableAllFunction() {
+                    let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
+                    UIApplication.shared.openURL(url)
+                } else {
+                    self.appStatus.showStatuLimitByApple(self)
+                }
             }
         }
     }
@@ -308,7 +312,11 @@ class EditApnViewController: UITableViewController,
         let realm = RLMRealm.default()
         myUtilHandleRLMObject.saveUpdateApnDataObj(realm, isSetDataApnManually: isSetDataApnManually)
         
-        showConfirmUpdatingDeviceApn()
+        if appStatus.isShowImportantMenu() {
+            showConfirmUpdatingDeviceApn()
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func tapCancel(_ sender: Any) {

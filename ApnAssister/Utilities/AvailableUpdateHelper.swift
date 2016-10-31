@@ -11,9 +11,9 @@ import UIKit
 struct DownloadProfiles {
     static let serverUrl = "https://watarusuzuki.github.io/"
     
-    static let apnProfiles = "apn-profiles"
-    static let jsonsDir = apnProfiles + "/jsons/"
-    static let resourcesDir = apnProfiles + "/resources/"
+    static let apnBookmarks = "APNBookmarkPage"
+    static let jsonsDir = apnBookmarks + "/jsons/"
+    static let resourcesDir = apnBookmarks + "/resources/"
     
     static let profileItems = "items"
     static let profileName = "name"
@@ -390,8 +390,8 @@ class AvailableUpdateHelper: NSObject {
     }
     
     func getOriginalFileName(_ fileName: String) -> String {
-        if fileName.contains(DownloadProfiles.apnProfiles) {
-            let replaced = fileName.replacingOccurrences(of: DownloadProfiles.apnProfiles, with: "")
+        if fileName.contains(DownloadProfiles.apnBookmarks) {
+            let replaced = fileName.replacingOccurrences(of: DownloadProfiles.apnBookmarks, with: "")
             return replaced.replacingOccurrences(of: "-", with: "")
         }
         return fileName
@@ -415,7 +415,7 @@ class AvailableUpdateHelper: NSObject {
     }
     
     func getCountryFileName(_ responseUrl: URL, lastPathComponent: String) -> String {
-        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnProfiles)
+        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnBookmarks)
         return fileName
     }
     

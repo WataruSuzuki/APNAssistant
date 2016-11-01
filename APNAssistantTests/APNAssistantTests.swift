@@ -1,8 +1,8 @@
 //
-//  ApnAssisterTests.swift
-//  ApnAssisterTests
+//  APNAssistantTests.swift
+//  APNAssistantTests
 //
-//  Created by 鈴木 航 on 2016/03/18.
+//  Created by WataruSuzuki on 2016/03/18.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 

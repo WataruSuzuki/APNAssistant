@@ -1,6 +1,6 @@
 //
 //  MsgNoDataView.swift
-//  ApnAssister2
+//  APNAssistant2
 //
 //  Created by WataruSuzuki on 2016/10/03.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.

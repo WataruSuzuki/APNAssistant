@@ -65,27 +65,15 @@ caution_profile = "If your APN settings are wrong, you might lose cellular-data 
 update_available_list = "Do you update available list now?";
 confirm = "Confirm";
 
-account = "Account";
-email = "E-mail";
-password = "Password";
-signIn = "Sign In";
-signOn = "Sign On";
-signOut = "Sign Out";
-message_signon = "You have to create account if you don't have.";
-success = "Success";
-please_restart_app = "Please restart app to complete activation";
-
 ata_summaryAPNAssistant = "This app manages APN information of MVNO. \n\nThis app also bookmarks APN information of MVNO. This app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";
 ata_summaryAPNAssistantLite = "This app manage APN information as Memo. \n\nPlease get other link app or share E-mail if you modify APN setting.";
 ata_apn = "What's APN?";
 ata_profile = "What's configuration profile?";
 ata_webApp = "Web App";
-ata_account = "Account";
 
 how_about_apn = "An Access Point Name (APN) is a gateway between a GSM, GPRS, 3G or 4G mobile network and another computer network, frequently the public Internet.";
 how_about_profile = "This file is used to perform the configuration of the iOS-based devices. \nThis app bookmarks profiles of released MVNO carriers or made by MVNO information";
 how_about_webApp = "This is web app, Free. Please share your friends.";
-how_about_account = "You can receive more info. \nSign in or create new account.";
 
 error = "Error";
 fail_load_profile = "Fail to load information. Please ask to your carrier.";

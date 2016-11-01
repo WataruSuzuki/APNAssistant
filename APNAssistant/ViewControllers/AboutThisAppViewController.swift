@@ -14,7 +14,7 @@ struct AboutThisApp {
         case summary = 0,
         apn,
         profile,
-        //Contact,
+        webApp,
         //Account,
         max
         
@@ -23,7 +23,6 @@ struct AboutThisApp {
             let key = (self == .summary
                 ?"ata_" + String(describing: self) + appName
                 :"ata_" + String(describing: self))
-            //print(key)
             return NSLocalizedString(key, comment: "")
         }
         
@@ -113,9 +112,9 @@ class AboutThisAppViewController: UITableViewController {
             let url = URL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
             UIApplication.shared.openURL(url!)
             
-//        case .Contact:
-//            let url = NSURL(string: "https://twitter.com/DevJchanKchan")
-//            UIApplication.sharedApplication().openURL(url!)
+        case .webApp:
+            let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.apnBookmarks + "/deployment/")
+            UIApplication.shared.openURL(url!)
             
         default:
             break

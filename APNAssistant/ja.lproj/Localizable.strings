@@ -79,12 +79,12 @@ ata_summaryAPNAssistant = "このアプリはMVNOなどのAPN情報を管理す�
 ata_summaryAPNAssistantLite = "このアプリはAPN情報をメモするアプリです。\n\nもしAPN設定を変更した場合は、メール共有など連携アプリを利用ください。";
 ata_apn = "APNとは？";
 ata_profile = "構成プロファイルとは？";
-ata_contact = "コンタクト";
+ata_webApp = "Webアプリ版";
 ata_account = "アカウント";
 
 how_about_apn = "APNとは、携帯情報端末などを携帯電話ネットワークに接続してデータ通信を行う際に必要となる、接続先を指定する文字列のことです。";
 how_about_profile = "デバイスの構成作業を一括して行うためのファイルです。APNの設定を行うこともできます。\nこのアプリではMVNOが公開しているプロファイルをブックマークしています。";
-how_about_contact = "アプリに関する要望などはサポートアカウントへお問い合わせください。";
+how_about_webApp = "こちらはWebアプリ版です。無料で使えるので是非お友達にご紹介ください。";
 how_about_account = "更新情報などを受け取れます。\nログインまたは新しいアカウントを作成してください。";
 
 error = "エラー";

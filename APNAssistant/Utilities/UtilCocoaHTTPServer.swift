@@ -146,7 +146,6 @@ class UtilCocoaHTTPServer: NSObject,
         profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
         
         // save the String that contains the HTML to a file
-        //try! profileXml.writeToFile(filePath, atomically: true, encoding: NSUTF8StringEncoding)
         try! profileXml.write(toFile: getConfigProfileFilePath(fileName), atomically: true, encoding: String.Encoding.utf8)
         
         let fileManager = FileManager.default

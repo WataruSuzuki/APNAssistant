@@ -1,6 +1,6 @@
 //
 //  MainTabBarController.swift
-//  ApnAssister
+//  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/08/25.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
@@ -73,7 +73,6 @@ class MainTabBarController: UITabBarController {
         let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
         
         if let shortcutApn = results.object(at: UInt(shortcut!.rawValue - 1)) as? ApnSummaryObject {
-        //if let shortcutApn = results.objects(with: NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as? ApnSummaryObject {
             let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
             let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
             UIApplication.shared.openURL(url)

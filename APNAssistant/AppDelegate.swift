@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ApnAssister
+//  APNAssistant
 //
-//  Created by 鈴木 航 on 2016/03/18.
+//  Created by WataruSuzuki on 2016/03/18.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
@@ -51,37 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-//        return application(app, open: url, sourceApplication: nil, annotation: [:])
-//    }
-    
-//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-//        #if FULL_VERSION
-//            if let dynamicLink = FIRDynamicLinks.dynamicLinks()?.dynamicLink(fromCustomSchemeURL: url) {
-//                // Handle the deep link. For example, show the deep-linked content or
-//                // apply a promotional offer to the user's account.
-//                // ...
-//                print(dynamicLink)
-//                return true
-//            }
-//        #endif
-//        
-//        return false
-//    }
-    
-//    @available(iOS 8.0, *)
-//    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-//        #if FULL_VERSION
-//            let handled = FIRDynamicLinks.dynamicLinks()?.handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
-//                // ...
-//            }
-//            return handled!
-//        #else
-//            return false
-//        #endif
-//    }
-    
+        
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         

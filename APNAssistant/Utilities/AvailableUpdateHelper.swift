@@ -1,6 +1,6 @@
 //
 //  AvailableUpdateHelper.swift
-//  ApnAssister
+//  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/09/12.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
@@ -511,9 +511,6 @@ class AvailableUpdateHelper: NSObject {
             let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! NSDictionary
             
             let items = json.object(forKey: DownloadProfiles.profileItems) as! NSArray
-            //for i in 0  ..< items.count  {
-                //print(items[i].object(forKey: DownloadProfiles.profileName) as! NSString)
-            //}
             let sortDescriptor = NSSortDescriptor(key: DownloadProfiles.profileName, ascending: true)
             return items.sortedArray(using: [sortDescriptor]) as NSArray
             

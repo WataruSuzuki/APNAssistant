@@ -1,6 +1,6 @@
 //
 //  DetailApnViewController.swift
-//  ApnAssister
+//  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/04/20.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.

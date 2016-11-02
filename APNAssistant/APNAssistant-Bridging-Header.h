@@ -6,4 +6,3 @@
 #import "Realm.h"
 
 #import "CMPopTipView.h"
-#import "Firebase.h"

@@ -15,27 +15,6 @@ PODS:
   - CocoaLumberjack/Extensions (3.0.0):
     - CocoaLumberjack/Default
   - DJKFlatIconAuthors (0.0.1)
-  - Firebase (3.8.0):
-    - Firebase/Core (= 3.8.0)
-  - Firebase/Core (3.8.0):
-    - FirebaseAnalytics (= 3.5.1)
-    - FirebaseCore (= 3.4.4)
-  - FirebaseAnalytics (3.5.1):
-    - FirebaseCore (~> 3.4)
-    - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.4):
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.8)
-  - GoogleInterchangeUtilities (1.2.2):
-    - GoogleSymbolUtilities (~> 1.1)
-  - GoogleSymbolUtilities (1.1.2)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
   - Realm (2.0.3):
     - Realm/Headers (= 2.0.3)
   - Realm/Headers (2.0.3)
@@ -45,7 +24,6 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - CocoaHTTPServer
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
-  - Firebase
   - Realm
 
 EXTERNAL SOURCES:
@@ -63,15 +41,8 @@ SPEC CHECKSUMS:
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   DJKFlatIconAuthors: aff39c56b33e8a51c298d5750de2f4187edfe72c
-  Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
-  FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
-  FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
-  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
-  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
 
-PODFILE CHECKSUM: 8500672d65e9150d25bc61b74ee8d22b63b56c96
+PODFILE CHECKSUM: beaac6c9cab7fcda5abb552062befa17edf435b7
 
 COCOAPODS: 1.1.1

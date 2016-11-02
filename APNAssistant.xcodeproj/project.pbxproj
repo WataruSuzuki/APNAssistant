@@ -51,7 +51,6 @@
 		9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21C1D9BA27C008A4A9D /* configrationProfile.html */; };
 		9651C21F1D9BA27C008A4A9D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21D1D9BA27C008A4A9D /* index.html */; };
 		9651C2201D9BCA7B008A4A9D /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
-		965C7C961D955064007E0A26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965C7C951D955064007E0A26 /* GoogleService-Info.plist */; };
 		96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
 		96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
 		96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
@@ -194,7 +193,6 @@
 		9651C2161D9B9393008A4A9D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9651C21C1D9BA27C008A4A9D /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
 		9651C21D1D9BA27C008A4A9D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		965C7C951D955064007E0A26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutThisAppViewController.swift; sourceTree = "<group>"; };
 		96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -390,7 +388,6 @@
 		96DA6BF41C9B03FD00E424D5 /* APNAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				965C7C951D955064007E0A26 /* GoogleService-Info.plist */,
 				F009F3A71D600AE700D428D6 /* Models */,
 				60BEE4F81CA3C565005B86B9 /* Utilities */,
 				60BEE50A1CA3FF42005B86B9 /* Views */,
@@ -679,7 +676,6 @@
 			files = (
 				60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */,
 				60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */,
-				965C7C961D955064007E0A26 /* GoogleService-Info.plist in Resources */,
 				96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */,
 				6082F1B51D536843000B59EA /* configrationProfile.html in Resources */,
 				602A46321D65483A00ED22D6 /* SegmentedCtrlCell.xib in Resources */,

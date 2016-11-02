@@ -15,7 +15,6 @@ struct AboutThisApp {
         apn,
         profile,
         webApp,
-        //Account,
         max
         
         func getText() -> String {
@@ -92,16 +91,6 @@ class AboutThisAppViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch AboutThisApp.Section(rawValue: indexPath.section)! {
-//        case .Account:
-//            self.performSegueWithIdentifier("AccountManageViewController", sender: self)
-            
-        default:
-            break
-        }
-    }
-
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         switch AboutThisApp.Section(rawValue: indexPath.section)! {
         case .apn:

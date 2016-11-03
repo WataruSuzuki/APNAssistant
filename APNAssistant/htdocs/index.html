@@ -8,12 +8,28 @@
                 location.href='./configrationProfile.html';
             }
             function backToApp() {
-                location.href="applerejectapnassistant://";
+                var version = iosVersion();
+                if ( typeof version !== "undefined" && version > 8 ) {
+                    location.href="https://watarusuzuki.github.io/APNAssistant/universallink/";
+                } else {
+                    location.href="jchankchanapnassistant://";
+                }
                 setTimeout('window.close()', 0);
             }
+        function iosVersion () {
+            var v, versions;
+            if ( /iP(hone|od|ad)/.test( navigator.platform ) ) {
+                // supports iOS 2.0 and later: &lt;http://bit.ly/TJjs1V&gt;
+                v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+                versions = [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+                return versions[ 0 ];
+            }
+            
+            return versions;
+        }
         </script>
     </head>
     <body onLoad="getConfigrationProfile();">
-        <a href="applerejectapnassistant://" onclick="backToApp()">APN Assistant(APNアシスタント)</a><br/>
+        <a href="javascript:backToApp();">APN Assistant(APNアシスタント)</a><br/>
     </body>
 </html>

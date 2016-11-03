@@ -2,13 +2,13 @@
 //  APNAssistantUITests.swift
 //  APNAssistantUITests
 //
-//  Created by 鈴木 航 on 2016/03/18.
+//  Created by WataruSuzuki on 2016/03/18.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
 import XCTest
 
-class APNAssistantUITests: XCTestCase {
+class ApnAssisterUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

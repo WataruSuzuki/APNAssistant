@@ -2,7 +2,7 @@
 //  SegmentedCtrlCell.swift
 //  APNAssistant
 //
-//  Created by WataruSuzuki on 2016/09/23.
+//  Created by WataruSuzuki on 2016/08/18.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
@@ -20,31 +20,31 @@ class SegmentedCtrlCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    @IBAction func changeSegmentedCtrl(sender: UISegmentedControl) {
+    @IBAction func changeSegmentedCtrl(_ sender: UISegmentedControl) {
         self.didChangeValue?(sender)
     }
     
     enum SegmentAuthType: Int {
-        case CHAP = 0,
-        PAP
+        case chap = 0,
+        pap
         
         init(type: String) {
             switch type {
-            case PAP.toString():  self = .PAP
-            case CHAP.toString(): fallthrough
+            case SegmentAuthType.pap.toString():  self = .pap
+            case SegmentAuthType.chap.toString(): fallthrough
             default:
-                self = .CHAP
+                self = .chap
             }
         }
         
         func toString() -> String {
-            return String(self)
+            return String(describing: self)
         }
     }
 }

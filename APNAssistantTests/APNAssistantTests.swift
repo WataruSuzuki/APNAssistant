@@ -2,14 +2,14 @@
 //  APNAssistantTests.swift
 //  APNAssistantTests
 //
-//  Created by 鈴木 航 on 2016/03/18.
+//  Created by WataruSuzuki on 2016/03/18.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
 import XCTest
-@testable import APNAssistant
+@testable import ApnAssister2
 
-class APNAssistantTests: XCTestCase {
+class ApnAssisterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -28,7 +28,7 @@ class APNAssistantTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

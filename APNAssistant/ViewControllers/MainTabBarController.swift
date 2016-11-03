@@ -2,7 +2,7 @@
 //  MainTabBarController.swift
 //  APNAssistant
 //
-//  Created by WataruSuzuki on 2016/09/23.
+//  Created by WataruSuzuki on 2016/08/25.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
@@ -11,21 +11,27 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let appStatus = UtilAppStatus()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        setupTintColor()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        
         loadTabBarTitle()
+        
+        hiddenSomeTabbar()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func appDidBecomeActive(notification: NSNotification) {
+    func appDidBecomeActive(_ notification: Notification) {
         if #available(iOS 9.0, *) {
             executeShortcutActions()
         }
@@ -33,13 +39,13 @@ class MainTabBarController: UITabBarController {
     
     @available(iOS 9.0, *)
     func executeShortcutActions() {
-        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
             guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {
                 return
             }
             switch shortcutItem.type {
-            case UtilShortcutLaunch.ShortcutIdentifier.First.type:
-                self.selectedViewController = self.viewControllers![MainTabBarController.TabIndex.FavoriteList.rawValue] as! UINavigationController
+            case UtilShortcutLaunch.ShortcutIdentifier.first.type:
+                self.selectedViewController = self.viewControllers![MainTabBarController.TabIndex.favoriteList.rawValue] as! UINavigationController
                 
             default:
                 execureShortcutUpdateApn(shortcutItem.type)
@@ -49,14 +55,15 @@ class MainTabBarController: UITabBarController {
         }
     }
     
-    func execureShortcutUpdateApn(type: String) {
+    func execureShortcutUpdateApn(_ type: String) {
         let results = ApnSummaryObject.getFavoriteLists()
         let shortcut = UtilShortcutLaunch.ShortcutIdentifier(fullType: type)
-        let shortcutApn = results.objectsWithPredicate(NSPredicate(format: "id = %d", shortcut!.rawValue)).lastObject() as! ApnSummaryObject
         
-        let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
-        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
-        UIApplication.sharedApplication().openURL(url)
+        if let shortcutApn = results.object(at: UInt(shortcut!.rawValue - 1)) as? ApnSummaryObject {
+            let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile, summaryObj: shortcutApn)
+            let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(shortcutApnObj)
+            UIApplication.shared.openURL(url)
+        }
     }
     
     func loadTabBarTitle() {
@@ -67,16 +74,48 @@ class MainTabBarController: UITabBarController {
         }
     }
     
+    func hiddenSomeTabbar() {
+        #if FULL_VERSION
+            //do nothing
+        #else
+            var controllers = self.viewControllers
+            controllers?.remove(at: TabIndex.availableList.rawValue)
+            self.viewControllers = controllers
+            
+            /*
+             なぜかwindow.tintColorでは変更ができず、UIView.appearanceをいじると
+             tabが全てアクティブになるので、ここで初期化する
+             */
+            
+            let selected = self.selectedIndex
+            for item in self.viewControllers! {
+                self.selectedViewController = item
+            }
+            
+            self.selectedViewController = self.viewControllers![selected]
+        #endif
+    }
+    
+    func setupTintColor() {
+        #if STAND_ALONE_VERSION
+            UIView.appearance().tintColor = nil
+        #else
+            //Use Storyboard defined.
+        #endif
+    }
+    
     enum TabIndex: Int {
-        case ProfileList = 0,
-        FavoriteList
+        case availableList = 0,
+        favoriteList,
+        profileList,
+        aboutThisApp
         
-        func toStoring() -> String {
-            return String(self)
+        func toString() -> String {
+            return String(describing: self)
         }
         
         func getTitle() -> String {
-            return NSLocalizedString(self.toStoring(), comment: "(・∀・)")
+            return NSLocalizedString(self.toString(), comment: "(・∀・)")
         }
     }
 }

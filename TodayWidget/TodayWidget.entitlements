@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.apple.reject.APNAssistant</string>
+		<string>group.jp.co.JchanKchan.ApnAssister</string>
 	</array>
 </dict>
 </plist>

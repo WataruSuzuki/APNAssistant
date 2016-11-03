@@ -2,7 +2,7 @@
 //  UtilShortcutLaunch.swift
 //  APNAssistant
 //
-//  Created by WataruSuzuki on 2016/09/23.
+//  Created by WataruSuzuki on 2016/08/25.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 
 class UtilShortcutLaunch: NSObject {
 
-    private var _launchedShortcutItem: AnyObject?
+    fileprivate var _launchedShortcutItem: Any?
     @available(iOS 9.0, *)
     var launchedShortcutItem: UIApplicationShortcutItem? {
         get {
@@ -24,44 +24,47 @@ class UtilShortcutLaunch: NSObject {
     static let infoKey = "AppShortcutUserInfoIconKey"
     
     @available(iOS 9.0, *)
-    func shouldPerformAdditionalDelegateHandling(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        // Install initial versions of our two extra dynamic shortcuts.
-        initDynamicShortcuts(application)
-        
-        // If a shortcut was launched, display its information and take the appropriate action
-        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+    func shouldPerformAdditionalDelegateHandling(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
+        #if FULL_VERSION
+            // Install initial versions of our two extra dynamic shortcuts.
+            initDynamicShortcuts(application)
             
-            launchedShortcutItem = shortcutItem
-            
-            // This will block "performActionForShortcutItem:completionHandler" from being called.
-            return false
-        }
+            // If a shortcut was launched, display its information and take the appropriate action
+            if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+                
+                launchedShortcutItem = shortcutItem
+                
+                // This will block "performActionForShortcutItem:completionHandler" from being called.
+                return false
+            }
+        #endif//FULL_VERSION
         return true
     }
     
     @available(iOS 9.0, *)
-    func initDynamicShortcuts(application: UIApplication) {
-        var loadedItems = [UIApplicationShortcutItem]()
-        let favorites = ApnSummaryObject.getFavoriteLists()
-        
-        for index in 0...ShortcutIdentifier.Fourth.rawValue {
-            let shortcut = loadApplicationShortcutItem(index, results: favorites)
-            // Update the application providing the initial 'dynamic' shortcut items.
-            loadedItems.append(shortcut)
-        }
-        application.shortcutItems = loadedItems
+    func initDynamicShortcuts(_ application: UIApplication) {
+        #if FULL_VERSION
+            var loadedItems = [UIApplicationShortcutItem]()
+            let favorites = ApnSummaryObject.getFavoriteLists()
+            
+            for index in 0...ShortcutIdentifier.fourth.rawValue {
+                let shortcut = loadApplicationShortcutItem(index, results: favorites)
+                // Update the application providing the initial 'dynamic' shortcut items.
+                loadedItems.append(shortcut)
+            }
+            application.shortcutItems = loadedItems
+        #endif//FULL_VERSION
     }
     
     @available(iOS 9.0, *)
-    func loadApplicationShortcutItem(index: Int, results: RLMResults) -> UIMutableApplicationShortcutItem {
+    func loadApplicationShortcutItem(_ index: Int, results: RLMResults<RLMObject>) -> UIMutableApplicationShortcutItem {
         let shortcut = ShortcutIdentifier(rawValue: index)
         let name: String?
         let infoKey: Int?
-        if index != ShortcutIdentifier.First.rawValue
+        if index != ShortcutIdentifier.first.rawValue
             && results.count > UInt(index - 1)
         {
-            let apnSummary = results.objectAtIndex(UInt(index - 1)) as? ApnSummaryObject
+            let apnSummary = results.object(at: UInt(index - 1)) as? ApnSummaryObject
             name = apnSummary?.name
             infoKey = apnSummary?.id
         } else {
@@ -72,7 +75,7 @@ class UtilShortcutLaunch: NSObject {
     }
     
     @available(iOS 9.0, *)
-    func handleShortCutItem(shortcutItem: UIApplicationShortcutItem) -> Bool {
+    func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
         guard ShortcutIdentifier(fullType: shortcutItem.type) != nil else { return false }
@@ -80,10 +83,10 @@ class UtilShortcutLaunch: NSObject {
         
         launchedShortcutItem = shortcutItem
         switch (shortCutType) {
-        case ShortcutIdentifier.First.type: fallthrough
-        case ShortcutIdentifier.Second.type:fallthrough
-        case ShortcutIdentifier.Third.type: fallthrough
-        case ShortcutIdentifier.Fourth.type:
+        case ShortcutIdentifier.first.type: fallthrough
+        case ShortcutIdentifier.second.type:fallthrough
+        case ShortcutIdentifier.third.type: fallthrough
+        case ShortcutIdentifier.fourth.type:
             return true
         default:
             return false
@@ -91,24 +94,24 @@ class UtilShortcutLaunch: NSObject {
     }
     
     enum ShortcutIdentifier: Int {
-        case First = 0,
-        Second,
-        Third,
-        Fourth
+        case first = 0,
+        second,
+        third,
+        fourth
         
         // MARK: Initializers
         init?(fullType: String) {
-            guard let last = fullType.componentsSeparatedByString(".").last else { return nil }
+            guard let last = fullType.components(separatedBy: ".").last else { return nil }
             
             switch last {
-            case ShortcutIdentifier.First.toString():
-                self = .First
-            case ShortcutIdentifier.Second.toString():
-                self = .Second
-            case ShortcutIdentifier.Third.toString():
-                self = .Third
-            case ShortcutIdentifier.Fourth.toString():
-                self = .Fourth
+            case ShortcutIdentifier.first.toString():
+                self = .first
+            case ShortcutIdentifier.second.toString():
+                self = .second
+            case ShortcutIdentifier.third.toString():
+                self = .third
+            case ShortcutIdentifier.fourth.toString():
+                self = .fourth
             default:
                 return nil
             }
@@ -116,15 +119,15 @@ class UtilShortcutLaunch: NSObject {
         
         // MARK: Properties
         var type: String {
-            return NSBundle.mainBundle().bundleIdentifier! + ".\(self.toString())"
+            return Bundle.main.bundleIdentifier! + ".\(self.toString())"
         }
         
         func toString() -> String {
-            return String(self)
+            return String(describing: self)
         }
         
-        func getTitle(fallbackTitle: String) -> String {
-            if self == ShortcutIdentifier.First {
+        func getTitle(_ fallbackTitle: String) -> String {
+            if self == ShortcutIdentifier.first {
                 return NSLocalizedString("show_favorites", comment: "")
             } else {
                 return fallbackTitle
@@ -132,7 +135,7 @@ class UtilShortcutLaunch: NSObject {
         }
         
         func getSubTitle() -> String {
-            if self == ShortcutIdentifier.First {
+            if self == ShortcutIdentifier.first {
                 return ""
             } else {
                 return NSLocalizedString("setThisApnToDevice", comment: "")
@@ -141,10 +144,10 @@ class UtilShortcutLaunch: NSObject {
         
         @available(iOS 9.1, *)
         func getSystemIcon() -> UIApplicationShortcutIcon {
-            if self == ShortcutIdentifier.First {
-                return UIApplicationShortcutIcon(type: .Love)
+            if self == ShortcutIdentifier.first {
+                return UIApplicationShortcutIcon(type: .love)
             } else {
-                return UIApplicationShortcutIcon(type: .Update)
+                return UIApplicationShortcutIcon(type: .update)
             }
         }
         
@@ -153,7 +156,7 @@ class UtilShortcutLaunch: NSObject {
             if #available(iOS 9.1, *) {
                 return getSystemIcon()
             }
-            if self == ShortcutIdentifier.First {
+            if self == ShortcutIdentifier.first {
                 return UIApplicationShortcutIcon(templateImageName: "ic_favorite_shortcut")
             } else {
                 return UIApplicationShortcutIcon(templateImageName: "ic_list_shortcut")

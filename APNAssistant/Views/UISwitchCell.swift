@@ -2,7 +2,7 @@
 //  UISwitchCell.swift
 //  APNAssistant
 //
-//  Created by WataruSuzuki on 2016/09/23.
+//  Created by WataruSuzuki on 2016/03/24.
 //  Copyright © 2016年 WataruSuzuki. All rights reserved.
 //
 
@@ -20,14 +20,14 @@ class UISwitchCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
     // MARK: - Action
-    @IBAction func changeSwitch(sender: UISwitch) {
-        self.switchValueChanged?(sender.on)
+    @IBAction func changeSwitch(_ sender: UISwitch) {
+        self.switchValueChanged?(sender.isOn)
     }
 }

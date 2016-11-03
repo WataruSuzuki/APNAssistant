@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33BD8AE26A327F1D860E5BA1 /* libPods-APNAssistantLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */; };
+		600F95691DA2317E00045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
+		600F956B1DA231A200045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
+		600F956C1DA235E700045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
+		600F956E1DA2568600045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
 		602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
@@ -18,6 +23,7 @@
 		6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
 		6052A1951D63E34C00A3B8CE /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
 		6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
+		607165521CB3D28A000BCAF5 /* AvailableApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */; };
 		6082F1B51D536843000B59EA /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
 		6082F1B61D536843000B59EA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
 		6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
@@ -35,13 +41,23 @@
 		60BEE5141CA400AB005B86B9 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
 		60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */; };
 		60DC0F0E1D6E94FB00A4DD29 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */; };
+		60FCDBA81D86879900DA5726 /* AvailableUpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */; };
+		612AF03939ED94BA0E6352D3 /* libPods-APNAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */; };
+		6D58EEFAC160010639AC0280 /* libPods-APNAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */; };
+		96007FB41D963A02000FAE04 /* UtilAppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96007FB31D963A02000FAE04 /* UtilAppStatus.swift */; };
+		9618C8C51D92D1F8008B25F3 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */; };
+		9618C8C71D92D21C008B25F3 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
+		9651C2131D9B938A008A4A9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9651C2151D9B938A008A4A9D /* InfoPlist.strings */; };
+		9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21C1D9BA27C008A4A9D /* configrationProfile.html */; };
+		9651C21F1D9BA27C008A4A9D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 9651C21D1D9BA27C008A4A9D /* index.html */; };
+		9651C2201D9BCA7B008A4A9D /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
+		96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
 		96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
 		96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
 		96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		96DA6C0D1C9B03FE00E424D5 /* APNAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* APNAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */; };
-		9EB076198FF9BE7FC26EF8A4 /* libPods-APNAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */; };
 		E182F50CC564D716129F4139 /* libPods-TodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */; };
 		F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F009F3961D6006A000D428D6 /* NotificationCenter.framework */; };
 		F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3991D6006A100D428D6 /* TodayViewController.swift */; };
@@ -50,11 +66,39 @@
 		F009F3AA1D600AE700D428D6 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
 		F009F3AB1D600AE700D428D6 /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
 		F009F3AC1D600D2600D428D6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
-		F04541651D561F7800D4388C /* cellphone-sim-card.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541601D561F7800D4388C /* cellphone-sim-card.png */; };
-		F04541661D561F7800D4388C /* cellphone.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541611D561F7800D4388C /* cellphone.png */; };
-		F04541671D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */; };
-		F04541681D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */; };
-		F04541691D561F7800D4388C /* technology.png in Resources */ = {isa = PBXBuildFile; fileRef = F04541641D561F7800D4388C /* technology.png */; };
+		F02DA0F81D997944007F6C93 /* SegmentedCtrlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602A462F1D65483A00ED22D6 /* SegmentedCtrlCell.swift */; };
+		F02DA0F91D997944007F6C93 /* UtilAppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96007FB31D963A02000FAE04 /* UtilAppStatus.swift */; };
+		F02DA0FA1D997944007F6C93 /* UtilShareAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6731D6F1597008FF20A /* UtilShareAction.swift */; };
+		F02DA0FB1D997944007F6C93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
+		F02DA0FC1D997944007F6C93 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */; };
+		F02DA0FD1D997944007F6C93 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
+		F02DA0FF1D997944007F6C93 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
+		F02DA1001D997944007F6C93 /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
+		F02DA1011D997944007F6C93 /* AvailableUpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */; };
+		F02DA1031D997944007F6C93 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
+		F02DA1041D997944007F6C93 /* ApnListViewController+Previewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */; };
+		F02DA1051D997944007F6C93 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
+		F02DA1061D997944007F6C93 /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
+		F02DA1071D997944007F6C93 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */; };
+		F02DA1081D997944007F6C93 /* UISwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50F1CA40061005B86B9 /* UISwitchCell.swift */; };
+		F02DA1091D997944007F6C93 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE50D1CA4003F005B86B9 /* TextFieldCell.swift */; };
+		F02DA10A1D997944007F6C93 /* AvailableApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */; };
+		F02DA10B1D997944007F6C93 /* UtilShortcutLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */; };
+		F02DA10D1D997944007F6C93 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
+		F02DA10E1D997944007F6C93 /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
+		F02DA10F1D997944007F6C93 /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
+		F02DA1131D997944007F6C93 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
+		F02DA1141D997944007F6C93 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
+		F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
+		F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */; };
+		F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */; };
+		F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */; };
+		F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */; };
+		F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
+		F02DA11E1D997944007F6C93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */; };
+		F02DA11F1D997944007F6C93 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */; };
+		F02DA1201D997944007F6C93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */; };
+		F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,12 +140,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B44900153E03A118779BE78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		0C7066E1C528D83FA6C95E5F /* libPods-ApnMemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnMemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistantLite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9CFEFEB8283B622418507E /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
 		2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TodayWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		600F95681DA2317E00045495 /* MsgNoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgNoDataView.swift; sourceTree = "<group>"; };
+		600F956A1DA231A200045495 /* MsgNoDataView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MsgNoDataView.xib; sourceTree = "<group>"; };
 		602211F61CC7395B0065D37D /* DetailApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailApnViewController.swift; sourceTree = "<group>"; };
 		60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditApnViewController.swift; sourceTree = "<group>"; };
 		60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnListViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +158,7 @@
 		602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedCtrlCell.xib; sourceTree = "<group>"; };
 		6052A1911D63E2E500A3B8CE /* TodayWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TodayWidget-Bridging-Header.h"; sourceTree = "<group>"; };
 		6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilHandleRLMObject.swift; sourceTree = "<group>"; };
+		607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableApnListViewController.swift; sourceTree = "<group>"; };
 		6082F1B31D536843000B59EA /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
 		6082F1B41D536843000B59EA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilCocoaHTTPServer.swift; sourceTree = "<group>"; };
@@ -133,21 +181,34 @@
 		60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilShortcutLaunch.swift; sourceTree = "<group>"; };
 		60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableUpdateHelper.swift; sourceTree = "<group>"; };
+		6A78525D0FE48CB6F5F6435F /* libPods-ApnBookmarks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnBookmarks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D32C0BC91843370CFD7DA5 /* Pods-APNAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.release.xcconfig"; sourceTree = "<group>"; };
+		91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.release.xcconfig"; sourceTree = "<group>"; };
+		96007FB31D963A02000FAE04 /* UtilAppStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAppStatus.swift; sourceTree = "<group>"; };
+		9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
+		9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressIndicatorView.xib; sourceTree = "<group>"; };
+		9651C2141D9B938A008A4A9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9651C2161D9B9393008A4A9D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9651C21C1D9BA27C008A4A9D /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
+		9651C21D1D9BA27C008A4A9D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutThisAppViewController.swift; sourceTree = "<group>"; };
 		96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96DA6BFC1C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DA6C011C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96DA6C031C9B03FD00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C081C9B03FE00E424D5 /* APNAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistant.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNAssistantTests.swift; sourceTree = "<group>"; };
 		96DA6C0E1C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C131C9B03FE00E424D5 /* APNAssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistant.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNAssistantUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.release.xcconfig"; sourceTree = "<group>"; };
+		E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3961D6006A000D428D6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F009F3991D6006A100D428D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -156,12 +217,12 @@
 		F009F3A61D60088A00D428D6 /* TodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TodayWidget.entitlements; sourceTree = "<group>"; };
 		F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnProfileObject.swift; sourceTree = "<group>"; };
 		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
-		F04541601D561F7800D4388C /* cellphone-sim-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellphone-sim-card.png"; sourceTree = "<group>"; };
-		F04541611D561F7800D4388C /* cellphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellphone.png; sourceTree = "<group>"; };
-		F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol-1.png"; sourceTree = "<group>"; };
-		F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-sim-card-with-exclamation-symbol.png"; sourceTree = "<group>"; };
-		F04541641D561F7800D4388C /* technology.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technology.png; sourceTree = "<group>"; };
+		F02DA12A1D997944007F6C93 /* APNAssistantLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNAssistantLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F06AD47C1D5D859B007B0842 /* APNAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = APNAssistant.entitlements; sourceTree = "<group>"; };
+		F07BB2231DA0116200728B9D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0A74DCB1D9BBBE0009D799E /* ApnMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnMemo.entitlements; sourceTree = "<group>"; };
+		F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAlertSheet.swift; sourceTree = "<group>"; };
+		FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +230,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EB076198FF9BE7FC26EF8A4 /* libPods-APNAssistant.a in Frameworks */,
+				6D58EEFAC160010639AC0280 /* libPods-APNAssistant.a in Frameworks */,
+				612AF03939ED94BA0E6352D3 /* libPods-APNAssistant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,18 +258,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F02DA1101D997944007F6C93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33BD8AE26A327F1D860E5BA1 /* libPods-APNAssistantLite.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		1DD471A10B4D9499B7C426C5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E98AF8FF4B2AD555C531AEBC /* Pods.debug.xcconfig */,
-				0B44900153E03A118779BE78 /* Pods.release.xcconfig */,
 				2D9CFEFEB8283B622418507E /* Pods-APNAssistant.debug.xcconfig */,
 				84D32C0BC91843370CFD7DA5 /* Pods-APNAssistant.release.xcconfig */,
 				4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */,
 				2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */,
+				C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */,
+				91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */,
+				FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */,
+				E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -219,8 +291,10 @@
 				60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */,
 				6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */,
 				60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */,
+				607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */,
 				602211F61CC7395B0065D37D /* DetailApnViewController.swift */,
 				60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */,
+				96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -241,6 +315,9 @@
 				6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */,
 				60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */,
 				6085D6731D6F1597008FF20A /* UtilShareAction.swift */,
+				60FCDBA71D86879900DA5726 /* AvailableUpdateHelper.swift */,
+				96007FB31D963A02000FAE04 /* UtilAppStatus.swift */,
+				F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,14 +331,39 @@
 				60BEE5111CA4009E005B86B9 /* UISwitchCell.xib */,
 				60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */,
 				602A46301D65483A00ED22D6 /* SegmentedCtrlCell.xib */,
+				9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */,
+				9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */,
+				600F95681DA2317E00045495 /* MsgNoDataView.swift */,
+				600F956A1DA231A200045495 /* MsgNoDataView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9651C20E1D9B9355008A4A9D /* ApnMemo */ = {
+			isa = PBXGroup;
+			children = (
+				F07BB2231DA0116200728B9D /* Info.plist */,
+				F0A74DCB1D9BBBE0009D799E /* ApnMemo.entitlements */,
+				9651C21B1D9BA27C008A4A9D /* htdocs */,
+				9651C2151D9B938A008A4A9D /* InfoPlist.strings */,
+			);
+			path = ApnMemo;
+			sourceTree = "<group>";
+		};
+		9651C21B1D9BA27C008A4A9D /* htdocs */ = {
+			isa = PBXGroup;
+			children = (
+				9651C21C1D9BA27C008A4A9D /* configrationProfile.html */,
+				9651C21D1D9BA27C008A4A9D /* index.html */,
+			);
+			path = htdocs;
 			sourceTree = "<group>";
 		};
 		96DA6BE91C9B03FD00E424D5 = {
 			isa = PBXGroup;
 			children = (
 				96DA6BF41C9B03FD00E424D5 /* APNAssistant */,
+				9651C20E1D9B9355008A4A9D /* ApnMemo */,
 				96DA6C0B1C9B03FE00E424D5 /* APNAssistantTests */,
 				96DA6C161C9B03FE00E424D5 /* APNAssistantUITests */,
 				F009F3981D6006A100D428D6 /* TodayWidget */,
@@ -275,9 +377,10 @@
 			isa = PBXGroup;
 			children = (
 				96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */,
-				96DA6C081C9B03FE00E424D5 /* APNAssistantTests.xctest */,
-				96DA6C131C9B03FE00E424D5 /* APNAssistantUITests.xctest */,
+				96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */,
+				96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */,
 				F009F3951D6006A000D428D6 /* TodayWidget.appex */,
+				F02DA12A1D997944007F6C93 /* APNAssistantLite.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,6 +433,10 @@
 				18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */,
 				F009F3961D6006A000D428D6 /* NotificationCenter.framework */,
 				4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */,
+				E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */,
+				6A78525D0FE48CB6F5F6435F /* libPods-ApnBookmarks.a */,
+				0C7066E1C528D83FA6C95E5F /* libPods-ApnMemo.a */,
+				128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -369,11 +476,6 @@
 			children = (
 				6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */,
 				6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */,
-				F04541601D561F7800D4388C /* cellphone-sim-card.png */,
-				F04541611D561F7800D4388C /* cellphone.png */,
-				F04541621D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png */,
-				F04541631D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png */,
-				F04541641D561F7800D4388C /* technology.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -419,7 +521,7 @@
 			);
 			name = APNAssistantTests;
 			productName = APNAssistantTests;
-			productReference = 96DA6C081C9B03FE00E424D5 /* APNAssistantTests.xctest */;
+			productReference = 96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		96DA6C121C9B03FE00E424D5 /* APNAssistantUITests */ = {
@@ -437,7 +539,7 @@
 			);
 			name = APNAssistantUITests;
 			productName = APNAssistantUITests;
-			productReference = 96DA6C131C9B03FE00E424D5 /* APNAssistantUITests.xctest */;
+			productReference = 96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		F009F3941D6006A000D428D6 /* TodayWidget */ = {
@@ -450,7 +552,6 @@
 				F009F3931D6006A000D428D6 /* Resources */,
 				0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */,
 				F04DB17F1D6494BA00998852 /* ShellScript */,
-				0154BE96EAF6A4805954BCC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -461,6 +562,27 @@
 			productReference = F009F3951D6006A000D428D6 /* TodayWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F02DA0F31D997944007F6C93 /* APNAssistantLite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "APNAssistantLite" */;
+			buildPhases = (
+				F02DA0F61D997944007F6C93 /* [CP] Check Pods Manifest.lock */,
+				F02DA0F71D997944007F6C93 /* Sources */,
+				F02DA1101D997944007F6C93 /* Frameworks */,
+				F02DA1121D997944007F6C93 /* Resources */,
+				F02DA1221D997944007F6C93 /* [CP] Embed Pods Frameworks */,
+				F02DA1231D997944007F6C93 /* [CP] Copy Pods Resources */,
+				F02DA1241D997944007F6C93 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APNAssistantLite;
+			productName = APNAssistant;
+			productReference = F02DA12A1D997944007F6C93 /* APNAssistantLite.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -468,30 +590,57 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = WataruSuzuki;
 				TargetAttributes = {
 					96DA6BF11C9B03FD00E424D5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = F35G39V2UB;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
 					};
 					96DA6C071C9B03FE00E424D5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 96DA6BF11C9B03FD00E424D5;
 					};
 					96DA6C121C9B03FE00E424D5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 96DA6BF11C9B03FD00E424D5;
 					};
 					F009F3941D6006A000D428D6 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F35G39V2UB;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					F02DA0F31D997944007F6C93 = {
+						DevelopmentTeam = F35G39V2UB;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
 							};
 						};
 					};
@@ -515,6 +664,7 @@
 				96DA6C071C9B03FE00E424D5 /* APNAssistantTests */,
 				96DA6C121C9B03FE00E424D5 /* APNAssistantUITests */,
 				F009F3941D6006A000D428D6 /* TodayWidget */,
+				F02DA0F31D997944007F6C93 /* APNAssistantLite */,
 			);
 		};
 /* End PBXProject section */
@@ -524,20 +674,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F04541651D561F7800D4388C /* cellphone-sim-card.png in Resources */,
-				F04541671D561F7800D4388C /* phone-sim-card-with-exclamation-symbol-1.png in Resources */,
 				60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */,
 				60BEE5051CA3E1A4005B86B9 /* Localizable.strings in Resources */,
 				96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */,
 				6082F1B51D536843000B59EA /* configrationProfile.html in Resources */,
-				F04541681D561F7800D4388C /* phone-sim-card-with-exclamation-symbol.png in Resources */,
 				602A46321D65483A00ED22D6 /* SegmentedCtrlCell.xib in Resources */,
 				60BEE5141CA400AB005B86B9 /* TextFieldCell.xib in Resources */,
 				6085D66C1D6EC46D008FF20A /* ic_list_shortcut.png in Resources */,
-				F04541661D561F7800D4388C /* cellphone.png in Resources */,
 				6085D66B1D6EC46D008FF20A /* ic_favorite_shortcut.png in Resources */,
-				F04541691D561F7800D4388C /* technology.png in Resources */,
+				9618C8C71D92D21C008B25F3 /* ProgressIndicatorView.xib in Resources */,
 				6082F1B61D536843000B59EA /* index.html in Resources */,
+				600F956B1DA231A200045495 /* MsgNoDataView.xib in Resources */,
 				96DA6BFF1C9B03FD00E424D5 /* Assets.xcassets in Resources */,
 				60BEE5121CA4009E005B86B9 /* UISwitchCell.xib in Resources */,
 				96DA6BFD1C9B03FD00E424D5 /* Main.storyboard in Resources */,
@@ -569,24 +716,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F02DA1121D997944007F6C93 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9651C21F1D9BA27C008A4A9D /* index.html in Resources */,
+				F02DA1131D997944007F6C93 /* Settings.bundle in Resources */,
+				9651C2131D9B938A008A4A9D /* InfoPlist.strings in Resources */,
+				F02DA1141D997944007F6C93 /* Localizable.strings in Resources */,
+				F02DA1161D997944007F6C93 /* LaunchScreen.storyboard in Resources */,
+				F02DA1181D997944007F6C93 /* SegmentedCtrlCell.xib in Resources */,
+				F02DA1191D997944007F6C93 /* TextFieldCell.xib in Resources */,
+				9651C21E1D9BA27C008A4A9D /* configrationProfile.html in Resources */,
+				F02DA11A1D997944007F6C93 /* ic_list_shortcut.png in Resources */,
+				600F956E1DA2568600045495 /* MsgNoDataView.xib in Resources */,
+				F02DA11B1D997944007F6C93 /* ic_favorite_shortcut.png in Resources */,
+				F02DA11C1D997944007F6C93 /* ProgressIndicatorView.xib in Resources */,
+				F02DA11E1D997944007F6C93 /* Assets.xcassets in Resources */,
+				F02DA11F1D997944007F6C93 /* UISwitchCell.xib in Resources */,
+				F02DA1201D997944007F6C93 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0154BE96EAF6A4805954BCC4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0A709D2A1E243C36B562BF3A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,7 +797,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/\\./ })\n    \n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n# get the minor version from the last array element\nminorVersion=${arrIN[${lastElementPosition}]}\n# Increase it by 1\nminorVersion=$((minorVersion+1))\n# Format it as 3 digit\n#minorVersion=`printf \"%03d\" $minorVersion`\necho \"New minor version $minorVersion\"\n# Update it on the array\narrIN[$lastElementPosition]=$minorVersion\n\n# construct the build number now by joining the array\nbuildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n\necho \"New Build number $buildNumber\"\n\n#update it in plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi";
+			shellScript = "#!/bin/bash\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/./ })\n    \n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n# get the minor version from the last array element\nminorVersion=${arrIN[${lastElementPosition}]}\n# Increase it by 1\nminorVersion=$((minorVersion+1))\n# Format it as 3 digit\n#minorVersion=`printf \"%03d\" $minorVersion`\necho \"New minor version $minorVersion\"\n# Update it on the array\narrIN[$lastElementPosition]=$minorVersion\n\n# construct the build number now by joining the array\nbuildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n\necho \"New Build number $buildNumber\"\n\n#update it in plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi";
 		};
 		98B00AC8814008A4C2BE48C7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -657,8 +811,66 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		F02DA0F61D997944007F6C93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA1221D997944007F6C93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA1231D997944007F6C93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02DA1241D997944007F6C93 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\nAPP_VERSION=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:1:DefaultValue ${APP_VERSION}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nAPP_BUILD_NO=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $PRODUCT_SETTINGS_PATH)\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:2:DefaultValue ${APP_BUILD_NO}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Settings.bundle/Root.plist\"\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/./ })\n    \n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n# get the minor version from the last array element\nminorVersion=${arrIN[${lastElementPosition}]}\n# Increase it by 1\nminorVersion=$((minorVersion+1))\n# Format it as 3 digit\n#minorVersion=`printf \"%03d\" $minorVersion`\necho \"New minor version $minorVersion\"\n# Update it on the array\narrIN[$lastElementPosition]=$minorVersion\n\n# construct the build number now by joining the array\nbuildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n\necho \"New Build number $buildNumber\"\n\n#update it in plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n\nfi";
 		};
 		F04DB17F1D6494BA00998852 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -671,7 +883,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/\\./ })\n\n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n    # get the minor version from the last array element\n    minorVersion=${arrIN[${lastElementPosition}]}\n    # Increase it by 1\n    minorVersion=$((minorVersion+1))\n    # Format it as 3 digit\n    #minorVersion=`printf \"%03d\" $minorVersion`\n    echo \"New minor version $minorVersion\"\n    # Update it on the array\n    arrIN[$lastElementPosition]=$minorVersion\n    \n    # construct the build number now by joining the array\n    buildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n    \n    echo \"New Build number $buildNumber\"\n    \n    #update it in plist\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n    \n    fi";
+			shellScript = "#!/bin/bash\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\n\n# get the build number\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\necho \"Old Build number $buildNumber\"\n\n# split it by dots\narrIN=(${buildNumber/./ })\n\n# get the last element position\nlastElementPosition=$((${#arrIN[@]} - 1))\n    # get the minor version from the last array element\n    minorVersion=${arrIN[${lastElementPosition}]}\n    # Increase it by 1\n    minorVersion=$((minorVersion+1))\n    # Format it as 3 digit\n    #minorVersion=`printf \"%03d\" $minorVersion`\n    echo \"New minor version $minorVersion\"\n    # Update it on the array\n    arrIN[$lastElementPosition]=$minorVersion\n    \n    # construct the build number now by joining the array\n    buildNumber=$(IFS=. ; echo \"${arrIN[*]}\")\n    \n    echo \"New Build number $buildNumber\"\n    \n    #update it in plist\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n    \n    fi";
 		};
 		F91EE9737E46D0E6D5F451D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -685,7 +897,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -696,21 +908,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				602A46311D65483A00ED22D6 /* SegmentedCtrlCell.swift in Sources */,
+				96007FB41D963A02000FAE04 /* UtilAppStatus.swift in Sources */,
 				6085D6741D6F1597008FF20A /* UtilShareAction.swift in Sources */,
 				96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */,
 				60DC0F0E1D6E94FB00A4DD29 /* MainTabBarController.swift in Sources */,
 				6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */,
 				60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */,
 				F009F3AA1D600AE700D428D6 /* ApnProfileObject.swift in Sources */,
+				60FCDBA81D86879900DA5726 /* AvailableUpdateHelper.swift in Sources */,
+				96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */,
 				6085D6721D6F012B008FF20A /* ApnListViewController+Previewing.swift in Sources */,
 				60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */,
 				F009F3AB1D600AE700D428D6 /* ApnSummaryObject.swift in Sources */,
+				9618C8C51D92D1F8008B25F3 /* ProgressIndicatorView.swift in Sources */,
 				60BEE5101CA40061005B86B9 /* UISwitchCell.swift in Sources */,
 				60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */,
+				607165521CB3D28A000BCAF5 /* AvailableApnListViewController.swift in Sources */,
 				60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,
 				6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */,
 				602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */,
+				F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */,
+				600F95691DA2317E00045495 /* MsgNoDataView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +958,36 @@
 				6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */,
 				6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */,
 				6052A1951D63E34C00A3B8CE /* UtilCocoaHTTPServer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F02DA0F71D997944007F6C93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F02DA0F81D997944007F6C93 /* SegmentedCtrlCell.swift in Sources */,
+				F02DA0F91D997944007F6C93 /* UtilAppStatus.swift in Sources */,
+				F02DA0FA1D997944007F6C93 /* UtilShareAction.swift in Sources */,
+				F02DA0FB1D997944007F6C93 /* AppDelegate.swift in Sources */,
+				F02DA0FC1D997944007F6C93 /* MainTabBarController.swift in Sources */,
+				F02DA0FD1D997944007F6C93 /* UtilHandleRLMObject.swift in Sources */,
+				F02DA0FF1D997944007F6C93 /* ApnListViewController.swift in Sources */,
+				F02DA1001D997944007F6C93 /* ApnProfileObject.swift in Sources */,
+				F02DA1011D997944007F6C93 /* AvailableUpdateHelper.swift in Sources */,
+				F02DA1031D997944007F6C93 /* AboutThisAppViewController.swift in Sources */,
+				F02DA1041D997944007F6C93 /* ApnListViewController+Previewing.swift in Sources */,
+				F02DA1051D997944007F6C93 /* FavoriteApnListViewController.swift in Sources */,
+				F02DA1061D997944007F6C93 /* ApnSummaryObject.swift in Sources */,
+				F02DA1071D997944007F6C93 /* ProgressIndicatorView.swift in Sources */,
+				F02DA1081D997944007F6C93 /* UISwitchCell.swift in Sources */,
+				F02DA1091D997944007F6C93 /* TextFieldCell.swift in Sources */,
+				F02DA10A1D997944007F6C93 /* AvailableApnListViewController.swift in Sources */,
+				F02DA10B1D997944007F6C93 /* UtilShortcutLaunch.swift in Sources */,
+				F02DA10D1D997944007F6C93 /* EditApnViewController.swift in Sources */,
+				F02DA10E1D997944007F6C93 /* UtilCocoaHTTPServer.swift in Sources */,
+				F02DA10F1D997944007F6C93 /* DetailApnViewController.swift in Sources */,
+				9651C2201D9BCA7B008A4A9D /* UtilAlertSheet.swift in Sources */,
+				600F956C1DA235E700045495 /* MsgNoDataView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +1039,15 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		9651C2151D9B938A008A4A9D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9651C2141D9B938A008A4A9D /* Base */,
+				9651C2161D9B9393008A4A9D /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -823,6 +1081,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -832,13 +1091,16 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -859,6 +1121,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -868,6 +1131,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -877,13 +1141,16 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -897,6 +1164,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -904,38 +1172,40 @@
 		};
 		96DA6C1D1C9B03FE00E424D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D9CFEFEB8283B622418507E /* Pods-APNAssistant.debug.xcconfig */;
+			baseConfigurationReference = C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = APNAssistant/APNAssistant.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = APNAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistant;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_SWIFT_FLAGS = "-D FULL_VERSION";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
+				PRODUCT_NAME = APNAssistant;
 				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		96DA6C1E1C9B03FE00E424D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84D32C0BC91843370CFD7DA5 /* Pods-APNAssistant.release.xcconfig */;
+			baseConfigurationReference = 91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = APNAssistant/APNAssistant.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = APNAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistant;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				OTHER_SWIFT_FLAGS = "-D FULL_VERSION";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
+				PRODUCT_NAME = APNAssistant;
 				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -945,8 +1215,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = APNAssistantTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistantTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
+				PRODUCT_NAME = APNAssistant;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
 			name = Debug;
@@ -957,8 +1228,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = APNAssistantTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistantTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
+				PRODUCT_NAME = APNAssistant;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
 			name = Release;
@@ -968,8 +1240,9 @@
 			buildSettings = {
 				INFOPLIST_FILE = APNAssistantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistantUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
+				PRODUCT_NAME = APNAssistant;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;
 			};
@@ -980,8 +1253,9 @@
 			buildSettings = {
 				INFOPLIST_FILE = APNAssistantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistantUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
+				PRODUCT_NAME = APNAssistant;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;
 			};
@@ -998,11 +1272,12 @@
 				INFOPLIST_FILE = TodayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistant.TodayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "TodayWidget/TodayWidget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1017,10 +1292,50 @@
 				INFOPLIST_FILE = TodayWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = apple.reject.APNAssistant.TodayWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "TodayWidget/TodayWidget-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		F02DA1281D997944007F6C93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Memo";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ApnMemo/ApnMemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ApnMemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D STAND_ALONE_VERSION";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F02DA1291D997944007F6C93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Memo";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ApnMemo/ApnMemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = ApnMemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-D STAND_ALONE_VERSION";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnMemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1068,6 +1383,15 @@
 			buildConfigurations = (
 				F009F3A21D6006A100D428D6 /* Debug */,
 				F009F3A31D6006A100D428D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F02DA1271D997944007F6C93 /* Build configuration list for PBXNativeTarget "APNAssistantLite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F02DA1281D997944007F6C93 /* Debug */,
+				F02DA1291D997944007F6C93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -73,7 +73,7 @@ ata_webApp = "Web App";
 
 how_about_apn = "An Access Point Name (APN) is a gateway between a GSM, GPRS, 3G or 4G mobile network and another computer network, frequently the public Internet.";
 how_about_profile = "This file is used to perform the configuration of the iOS-based devices. \nThis app bookmarks profiles of released MVNO carriers or made by MVNO information";
-how_about_webApp = "This is web app, Free. Please share your friends.";
+how_about_webApp = "Web app's link is here, it's free.\nPlease share your friends.";
 
 error = "Error";
 fail_load_profile = "Fail to load information. Please ask to your carrier.";

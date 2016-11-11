@@ -51,7 +51,7 @@ cache = "キープする";
 tutorial_message = "まだAPNプロファイルがありません。こちらから作成しましょう!!";
 latest_set_profile = "このアプリから端末にセットしたプロファイル";
 unknown = "不明です...";
-openApp = "アプリ起動";
+openSettingApp = "設定を起動";
 
 apn_assistant = "APNアシスタント";
 show_favorites = "お気に入りを表示する";

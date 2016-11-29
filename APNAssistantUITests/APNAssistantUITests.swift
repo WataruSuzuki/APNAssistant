@@ -42,22 +42,23 @@ class APNAssistantUITests: XCTestCase {
     
     @available(iOS 9.0, *)
     func createAPN(app: XCUIApplication) {
-        app.sheets["確認"].buttons["キャンセル"].tap()
-        app.tabBars.buttons["プロファイル"].tap()
-        app.navigationBars["プロファイル"].buttons["追加"].tap()
+        
+        app.sheets[getTestStr(key: "confirm")].buttons[getTestStr(key: "cancel")].tap()
+        app.tabBars.buttons[getTestStr(key: "profileList")].tap()
+        app.navigationBars[getTestStr(key: "profileList")].buttons[(isJapanese() ? "追加" : "Add")].tap()
         
         let tablesQuery = app.tables
         let textField = tablesQuery.children(matching: .cell).element(boundBy: 0).children(matching: .textField).element
         textField.typeText("APN Assistant UI Tests")
         
         let app2 = app
-        app2.tables.staticTexts["デフォルトAPNの名前"].tap()
+        app2.tables.staticTexts[getTestStr(key: "keyAttachApnName")].tap()
         
         let nextButton = app2.buttons["Next:"]
         nextButton.tap()
         
-        let apnCellsQuery = tablesQuery.cells.containing(.staticText, identifier:"デフォルトAPNの名前")
-        apnCellsQuery.textFields["未設定"].typeText("\n")
+        let apnCellsQuery = tablesQuery.cells.containing(.staticText, identifier:getTestStr(key: "keyAttachApnName"))
+        apnCellsQuery.textFields[getTestStr(key: "no_settings")].typeText("\n")
         
         let textField2 = apnCellsQuery.children(matching: .textField).element
         textField2.typeText("apnassistant")
@@ -70,7 +71,16 @@ class APNAssistantUITests: XCTestCase {
         textField2.typeText("com")
         nextButton.tap()
         textField2.typeText("\n")
-        app.navigationBars["APN編集"].buttons["保存"].tap()
-        app.sheets["今すぐデバイスへ設定しますか?"].buttons["今はしない"].tap()
+        app.navigationBars[getTestStr(key: "edit_apn")].buttons[(isJapanese() ? "保存" : "Save")].tap()
+        app.sheets[getTestStr(key: "is_update_now")].buttons[getTestStr(key: "not_this_time")].tap()
+    }
+    
+    func getTestStr(key: String) -> String {
+        let str = NSLocalizedString(key, bundle: Bundle(for: APNAssistantUITests.self), comment: "")
+        return str
+    }
+    
+    func isJapanese() -> Bool {
+        return getTestStr(key: "error") == "エラー"
     }
 }

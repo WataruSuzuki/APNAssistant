@@ -9,7 +9,7 @@
 import XCTest
 @testable import APNAssistant
 
-class ApnAssisterTests: XCTestCase {
+class APNAssistantTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

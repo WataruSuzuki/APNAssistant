@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ApnAssisterUITests: XCTestCase {
+class APNAssistantUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -36,80 +36,41 @@ class ApnAssisterUITests: XCTestCase {
         
         if #available(iOS 9.0, *) {
             let app = XCUIApplication()
-            createAPNProfile(app: app)
+            createAPN(app: app)
         }
     }
     
     @available(iOS 9.0, *)
-    func createAPNProfile(app: XCUIApplication) {
-        XCUIDevice.shared().orientation = .portrait
-        XCUIDevice.shared().orientation = .portrait
-        
+    func createAPN(app: XCUIApplication) {
         app.sheets["確認"].buttons["キャンセル"].tap()
         app.tabBars.buttons["プロファイル"].tap()
         app.navigationBars["プロファイル"].buttons["追加"].tap()
         
-        let key = app.keyboards.keys["その他、文字"]
-        key.tap()
-        key.tap()
-        
         let tablesQuery = app.tables
-        tablesQuery.children(matching: .cell).element(boundBy: 0).children(matching: .textField).element.typeText("watarup")
-        
-        let nextButton = app.buttons["Next:"]
-        nextButton.tap()
-        
-        let deleteKey = app.keys["delete"]
-        deleteKey.tap()
-        deleteKey.tap()
+        let textField = tablesQuery.children(matching: .cell).element(boundBy: 0).children(matching: .textField).element
+        textField.typeText("APN Assistant UI Tests")
         
         let app2 = app
-        app2.buttons["Next:"].tap()
+        app2.tables.staticTexts["デフォルトAPNの名前"].tap()
+        
+        let nextButton = app2.buttons["Next:"]
+        nextButton.tap()
         
         let apnCellsQuery = tablesQuery.cells.containing(.staticText, identifier:"デフォルトAPNの名前")
         apnCellsQuery.textFields["未設定"].typeText("\n")
-        key.tap()
-        key.tap()
         
-        let textField = apnCellsQuery.children(matching: .textField).element
-        textField.typeText("watargu")
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
-        deleteKey.tap()
-        textField.typeText("ar")
-        app2.keys["T U V "].swipeLeft()
-        textField.typeText("u.")
-        deleteKey.tap()
-        deleteKey.tap()
+        let textField2 = apnCellsQuery.children(matching: .textField).element
+        textField2.typeText("apnassistant")
+        let moreKey = app.keys["more"]
+        moreKey.tap()
+        moreKey.tap()
+        textField2.typeText(".")
+        moreKey.tap()
+        moreKey.tap()
+        textField2.typeText("com")
         nextButton.tap()
-        textField.typeText(".")
-        app2.keys["A B C "].swipeUp()
-        textField.typeText("c")
-        app2.buttons[".com"].tap()
-        
-        let tablesQuery2 = app2.tables
-        let apnStaticText = tablesQuery2.staticTexts["デフォルトAPNのユーザ名"]
-        apnStaticText.tap()
-        apnStaticText.tap()
-        apnStaticText.tap()
-        apnStaticText.swipeRight()
-        apnStaticText.tap()
-        tablesQuery2.textFields["未設定"].tap()
-        
-        let secureTextField = tablesQuery2.secureTextFields["未設定"]
-        secureTextField.tap()
-        secureTextField.swipeRight()
-        
-        let apnSwitch = tablesQuery2.switches["データAPNを手動でセットする"]
-        apnSwitch.tap()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.swipeUp()
-        tablesQuery2.staticTexts["データAPNの名前"].swipeRight()
-        apnSwitch.tap()
-        apnStaticText.tap()
+        textField2.typeText("\n")
         app.navigationBars["APN編集"].buttons["保存"].tap()
-        app.sheets["今すぐデバイスへ設定しますか?"].buttons["はい, 更新します"].tap()
-        XCUIDevice.shared().orientation = .portrait
-        XCUIDevice.shared().orientation = .portrait
+        app.sheets["今すぐデバイスへ設定しますか?"].buttons["今はしない"].tap()
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import APNAssistant
+//@testable import APNAssistant
 
 class APNAssistantTests: XCTestCase {
     

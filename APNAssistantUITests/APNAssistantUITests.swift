@@ -51,36 +51,32 @@ class APNAssistantUITests: XCTestCase {
         let textField = tablesQuery.children(matching: .cell).element(boundBy: 0).children(matching: .textField).element
         textField.typeText("APN Assistant UI Tests")
         
-        let app2 = app
-        app2.tables.staticTexts[getTestStr(key: "keyAttachApnName")].tap()
-        
-        let nextButton = app2.buttons["Next:"]
+        let nextButton = app.buttons["Next:"]
         nextButton.tap()
         
+        app.tables.staticTexts[getTestStr(key: "keyAttachApnName")].tap()
         let apnCellsQuery = tablesQuery.cells.containing(.staticText, identifier:getTestStr(key: "keyAttachApnName"))
-        apnCellsQuery.textFields[getTestStr(key: "no_settings")].typeText("\n")
         
         let textField2 = apnCellsQuery.children(matching: .textField).element
-        textField2.typeText("apnassistant")
-        let moreKey = app.keys["more"]
-        moreKey.tap()
-        moreKey.tap()
-        textField2.typeText(".")
-        moreKey.tap()
-        moreKey.tap()
-        textField2.typeText("com")
-        nextButton.tap()
-        textField2.typeText("\n")
+        textField2.tap()
+        textField2.typeText("apnassistant.com")
+        
         app.navigationBars[getTestStr(key: "edit_apn")].buttons[(isJapanese() ? "保存" : "Save")].tap()
         app.sheets[getTestStr(key: "is_update_now")].buttons[getTestStr(key: "not_this_time")].tap()
     }
     
     func getTestStr(key: String) -> String {
-        let str = NSLocalizedString(key, bundle: Bundle(for: APNAssistantUITests.self), comment: "")
-        return str
+        if let languageBundlePath = Bundle(for: APNAssistantUITests.self).path(forResource: NSLocale.current.languageCode!, ofType: "lproj") {
+            if let localizationBundle = Bundle(path: languageBundlePath) {
+                return NSLocalizedString(key, bundle:localizationBundle, comment: "")
+            }
+        }
+        return NSLocalizedString(key, bundle:Bundle(for: APNAssistantUITests.self), comment: "")
     }
     
     func isJapanese() -> Bool {
         return getTestStr(key: "error") == "エラー"
     }
+    
+    
 }

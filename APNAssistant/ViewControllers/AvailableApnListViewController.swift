@@ -97,11 +97,11 @@ class AvailableApnListViewController: UITableViewController,
         let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
             action in self.reloadCachedData()
         }
-        let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
+        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
             action in self.startJsonFileDownload()
         }
         actions.append(cancelAction)
-        actions.append(installAction)
+        actions.append(updateAction)
         
         UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: self)
     }
@@ -119,10 +119,8 @@ class AvailableApnListViewController: UITableViewController,
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         myProfileHelper.executeDownloadProfile(indexPath: indexPath, success: { (filePath) in
-            //success
             self.readProfileInfo(filePath)
         }) { (error) in
-            //fail
             self.appStatus.stopIndicator()
             if let nsError = error as? NSError {
                 if #available(iOS 9.0, *) {

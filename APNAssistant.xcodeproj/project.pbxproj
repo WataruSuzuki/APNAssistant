@@ -12,6 +12,7 @@
 		600F956B1DA231A200045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
 		600F956C1DA235E700045495 /* MsgNoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600F95681DA2317E00045495 /* MsgNoDataView.swift */; };
 		600F956E1DA2568600045495 /* MsgNoDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600F956A1DA231A200045495 /* MsgNoDataView.xib */; };
+		601514611DED8DF1003A3586 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 60BEE5071CA3E1A4005B86B9 /* Localizable.strings */; };
 		602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602211F61CC7395B0065D37D /* DetailApnViewController.swift */; };
 		60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */; };
 		60224E0E1CA0E34D00AFB201 /* ApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */; };
@@ -203,10 +204,10 @@
 		96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DA6C011C9B03FD00E424D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96DA6C031C9B03FD00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistant.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C081C9B03FE00E424D5 /* APNAssistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNAssistantTests.swift; sourceTree = "<group>"; };
 		96DA6C0E1C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistant.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA6C131C9B03FE00E424D5 /* APNAssistantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APNAssistantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNAssistantUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
@@ -381,8 +382,8 @@
 			isa = PBXGroup;
 			children = (
 				96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */,
-				96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */,
-				96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */,
+				96DA6C081C9B03FE00E424D5 /* APNAssistantTests.xctest */,
+				96DA6C131C9B03FE00E424D5 /* APNAssistantUITests.xctest */,
 				F009F3951D6006A000D428D6 /* TodayWidget.appex */,
 				F02DA12A1D997944007F6C93 /* APNAssistantLite.app */,
 			);
@@ -525,7 +526,7 @@
 			);
 			name = APNAssistantTests;
 			productName = APNAssistantTests;
-			productReference = 96DA6C081C9B03FE00E424D5 /* APNAssistant.xctest */;
+			productReference = 96DA6C081C9B03FE00E424D5 /* APNAssistantTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		96DA6C121C9B03FE00E424D5 /* APNAssistantUITests */ = {
@@ -543,7 +544,7 @@
 			);
 			name = APNAssistantUITests;
 			productName = APNAssistantUITests;
-			productReference = 96DA6C131C9B03FE00E424D5 /* APNAssistant.xctest */;
+			productReference = 96DA6C131C9B03FE00E424D5 /* APNAssistantUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		F009F3941D6006A000D428D6 /* TodayWidget */ = {
@@ -707,6 +708,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601514611DED8DF1003A3586 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1222,7 +1224,8 @@
 				INFOPLIST_FILE = APNAssistantTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
-				PRODUCT_NAME = APNAssistant;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = APNAssistantTests;
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
@@ -1235,7 +1238,8 @@
 				INFOPLIST_FILE = APNAssistantTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
-				PRODUCT_NAME = APNAssistant;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = APNAssistantTests;
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
@@ -1247,7 +1251,7 @@
 				INFOPLIST_FILE = APNAssistantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
-				PRODUCT_NAME = APNAssistant;
+				PRODUCT_NAME = APNAssistantUITests;
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;
@@ -1260,7 +1264,7 @@
 				INFOPLIST_FILE = APNAssistantUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
-				PRODUCT_NAME = APNAssistant;
+				PRODUCT_NAME = APNAssistantUITests;
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;

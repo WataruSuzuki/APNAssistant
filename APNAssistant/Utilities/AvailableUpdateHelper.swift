@@ -486,6 +486,7 @@ class AvailableUpdateHelper: NSObject {
         for index in 0..<DownloadProfiles.json.MAX.rawValue {
             let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.jsonsDir + DownloadProfiles.json(rawValue: index)!.getFileName())
             updateUrl.append(url!)
+            /*
         }
         executeNextDownloadTask()
     }
@@ -494,14 +495,17 @@ class AvailableUpdateHelper: NSObject {
         print(#function)
         print("updateIndexSection = \(updateIndexSection)")
         if updateIndexSection <= updateUrl.count {
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config, delegate: senderDelegate, delegateQueue: OperationQueue.main)
-            session.downloadTask(with: updateUrl[updateIndexSection]).resume()
-            updateIndexSection += 1
+            */
+            DispatchQueue.global(qos: .default).async(execute: {
+                let config = URLSessionConfiguration.default
+                let session = URLSession(configuration: config, delegate: self.senderDelegate, delegateQueue: OperationQueue.main)
+                session.downloadTask(with: self.updateUrl[self.updateIndexSection]).resume()
+                self.updateIndexSection += 1
+            })
         }
     }
     
-    func stopDownloadTask() {
-        updateIndexSection = updateUrl.count + 1
-    }
+//    func stopDownloadTask() {
+//        updateIndexSection = updateUrl.count + 1
+//    }
 }

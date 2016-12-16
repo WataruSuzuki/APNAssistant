@@ -278,17 +278,17 @@ class AvailableApnListViewController: UITableViewController,
             self.refreshControl?.endRefreshing()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             stopProgressView()
-            myAvailableUpdateHelper.stopDownloadTask()
+//            myAvailableUpdateHelper.stopDownloadTask()
         } else {
-            myAvailableUpdateHelper.executeNextDownloadTask()
+            //myAvailableUpdateHelper.executeNextDownloadTask()
         }
         session.invalidateAndCancel()
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if nil != error {
-            updateProgress()
-            myAvailableUpdateHelper.executeNextDownloadTask()
+            //updateProgress()
+            //myAvailableUpdateHelper.executeNextDownloadTask()
         }
         session.invalidateAndCancel()
     }

@@ -84,11 +84,7 @@ class AboutThisAppViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if #available(iOS 8.0, *) {
-            return tableView.rowHeight
-        } else {
-            return 200
-        }
+        return tableView.rowHeight
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {

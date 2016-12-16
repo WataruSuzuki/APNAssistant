@@ -239,7 +239,11 @@ class EditApnViewController: UITableViewController,
         self.dismiss(animated: true) { 
             if isUpdateNow {
                 let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-                UIApplication.shared.openURL(url)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
             }
         }
     }

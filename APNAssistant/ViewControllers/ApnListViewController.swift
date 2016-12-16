@@ -9,7 +9,7 @@
 import UIKit
 
 class ApnListViewController: UITableViewController,
-    UISearchDisplayDelegate,
+    //UISearchDisplayDelegate,
     UISearchBarDelegate,
     UIAlertViewDelegate, UIActionSheetDelegate,
     CMPopTipViewDelegate,
@@ -160,10 +160,10 @@ class ApnListViewController: UITableViewController,
     }
     
     // MARK: - UISearchDisplayDelegate
-    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-        loadTargetApnSummaryObjs(searchString!)
-        return true
-    }
+//    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
+//        loadTargetApnSummaryObjs(searchString!)
+//        return true
+//    }
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

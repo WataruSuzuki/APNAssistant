@@ -9,7 +9,7 @@
 import UIKit
 
 class AvailableApnListViewController: UITableViewController,
-    UISearchDisplayDelegate,
+    //UISearchDisplayDelegate,
     UISearchBarDelegate,
     UIAlertViewDelegate, UIActionSheetDelegate,
     URLSessionDownloadDelegate
@@ -187,10 +187,10 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     // MARK: - UISearchDisplayDelegate
-    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-        loadTargetProfileList(searchString!)
-        return true
-    }
+//    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
+//        loadTargetProfileList(searchString!)
+//        return true
+//    }
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

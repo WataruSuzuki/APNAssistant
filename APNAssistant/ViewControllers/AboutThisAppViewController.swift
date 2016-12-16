@@ -94,16 +94,31 @@ class AboutThisAppViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         switch AboutThisApp.Section(rawValue: indexPath.section)! {
         case .apn:
-            let url = URL(string: "https://en.m.wikipedia.org/wiki/APN")
-            UIApplication.shared.openURL(url!)
+            if let url = URL(string: "https://en.m.wikipedia.org/wiki/APN") {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
             
         case .profile:
-            let url = URL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html")
-            UIApplication.shared.openURL(url!)
+            if let url = URL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html") {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
             
         case .webApp:
-            let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.apnBookmarks + "/deployment/")
-            UIApplication.shared.openURL(url!)
+            if let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.apnBookmarks + "/deployment/") {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
             
         default:
             break

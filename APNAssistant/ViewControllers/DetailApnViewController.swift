@@ -52,7 +52,7 @@ class DetailApnViewController: UITableViewController,
 
         loadTargetSummaryObj()
         
-        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
+        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .plain, target: self, action: #selector(DetailApnViewController.showMenuSheet))
         self.navigationItem.rightBarButtonItem = menuButton
     }
 
@@ -228,7 +228,11 @@ class DetailApnViewController: UITableViewController,
     
     func handleUpdateDeviceApn(){
         let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-        UIApplication.shared.openURL(url)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     // MARK: Preview actions

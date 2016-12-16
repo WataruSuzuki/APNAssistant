@@ -121,16 +121,18 @@ class AvailableApnListViewController: UITableViewController,
         myProfileHelper.executeDownloadProfile(indexPath: indexPath, success: { (filePath) in
             //success
             self.readProfileInfo(filePath)
-        }) { (nsError) in
+        }) { (error) in
             //fail
             self.appStatus.stopIndicator()
-            if #available(iOS 9.0, *) {
-                if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
-                    UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
-                    return
+            if let nsError = error as? NSError {
+                if #available(iOS 9.0, *) {
+                    if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
+                        UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
+                        return
+                    }
                 }
-                UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
             }
+            UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
         }
         appStatus.startIndicator(self.tableView)
     }

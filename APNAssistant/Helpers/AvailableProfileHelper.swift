@@ -31,7 +31,7 @@ class AvailableProfileHelper: NSObject {
         
     }
     
-    func executeDownloadProfile(indexPath: IndexPath, success:@escaping ((String) -> Void), fail:@escaping ((NSError) -> Void)) {
+    func executeDownloadProfile(indexPath: IndexPath, success:@escaping ((String) -> Void), fail:@escaping ((Error?) -> Void)) {
         let reqUrl = getTargetUrl(indexPath)
         let config = URLSessionConfiguration.default
         let session = Foundation.URLSession(configuration: config)
@@ -51,11 +51,8 @@ class AvailableProfileHelper: NSObject {
             }
             print(error as Any)
             DispatchQueue.main.async(execute: {
-                if let nsError = error as? NSError {
-                    fail(nsError)
-                }
+                fail(error)
             })
-            
         })
         
         task.resume()

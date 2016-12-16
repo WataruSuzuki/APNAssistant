@@ -12,8 +12,8 @@ protocol EditApnViewControllerDelegate {
     func didFinishEditApn(_ newObj: ApnSummaryObject)
 }
 
-class EditApnViewController: UITableViewController,
-    UIAlertViewDelegate, UIActionSheetDelegate
+class EditApnViewController: UITableViewController//,
+    //UIAlertViewDelegate, UIActionSheetDelegate
 {
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
     let appStatus = UtilAppStatus()
@@ -226,11 +226,7 @@ class EditApnViewController: UITableViewController,
             return newTextFieldCell.frame.height
             
         default:
-            if #available(iOS 8.0, *) {
-                return tableView.rowHeight
-            } else {
-                return 44
-            }
+            return tableView.rowHeight
         }
     }
     
@@ -256,46 +252,29 @@ class EditApnViewController: UITableViewController,
         showSheetController(sheetTitle, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
     }
     
-    func showComfirmOldSheet(_ title: String, negativeMessage: String, positiveMessage: String) {
-        let sheet = UIActionSheet()
-        //sheet.tag =
-        sheet.delegate = self
-        sheet.title = title
-        sheet.addButton(withTitle: positiveMessage)
-        sheet.addButton(withTitle: negativeMessage)
-        sheet.cancelButtonIndex = 1
-        sheet.destructiveButtonIndex = 0
-        
-        sheet.show(in: self.view)
-    }
-    
     func showSheetController(_ title: String, negativeMessage: String, positiveMessage: String){
-        if #available(iOS 8.0, *) {
-            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
-                action in self.handleUpdateDeviceApn(false)
-            }
-            let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.destructive){
-                action in self.handleUpdateDeviceApn(true)
-            }
-            
-            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-            alertController.addAction(cancelAction)
-            alertController.addAction(updateAction)
-            
-            if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-            }
-            
-            present(alertController, animated: true, completion: nil)
-        } else {
-            showComfirmOldSheet(title, negativeMessage: negativeMessage, positiveMessage: positiveMessage)
+        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+            action in self.handleUpdateDeviceApn(false)
         }
+        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.destructive){
+            action in self.handleUpdateDeviceApn(true)
+        }
+        
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(cancelAction)
+        alertController.addAction(updateAction)
+        
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+            alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        }
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - UIActionSheetDelegate
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        self.handleUpdateDeviceApn(0 == buttonIndex ? true : false)
-    }
+//    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+//        self.handleUpdateDeviceApn(0 == buttonIndex ? true : false)
+//    }
     
     /*
     // MARK: - Navigation

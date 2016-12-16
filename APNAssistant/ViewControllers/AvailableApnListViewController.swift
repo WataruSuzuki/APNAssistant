@@ -11,7 +11,7 @@ import UIKit
 class AvailableApnListViewController: UITableViewController,
     //UISearchDisplayDelegate,
     UISearchBarDelegate,
-    UIAlertViewDelegate, UIActionSheetDelegate,
+    //UIAlertViewDelegate, UIActionSheetDelegate,
     URLSessionDownloadDelegate
 {
     let myAvailableCountriesHelper = AvailableCountriesHelper()
@@ -92,19 +92,14 @@ class AvailableApnListViewController: UITableViewController,
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
         var actions = [Any]()
-        if #available(iOS 8.0, *) {
-            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
-                action in self.reloadCachedData()
-            }
-            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
-                action in self.startJsonFileDownload()
-            }
-            actions.append(cancelAction)
-            actions.append(installAction)
-        } else {
-            actions.append(positiveMessage)
-            actions.append(negativeMessage)
+        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+            action in self.reloadCachedData()
         }
+        let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
+            action in self.startJsonFileDownload()
+        }
+        actions.append(cancelAction)
+        actions.append(installAction)
         
         UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: self)
     }
@@ -180,11 +175,11 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     // MARK: - UIActionSheetDelegate
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if 0 == buttonIndex {
-            self.startJsonFileDownload()
-        }
-    }
+//    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+//        if 0 == buttonIndex {
+//            self.startJsonFileDownload()
+//        }
+//    }
     
     // MARK: - UISearchDisplayDelegate
 //    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {

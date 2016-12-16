@@ -11,7 +11,7 @@ import UIKit
 class ApnListViewController: UITableViewController,
     //UISearchDisplayDelegate,
     UISearchBarDelegate,
-    UIAlertViewDelegate, UIActionSheetDelegate,
+    //UIAlertViewDelegate, UIActionSheetDelegate,
     CMPopTipViewDelegate,
     DetailApnPreviewDelegate,
     EditApnViewControllerDelegate
@@ -189,11 +189,11 @@ class ApnListViewController: UITableViewController,
     }
     
     // MARK: - UIActionSheetDelegate
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if 0 == buttonIndex {
-            self.performSegue(withIdentifier: "EditApnViewController", sender: self)
-        }
-    }
+//    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+//        if 0 == buttonIndex {
+//            self.performSegue(withIdentifier: "EditApnViewController", sender: self)
+//        }
+//    }
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation

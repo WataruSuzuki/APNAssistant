@@ -1,5 +1,5 @@
 //
-//  AvailableUpdateHelper.swift
+//  AvailableCountriesHelper.swift
 //  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/09/12.
@@ -351,7 +351,7 @@ struct DownloadProfiles {
     }
 }
 
-class AvailableUpdateHelper: NSObject {
+class AvailableCountriesHelper: NSObject {
     
     var publicProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.MAX.rawValue)
     var updateIndexSection = 0

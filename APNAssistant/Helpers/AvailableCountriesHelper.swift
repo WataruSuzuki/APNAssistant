@@ -426,26 +426,11 @@ class AvailableCountriesHelper: NSObject {
         
         let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent)
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
-        moveDownloadItemAtURL(filePath, location: location)
+        UtilFileManager.moveDownloadItemAtURL(filePath, location: location)
         
         let localUrl = URL(fileURLWithPath: filePath)
         if let jsonData = try? Data(contentsOf: localUrl) {
             parseCountryJson(response, jsonData: jsonData)
-        }
-    }
-    
-    func moveDownloadItemAtURL(_ filePath: String, location: URL) {
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: filePath) {
-            try! fileManager.removeItem(atPath: filePath)
-        }
-        
-        let localUrl = URL(fileURLWithPath: filePath)
-        do {
-            try fileManager.moveItem(at: location, to: localUrl)
-        } catch {
-            let nsError = error as NSError
-            print(nsError.description)
         }
     }
     
@@ -508,4 +493,8 @@ class AvailableCountriesHelper: NSObject {
 //    func stopDownloadTask() {
 //        updateIndexSection = updateUrl.count + 1
 //    }
+    
+    func endJsonFileDownload() {
+        
+    }
 }

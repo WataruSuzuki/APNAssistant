@@ -53,9 +53,7 @@ class AvailableProfileHelper: NSObject {
             if let thisResponse = response, let thisLocation = location {
                 if let lastPathComponent = thisResponse.url?.lastPathComponent {
                     if lastPathComponent.contains(".mobileconfig") {
-                        let utilHttpServer = UtilCocoaHTTPServer()
-                        let fileName = lastPathComponent.replacingOccurrences(of: ".mobileconfig", with: "")
-                        let filePath = utilHttpServer.getTargetFilePath(fileName, fileType: ".mobileconfig")
+                        let filePath = self.generateProfilePath(lastPathComponent: lastPathComponent)
                         UtilFileManager.moveDownloadItemAtURL(filePath, location: thisLocation)
                         
                         if let success = success {
@@ -76,6 +74,14 @@ class AvailableProfileHelper: NSObject {
         })
         
         task.resume()
+    }
+    
+    func generateProfilePath(lastPathComponent: String) -> String {
+        let utilHttpServer = UtilCocoaHTTPServer()
+        let fileName = lastPathComponent.replacingOccurrences(of: ".mobileconfig", with: "")
+        let filePath = utilHttpServer.getTargetFilePath(fileName, fileType: ".mobileconfig")
+        
+        return filePath
     }
     
     private func showCompAlert() {

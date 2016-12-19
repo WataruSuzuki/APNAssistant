@@ -25,4 +25,22 @@ class UtilFileManager: FileManager {
         }
     }
     
+    static func getProfilesAppGroupPath() -> String {
+        let fileManager = FileManager.default
+        let targetDirectory = UtilFileManager.getAppGroupPathURL()?.appendingPathComponent("apnassistant")
+        if nil == targetDirectory?.path
+            || !fileManager.fileExists(atPath: targetDirectory!.path)
+        {
+            try! fileManager.createDirectory(at: targetDirectory!, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        return targetDirectory!.path + "/"
+    }
+    
+    static func getAppGroupPathURL() -> URL? {
+        let path = "group.jp.co.JchanKchan.ApnAssister"
+        //let path = "group." + NSBundle.mainBundle().bundleIdentifier!.stringByReplacingOccurrencesOfString(".TodayWidget", withString: "")
+        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: path)
+    }
+    
 }

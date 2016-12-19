@@ -404,16 +404,12 @@ class AvailableCountriesHelper: NSObject {
     }
     
     func generateFileNameFromLastPathComponent(_ responseUrl: URL, lastPathComponent: String) -> String {
-        return getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
+        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnBookmarks)
+        return fileName
     }
     
     func getVersionCheckFileName(_ lastPathComponent: String) -> String {
         return lastPathComponent.replacingOccurrences(of: ".json", with: "")
-    }
-    
-    func getCountryFileName(_ responseUrl: URL, lastPathComponent: String) -> String {
-        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnBookmarks)
-        return fileName
     }
     
     func moveJSONFilesFromURLSession(_ downloadTask: URLSessionDownloadTask, location: URL) {

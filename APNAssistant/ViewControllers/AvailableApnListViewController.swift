@@ -122,17 +122,31 @@ class AvailableApnListViewController: UITableViewController,
             self.readProfileInfo(filePath)
         }) { (error) in
             self.appStatus.stopIndicator()
-            if let nsError = error as? NSError {
-                if #available(iOS 9.0, *) {
-                    if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
-                        UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
-                        return
-                    }
-                }
-            }
-            UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
+            self.fallbackCacheProfile(indexPath: indexPath, error: error)
         }
         appStatus.startIndicator(self.tableView)
+    }
+    
+    func fallbackCacheProfile(indexPath: IndexPath, error: Error?) {
+        let url = myProfileHelper.getTargetUrl(indexPath)
+        let filePath = myProfileHelper.generateProfilePath(lastPathComponent: url.lastPathComponent)
+        if FileManager.default.fileExists(atPath: filePath) {
+            readProfileInfo(filePath)
+        } else {
+            self.showErrorDownload(error: error)
+        }
+    }
+    
+    func showErrorDownload(error: Error?) {
+        if let nsError = error as? NSError {
+            if #available(iOS 9.0, *) {
+                if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
+                    UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
+                    return
+                }
+            }
+        }
+        UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
     }
     
     func readProfileInfo(_ filePath: String) {

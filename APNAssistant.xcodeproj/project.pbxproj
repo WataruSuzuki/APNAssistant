@@ -23,6 +23,9 @@
 		60301DC61E03C94C0013B26A /* AvailableProfileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60301DC51E03C94C0013B26A /* AvailableProfileHelper.swift */; };
 		60301DC81E03CA340013B26A /* UtilFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60301DC71E03CA340013B26A /* UtilFileManager.swift */; };
 		603816941E07952E001D5C70 /* UtilFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60301DC71E03CA340013B26A /* UtilFileManager.swift */; };
+		603816951E0797F1001D5C70 /* UtilFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60301DC71E03CA340013B26A /* UtilFileManager.swift */; };
+		603816961E079804001D5C70 /* AvailableProfileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60301DC51E03C94C0013B26A /* AvailableProfileHelper.swift */; };
+		603816971E079808001D5C70 /* AvailableCountriesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60301DC31E03C8D20013B26A /* AvailableCountriesHelper.swift */; };
 		6052A18F1D63E28C00A3B8CE /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
 		6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
 		6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
@@ -983,6 +986,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F02DA0F81D997944007F6C93 /* SegmentedCtrlCell.swift in Sources */,
+				603816961E079804001D5C70 /* AvailableProfileHelper.swift in Sources */,
+				603816951E0797F1001D5C70 /* UtilFileManager.swift in Sources */,
 				F02DA0F91D997944007F6C93 /* UtilAppStatus.swift in Sources */,
 				F02DA0FA1D997944007F6C93 /* UtilShareAction.swift in Sources */,
 				F02DA0FB1D997944007F6C93 /* AppDelegate.swift in Sources */,
@@ -994,6 +999,7 @@
 				F02DA1041D997944007F6C93 /* ApnListViewController+Previewing.swift in Sources */,
 				F02DA1051D997944007F6C93 /* FavoriteApnListViewController.swift in Sources */,
 				F02DA1061D997944007F6C93 /* ApnSummaryObject.swift in Sources */,
+				603816971E079808001D5C70 /* AvailableCountriesHelper.swift in Sources */,
 				F02DA1071D997944007F6C93 /* ProgressIndicatorView.swift in Sources */,
 				F02DA1081D997944007F6C93 /* UISwitchCell.swift in Sources */,
 				F02DA1091D997944007F6C93 /* TextFieldCell.swift in Sources */,

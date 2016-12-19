@@ -14,7 +14,6 @@ protocol DetailApnPreviewDelegate {
 }
 
 class DetailApnViewController: UITableViewController,
-    //UIAlertViewDelegate, UIActionSheetDelegate,
     EditApnViewControllerDelegate
 {
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
@@ -175,23 +174,6 @@ class DetailApnViewController: UITableViewController,
         
         present(alertController, animated: true, completion: nil)
     }
-    
-    // MARK: - UIActionSheetDelegate
-//    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-//        switch Menu(rawValue: buttonIndex)! {
-//        case .setThisApnToDevice:
-//            self.handleUpdateDeviceApn()
-//            
-//        case .share:
-//            UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
-//            
-//        case .edit:
-//            self.showEditApnViewController()
-//            
-//        default:
-//            break
-//        }
-//    }
     
     func showEditApnViewController() {
         if isShowCloudData {

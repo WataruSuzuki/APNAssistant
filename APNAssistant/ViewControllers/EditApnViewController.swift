@@ -13,7 +13,6 @@ protocol EditApnViewControllerDelegate {
 }
 
 class EditApnViewController: UITableViewController//,
-    //UIAlertViewDelegate, UIActionSheetDelegate
 {
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
     let appStatus = UtilAppStatus()
@@ -270,11 +269,6 @@ class EditApnViewController: UITableViewController//,
         
         present(alertController, animated: true, completion: nil)
     }
-    
-    // MARK: - UIActionSheetDelegate
-//    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-//        self.handleUpdateDeviceApn(0 == buttonIndex ? true : false)
-//    }
     
     /*
     // MARK: - Navigation

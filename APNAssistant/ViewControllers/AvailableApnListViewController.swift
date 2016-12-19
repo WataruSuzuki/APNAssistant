@@ -9,9 +9,7 @@
 import UIKit
 
 class AvailableApnListViewController: UITableViewController,
-    //UISearchDisplayDelegate,
     UISearchBarDelegate,
-    //UIAlertViewDelegate, UIActionSheetDelegate,
     URLSessionDownloadDelegate
 {
     let myAvailableCountriesHelper = AvailableCountriesHelper()
@@ -163,19 +161,6 @@ class AvailableApnListViewController: UITableViewController,
         }
         myUtilCocoaHTTPServer.readDownloadedMobileConfigProfile(filePath)
     }
-    
-    // MARK: - UIActionSheetDelegate
-//    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-//        if 0 == buttonIndex {
-//            self.startJsonFileDownload()
-//        }
-//    }
-    
-    // MARK: - UISearchDisplayDelegate
-//    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-//        loadTargetProfileList(searchString!)
-//        return true
-//    }
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

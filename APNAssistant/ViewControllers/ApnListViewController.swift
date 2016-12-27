@@ -9,9 +9,7 @@
 import UIKit
 
 class ApnListViewController: UITableViewController,
-    UISearchDisplayDelegate,
     UISearchBarDelegate,
-    UIAlertViewDelegate, UIActionSheetDelegate,
     CMPopTipViewDelegate,
     DetailApnPreviewDelegate,
     EditApnViewControllerDelegate
@@ -23,7 +21,6 @@ class ApnListViewController: UITableViewController,
     var msgNodataView: MsgNoDataView?
     var allApnSummaryObjs: RLMResults<RLMObject>!
     var previewApnSummaryObj: ApnSummaryObject?
-    //var searchedApnSummaryObjs: RLMResults!
     
     @IBOutlet weak var apnSearchBar: UISearchBar!
     
@@ -159,12 +156,6 @@ class ApnListViewController: UITableViewController,
         //TODO
     }
     
-    // MARK: - UISearchDisplayDelegate
-    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-        loadTargetApnSummaryObjs(searchString!)
-        return true
-    }
-    
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (text.isEmpty
@@ -187,14 +178,7 @@ class ApnListViewController: UITableViewController,
         }
         self.tableView.reloadData()
     }
-    
-    // MARK: - UIActionSheetDelegate
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if 0 == buttonIndex {
-            self.performSegue(withIdentifier: "EditApnViewController", sender: self)
-        }
-    }
-    
+        
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

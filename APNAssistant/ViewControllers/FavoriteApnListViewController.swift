@@ -76,12 +76,6 @@ class FavoriteApnListViewController: ApnListViewController {
     }
     */
 
-    // MARK: - UISearchDisplayDelegate
-    override func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-        loadTargetApnSummaryObjs(searchString!)
-        return true
-    }
-    
     // MARK: - UISearchBarDelegate
     override func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (text.isEmpty

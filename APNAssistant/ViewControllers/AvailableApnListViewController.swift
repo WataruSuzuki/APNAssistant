@@ -9,15 +9,14 @@
 import UIKit
 
 class AvailableApnListViewController: UITableViewController,
-    UISearchDisplayDelegate,
     UISearchBarDelegate,
-    UIAlertViewDelegate, UIActionSheetDelegate,
     URLSessionDownloadDelegate
 {
-    let myAvailableUpdateHelper = AvailableUpdateHelper()
+    let myAvailableCountriesHelper = AvailableCountriesHelper()
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
     let appStatus = UtilAppStatus()
     
+    var myProfileHelper: AvailableProfileHelper!
     var updateSectionCount = 0
     var progressView: ProgressIndicatorView!
     var cachedObj: ApnSummaryObject!
@@ -31,6 +30,7 @@ class AvailableApnListViewController: UITableViewController,
         super.viewDidLoad()
 
         self.navigationItem.title = NSLocalizedString("availableList", comment: "")
+        myProfileHelper = AvailableProfileHelper(list: targetProfileList)
         reloadCachedData()
         
         let jsonRefreshControl = UIRefreshControl()
@@ -96,76 +96,59 @@ class AvailableApnListViewController: UITableViewController,
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
         var actions = [Any]()
-        if #available(iOS 8.0, *) {
-            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
-                action in self.reloadCachedData()
-            }
-            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
-                action in self.startJsonFileDownload()
-            }
-            actions.append(cancelAction)
-            actions.append(installAction)
-        } else {
-            actions.append(positiveMessage)
-            actions.append(negativeMessage)
+        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+            action in self.reloadCachedData()
         }
+        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
+            action in self.startJsonFileDownload()
+        }
+        actions.append(cancelAction)
+        actions.append(updateAction)
         
         UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: self)
     }
     
     func reloadCachedData() {
-        self.myAvailableUpdateHelper.loadCachedJsonList()
-        targetProfileList = myAvailableUpdateHelper.publicProfileList
+        self.myAvailableCountriesHelper.loadCachedJsonList()
+        targetProfileList = myAvailableCountriesHelper.publicProfileList
+        myProfileHelper = AvailableProfileHelper(list: targetProfileList)
         self.tableView.reloadData()
     }
     
     func installProfileFromNetwork(_ selectedIndexPath: IndexPath) {
-        UIApplication.shared.openURL(getTargetUrl(selectedIndexPath))
-    }
-    
-    func getTargetUrl(_ selectedIndexPath: IndexPath) -> URL {
-        let profileData = targetProfileList[(selectedIndexPath as NSIndexPath).section]
-        let item = profileData[selectedIndexPath.row] as! NSDictionary
-        let urlPath = item.object(forKey: DownloadProfiles.profileUrl) as! String
-        return URL(string: urlPath)!
+        UIApplication.shared.openURL(myProfileHelper.getTargetUrl(selectedIndexPath))
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let reqUrl = getTargetUrl(indexPath)
-        let config = URLSessionConfiguration.default
-        let session = Foundation.URLSession(configuration: config)
-        let task = session.downloadTask(with: reqUrl, completionHandler: { (location, response, error) in
-            if let thisResponse = response, let thisLocation = location {
-                if let lastPathComponent = thisResponse.url?.lastPathComponent {
-                    if lastPathComponent.contains(".mobileconfig") {
-                        let helper = AvailableUpdateHelper()
-                        let fileName = lastPathComponent.replacingOccurrences(of: ".mobileconfig", with: "")
-                        let filePath = self.myUtilCocoaHTTPServer.getTargetFilePath(fileName, fileType: ".mobileconfig")
-                        helper.moveDownloadItemAtURL(filePath, location: thisLocation)
-                        
-                        self.readProfileInfo(filePath)
-                        return
-                    }
+        myProfileHelper.executeDownloadProfile(indexPath: indexPath, success: { (filePath) in
+            self.readProfileInfo(filePath)
+        }) { (error) in
+            self.appStatus.stopIndicator()
+            self.fallbackCacheProfile(indexPath: indexPath, error: error)
+        }
+        appStatus.startIndicator(self.tableView)
+    }
+    
+    func fallbackCacheProfile(indexPath: IndexPath, error: Error?) {
+        let url = myProfileHelper.getTargetUrl(indexPath)
+        let filePath = myProfileHelper.generateProfilePath(lastPathComponent: url.lastPathComponent)
+        if FileManager.default.fileExists(atPath: filePath) {
+            readProfileInfo(filePath)
+        } else {
+            self.showErrorDownload(error: error)
+        }
+    }
+    
+    func showErrorDownload(error: Error?) {
+        if let nsError = error as? NSError {
+            if #available(iOS 9.0, *) {
+                if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
+                    UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
+                    return
                 }
             }
-            print(error as Any)
-            DispatchQueue.main.async(execute: {
-                self.appStatus.stopIndicator()
-                if let nsError = error as? NSError {
-                    if #available(iOS 9.0, *) {
-                        if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
-                            UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
-                            return
-                        }
-                    }
-                }
-                UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
-            })
-            
-        }) 
-        
-        task.resume()
-        appStatus.startIndicator(self.tableView)
+        }
+        UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile", url: nil, vc: self)
     }
     
     func readProfileInfo(_ filePath: String) {
@@ -181,19 +164,6 @@ class AvailableApnListViewController: UITableViewController,
             })
         }
         myUtilCocoaHTTPServer.readDownloadedMobileConfigProfile(filePath)
-    }
-    
-    // MARK: - UIActionSheetDelegate
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if 0 == buttonIndex {
-            self.startJsonFileDownload()
-        }
-    }
-    
-    // MARK: - UISearchDisplayDelegate
-    func searchDisplayController(_ controller: UISearchDisplayController, shouldReloadTableForSearch searchString: String?) -> Bool {
-        loadTargetProfileList(searchString!)
-        return true
     }
     
     // MARK: - UISearchBarDelegate
@@ -212,7 +182,7 @@ class AvailableApnListViewController: UITableViewController,
     
     func loadTargetProfileList(_ searchString: String) {
         if searchString.isEmpty {
-            targetProfileList = myAvailableUpdateHelper.publicProfileList
+            targetProfileList = myAvailableCountriesHelper.publicProfileList
         } else {
             targetProfileList = filteringTargetProfileList(searchString: searchString)
         }
@@ -220,7 +190,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func filteringTargetProfileList(searchString: String) -> [NSArray] {
-        var profileList = myAvailableUpdateHelper.publicProfileList
+        var profileList = myAvailableCountriesHelper.publicProfileList
         
         let sectionCount = profileList.count
         for section in 0..<sectionCount {
@@ -263,13 +233,13 @@ class AvailableApnListViewController: UITableViewController,
     
     // MARK: - NSURLSessionDownloadDelegate
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        myAvailableUpdateHelper.moveJSONFilesFromURLSession(downloadTask, location: location)
+        myAvailableCountriesHelper.moveJSONFilesFromURLSession(downloadTask, location: location)
         
         if let response = downloadTask.response {
-            let countryUrl = myAvailableUpdateHelper.getCountryFileUrl(response)
-            let section = myAvailableUpdateHelper.getUpdateIndexSection(countryUrl!)
+            let countryUrl = myAvailableCountriesHelper.getCountryFileUrl(response)
+            let section = myAvailableCountriesHelper.getUpdateIndexSection(countryUrl!)
             if section != DownloadProfiles.ERROR_INDEX {
-                targetProfileList = myAvailableUpdateHelper.publicProfileList
+                targetProfileList = myAvailableCountriesHelper.publicProfileList
                 self.tableView.reloadData()
                 //self.tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: .Automatic)
             }
@@ -282,17 +252,17 @@ class AvailableApnListViewController: UITableViewController,
             self.refreshControl?.endRefreshing()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             stopProgressView()
-            myAvailableUpdateHelper.stopDownloadTask()
+            myAvailableCountriesHelper.endJsonFileDownload()
         } else {
-            myAvailableUpdateHelper.executeNextDownloadTask()
+            //myAvailableCountriesHelper.executeNextDownloadTask()
         }
         session.invalidateAndCancel()
     }
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if nil != error {
-            updateProgress()
-            myAvailableUpdateHelper.executeNextDownloadTask()
+            //updateProgress()
+            //myAvailableCountriesHelper.executeNextDownloadTask()
         }
         session.invalidateAndCancel()
     }
@@ -309,7 +279,7 @@ class AvailableApnListViewController: UITableViewController,
     func startJsonFileDownload() {
         updateSectionCount = 0
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        myAvailableUpdateHelper.startJsonFileDownload(self)
+        myAvailableCountriesHelper.startJsonFileDownload(self)
         startProgressView()
     }
     

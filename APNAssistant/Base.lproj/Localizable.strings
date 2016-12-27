@@ -59,10 +59,12 @@ show_favorites = "Show favorites";
 custom = "Custom: created by carrier info";
 public = "Public";
 
+msg_complete = "Complete";
 complete = "Complete";
 caution = "Caution";
 caution_profile = "If your APN settings are wrong, you might lose cellular-data connectivity and receive additional charges. \nPlease contact your carrier to verify the correct APN settings if you worried.";
 update_available_list = "Do you update available list now?";
+update_available_profile = "Available list is updated. And do you also cache available apn profiles?";
 confirm = "Confirm";
 
 ata_summaryAPNAssistant = "This app manages APN information of MVNO. \n\nThis app also bookmarks APN information of MVNO. This app also bookmarks your MVNO carrier's APN configuration profile URL and you can install configuration profile if your MVNO carrier release information.";

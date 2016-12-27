@@ -1,5 +1,5 @@
 //
-//  AvailableUpdateHelper.swift
+//  AvailableCountriesHelper.swift
 //  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/09/12.
@@ -351,12 +351,13 @@ struct DownloadProfiles {
     }
 }
 
-class AvailableUpdateHelper: NSObject {
+class AvailableCountriesHelper: NSObject {
     
     var publicProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.MAX.rawValue)
     var updateIndexSection = 0
     var updateUrl = [URL]()
     var senderDelegate: URLSessionDownloadDelegate!
+    var profileHelper: AvailableProfileHelper!
     
     func loadCachedJsonList() {
         let filemanager = FileManager()
@@ -402,92 +403,31 @@ class AvailableUpdateHelper: NSObject {
         return country.rawValue
     }
     
-    func generateFileNameFromLastPathComponent(_ responseUrl: URL, lastPathComponent: String, isCheckVersion: Bool) -> String {
-        if isCheckVersion {
-            return getVersionCheckFileName(lastPathComponent)
-        } else {
-            return getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
-        }
+    func generateFileNameFromLastPathComponent(_ responseUrl: URL, lastPathComponent: String) -> String {
+        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnBookmarks)
+        return fileName
     }
     
     func getVersionCheckFileName(_ lastPathComponent: String) -> String {
         return lastPathComponent.replacingOccurrences(of: ".json", with: "")
     }
     
-    func getCountryFileName(_ responseUrl: URL, lastPathComponent: String) -> String {
-        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnBookmarks)
-        return fileName
-    }
-    
     func moveJSONFilesFromURLSession(_ downloadTask: URLSessionDownloadTask, location: URL) {
         guard let response = downloadTask.response else { return }
-        moveJSONFilesFromURLResponse(response, location: location, isCheckVersion: false)
+        moveJSONFilesFromURLResponse(response, location: location)
     }
     
-    func moveJSONFilesFromURLResponse(_ response: URLResponse, location: URL, isCheckVersion: Bool) {
+    func moveJSONFilesFromURLResponse(_ response: URLResponse, location: URL) {
         guard let responseUrl = response.url else { return }
         let lastPathComponent = responseUrl.lastPathComponent
         
-        let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent, isCheckVersion: isCheckVersion)
+        let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent)
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
-        moveDownloadItemAtURL(filePath, location: location)
+        UtilFileManager.moveDownloadItemAtURL(filePath, location: location)
         
         let localUrl = URL(fileURLWithPath: filePath)
         if let jsonData = try? Data(contentsOf: localUrl) {
-            if isCheckVersion {
-                parseVersionCheckJson(jsonData)
-            } else {
-                parseCountryJson(response, jsonData: jsonData)
-            }
-        }
-    }
-    
-    func moveDownloadItemAtURL(_ filePath: String, location: URL) {
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: filePath) {
-            try! fileManager.removeItem(atPath: filePath)
-        }
-        
-        let localUrl = URL(fileURLWithPath: filePath)
-        do {
-            try fileManager.moveItem(at: location, to: localUrl)
-        } catch {
-            let nsError = error as NSError
-            print(nsError.description)
-        }
-    }
-    
-    func parseVersionCheckJson(_ jsonData: Data) {
-        do {
-            let json = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! NSDictionary
-            
-            let items = json.object(forKey: DownloadProfiles.profileItems) as! NSArray
-            let actualVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-            print("actualVersion = \(actualVersion)")
-            let myAppName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
-            print("myAppName = \(myAppName)")
-            
-            for i in 0  ..< items.count  {
-                let item = items[i] as! NSDictionary
-                if myAppName == item.object(forKey: DownloadProfiles.profileName) as! String {
-                    let requiredVersion = item.object(forKey: DownloadProfiles.version) as! String
-                    print("requiredVersion = \(requiredVersion)")
-                    let compareResult = requiredVersion.compare(actualVersion, options: .numeric)
-                    print("compareResult = \(compareResult.rawValue)")
-                    if compareResult == .orderedAscending {
-                        //do nothing
-                    } else {
-                        let ud = UtilUserDefaults()
-                        ud.isAvailableStore = true
-                        ud.memoryVersion = actualVersion
-                        break
-                    }
-                }
-            }
-            
-        } catch {
-            let nsError = error as NSError
-            print(nsError.description)
+            parseCountryJson(response, jsonData: jsonData)
         }
     }
     
@@ -528,6 +468,7 @@ class AvailableUpdateHelper: NSObject {
         for index in 0..<DownloadProfiles.json.MAX.rawValue {
             let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.jsonsDir + DownloadProfiles.json(rawValue: index)!.getFileName())
             updateUrl.append(url!)
+            /*
         }
         executeNextDownloadTask()
     }
@@ -536,14 +477,46 @@ class AvailableUpdateHelper: NSObject {
         print(#function)
         print("updateIndexSection = \(updateIndexSection)")
         if updateIndexSection <= updateUrl.count {
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config, delegate: senderDelegate, delegateQueue: OperationQueue.main)
-            session.downloadTask(with: updateUrl[updateIndexSection]).resume()
-            updateIndexSection += 1
+            */
+            DispatchQueue.global(qos: .default).async(execute: {
+                let config = URLSessionConfiguration.default
+                let session = URLSession(configuration: config, delegate: self.senderDelegate, delegateQueue: OperationQueue.main)
+                session.downloadTask(with: self.updateUrl[self.updateIndexSection]).resume()
+                self.updateIndexSection += 1
+            })
         }
     }
     
-    func stopDownloadTask() {
-        updateIndexSection = updateUrl.count + 1
+//    func stopDownloadTask() {
+//        updateIndexSection = updateUrl.count + 1
+//    }
+    
+    func endJsonFileDownload() {
+        confirmUpdateAvailableProfile()
+    }
+    
+    func confirmUpdateAvailableProfile() {
+        let title = NSLocalizedString("confirm", comment: "")
+        let message = NSLocalizedString("update_available_profile", comment: "")
+        let negativeMessage = NSLocalizedString("cancel", comment: "")
+        let positiveMessage = NSLocalizedString("yes_update", comment: "")
+        
+        var actions = [Any]()
+        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+            action in //do nothing
+        }
+        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
+            action in
+            self.profileHelper = AvailableProfileHelper(list: self.publicProfileList)
+            self.profileHelper.startDownloadAvailableProfiles()
+        }
+        actions.append(cancelAction)
+        actions.append(updateAction)
+        
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            if let controller = delegate.window?.rootViewController {
+                UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: controller)
+            }
+        }
     }
 }

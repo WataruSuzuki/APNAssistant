@@ -117,14 +117,8 @@ class UtilHandleRLMObject: NSObject {
         }
     }
     
-    static func getAppGroupPathURL() -> URL? {
-        let path = "group.jp.co.JchanKchan.ApnAssister"
-        //let path = "group." + NSBundle.mainBundle().bundleIdentifier!.stringByReplacingOccurrencesOfString(".TodayWidget", withString: "")
-        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: path)
-    }
-    
     static func getDatabasePathOfAppGroupPathURL() -> URL? {
-        return getAppGroupPathURL()?.appendingPathComponent("profiledatabases")
+        return UtilFileManager.getAppGroupPathURL()?.appendingPathComponent("profiledatabases")
     }
     
     static func getDefaultRealmDatabaseURL(_ directoryURL: URL?) -> URL? {

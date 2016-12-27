@@ -1,4 +1,4 @@
-PROJ_FILE_PATH="ApnAssister2.xcworkspace"
+PROJ_FILE_PATH="APNAssistant.xcworkspace"
 OUT_ARCHIVES_DIR="out_archives"
 OUT_IPA_DIR="out_ipa"
 ITUNES_ID=""
@@ -28,6 +28,5 @@ itunes_connect () {
 
 #Release
 
-itunes_connect ApnMemo Release
-itunes_connect ApnBookmarks Release
-itunes_connect ApnAssister2 Release
+itunes_connect APNAssistantLite Release
+itunes_connect APNAssistant Release

@@ -354,7 +354,7 @@ struct DownloadProfiles {
 class AvailableCountriesHelper: NSObject {
     
     var publicProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.MAX.rawValue)
-    var updateIndexSection = 0
+    //var updateIndexSection = 0
     var updateUrl = [URL]()
     var senderDelegate: URLSessionDownloadDelegate!
     var profileHelper: AvailableProfileHelper!
@@ -497,13 +497,13 @@ class AvailableCountriesHelper: NSObject {
     }
     
     func startJsonFileDownload(_ delegate: URLSessionDownloadDelegate) {
-        updateIndexSection = 0
+        //updateIndexSection = 0
         senderDelegate = delegate
         updateUrl = [URL]()
         for index in 0..<DownloadProfiles.json.MAX.rawValue {
             let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.jsonsDir + DownloadProfiles.json(rawValue: index)!.getFileName())
-            updateUrl.append(url!)
             /*
+            updateUrl.append(url!)
         }
         executeNextDownloadTask()
     }
@@ -516,8 +516,9 @@ class AvailableCountriesHelper: NSObject {
             DispatchQueue.global(qos: .default).async(execute: {
                 let config = URLSessionConfiguration.default
                 let session = URLSession(configuration: config, delegate: self.senderDelegate, delegateQueue: OperationQueue.main)
-                session.downloadTask(with: self.updateUrl[self.updateIndexSection]).resume()
-                self.updateIndexSection += 1
+                session.downloadTask(with: url!).resume()
+//                session.downloadTask(with: self.updateUrl[self.updateIndexSection]).resume()
+//                self.updateIndexSection += 1
             })
         }
     }
@@ -536,7 +537,7 @@ class AvailableCountriesHelper: NSObject {
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
-        var actions = [Any]()
+        //var actions = [Any]()
         let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
             action in //do nothing
         }
@@ -545,12 +546,12 @@ class AvailableCountriesHelper: NSObject {
             self.profileHelper = AvailableProfileHelper(list: self.publicProfileList)
             self.profileHelper.startDownloadAvailableProfiles()
         }
-        actions.append(cancelAction)
-        actions.append(updateAction)
+        //actions.append(cancelAction)
+        //actions.append(updateAction)
         
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             if let controller = delegate.window?.rootViewController {
-                UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: controller)
+                UtilAlertSheet.showSheetController(title, message: message, actions: [cancelAction, updateAction], sender: controller)
             }
         }
     }

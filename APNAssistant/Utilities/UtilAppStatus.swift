@@ -22,7 +22,11 @@ class UtilAppStatus: NSObject {
             guard let thisLocation = location else { return }
             
             let helper = AvailableCountriesHelper()
-            helper.moveJSONFilesFromURLResponse(thisResponse, location: thisLocation, isCheckVersion: true)
+            let filePath = helper.moveJSONByURLResponse(thisResponse, location: thisLocation)
+            let localUrl = URL(fileURLWithPath: filePath)
+            if let jsonData = try? Data(contentsOf: localUrl) {
+                helper.parseVersionCheckJson(jsonData)
+            }
             session.invalidateAndCancel()
         }) 
         

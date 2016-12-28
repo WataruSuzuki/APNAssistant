@@ -233,7 +233,7 @@ class AvailableApnListViewController: UITableViewController,
     
     // MARK: - NSURLSessionDownloadDelegate
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        myAvailableCountriesHelper.moveJSONFilesFromURLSession(downloadTask, location: location)
+        myAvailableCountriesHelper.moveJSONFromURLSessionToLocation(downloadTask, location: location)
         
         if let response = downloadTask.response {
             let countryUrl = myAvailableCountriesHelper.getCountryFileUrl(response)

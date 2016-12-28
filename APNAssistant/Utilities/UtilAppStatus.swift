@@ -21,7 +21,7 @@ class UtilAppStatus: NSObject {
             guard let thisResponse = response else { return }
             guard let thisLocation = location else { return }
             
-            let helper = AvailableUpdateHelper()
+            let helper = AvailableCountriesHelper()
             helper.moveJSONFilesFromURLResponse(thisResponse, location: thisLocation, isCheckVersion: true)
             session.invalidateAndCancel()
         }) 

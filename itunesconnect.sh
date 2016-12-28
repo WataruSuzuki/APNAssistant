@@ -27,6 +27,5 @@ itunes_connect () {
 }
 
 #Release
-
 itunes_connect APNAssistantLite Release
 itunes_connect APNAssistant Release

@@ -412,23 +412,24 @@ class AvailableCountriesHelper: NSObject {
         return lastPathComponent.replacingOccurrences(of: ".json", with: "")
     }
     
-    func moveJSONFilesFromURLSession(_ downloadTask: URLSessionDownloadTask, location: URL) {
+    func moveJSONFromURLSessionToLocation(_ downloadTask: URLSessionDownloadTask, location: URL) {
         guard let response = downloadTask.response else { return }
-        moveJSONFilesFromURLResponse(response, location: location)
+        let filePath = moveJSONByURLResponse(response, location: location)
+        let localUrl = URL(fileURLWithPath: filePath)
+        if let jsonData = try? Data(contentsOf: localUrl) {
+            parseCountryJson(response, jsonData: jsonData)
+        }
     }
     
-    func moveJSONFilesFromURLResponse(_ response: URLResponse, location: URL) {
-        guard let responseUrl = response.url else { return }
+    func moveJSONByURLResponse(_ response: URLResponse, location: URL) -> String {
+        guard let responseUrl = response.url else { return "" }
         let lastPathComponent = responseUrl.lastPathComponent
         
         let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent)
         let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
         UtilFileManager.moveDownloadItemAtURL(filePath, location: location)
         
-        let localUrl = URL(fileURLWithPath: filePath)
-        if let jsonData = try? Data(contentsOf: localUrl) {
-            parseCountryJson(response, jsonData: jsonData)
-        }
+        return filePath
     }
     
     func parseCountryJson(_ response: URLResponse, jsonData: Data) {

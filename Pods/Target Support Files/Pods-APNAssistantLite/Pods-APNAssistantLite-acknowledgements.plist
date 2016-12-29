@@ -36,8 +36,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 </string>
-			<key>License</key>
-			<string>MIT</string>
 			<key>Title</key>
 			<string>CMPopTipView</string>
 			<key>Type</key>
@@ -52,8 +50,6 @@ The CocoaAsyncSocket project is in the public domain.
 The original TCP version (AsyncSocket) was created by Dustin Voss in January 2003.
 Updated and maintained by Deusty LLC and the Apple development community.
 </string>
-			<key>License</key>
-			<string>public domain</string>
 			<key>Title</key>
 			<string>CocoaAsyncSocket</string>
 			<key>Type</key>
@@ -79,8 +75,6 @@ with or without modification, are permitted provided that the following conditio
   written permission of Deusty, LLC.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
-			<key>License</key>
-			<string>BSD</string>
 			<key>Title</key>
 			<string>CocoaHTTPServer</string>
 			<key>Type</key>
@@ -106,8 +100,6 @@ with or without modification, are permitted provided that the following conditio
   written permission of Deusty, LLC.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
-			<key>License</key>
-			<string>BSD</string>
 			<key>Title</key>
 			<string>CocoaLumberjack</string>
 			<key>Type</key>
@@ -120,8 +112,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 Some icons made by 
  Designmodo,
 and "Freepik" from Flaticon.com</string>
-			<key>License</key>
-			<string>CC 3.0 BY</string>
 			<key>Title</key>
 			<string>DJKFlatIconAuthors</string>
 			<key>Type</key>
@@ -358,13 +348,13 @@ EXPORT COMPLIANCE
 You understand that the Software may contain cryptographic functions that may be
 subject to export restrictions, and you represent and warrant that you are not
 (i) located in a jurisdiction that is subject to United States economic
-sanctions (“Prohibited Jurisdiction”), including Cuba, Iran, North Korea,
+sanctions (&#8220;Prohibited Jurisdiction&#8221;), including Cuba, Iran, North Korea,
 Sudan, Syria or the Crimea region, (ii) a person listed on any U.S. government
 blacklist (to include the List of Specially Designated Nationals and Blocked
 Persons or the Consolidated Sanctions List administered by the U.S. Department
-of the Treasury’s Office of Foreign Assets Control, or the Denied Persons List
+of the Treasury&#8217;s Office of Foreign Assets Control, or the Denied Persons List
 or Entity List administered by the U.S. Department of Commerce)
-(“Sanctioned Person”), or (iii) controlled or 50% or more owned by a Sanctioned
+(&#8220;Sanctioned Person&#8221;), or (iii) controlled or 50% or more owned by a Sanctioned
 Person.
 
 You agree to comply with all export, re-export and import restrictions and
@@ -374,8 +364,6 @@ or authorize the transfer of, directly or indirectly, of the Software to any
 Prohibited Jurisdiction, or otherwise in violation of any such restrictions or
 regulations.
 </string>
-			<key>License</key>
-			<string>Apache 2.0</string>
 			<key>Title</key>
 			<string>Realm</string>
 			<key>Type</key>

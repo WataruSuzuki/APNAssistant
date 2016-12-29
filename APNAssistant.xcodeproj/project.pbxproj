@@ -50,6 +50,7 @@
 		60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */; };
 		60DC0F0E1D6E94FB00A4DD29 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */; };
 		6D58EEFAC160010639AC0280 /* libPods-APNAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */; };
+		8BF30B2599D15B5528682378 /* libPods-APNAssistant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E70AFA6266B1CDC89A4A1F /* libPods-APNAssistant.a */; };
 		96007FB41D963A02000FAE04 /* UtilAppStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96007FB31D963A02000FAE04 /* UtilAppStatus.swift */; };
 		9618C8C51D92D1F8008B25F3 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */; };
 		9618C8C71D92D21C008B25F3 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
@@ -240,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D58EEFAC160010639AC0280 /* libPods-APNAssistant.a in Frameworks */,
+				8BF30B2599D15B5528682378 /* libPods-APNAssistant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

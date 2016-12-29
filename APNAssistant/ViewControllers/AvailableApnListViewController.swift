@@ -119,7 +119,6 @@ class AvailableApnListViewController: UITableViewController,
         myProfileHelper.executeDownloadProfile(indexPath: indexPath, success: { (filePath) in
             self.readProfileInfo(filePath)
         }) { (error) in
-//            self.appStatus.stopIndicator()
             self.fallbackCacheProfile(indexPath: indexPath, error: error)
         }
         appStatus.startIndicator(self.tableView)
@@ -246,13 +245,8 @@ class AvailableApnListViewController: UITableViewController,
         }
         updateProgress()
         
-        print("updateSectionCount = \(updateSectionCount)")
-        print("numberOfSections = \(self.tableView.numberOfSections)")
         if updateSectionCount >= self.tableView.numberOfSections {
-            self.refreshControl?.endRefreshing()
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            stopProgressView()
-            myAvailableCountriesHelper.endJsonFileDownload()
+            endJsonFileDownload()
         } else {
             //myAvailableCountriesHelper.executeNextDownloadTask()
         }
@@ -283,6 +277,17 @@ class AvailableApnListViewController: UITableViewController,
         startProgressView()
     }
     
+    func endJsonFileDownload() {
+        invalidateIndicator()
+        myAvailableCountriesHelper.endJsonFileDownload()
+    }
+    
+    func invalidateIndicator() {
+        self.refreshControl?.endRefreshing()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        stopProgressView()
+    }
+    
     func startProgressView() {
         progressView = ProgressIndicatorView.instanceFromNib(appStatus.getIndicatorFrame(self.tableView))
         //progressView.center = self.view.center
@@ -290,6 +295,7 @@ class AvailableApnListViewController: UITableViewController,
         progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: UIControlState())
         progressView.didTapCancel = { (button) in
             self.updateSectionCount = self.tableView.numberOfSections + 1
+            self.invalidateIndicator()
         }
         self.view.addSubview(progressView)
         self.tableView.isScrollEnabled = false
@@ -299,6 +305,8 @@ class AvailableApnListViewController: UITableViewController,
     
     func updateProgress() {
         updateSectionCount += 1
+        print("updateSectionCount = \(updateSectionCount)")
+        print("numberOfSections = \(self.tableView.numberOfSections)")
         progressView.progressBar.progress = Float(updateSectionCount) / Float(self.tableView.numberOfSections)
     }
     

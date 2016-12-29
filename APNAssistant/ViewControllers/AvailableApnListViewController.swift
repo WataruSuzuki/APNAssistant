@@ -123,10 +123,11 @@ class AvailableApnListViewController: UITableViewController,
         myProfileHelper.executeDownloadProfile(indexPath: indexPath, success: { (filePath) in
             self.readProfileInfo(filePath)
         }) { (error) in
-            self.appStatus.stopIndicator()
+//            self.appStatus.stopIndicator()
             self.fallbackCacheProfile(indexPath: indexPath, error: error)
         }
         appStatus.startIndicator(self.tableView)
+        self.tableView.isScrollEnabled = false
     }
     
     func fallbackCacheProfile(indexPath: IndexPath, error: Error?) {
@@ -135,6 +136,8 @@ class AvailableApnListViewController: UITableViewController,
         if FileManager.default.fileExists(atPath: filePath) {
             readProfileInfo(filePath)
         } else {
+            self.appStatus.stopIndicator()
+            self.tableView.isScrollEnabled = true
             self.showErrorDownload(error: error)
         }
     }
@@ -160,6 +163,7 @@ class AvailableApnListViewController: UITableViewController,
                 })
             }
             DispatchQueue.main.async(execute: {
+                self.tableView.isScrollEnabled = true
                 self.appStatus.stopIndicator()
             })
         }

@@ -356,7 +356,6 @@ class AvailableCountriesHelper: NSObject {
     var publicProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.MAX.rawValue)
     var updateUrl = [URL]()
     var senderDelegate: URLSessionDownloadDelegate!
-    var profileHelper: AvailableProfileHelper!
     
     func loadCachedJsonList() {
         let filemanager = FileManager()
@@ -478,29 +477,7 @@ class AvailableCountriesHelper: NSObject {
         //do nothing
     }
     
-    func endJsonFileDownload() {
-        confirmUpdateAvailableProfile()
-    }
-    
-    func confirmUpdateAvailableProfile() {
-        let title = NSLocalizedString("confirm", comment: "")
-        let message = NSLocalizedString("update_available_profile", comment: "")
-        let negativeMessage = NSLocalizedString("cancel", comment: "")
-        let positiveMessage = NSLocalizedString("yes_cache", comment: "")
-        
-        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
-            action in //do nothing
-        }
-        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
-            action in
-            self.profileHelper = AvailableProfileHelper(list: self.publicProfileList)
-            self.profileHelper.startDownloadAvailableProfiles()
-        }
-        
-        if let delegate = UIApplication.shared.delegate as? AppDelegate {
-            if let controller = delegate.window?.rootViewController {
-                UtilAlertSheet.showSheetController(title, message: message, actions: [cancelAction, updateAction], sender: controller)
-            }
-        }
-    }
+//    func endJsonFileDownload() {
+//        confirmUpdateCachedProfile()
+//    }
 }

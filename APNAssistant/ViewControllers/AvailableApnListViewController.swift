@@ -91,17 +91,35 @@ class AvailableApnListViewController: UITableViewController,
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
-        var actions = [Any]()
+//        var actions = [Any]()
         let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
             action in self.reloadCachedData()
         }
         let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
             action in self.startJsonFileDownload()
         }
-        actions.append(cancelAction)
-        actions.append(updateAction)
+//        actions.append(cancelAction)
+//        actions.append(updateAction)
         
-        UtilAlertSheet.showSheetController(title, message: message, actions: actions, sender: self)
+        UtilAlertSheet.showSheetController(title, message: message, actions: [cancelAction, updateAction], sender: self)
+    }
+    
+    func confirmUpdateCachedProfile() {
+        let title = NSLocalizedString("confirm", comment: "")
+        let message = NSLocalizedString("update_available_profile", comment: "")
+        let negativeMessage = NSLocalizedString("cancel", comment: "")
+        let positiveMessage = NSLocalizedString("yes_cache", comment: "")
+        
+        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+            action in //do nothing
+        }
+        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
+            action in
+            self.myProfileHelper = AvailableProfileHelper(list: self.myAvailableCountriesHelper.publicProfileList)
+            self.myProfileHelper.startDownloadAvailableProfiles()
+        }
+        
+        UtilAlertSheet.showSheetController(title, message: message, actions: [cancelAction, updateAction], sender: self)
     }
     
     func reloadCachedData() {
@@ -279,7 +297,8 @@ class AvailableApnListViewController: UITableViewController,
     
     func endJsonFileDownload() {
         invalidateIndicator()
-        myAvailableCountriesHelper.endJsonFileDownload()
+        //myAvailableCountriesHelper.endJsonFileDownload()
+        confirmUpdateCachedProfile()
     }
     
     func invalidateIndicator() {

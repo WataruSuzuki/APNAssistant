@@ -29,7 +29,7 @@ class AvailableProfileHelper: NSObject {
     }
     
     func startDownloadAvailableProfiles() {
-        cacheCounter = targetProfileList.count
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         for countries in targetProfileList {
             for country in countries {
                 DispatchQueue.global(qos: .default).async(execute: {
@@ -48,6 +48,7 @@ class AvailableProfileHelper: NSObject {
     func executeDownloadProfile(reqUrl: URL, success:((String) -> Void)?, fail:((Error?) -> Void)?) {
         let config = URLSessionConfiguration.default
         let session = Foundation.URLSession(configuration: config)
+        self.cacheCounter += 1
         let task = session.downloadTask(with: reqUrl, completionHandler: { (location, response, error) in
             self.cacheCounter -= 1
             if let thisResponse = response, let thisLocation = location {
@@ -69,7 +70,13 @@ class AvailableProfileHelper: NSObject {
             }
             print(error as Any)
             DispatchQueue.main.async(execute: {
-                fail?(error)
+                if let fail = fail {
+                    fail(error)
+                } else {
+                    if self.cacheCounter <= 0 {
+                        self.showCompAlert()
+                    }
+                }
             })
         })
         
@@ -85,9 +92,10 @@ class AvailableProfileHelper: NSObject {
     }
     
     private func showCompAlert() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             if let controller = delegate.window?.rootViewController {
-                UtilAlertSheet.showAlertController("OK", messagekey: "msg_complete", url: nil, vc: controller)
+                UtilAlertSheet.showAlertController("complete_cache", messagekey: "msg_complete", url: nil, vc: controller)
             }
         }
     }

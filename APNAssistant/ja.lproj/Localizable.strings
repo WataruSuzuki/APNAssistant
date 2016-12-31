@@ -31,6 +31,7 @@ edit_apn = "APN編集";
 
 no_settings = "未設定";
 not_this_time = "今はしない";
+yes_cache = "はい, キャッシュします";
 yes_update = "はい, 更新します";
 understand = "リスクについて理解して継続します";
 is_update_now = "今すぐデバイスへ設定しますか?";
@@ -61,6 +62,7 @@ public = "公式";
 
 msg_complete = "完了しました";
 complete = "完了";
+complete_cache = "キャッシュ完了";
 caution = "注意";
 caution_profile = "APNの設定が間違っていると、モバイルデータ通信接続ができなくなったり、追加料金が発生したりすることがあります。\n不安な場合は通信事業者に問い合わせて、正しいAPN設定をご確認ください。";
 update_available_list = "利用可能リストを更新しますか？";

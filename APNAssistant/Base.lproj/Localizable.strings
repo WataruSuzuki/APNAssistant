@@ -31,6 +31,7 @@ edit_apn = "Edit APN";
 
 no_settings = "Empty";
 not_this_time = "Not this time";
+yes_cache = "Yes, cache data";
 yes_update = "Yes, update";
 understand = "I understarnd the risks and continue.";
 is_update_now = "Is update setting now?";
@@ -61,6 +62,7 @@ public = "Public";
 
 msg_complete = "Complete";
 complete = "Complete";
+complete_cache = "Complete cached data";
 caution = "Caution";
 caution_profile = "If your APN settings are wrong, you might lose cellular-data connectivity and receive additional charges. \nPlease contact your carrier to verify the correct APN settings if you worried.";
 update_available_list = "Do you update available list now?";

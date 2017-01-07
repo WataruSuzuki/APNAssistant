@@ -14,7 +14,6 @@ protocol DetailApnPreviewDelegate {
 }
 
 class DetailApnViewController: UITableViewController,
-    UIAlertViewDelegate, UIActionSheetDelegate,
     EditApnViewControllerDelegate
 {
     let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
@@ -52,7 +51,7 @@ class DetailApnViewController: UITableViewController,
 
         loadTargetSummaryObj()
         
-        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .bordered, target: self, action: #selector(DetailApnViewController.showMenuSheet))
+        let menuButton = UIBarButtonItem(title: NSLocalizedString("menu", comment: ""), style: .plain, target: self, action: #selector(DetailApnViewController.showMenuSheet))
         self.navigationItem.rightBarButtonItem = menuButton
     }
 
@@ -151,65 +150,29 @@ class DetailApnViewController: UITableViewController,
         showMenuAlertController(NSLocalizedString("menu", comment: ""), menuArray: menuArray)
     }
     
-    func showComfirmOldSheet(_ title: String, menuArray: [String]) {
-        let sheet = UIActionSheet()
-        //sheet.tag =
-        sheet.delegate = self
-        sheet.title = title
-        
-        for message in menuArray {
-            sheet.addButton(withTitle: message)
-        }
-        sheet.cancelButtonIndex = menuArray.count - 1
-        sheet.destructiveButtonIndex = 0
-        
-        sheet.show(in: self.view)
-    }
-    
     func showMenuAlertController(_ title: String, menuArray: [String]){
-        if #available(iOS 8.0, *) {
-            let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .destructive){
-                action in self.handleUpdateDeviceApn()
-            }
-            let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .default){
-                action in UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
-            }
-            let editAction = UIAlertAction(title: menuArray[Menu.edit.rawValue], style: .default){
-                action in self.showEditApnViewController()
-            }
-            let cancelAction = UIAlertAction(title: menuArray[Menu.cancel.rawValue], style: .cancel, handler: nil)
-            
-            let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-            alertController.addAction(cancelAction)
-            alertController.addAction(setApnAction)
-            alertController.addAction(shareAction)
-            alertController.addAction(editAction)
-            
-            if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-                alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-            }
-            
-            present(alertController, animated: true, completion: nil)
-        } else {
-            showComfirmOldSheet(title, menuArray: menuArray)
+        let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .destructive){
+            action in self.handleUpdateDeviceApn()
         }
-    }
-    
-    // MARK: - UIActionSheetDelegate
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        switch Menu(rawValue: buttonIndex)! {
-        case .setThisApnToDevice:
-            self.handleUpdateDeviceApn()
-            
-        case .share:
-            UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
-            
-        case .edit:
-            self.showEditApnViewController()
-            
-        default:
-            break
+        let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .default){
+            action in UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
         }
+        let editAction = UIAlertAction(title: menuArray[Menu.edit.rawValue], style: .default){
+            action in self.showEditApnViewController()
+        }
+        let cancelAction = UIAlertAction(title: menuArray[Menu.cancel.rawValue], style: .cancel, handler: nil)
+        
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(cancelAction)
+        alertController.addAction(setApnAction)
+        alertController.addAction(shareAction)
+        alertController.addAction(editAction)
+        
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+            alertController.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+        }
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     func showEditApnViewController() {
@@ -228,7 +191,11 @@ class DetailApnViewController: UITableViewController,
     
     func handleUpdateDeviceApn(){
         let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-        UIApplication.shared.openURL(url)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     // MARK: Preview actions

@@ -1,5 +1,5 @@
 //
-//  AvailableUpdateHelper.swift
+//  AvailableCountriesHelper.swift
 //  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/09/12.
@@ -351,10 +351,9 @@ struct DownloadProfiles {
     }
 }
 
-class AvailableUpdateHelper: NSObject {
+class AvailableCountriesHelper: NSObject {
     
     var publicProfileList = [NSArray](repeating: [], count: DownloadProfiles.json.MAX.rawValue)
-    var updateIndexSection = 0
     var updateUrl = [URL]()
     var senderDelegate: URLSessionDownloadDelegate!
     
@@ -403,50 +402,32 @@ class AvailableUpdateHelper: NSObject {
     }
     
     func generateFileNameFromLastPathComponent(_ responseUrl: URL, lastPathComponent: String) -> String {
-        return getCountryFileName(responseUrl, lastPathComponent: lastPathComponent)
+        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnBookmarks)
+        return fileName
     }
     
     func getVersionCheckFileName(_ lastPathComponent: String) -> String {
         return lastPathComponent.replacingOccurrences(of: ".json", with: "")
     }
     
-    func getCountryFileName(_ responseUrl: URL, lastPathComponent: String) -> String {
-        let fileName = lastPathComponent.replacingOccurrences(of: ".json", with: "-" + DownloadProfiles.apnBookmarks)
-        return fileName
-    }
-    
-    func moveJSONFilesFromURLSession(_ downloadTask: URLSessionDownloadTask, location: URL) {
+    func moveJSONFromURLSessionToLocation(_ downloadTask: URLSessionDownloadTask, location: URL) {
         guard let response = downloadTask.response else { return }
-        moveJSONFilesFromURLResponse(response, location: location)
-    }
-    
-    func moveJSONFilesFromURLResponse(_ response: URLResponse, location: URL) {
-        guard let responseUrl = response.url else { return }
-        let lastPathComponent = responseUrl.lastPathComponent
-        
-        let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent)
-        let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
-        moveDownloadItemAtURL(filePath, location: location)
-        
+        let filePath = moveJSONByURLResponse(response, location: location)
         let localUrl = URL(fileURLWithPath: filePath)
         if let jsonData = try? Data(contentsOf: localUrl) {
             parseCountryJson(response, jsonData: jsonData)
         }
     }
     
-    func moveDownloadItemAtURL(_ filePath: String, location: URL) {
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: filePath) {
-            try! fileManager.removeItem(atPath: filePath)
-        }
+    func moveJSONByURLResponse(_ response: URLResponse, location: URL) -> String {
+        guard let responseUrl = response.url else { return "" }
+        let lastPathComponent = responseUrl.lastPathComponent
         
-        let localUrl = URL(fileURLWithPath: filePath)
-        do {
-            try fileManager.moveItem(at: location, to: localUrl)
-        } catch {
-            let nsError = error as NSError
-            print(nsError.description)
-        }
+        let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent)
+        let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
+        UtilFileManager.moveDownloadItemAtURL(filePath, location: location)
+        
+        return filePath
     }
     
     func parseCountryJson(_ response: URLResponse, jsonData: Data) {
@@ -480,28 +461,23 @@ class AvailableUpdateHelper: NSObject {
     }
     
     func startJsonFileDownload(_ delegate: URLSessionDownloadDelegate) {
-        updateIndexSection = 0
         senderDelegate = delegate
         updateUrl = [URL]()
         for index in 0..<DownloadProfiles.json.MAX.rawValue {
             let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.jsonsDir + DownloadProfiles.json(rawValue: index)!.getFileName())
-            updateUrl.append(url!)
-        }
-        executeNextDownloadTask()
-    }
-    
-    func executeNextDownloadTask() {
-        print(#function)
-        print("updateIndexSection = \(updateIndexSection)")
-        if updateIndexSection <= updateUrl.count {
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config, delegate: senderDelegate, delegateQueue: OperationQueue.main)
-            session.downloadTask(with: updateUrl[updateIndexSection]).resume()
-            updateIndexSection += 1
+            DispatchQueue.global(qos: .default).async(execute: {
+                let config = URLSessionConfiguration.default
+                let session = URLSession(configuration: config, delegate: self.senderDelegate, delegateQueue: OperationQueue.main)
+                session.downloadTask(with: url!).resume()
+            })
         }
     }
     
-    func stopDownloadTask() {
-        updateIndexSection = updateUrl.count + 1
+    func cancelDownloadTask() {
+        //do nothing
     }
+    
+//    func endJsonFileDownload() {
+//        confirmUpdateCachedProfile()
+//    }
 }

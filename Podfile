@@ -1,5 +1,5 @@
-platform :ios, "7.0"
-inhibit_all_warnings!
+platform :ios, "8.0"
+#inhibit_all_warnings!
 
 target "APNAssistant" do
   pod 'CocoaAsyncSocket'

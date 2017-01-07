@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view from its nib.
         
         labelTitle.text = NSLocalizedString("latest_set_profile", comment: "")
-        buttonOpenApp.setTitle(NSLocalizedString("openApp", comment: ""), for: UIControlState())
+        buttonOpenApp.setTitle(NSLocalizedString("openSettingApp", comment: ""), for: UIControlState())
         
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
             self.labelProfileName.text = obj.name
@@ -58,6 +58,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @IBAction func tapOpenAppButton(_ sender: UIButton) {
-        self.extensionContext?.open(URL(string: "jchankchanapnassistant://")!, completionHandler: nil)
+        let prefixStr: String
+        if #available(iOS 10, *) {
+            prefixStr = "app-Prefs"
+        } else {
+            prefixStr = "prefs"
+        }
+        let profileSettingScheme = ":root=General&path=ManagedConfigurationList"
+
+        self.extensionContext?.open(URL(string: prefixStr + profileSettingScheme)!, completionHandler: nil)
     }
 }

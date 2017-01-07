@@ -1,8 +1,8 @@
 PODS:
   - CMPopTipView (2.3.0)
-  - CocoaAsyncSocket (7.5.0):
-    - CocoaAsyncSocket/GCD (= 7.5.0)
-  - CocoaAsyncSocket/GCD (7.5.0)
+  - CocoaAsyncSocket (7.5.1):
+    - CocoaAsyncSocket/GCD (= 7.5.1)
+  - CocoaAsyncSocket/GCD (7.5.1)
   - CocoaHTTPServer (2.3):
     - CocoaAsyncSocket
     - CocoaLumberjack
@@ -15,9 +15,9 @@ PODS:
   - CocoaLumberjack/Extensions (3.0.0):
     - CocoaLumberjack/Default
   - DJKFlatIconAuthors (0.0.1)
-  - Realm (2.0.3):
-    - Realm/Headers (= 2.0.3)
-  - Realm/Headers (2.0.3)
+  - Realm (2.1.2):
+    - Realm/Headers (= 2.1.2)
+  - Realm/Headers (2.1.2)
 
 DEPENDENCIES:
   - CMPopTipView
@@ -37,12 +37,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   CMPopTipView: 774e0230b5c73abb3c39051da6d8a383373c4f7f
-  CocoaAsyncSocket: 3baeb1ddd969f81cf9fca81053ae49ef2d1cbbfa
+  CocoaAsyncSocket: e0a7e93b2ffa411592ff87e58524fbbc9b95b4fa
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: c823149bccc5519a9447aeb433be7b1212a7d6a5
   DJKFlatIconAuthors: aff39c56b33e8a51c298d5750de2f4187edfe72c
-  Realm: 5f008bfe3c8c47142eddfc30b8c1584cde22db24
+  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
 
-PODFILE CHECKSUM: beaac6c9cab7fcda5abb552062befa17edf435b7
+PODFILE CHECKSUM: b8c4a643e37d975be45bdbc9ac22df4261b11e46
 
 COCOAPODS: 1.1.1

@@ -29,7 +29,7 @@ class UtilCocoaHTTPServer: NSObject,
         cocoaHTTPServer.setType("_http._tcp.")
         cocoaHTTPServer.setPort(8080)
         
-        cocoaHTTPServer.setDocumentRoot(getProfilesAppGroupPath())
+        cocoaHTTPServer.setDocumentRoot(UtilFileManager.getProfilesAppGroupPath())
         do {
             try cocoaHTTPServer.start()
         } catch  _ as NSError{
@@ -47,22 +47,10 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func getTargetFilePath(_ fileName: String, fileType: String) -> String {
-        let filePath = getProfilesAppGroupPath() + fileName + fileType
+        let filePath = UtilFileManager.getProfilesAppGroupPath() + fileName + fileType
         print(filePath)
         
         return filePath
-    }
-    
-    func getProfilesAppGroupPath() -> String {
-        let fileManager = FileManager.default
-        let targetDirectory = UtilHandleRLMObject.getAppGroupPathURL()?.appendingPathComponent("apnassistant")
-        if nil == targetDirectory?.path
-            || !fileManager.fileExists(atPath: targetDirectory!.path)
-        {
-            try! fileManager.createDirectory(at: targetDirectory!, withIntermediateDirectories: true, attributes: nil)
-        }
-        
-        return targetDirectory!.path + "/"
     }
     
     func readDownloadedMobileConfigProfile(_ path: String) {

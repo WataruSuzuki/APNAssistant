@@ -43,7 +43,11 @@ class APNAssistantUITests: XCTestCase {
     @available(iOS 9.0, *)
     func createAPN(app: XCUIApplication) {
         
-        app.sheets[getTestStr(key: "confirm")].buttons[getTestStr(key: "cancel")].tap()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            XCUIApplication()/*@START_MENU_TOKEN@*/.otherElements["PopoverDismissRegion"]/*[[".otherElements[\"dismiss popup\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        } else {
+            app.sheets[getTestStr(key: "confirm")].buttons[getTestStr(key: "cancel")].tap()
+        }
         app.tabBars.buttons[getTestStr(key: "profileList")].tap()
         app.navigationBars[getTestStr(key: "profileList")].buttons[(isJapanese() ? "追加" : "Add")].tap()
         
@@ -62,7 +66,11 @@ class APNAssistantUITests: XCTestCase {
         textField2.typeText("apnassistant.com")
         
         app.navigationBars[getTestStr(key: "edit_apn")].buttons[(isJapanese() ? "保存" : "Save")].tap()
-        app.sheets[getTestStr(key: "is_update_now")].buttons[getTestStr(key: "not_this_time")].tap()
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            XCUIApplication()/*@START_MENU_TOKEN@*/.otherElements["PopoverDismissRegion"]/*[[".otherElements[\"dismiss popup\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        } else {
+            app.sheets[getTestStr(key: "is_update_now")].buttons[getTestStr(key: "not_this_time")].tap()
+        }
     }
     
     func getTestStr(key: String) -> String {

@@ -23,8 +23,8 @@ class ApnSummaryObject: RLMObject {
     }
     
     static let sortProperties = [
-        RLMSortDescriptor(property: "createdDate", ascending: false),
-        RLMSortDescriptor(property: "id", ascending: false)
+        RLMSortDescriptor(keyPath: "createdDate", ascending: false),
+        RLMSortDescriptor(keyPath: "id", ascending: false)
     ]
     
     static func getLastId() -> Int {

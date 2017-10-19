@@ -21,7 +21,8 @@
 #include <memory>
 #include <string>
 
-#include <realm/impl/continuous_transactions_history.hpp>
+#include <realm/impl/cont_transact_hist.hpp>
+#include <realm/sync/instruction_replication.hpp>
 #include <realm/sync/transform.hpp>
 
 #ifndef REALM_SYNC_HISTORY_HPP
@@ -55,8 +56,8 @@ struct SyncProgress {
 };
 
 
-class SyncHistory:
-        public TrivialReplication {
+class ClientHistory:
+        public InstructionReplication {
 public:
     using version_type    = TrivialReplication::version_type;
     using file_ident_type = HistoryEntry::file_ident_type;
@@ -167,6 +168,24 @@ public:
                                                        HistoryEntry& entry,
                                                        std::unique_ptr<char[]>& buffer) const = 0;
 
+
+    struct UploadChangeset {
+        HistoryEntry::timestamp_type timestamp;
+        version_type client_version;
+        version_type server_version;
+        BinaryData changeset;
+        std::unique_ptr<char[]> buffer;
+    };
+
+    /// find_uploadable_changesets() returns a vector of history entries. The
+    /// history entries are returned in order and starts from the first available
+    /// entry. The number of entries returned is at least one, if possible, and
+    /// is size limited by a soft limit. Returned changesets produced a version
+    /// that succeeds `begin_version` and, and does not succeed `end_version`.
+    /// Returned changesets are also locally produced and non-empty.
+    virtual std::vector<UploadChangeset> find_uploadable_changesets(version_type begin_version,
+                                                            version_type end_version) const = 0;
+
     using RemoteChangeset = Transformer::RemoteChangeset;
 
     /// \brief Integrate a sequence of remote changesets using a single Realm
@@ -194,13 +213,14 @@ public:
                                                      const RemoteChangeset* changesets,
                                                      std::size_t num_changesets,
                                                      util::Logger* replay_logger,
-                                                     std::function<SyncTransactCallback>& callback) = 0;
+                                                     std::function<SyncTransactCallback>&) = 0;
 
     /// Get the persisted upload/download progress in bytes.
     virtual void get_upload_download_bytes(uint_fast64_t& downloaded_bytes,
                                            uint_fast64_t& downloadable_bytes,
                                            uint_fast64_t& uploaded_bytes,
-                                           uint_fast64_t& uploadable_bytes) = 0;
+                                           uint_fast64_t& uploadable_bytes,
+                                           uint_fast64_t& snapshot_version) = 0;
 
     /// See set_cooked_progress().
     struct CookedProgress {
@@ -256,18 +276,18 @@ public:
                                       util::AppendBuffer<char>&) const = 0;
 
 protected:
-    SyncHistory(const std::string& realm_path);
+    ClientHistory(const std::string& realm_path);
 };
 
 
 /// \brief Abstract interface for changeset cookers.
 ///
 /// Note, it is completely up to the application to decide what a cooked
-/// changeset is. History objects (instances of SyncHistory) are required to
+/// changeset is. History objects (instances of ClientHistory) are required to
 /// treat cooked changesets as opaque entities. For an example of a concrete
 /// changeset cooker, see TrivialChangesetCooker which defines the cooked
 /// changesets to be identical copies of the raw changesets.
-class SyncHistory::ChangesetCooker {
+class ClientHistory::ChangesetCooker {
 public:
     /// \brief An opportunity to produce a cooked changeset.
     ///
@@ -292,7 +312,7 @@ public:
 };
 
 
-class SyncHistory::Config {
+class ClientHistory::Config {
 public:
     Config() {}
 
@@ -308,11 +328,11 @@ public:
     /// If a changeset cooker is specified, then the created history object will
     /// allow for a cooked changeset to be produced for each changeset of remote
     /// origin; that is, for each changeset that is integrated during the
-    /// execution of SyncHistory::integrate_remote_changesets(). If no changeset
-    /// cooker is specified, then no cooked changesets will be produced on
-    /// behalf of the created history object.
+    /// execution of ClientHistory::integrate_remote_changesets(). If no
+    /// changeset cooker is specified, then no cooked changesets will be
+    /// produced on behalf of the created history object.
     ///
-    /// SyncHistory::integrate_remote_changesets() will pass each incoming
+    /// ClientHistory::integrate_remote_changesets() will pass each incoming
     /// changeset to the cooker after operational transformation; that is, when
     /// the chageset is ready to be applied to the local Realm state.
     std::shared_ptr<ChangesetCooker> changeset_cooker;
@@ -323,15 +343,15 @@ public:
 ///
 /// The intended role for such an object is as a plugin for new
 /// realm::SharedGroup objects.
-std::unique_ptr<SyncHistory> make_sync_history(const std::string& realm_path,
-                                               SyncHistory::Config = {});
+std::unique_ptr<ClientHistory> make_client_history(const std::string& realm_path,
+                                                   ClientHistory::Config = {});
 
 
 
 // Implementation
 
-inline SyncHistory::SyncHistory(const std::string& realm_path):
-    TrivialReplication(realm_path)
+inline ClientHistory::ClientHistory(const std::string& realm_path):
+    InstructionReplication(realm_path)
 {
 }
 

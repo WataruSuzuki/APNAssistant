@@ -32,7 +32,10 @@ namespace sync {
 class Metrics {
 public:
     /// Increment the counter identified by the specified key.
-    virtual void increment(const char* key) = 0;
+    virtual void increment(const char* key, int value = 1) = 0;
+
+    /// Send the timing identified by the specified key.
+    virtual void timing(const char* key, double value) = 0;
 
     /// Set value of the guage identified by the specified key.
     virtual void gauge(const char* key, double value) = 0;
@@ -58,23 +61,30 @@ public:
         m_dogless.loop_interval(1);
     }
 
-    void increment(const char* key) override
+    void increment(const char* key, int value = 1) override
     {
         const char* metric = key;
-        m_dogless.increment(metric); // Throws
+        m_dogless.increment(metric, value); // Throws
+    }
+
+    void timing(const char* key, double value) override
+    {
+        const char* metric = key;
+        m_dogless.timing(metric, value); // Throws
     }
 
     void gauge(const char* key, double value) override
     {
         const char* metric = key;
-        m_dogless.gauge(metric, value); // Throws
+        m_gauges[key] = value;
+        m_dogless.gauge(metric, m_gauges[key]); // Throws
     }
 
     void gauge_relative(const char* key, double value) override
     {
         const char* metric = key;
-        double amount = value;
-        m_dogless.gauge_relative(metric, amount); // Throws
+        m_gauges[key] += value;
+        m_dogless.gauge(metric, m_gauges[key]); // Throws
     }
 
     void add_endpoint(const std::string& endpoint) override
@@ -84,6 +94,7 @@ public:
 
 private:
     dogless::BufferedStatsd m_dogless;
+    std::map<std::string, double> m_gauges;
 };
 
 #endif

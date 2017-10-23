@@ -145,7 +145,7 @@ class DetailApnViewController: UITableViewController,
         return menuArray
     }
     
-    func showMenuSheet() {
+    @objc func showMenuSheet() {
         let menuArray = loadMenuArray()
         showMenuAlertController(NSLocalizedString("menu", comment: ""), menuArray: menuArray)
     }

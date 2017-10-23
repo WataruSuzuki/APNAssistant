@@ -28,7 +28,7 @@ class ApnListViewController: UITableViewController,
         super.viewDidLoad()
                 
         self.navigationItem.title = NSLocalizedString("profileList", comment: "")
-        allApnSummaryObjs = ApnSummaryObject.allObjects()
+        allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
         if #available(iOS 9.0, *) {
             if self.traitCollection.forceTouchCapability == .available {
                 self.registerForPreviewing(with: self, sourceView: self.tableView)
@@ -55,7 +55,7 @@ class ApnListViewController: UITableViewController,
     }
     
     func updateApnSummaryObjs() {
-        allApnSummaryObjs = ApnSummaryObject.allObjects()
+        allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
         if 0 < allApnSummaryObjs.count {
             tutorialPopView?.dismiss(animated: true)
         } else {
@@ -158,9 +158,10 @@ class ApnListViewController: UITableViewController,
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let toIndex = searchBar.text!.index(searchBar.text!.startIndex, offsetBy: range.location)
         let newText = (text.isEmpty
-            ? searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location))
-            : searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location)) + text
+            ? String(searchBar.text![..<toIndex])
+            : String(searchBar.text![..<toIndex]) + text
         )
         loadTargetApnSummaryObjs(newText)
         return true
@@ -172,7 +173,7 @@ class ApnListViewController: UITableViewController,
     
     func loadTargetApnSummaryObjs(_ searchString: String) {
         if searchString.isEmpty {
-            allApnSummaryObjs = ApnSummaryObject.allObjects()
+            allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
         } else {
             allApnSummaryObjs = ApnSummaryObject.getSearchedLists(searchString)
         }

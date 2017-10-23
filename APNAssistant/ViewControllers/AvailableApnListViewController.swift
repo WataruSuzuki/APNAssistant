@@ -156,7 +156,7 @@ class AvailableApnListViewController: UITableViewController,
     }
     
     func showErrorDownload(error: Error?) {
-        if let nsError = error as? NSError {
+        if let nsError = error as NSError? {
             if #available(iOS 9.0, *) {
                 if nsError.code == NSURLErrorAppTransportSecurityRequiresSecureConnection {
                     UtilAlertSheet.showAlertController("error", messagekey: "fail_load_profile_security", url: nil, vc: self)
@@ -185,9 +185,10 @@ class AvailableApnListViewController: UITableViewController,
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let toIndex = searchBar.text!.index(searchBar.text!.startIndex, offsetBy: range.location)
         let newText = (text.isEmpty
-            ? searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location))
-            : searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location)) + text
+            ? String(searchBar.text![..<toIndex])
+            : String(searchBar.text![..<toIndex]) + text
         )
         loadTargetProfileList(newText)
         return true
@@ -288,7 +289,7 @@ class AvailableApnListViewController: UITableViewController,
         //TODO
     }
     
-    func startJsonFileDownload() {
+    @objc func startJsonFileDownload() {
         updateSectionCount = 0
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         myAvailableCountriesHelper.startJsonFileDownload(self)

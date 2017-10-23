@@ -21,17 +21,17 @@ struct ProfileXmlTag {
 
 class ApnProfileObject: RLMObject {
 
-    dynamic var apnsName = ""
-    dynamic var apnsAuthenticationType = ""
-    dynamic var apnsUserName = ""
-    dynamic var apnsPassword = ""
-    dynamic var apnsProxyServer = ""
-    dynamic var apnsProxyServerPort = ""
+    @objc dynamic var apnsName = ""
+    @objc dynamic var apnsAuthenticationType = ""
+    @objc dynamic var apnsUserName = ""
+    @objc dynamic var apnsPassword = ""
+    @objc dynamic var apnsProxyServer = ""
+    @objc dynamic var apnsProxyServerPort = ""
     
-    dynamic var attachApnName = ""
-    dynamic var attachApnAuthenticationType = ""
-    dynamic var attachApnUserName = ""
-    dynamic var attachApnPassword = ""
+    @objc dynamic var attachApnName = ""
+    @objc dynamic var attachApnAuthenticationType = ""
+    @objc dynamic var attachApnUserName = ""
+    @objc dynamic var attachApnPassword = ""
     //dynamic var attachApnProxyServer = ""
     //dynamic var attachApnProxyServerPort = ""
     

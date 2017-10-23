@@ -31,7 +31,7 @@ class MainTabBarController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    func appDidBecomeActive(_ notification: Notification) {
+    @objc func appDidBecomeActive(_ notification: Notification) {
         if #available(iOS 9.0, *) {
             executeShortcutActions()
         }

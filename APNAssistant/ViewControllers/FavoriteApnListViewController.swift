@@ -78,9 +78,10 @@ class FavoriteApnListViewController: ApnListViewController {
 
     // MARK: - UISearchBarDelegate
     override func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let toIndex = searchBar.text!.index(searchBar.text!.startIndex, offsetBy: range.location)
         let newText = (text.isEmpty
-            ? searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location))
-            : searchBar.text!.substring(to: searchBar.text!.characters.index(searchBar.text!.startIndex, offsetBy: range.location)) + text
+            ? String(searchBar.text![..<toIndex])
+            : String(searchBar.text![..<toIndex]) + text
         )
         loadTargetApnSummaryObjs(newText)
         return true

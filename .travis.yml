@@ -1,7 +1,7 @@
 language: objective-c
 script:
-    xcodebuild -workspace APNAssistant.xcworkspace -scheme APNAssistant -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO \
-    xcodebuild test -workspace APNAssistant.xcworkspace -scheme APNAssistant -sdk iphonesimulator \
+    - xcodebuild -workspace APNAssistant.xcworkspace -scheme APNAssistant -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+    - xcodebuild test -workspace APNAssistant.xcworkspace -scheme APNAssistant -sdk iphonesimulator \
     -destination 'platform=iOS Simulator,name=iPhone 5s' \
     -destination 'platform=iOS Simulator,name=iPhone 6 Plus' \
     -destination 'platform=iOS Simulator,name=iPhone 7' \

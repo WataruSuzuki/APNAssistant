@@ -17,6 +17,15 @@ struct ProfileXmlTag {
     static let AuthenticationType = "AuthenticationType"
     static let ProxyServer = "ProxyServer"
     static let ProxyPort = "ProxyPort"
+    static let AllowedProtocolMask = "AllowedProtocolMask"
+    static let AllowedProtocolMaskInRoaming = "AllowedProtocolMaskInRoaming"
+    static let AllowedProtocolMaskInDomesticRoaming = "AllowedProtocolMaskInDomesticRoaming"
+}
+
+enum AllowedProtocolMask: Int {
+    case ipv4 = 1,
+    ipv6,
+    both
 }
 
 class ApnProfileObject: RLMObject {
@@ -27,13 +36,14 @@ class ApnProfileObject: RLMObject {
     @objc dynamic var apnsPassword = ""
     @objc dynamic var apnsProxyServer = ""
     @objc dynamic var apnsProxyServerPort = ""
+    @objc dynamic var apnsAllowedProtocolMask = ""
+    @objc dynamic var apnsAllowedProtocolMaskInRoaming = ""
+    @objc dynamic var apnsAllowedProtocolMaskInDomesticRoaming = ""
     
     @objc dynamic var attachApnName = ""
     @objc dynamic var attachApnAuthenticationType = ""
     @objc dynamic var attachApnUserName = ""
     @objc dynamic var attachApnPassword = ""
-    //dynamic var attachApnProxyServer = ""
-    //dynamic var attachApnProxyServerPort = ""
     
     func updateApnProfileColumn(_ type: ApnSummaryObject.ApnInfoColumn, column: KeyAPNs, newText: String) {
         print("column(\(type)) = " + column.getTitle(type))
@@ -77,6 +87,21 @@ class ApnProfileObject: RLMObject {
                 self.apnsProxyServerPort = newText
             }
             
+        case .allowed_protocol_mask:
+            if type == .apns {
+                self.apnsAllowedProtocolMask = newText
+            }
+
+        case .allowed_protocol_mask_in_roaming:
+            if type == .apns {
+                self.apnsAllowedProtocolMaskInRoaming = newText
+            }
+
+        case .allowed_protocol_mask_in_domestic_roaming:
+            if type == .apns {
+                self.apnsAllowedProtocolMaskInDomesticRoaming = newText
+            }
+            
         default:
             break
         }
@@ -89,6 +114,9 @@ class ApnProfileObject: RLMObject {
         password,
         proxy_server,
         proxy_server_port,
+        allowed_protocol_mask,
+        allowed_protocol_mask_in_roaming,
+        allowed_protocol_mask_in_domestic_roaming,
         max
         
         init(tag: String) {
@@ -111,6 +139,7 @@ class ApnProfileObject: RLMObject {
         }
         
         func getTitle(_ type: ApnSummaryObject.ApnInfoColumn) -> String {
+            var key = ""
             switch self {
             case KeyAPNs.name:
                 return NSLocalizedString((type == .apns ? "keyApnsName" : "keyAttachApnName"), comment: "")
@@ -124,9 +153,18 @@ class ApnProfileObject: RLMObject {
                 return NSLocalizedString((type == .apns ? "keyApnsProxyServer" : "keyAttachApnProxyServer"), comment: "")
             case KeyAPNs.proxy_server_port:
                 return NSLocalizedString((type == .apns ? "keyApnsProxyServerPort" : "keyAttachApnProxyServerPort"), comment: "")
+            case KeyAPNs.allowed_protocol_mask:
+                key = ProfileXmlTag.AllowedProtocolMask
+            case KeyAPNs.allowed_protocol_mask_in_roaming:
+                key = ProfileXmlTag.AllowedProtocolMaskInRoaming
+            case KeyAPNs.allowed_protocol_mask_in_domestic_roaming:
+                key = ProfileXmlTag.AllowedProtocolMaskInDomesticRoaming
+
             default:
                 return ""
             }
+            
+            return NSLocalizedString((type == .apns ? "keyApns" + key : "keyAttachApn" + key), comment: "")
         }
         
         func getPreparedAPNValue(prepareObj: ApnProfileObject) -> String {
@@ -143,6 +181,8 @@ class ApnProfileObject: RLMObject {
                 return prepareObj.apnsProxyServer
             case .proxy_server_port:
                 return prepareObj.apnsProxyServerPort
+            case .allowed_protocol_mask:
+                return prepareObj.apnsAllowedProtocolMask
                 
             default:
                 return ""
@@ -166,7 +206,15 @@ class ApnProfileObject: RLMObject {
         }
         
         static func maxRaw(_ type: ApnSummaryObject.ApnInfoColumn) -> Int {
-            return (type == .attach_APN ? (KeyAPNs.max.rawValue - 2) : KeyAPNs.max.rawValue)
+            let removedListWhenAttachApn = [KeyAPNs.proxy_server, KeyAPNs.proxy_server_port]
+            var maxRow = KeyAPNs.max.rawValue
+            if #available(iOS 10.3, *) {
+                //do nothing
+            } else {
+                let removedListUnder10_2 = [KeyAPNs.allowed_protocol_mask, KeyAPNs.allowed_protocol_mask_in_roaming, KeyAPNs.allowed_protocol_mask_in_domestic_roaming]
+                maxRow -= removedListUnder10_2.count
+            }
+            return (type == .attach_APN ? (maxRow - removedListWhenAttachApn.count) : maxRow)
         }
     }
 }

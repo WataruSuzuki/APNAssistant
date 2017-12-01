@@ -183,6 +183,12 @@ class EditApnViewController: UITableViewController//,
         cell.myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
         
         switch typeAndColumn.1 {
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask:
+            fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming:
+            fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming:
+            fallthrough
         case ApnProfileObject.KeyAPNs.proxy_server_port:
             cell.myUITextField.keyboardType = .numberPad
             cell.myUITextField.isSecureTextEntry = false

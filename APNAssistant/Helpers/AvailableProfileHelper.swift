@@ -92,10 +92,12 @@ class AvailableProfileHelper: NSObject {
     }
     
     private func showCompAlert() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        if let delegate = UIApplication.shared.delegate as? AppDelegate {
-            if let controller = delegate.window?.rootViewController {
-                UtilAlertSheet.showAlertController("complete_cache", messagekey: "msg_complete", url: nil, vc: controller)
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                if let controller = delegate.window?.rootViewController {
+                    UtilAlertSheet.showAlertController("complete_cache", messagekey: "msg_complete", url: nil, vc: controller)
+                }
             }
         }
     }

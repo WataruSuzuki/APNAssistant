@@ -13,6 +13,9 @@ keyApnsUsername = "Data apn user name";
 keyApnsPassword = "Data apn password";
 keyApnsProxyServer = "Data apn proxy server";
 keyApnsProxyServerPort = "Data apn proxy server port";
+keyApnsAllowedProtocolMask = "Data apn allowed protocol mask";
+keyApnsAllowedProtocolMaskInRoaming = "Data apn allowed protocol mask in roaming";
+keyApnsAllowedProtocolMaskInDomesticRoaming = "Data apn allowed protocol mask in domestic roaming";
 
 keyAttachApnName = "Default apn name";
 keyAttachApnAuthenticationType = "Default apn authentication type";
@@ -20,6 +23,9 @@ keyAttachApnUsername = "Default apn user name";
 keyAttachApnPassword = "Default apn password";
 keyAttachApnProxyServer = "Default apn proxy server";
 keyAttachApnProxyServerPort = "Default apn proxy server port";
+keyAttachApnAllowedProtocolMask = "Default apn allowed protocol mask";
+keyAttachApnAllowedProtocolMaskInRoaming = "Default apn allowed protocol mask in roaming";
+keyAttachApnAllowedProtocolMaskInDomesticRoaming = "Default apn allowed protocol mask in domestic roaming";
 
 setAttachApnManual = "Set Attach Apn manually";
 favoriteList = "Favorite List";

@@ -13,6 +13,9 @@ keyApnsUsername = "データAPNのユーザ名";
 keyApnsPassword = "データAPNのパスワード";
 keyApnsProxyServer = "データAPNのプロキシサーバ";
 keyApnsProxyServerPort = "データAPNのプロキシポート番号";
+keyApnsAllowedProtocolMask = "データAPNのプロトコル";
+keyApnsAllowedProtocolMaskInRoaming = "データAPNのローミング中プロトコル";
+keyApnsAllowedProtocolMaskInDomesticRoaming = "データAPNの国内ローミング中プロトコル";
 
 keyAttachApnName = "デフォルトAPNの名前";
 keyAttachApnAuthenticationType = "デフォルトAPNの認証方法";
@@ -20,6 +23,9 @@ keyAttachApnUsername = "デフォルトAPNのユーザ名";
 keyAttachApnPassword = "デフォルトAPNのパスワード";
 keyAttachApnProxyServer = "デフォルトAPNのプロキシサーバ";
 keyAttachApnProxyServerPort = "デフォルトAPNのプロキシポート番号";
+keyAttachApnAllowedProtocolMask = "デフォルトAPNのプロトコル";
+keyAttachApnAllowedProtocolMaskInRoaming = "デフォルトAPNのローミング中プロトコル";
+keyAttachApnAllowedProtocolMaskInDomesticRoaming = "デフォルトAPNの国内ローミング中プロトコル";
 
 setAttachApnManual = "データAPNを手動でセットする";
 favoriteList = "お気に入り";

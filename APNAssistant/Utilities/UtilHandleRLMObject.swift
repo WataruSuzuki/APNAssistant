@@ -10,7 +10,7 @@ import UIKit
 
 struct UtilHandleRLMConst {
     internal static let CREATE_NEW_PROFILE = -1
-    internal static let CURRENT_SCHEMA_VERSION = UInt64(1)
+    internal static let CURRENT_SCHEMA_VERSION = UInt64(2)
 }
 
 class UtilHandleRLMObject: NSObject {

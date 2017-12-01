@@ -99,6 +99,16 @@ class UtilCocoaHTTPServer: NSObject,
             profileXml += "<key>ProxyPort</key><integer>" + rlmObject.apnProfileObj.apnsProxyServerPort + "</integer>"
             profileXml += "<key>ProxyServer</key><string>" + rlmObject.apnProfileObj.apnsProxyServer + "</string>"
         }
+        if !rlmObject.apnProfileObj.apnsAllowedProtocolMask.isEmpty {
+            profileXml += "<key>AllowedProtocolMask</key><integer>" + rlmObject.apnProfileObj.apnsAllowedProtocolMask + "</integer>"
+        }
+        if !rlmObject.apnProfileObj.apnsAllowedProtocolMaskInRoaming.isEmpty {
+            profileXml += "<key>AllowedProtocolMaskInRoaming</key><integer>" + rlmObject.apnProfileObj.apnsAllowedProtocolMaskInRoaming + "</integer>"
+        }
+        if !rlmObject.apnProfileObj.apnsAllowedProtocolMaskInDomesticRoaming.isEmpty {
+            profileXml += "<key>AllowedProtocolMaskInDomesticRoaming</key><integer>" + rlmObject.apnProfileObj.apnsAllowedProtocolMaskInDomesticRoaming + "</integer>"
+        }
+
         if !rlmObject.apnProfileObj.apnsUserName.isEmpty {
             profileXml += "<key>Username</key><string>" + rlmObject.apnProfileObj.apnsUserName + "</string>"
         }

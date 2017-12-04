@@ -206,15 +206,16 @@ class ApnProfileObject: RLMObject {
         }
         
         static func maxRaw(_ type: ApnSummaryObject.ApnInfoColumn) -> Int {
-            let removedListWhenAttachApn = [KeyAPNs.proxy_server, KeyAPNs.proxy_server_port]
-            var maxRow = KeyAPNs.max.rawValue
+            let removedListWhenAttachApn = [KeyAPNs.proxy_server, KeyAPNs.proxy_server_port,
+                                            KeyAPNs.allowed_protocol_mask, KeyAPNs.allowed_protocol_mask_in_roaming, KeyAPNs.allowed_protocol_mask_in_domestic_roaming]
             if #available(iOS 10.3, *) {
-                //do nothing
+                return (type == .attach_APN ? (KeyAPNs.max.rawValue - removedListWhenAttachApn.count) : KeyAPNs.max.rawValue)
             } else {
                 let removedListUnder10_2 = [KeyAPNs.allowed_protocol_mask, KeyAPNs.allowed_protocol_mask_in_roaming, KeyAPNs.allowed_protocol_mask_in_domestic_roaming]
-                maxRow -= removedListUnder10_2.count
+                return (type == .attach_APN
+                    ? (KeyAPNs.max.rawValue - removedListWhenAttachApn.count)
+                    : (KeyAPNs.max.rawValue - removedListUnder10_2.count))
             }
-            return (type == .attach_APN ? (maxRow - removedListWhenAttachApn.count) : maxRow)
         }
     }
 }

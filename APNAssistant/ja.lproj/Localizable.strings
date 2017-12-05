@@ -27,7 +27,7 @@ keyAttachApnAllowedProtocolMask = "デフォルトAPNのプロトコル";
 keyAttachApnAllowedProtocolMaskInRoaming = "デフォルトAPNのローミング中プロトコル";
 keyAttachApnAllowedProtocolMaskInDomesticRoaming = "デフォルトAPNの国内ローミング中プロトコル";
 
-setAttachApnManual = "データAPNを手動でセットする";
+setDataApnManual = "データAPNを手動でセットする";
 favoriteList = "お気に入り";
 profileList = "プロファイル";
 downloadList = "ダウンロード";

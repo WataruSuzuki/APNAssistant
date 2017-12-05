@@ -153,7 +153,7 @@ class EditApnViewController: UITableViewController//,
         let cell = tableView.dequeueReusableCell(withIdentifier: "UISwitchCell", for: indexPath) as! UISwitchCell
         switch ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)! {
         case .apns:
-            cell.myUILabel?.text = NSLocalizedString("setAttachApnManual", comment: "")
+            cell.myUILabel?.text = NSLocalizedString("setDataApnManual", comment: "")
             cell.switchValueChanged = {(switchOn) in
                 self.isSetDataApnManually = switchOn
                 UIView.animate(withDuration: 0.4, animations: {

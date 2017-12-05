@@ -27,7 +27,7 @@ keyAttachApnAllowedProtocolMask = "Default apn allowed protocol mask";
 keyAttachApnAllowedProtocolMaskInRoaming = "Default apn allowed protocol mask in roaming";
 keyAttachApnAllowedProtocolMaskInDomesticRoaming = "Default apn allowed protocol mask in domestic roaming";
 
-setAttachApnManual = "Set Attach Apn manually";
+setDataApnManual = "Set Data Apn manually";
 favoriteList = "Favorite List";
 profileList = "Profile List";
 downloadList = "Download List";

@@ -81,14 +81,17 @@ class EditApnViewController: UITableViewController//,
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var row = indexPath.row
         switch ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)! {
         case .apns:
-            if indexPath.row == 0 {
+            if row == 0 {
                 return loadSwitchCell(tableView, cellForRowAtIndexPath: indexPath)
+            } else {
+                row -= 1
             }
             
         case .summary:
-            if indexPath.row == ApnSummaryObject.ApnSummaryColumn.datatype.rawValue {
+            if row == ApnSummaryObject.ApnSummaryColumn.datatype.rawValue {
                 return loadSwitchCell(tableView, cellForRowAtIndexPath: indexPath)
             } else {
                 return loadSummaryApnProfileCell(tableView, cellForRowAtIndexPath: indexPath)
@@ -98,9 +101,11 @@ class EditApnViewController: UITableViewController//,
         default: break
         }
         
-        if indexPath.row == ApnProfileObject.KeyAPNs.authentication_type.rawValue {
+        switch row {
+        case ApnProfileObject.KeyAPNs.authentication_type.rawValue:
             return loadSegmentedCtrlCell(tableView, cellForRowAtIndexPath: indexPath)
-        } else {
+            
+        default:
             return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
         }
     }

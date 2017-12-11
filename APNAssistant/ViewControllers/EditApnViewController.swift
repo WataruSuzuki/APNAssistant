@@ -34,7 +34,8 @@ class EditApnViewController: UITableViewController//,
         registerCustomCell("TextFieldCell")
         registerCustomCell("UISwitchCell")
         registerCustomCell("SegmentedCtrlCell")
-        
+        registerCustomCell("PickerCell")
+
         if nil != editingApnSummaryObj {
             myUtilHandleRLMObject = UtilHandleRLMObject(id: editingApnSummaryObj!.id, profileObj: editingApnSummaryObj!.apnProfile, summaryObj: editingApnSummaryObj!)
             myUtilHandleRLMObject.prepareKeepApnProfileColumn(editingApnSummaryObj!.apnProfile)
@@ -104,6 +105,11 @@ class EditApnViewController: UITableViewController//,
         switch row {
         case ApnProfileObject.KeyAPNs.authentication_type.rawValue:
             return loadSegmentedCtrlCell(tableView, cellForRowAtIndexPath: indexPath)
+            
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask.rawValue: fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming.rawValue: fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming.rawValue:
+            return loadPickerCell(tableView, cellForRowAtIndexPath: indexPath)
             
         default:
             return loadTextFieldCell(tableView, cellForRowAtIndexPath: indexPath)
@@ -179,6 +185,15 @@ class EditApnViewController: UITableViewController//,
         return cell
     }
     
+    func loadPickerCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> PickerCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell", for: indexPath) as! PickerCell
+        
+        let typeAndColumn = getTypeAndColumn(indexPath)
+        cell.textLabel?.text = typeAndColumn.1.getTitle(typeAndColumn.0)
+        
+        return cell
+    }
+    
     func loadTextFieldCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> TextFieldCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
         
@@ -188,12 +203,6 @@ class EditApnViewController: UITableViewController//,
         cell.myUITextField.placeholder = NSLocalizedString("no_settings", comment: "")
         
         switch typeAndColumn.1 {
-        case ApnProfileObject.KeyAPNs.allowed_protocol_mask:
-            fallthrough
-        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming:
-            fallthrough
-        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming:
-            fallthrough
         case ApnProfileObject.KeyAPNs.proxy_server_port:
             cell.myUITextField.keyboardType = .numberPad
             cell.myUITextField.isSecureTextEntry = false
@@ -223,20 +232,60 @@ class EditApnViewController: UITableViewController//,
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)
-        switch sectionType! {
-        case .apns:
-            if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "UISwitchCell") as! UISwitchCell
-                return cell.frame.height
+        if let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section) {
+            let row = (sectionType == .apns
+                ? indexPath.row
+                : indexPath.row - 1
+            )
+
+            switch sectionType {
+            case .apns:
+                if indexPath.row == 0 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "UISwitchCell") as! UISwitchCell
+                    return cell.frame.height
+                }
+                fallthrough
+                
+            case .attach_APN:
+                switch row {
+                case ApnProfileObject.KeyAPNs.allowed_protocol_mask.rawValue: fallthrough
+                case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming.rawValue: fallthrough
+                case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming.rawValue:
+                    let newPickerCell = tableView.dequeueReusableCell(withIdentifier: "PickerCell") as! PickerCell
+                    if newPickerCell.isExpanded {
+                        return newPickerCell.frame.height
+                    }
+                    
+                default:
+                    let newTextFieldCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
+                    return newTextFieldCell.frame.height
+                }
+                
+            default:
+                break
             }
-            fallthrough
-        case .attach_APN:
-            let newTextFieldCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
-            return newTextFieldCell.frame.height
-            
+        }
+        return tableView.rowHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = (ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)! == .apns
+            ? indexPath.row
+            : indexPath.row - 1
+            )
+        
+        switch row {
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask.rawValue: fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming.rawValue: fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming.rawValue:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell") as! PickerCell
+            cell.isExpanded = !cell.isExpanded
+            UIView.animate(withDuration: 0.4, animations: {
+                self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+            })
+
         default:
-            return tableView.rowHeight
+            break
         }
     }
     

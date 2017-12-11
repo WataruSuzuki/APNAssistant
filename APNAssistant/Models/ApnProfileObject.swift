@@ -23,9 +23,15 @@ struct ProfileXmlTag {
 }
 
 enum AllowedProtocolMask: Int {
-    case ipv4 = 1,
+    case nothing = 0,
+    ipv4,
     ipv6,
-    both
+    both,
+    max
+    
+    func toString() -> String {
+        return String(describing: self)
+    }
 }
 
 class ApnProfileObject: RLMObject {

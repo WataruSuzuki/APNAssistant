@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PickerCell: UITableViewCell {
+class PickerCell: UITableViewCell,
+    UIPickerViewDelegate, UIPickerViewDataSource
+{
+    @IBOutlet weak var picker: UIPickerView!
+    var isExpanded = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +25,20 @@ class PickerCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return AllowedProtocolMask.max.rawValue
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if let menu = AllowedProtocolMask(rawValue: row) {
+            if row != 0 {
+                return menu.toString()
+            }
+        }
+        return ""
+    }
 }

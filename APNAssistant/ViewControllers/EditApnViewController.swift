@@ -30,7 +30,8 @@ class EditApnViewController: UITableViewController//,
         self.navigationItem.title = NSLocalizedString("edit_apn", comment: "")
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        
+        self.tableView.keyboardDismissMode = .interactive
+
         registerCustomCell("TextFieldCell")
         registerCustomCell("UISwitchCell")
         registerCustomCell("SegmentedCtrlCell")

@@ -24,6 +24,7 @@ class TextFieldCell: UITableViewCell,
         // Initialization code
         
         myUITextField.returnKeyType = .next
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

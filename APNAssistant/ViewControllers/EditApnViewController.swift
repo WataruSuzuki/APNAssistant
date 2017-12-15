@@ -235,8 +235,8 @@ class EditApnViewController: UITableViewController//,
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let sectionType = ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section) {
             let row = (sectionType == .apns
-                ? indexPath.row
-                : indexPath.row - 1
+                ? indexPath.row - 1
+                : indexPath.row
             )
 
             switch sectionType {
@@ -249,6 +249,10 @@ class EditApnViewController: UITableViewController//,
                 
             case .attach_APN:
                 switch row {
+                case ApnProfileObject.KeyAPNs.authentication_type.rawValue:
+                    let newSegmentedCtrlCell = tableView.dequeueReusableCell(withIdentifier: "SegmentedCtrlCell") as! SegmentedCtrlCell
+                    return newSegmentedCtrlCell.frame.height
+
                 case ApnProfileObject.KeyAPNs.allowed_protocol_mask.rawValue: fallthrough
                 case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming.rawValue: fallthrough
                 case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming.rawValue:
@@ -256,23 +260,23 @@ class EditApnViewController: UITableViewController//,
                     if newPickerCell.isExpanded {
                         return newPickerCell.frame.height
                     }
-                    
+
                 default:
-                    let newTextFieldCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
-                    return newTextFieldCell.frame.height
+                    break
                 }
-                
+
             default:
                 break
             }
         }
-        return tableView.rowHeight
+        let newTextFieldCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
+        return newTextFieldCell.frame.height
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = (ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)! == .apns
-            ? indexPath.row
-            : indexPath.row - 1
+            ? indexPath.row - 1
+            : indexPath.row
             )
         
         switch row {

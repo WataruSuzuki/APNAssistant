@@ -23,6 +23,11 @@ class EditApnViewController: UITableViewController//,
     var isSetDataApnManually = false
     
     var delegate: EditApnViewControllerDelegate!
+    var pickerExpandedStatus = [
+        ApnProfileObject.KeyAPNs.allowed_protocol_mask: false,
+        ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming: false,
+        ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming: false
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,8 +195,13 @@ class EditApnViewController: UITableViewController//,
         let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell", for: indexPath) as! PickerCell
         
         let typeAndColumn = getTypeAndColumn(indexPath)
-        cell.textLabel?.text = typeAndColumn.1.getTitle(typeAndColumn.0)
-        
+        cell.myTitleLabel?.text = typeAndColumn.1.getTitle(typeAndColumn.0)
+        cell.isExpanded = pickerExpandedStatus[typeAndColumn.1]!
+        cell.myDetailField.placeholder = myUtilHandleRLMObject.getKeptApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1)
+        cell.didSelectRow = {(mask) in
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1, newText:(mask == AllowedProtocolMask.nothing ? "" : mask.toString()))
+        }
+
         return cell
     }
     
@@ -257,7 +267,7 @@ class EditApnViewController: UITableViewController//,
                 case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming.rawValue: fallthrough
                 case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming.rawValue:
                     let newPickerCell = tableView.dequeueReusableCell(withIdentifier: "PickerCell") as! PickerCell
-                    if newPickerCell.isExpanded {
+                    if pickerExpandedStatus[ApnProfileObject.KeyAPNs(rawValue: row)!]! {
                         return newPickerCell.frame.height
                     }
 
@@ -283,8 +293,7 @@ class EditApnViewController: UITableViewController//,
         case ApnProfileObject.KeyAPNs.allowed_protocol_mask.rawValue: fallthrough
         case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming.rawValue: fallthrough
         case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming.rawValue:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PickerCell") as! PickerCell
-            cell.isExpanded = !cell.isExpanded
+            pickerExpandedStatus[ApnProfileObject.KeyAPNs(rawValue: row)!] = !pickerExpandedStatus[ApnProfileObject.KeyAPNs(rawValue: row)!]!
             UIView.animate(withDuration: 0.4, animations: {
                 self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
             })

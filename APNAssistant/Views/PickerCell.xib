@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,21 +19,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y1u-uc-0sA">
-                        <rect key="frame" x="0.0" y="44" width="320" height="129"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="128.5"/>
                         <connections>
                             <outlet property="dataSource" destination="KGk-i7-Jjw" id="ELv-pi-tVP"/>
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="pUD-pU-gmH"/>
                         </connections>
                     </pickerView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV6-1b-K9i">
+                        <rect key="frame" x="8" y="5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HkP-B5-zqe">
+                        <rect key="frame" x="8" y="46" width="304" height="17"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Y1u-uc-0sA" secondAttribute="trailing" id="OFn-Ic-FVA"/>
+                    <constraint firstAttribute="trailing" secondItem="HkP-B5-zqe" secondAttribute="trailing" constant="8" id="SgT-wO-C2F"/>
                     <constraint firstItem="Y1u-uc-0sA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="44" id="Uro-SA-2M7"/>
                     <constraint firstItem="Y1u-uc-0sA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ae5-xI-qp0"/>
+                    <constraint firstItem="UV6-1b-K9i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dXU-UW-ZX3"/>
+                    <constraint firstItem="HkP-B5-zqe" firstAttribute="top" secondItem="UV6-1b-K9i" secondAttribute="bottom" constant="20" id="gIe-qJ-adp"/>
+                    <constraint firstItem="UV6-1b-K9i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="saK-9o-oiy"/>
                     <constraint firstAttribute="bottom" secondItem="Y1u-uc-0sA" secondAttribute="bottom" id="vKf-TK-hAs"/>
+                    <constraint firstItem="HkP-B5-zqe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="w1f-kz-9Hz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="myDetailField" destination="HkP-B5-zqe" id="qsz-Ln-irT"/>
+                <outlet property="myTitleLabel" destination="UV6-1b-K9i" id="29W-zj-VPh"/>
                 <outlet property="picker" destination="Y1u-uc-0sA" id="81d-ZD-nHK"/>
             </connections>
             <point key="canvasLocation" x="34" y="118.5"/>

@@ -12,7 +12,15 @@ class PickerCell: UITableViewCell,
     UIPickerViewDelegate, UIPickerViewDataSource
 {
     @IBOutlet weak var picker: UIPickerView!
-    var isExpanded = false
+    @IBOutlet weak var myTitleLabel: UILabel!
+    @IBOutlet weak var myDetailField: UITextField!
+    var isExpanded = false {
+        didSet {
+            self.myDetailField.isHidden = isExpanded
+            self.picker.isHidden = !isExpanded
+        }
+    }
+    var didSelectRow:((AllowedProtocolMask) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,10 +43,15 @@ class PickerCell: UITableViewCell,
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let menu = AllowedProtocolMask(rawValue: row) {
-            if row != 0 {
-                return menu.toString()
-            }
+            return menu.toString()
         }
-        return ""
+        return NSLocalizedString("no_settings", comment: "")
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if let menu = AllowedProtocolMask(rawValue: row) {
+            self.myDetailField.placeholder = menu.toString()
+            didSelectRow?(menu)
+        }
     }
 }

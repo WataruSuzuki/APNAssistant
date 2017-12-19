@@ -95,9 +95,10 @@ class TextFieldCell: UITableViewCell,
     }
     
     func getNewChangeCharactersInRange(_ textField: UITextField, range: NSRange, string: String) -> String {
+        let toIndex = textField.text!.index(textField.text!.startIndex, offsetBy: range.location)
         let newText = (string.isEmpty
-            ? textField.text!.substring(to: textField.text!.characters.index(textField.text!.startIndex, offsetBy: range.location))
-            : textField.text!.substring(to: textField.text!.characters.index(textField.text!.startIndex, offsetBy: range.location)) + string
+            ? String(textField.text![..<toIndex])
+            : String(textField.text![..<toIndex]) + string
         )
         return newText
     }

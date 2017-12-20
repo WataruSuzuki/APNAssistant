@@ -270,17 +270,18 @@ class EditApnViewController: UITableViewController//,
                     if pickerExpandedStatus[ApnProfileObject.KeyAPNs(rawValue: row)!]! {
                         return newPickerCell.frame.height
                     }
+                    fallthrough
 
                 default:
-                    break
+                    let newTextFieldCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
+                    return newTextFieldCell.frame.height
                 }
 
             default:
                 break
             }
         }
-        let newTextFieldCell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell") as! TextFieldCell
-        return newTextFieldCell.frame.height
+        return tableView.rowHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

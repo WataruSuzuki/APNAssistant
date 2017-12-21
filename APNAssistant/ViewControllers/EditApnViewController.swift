@@ -197,9 +197,10 @@ class EditApnViewController: UITableViewController//,
         let typeAndColumn = getTypeAndColumn(indexPath)
         cell.myTitleLabel?.text = typeAndColumn.1.getTitle(typeAndColumn.0)
         cell.isExpanded = pickerExpandedStatus[typeAndColumn.1]!
-        cell.myDetailField.placeholder = myUtilHandleRLMObject.getKeptApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1)
+        let maskType = myUtilHandleRLMObject.getKeptApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1)
+        cell.myDetailField.placeholder = AllowedProtocolMask(rawValue: Int(maskType)!)?.toString()
         cell.didSelectRow = {(mask) in
-            self.myUtilHandleRLMObject.keepApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1, newText:(mask == AllowedProtocolMask.nothing ? "" : mask.toString()))
+            self.myUtilHandleRLMObject.keepApnProfileColumnValue(typeAndColumn.0, column: typeAndColumn.1, newText:(mask == AllowedProtocolMask.nothing ? "" : String(mask.rawValue)))
         }
 
         return cell

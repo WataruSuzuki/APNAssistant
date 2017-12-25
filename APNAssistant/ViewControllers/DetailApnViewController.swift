@@ -83,6 +83,18 @@ class DetailApnViewController: UITableViewController,
         switch column {
         case ApnProfileObject.KeyAPNs.password:
             cell.detailTextLabel?.text = "*******"
+        
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask:fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_roaming:fallthrough
+        case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming:
+            let maskValue = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)
+            if maskValue.isEmpty {
+                cell.detailTextLabel?.text = maskValue
+            } else {
+                if let maskType = AllowedProtocolMask(rawValue: Int(maskValue)!) {
+                    cell.detailTextLabel?.text = (maskType == AllowedProtocolMask.nothing ? "" : maskType.toString())
+                }
+            }
             
         default:
             cell.detailTextLabel?.text = myUtilHandleRLMObject.getKeptApnProfileColumnValue(type, column: column)

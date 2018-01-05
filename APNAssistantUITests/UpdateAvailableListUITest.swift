@@ -32,7 +32,7 @@ class UpdateAvailableListUITest: XCTestCase {
         super.tearDown()
         
     }
-    /*
+    
     func testUpdateAvailableList() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -40,10 +40,11 @@ class UpdateAvailableListUITest: XCTestCase {
             let app = XCUIApplication()
             let confirmSheet = app.sheets["Confirm"]
             confirmSheet.buttons["Yes, update"].tap()
+            UITestUtils.waitingSec(sec: 20.0, sender: self)
             confirmSheet.buttons["Yes, cache data"].tap()
-            app.tables.staticTexts["Australia"].tap()
+            UITestUtils.waitingSec(sec: 20.0, sender: self)
             app.alerts["Complete cached data"].buttons["OK"].tap()
         }
     }
-    */
+    
 }

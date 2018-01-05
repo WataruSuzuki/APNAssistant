@@ -68,6 +68,7 @@
 		96DA6C181C9B03FE00E424D5 /* APNAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */; };
 		CC565FEB1FD902E9009E1D49 /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC565FE91FD902E9009E1D49 /* PickerCell.swift */; };
 		CC565FEC1FD902E9009E1D49 /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC565FEA1FD902E9009E1D49 /* PickerCell.xib */; };
+		CC8DFC632011C34F00CAC0E0 /* UITestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8DFC622011C34F00CAC0E0 /* UITestUtils.swift */; };
 		E182F50CC564D716129F4139 /* libPods-TodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F87BBFC466205CB7A5385AC /* libPods-TodayWidget.a */; };
 		F009F3971D6006A000D428D6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F009F3961D6006A000D428D6 /* NotificationCenter.framework */; };
 		F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3991D6006A100D428D6 /* TodayViewController.swift */; };
@@ -221,6 +222,7 @@
 		C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
 		CC565FE91FD902E9009E1D49 /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
 		CC565FEA1FD902E9009E1D49 /* PickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
+		CC8DFC622011C34F00CAC0E0 /* UITestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestUtils.swift; sourceTree = "<group>"; };
 		E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.release.xcconfig"; sourceTree = "<group>"; };
 		E669FD92FF0BDF64AF2B64E4 /* libPods-APNAssistant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -449,6 +451,7 @@
 				96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */,
 				96DA6C191C9B03FE00E424D5 /* Info.plist */,
 				96D78C0B1FF8E87F009F418A /* UpdateAvailableListUITest.swift */,
+				CC8DFC622011C34F00CAC0E0 /* UITestUtils.swift */,
 			);
 			path = APNAssistantUITests;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC8DFC632011C34F00CAC0E0 /* UITestUtils.swift in Sources */,
 				96D78C0C1FF8E87F009F418A /* UpdateAvailableListUITest.swift in Sources */,
 				96DA6C181C9B03FE00E424D5 /* APNAssistantUITests.swift in Sources */,
 			);

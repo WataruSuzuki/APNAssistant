@@ -19,4 +19,17 @@ class UITestUtils: NSObject {
             //do nothing
         }
     }
+
+    class func getTestStr(key: String, sender: AnyClass) -> String {
+        if let languageBundlePath = Bundle(for: sender).path(forResource: NSLocale.current.languageCode!, ofType: "lproj") {
+            if let localizationBundle = Bundle(path: languageBundlePath) {
+                return NSLocalizedString(key, bundle:localizationBundle, comment: "")
+            }
+        }
+        return NSLocalizedString(key, bundle:Bundle(for: APNAssistantUITests.self), comment: "")
+    }
+    
+    class func isJapanese(sender: AnyClass) -> Bool {
+        return getTestStr(key: "error", sender: sender) == "エラー"
+    }
 }

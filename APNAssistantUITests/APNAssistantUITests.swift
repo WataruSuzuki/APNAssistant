@@ -36,55 +36,43 @@ class APNAssistantUITests: XCTestCase {
         
         if #available(iOS 9.0, *) {
             let app = XCUIApplication()
-            createAPN(app: app)
+            createSimpleAPN(app: app)
         }
     }
     
     @available(iOS 9.0, *)
-    func createAPN(app: XCUIApplication) {
+    private func createSimpleAPN(app: XCUIApplication) {
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             XCUIApplication()/*@START_MENU_TOKEN@*/.otherElements["PopoverDismissRegion"]/*[[".otherElements[\"dismiss popup\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         } else {
-            app.sheets[getTestStr(key: "confirm")].buttons[getTestStr(key: "cancel")].tap()
+            app.sheets[UITestUtils.getTestStr(key: "confirm", sender: APNAssistantUITests.self)].buttons[UITestUtils.getTestStr(key: "cancel", sender: APNAssistantUITests.self)].tap()
         }
-        app.tabBars.buttons[getTestStr(key: "profileList")].tap()
-        app.navigationBars[getTestStr(key: "profileList")].buttons[(isJapanese() ? "追加" : "Add")].tap()
+        app.tabBars.buttons[UITestUtils.getTestStr(key: "profileList", sender: APNAssistantUITests.self)].tap()
+        app.navigationBars[UITestUtils.getTestStr(key: "profileList", sender: APNAssistantUITests.self)].buttons[(UITestUtils.isJapanese(sender: APNAssistantUITests.self) ? "追加" : "Add")].tap()
         
         let tablesQuery = app.tables
         let textField = tablesQuery.children(matching: .cell).element(boundBy: 0).children(matching: .textField).element
-        textField.typeText("APN Assistant UI Tests")
+        textField.typeText("Simple UI Tests")
         
         let nextButton = app.buttons["Next:"]
         nextButton.tap()
         
-        app.tables.staticTexts[getTestStr(key: "keyAttachApnName")].tap()
-        let apnCellsQuery = tablesQuery.cells.containing(.staticText, identifier:getTestStr(key: "keyAttachApnName"))
+        app.tables.staticTexts[UITestUtils.getTestStr(key: "keyAttachApnName", sender: APNAssistantUITests.self)].tap()
+        let apnCellsQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyAttachApnName", sender: APNAssistantUITests.self))
         
         let textField2 = apnCellsQuery.children(matching: .textField).element
         textField2.tap()
-        textField2.typeText("apnassistant.com")
+        textField2.typeText("simple.apnassistant.com")
         
-        app.navigationBars[getTestStr(key: "edit_apn")].buttons[(isJapanese() ? "保存" : "Save")].tap()
+        app.navigationBars[UITestUtils.getTestStr(key: "edit_apn", sender: APNAssistantUITests.self)].buttons[(UITestUtils.isJapanese(sender: APNAssistantUITests.self) ? "保存" : "Save")].tap()
         if UIDevice.current.userInterfaceIdiom == .pad {
             XCUIApplication()/*@START_MENU_TOKEN@*/.otherElements["PopoverDismissRegion"]/*[[".otherElements[\"dismiss popup\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         } else {
-            app.sheets[getTestStr(key: "is_update_now")].buttons[getTestStr(key: "not_this_time")].tap()
+            app.sheets[UITestUtils.getTestStr(key: "is_update_now", sender: APNAssistantUITests.self)].buttons[UITestUtils.getTestStr(key: "not_this_time", sender: APNAssistantUITests.self)].tap()
         }
     }
     
-    func getTestStr(key: String) -> String {
-        if let languageBundlePath = Bundle(for: APNAssistantUITests.self).path(forResource: NSLocale.current.languageCode!, ofType: "lproj") {
-            if let localizationBundle = Bundle(path: languageBundlePath) {
-                return NSLocalizedString(key, bundle:localizationBundle, comment: "")
-            }
-        }
-        return NSLocalizedString(key, bundle:Bundle(for: APNAssistantUITests.self), comment: "")
-    }
-    
-    func isJapanese() -> Bool {
-        return getTestStr(key: "error") == "エラー"
-    }
     
     
 }

@@ -351,17 +351,6 @@ public:
 
     //@}
 
-    /// Move the table at \a from_index such that it ends up at \a
-    /// to_index. Other tables are shifted as necessary in such a way that their
-    /// order is preserved.
-    ///
-    /// Note that \a to_index is the desired final index of the moved table,
-    /// therefore, `move_table(1,1)` is a no-op, while `move_table(1,2)` moves
-    /// the table at index 1 by one position, such that it ends up at index 2. A
-    /// side-effect of that, is that the table, that was originally at index 2,
-    /// is moved to index 1.
-    void move_table(size_t from_index, size_t to_index);
-
     // Serialization
 
     /// Write this database to the specified output stream.
@@ -520,6 +509,13 @@ public:
         return !(*this == g);
     }
 
+    /// Control of what to include when computing memory usage
+    enum SizeAggregateControl {
+        size_of_state = 1, ///< size of tables, indexes, toplevel array
+        size_of_history = 2, ///< size of the in-file history compartment
+        size_of_freelists = 4, ///< size of the freelists
+        size_of_all = 7
+    };
     /// Compute the sum of the sizes in number of bytes of all the array nodes
     /// that currently make up this group. When this group represents a snapshot
     /// in a Realm file (such as during a read transaction via a SharedGroup
@@ -528,7 +524,7 @@ public:
     ///
     /// If this group accessor is the detached state, this function returns
     /// zero.
-    size_t compute_aggregated_byte_size() const noexcept;
+    size_t compute_aggregated_byte_size(SizeAggregateControl ctrl = SizeAggregateControl::size_of_all) const noexcept;
 
     void verify() const;
 #ifdef REALM_DEBUG
@@ -1130,8 +1126,15 @@ inline void Group::set_history_parent(Array& history_root) noexcept
 
 class Group::TableWriter {
 public:
+    struct HistoryInfo {
+        ref_type ref = 0;
+        int type = 0;
+        int version = 0;
+    };
+
     virtual ref_type write_names(_impl::OutputStream&) = 0;
     virtual ref_type write_tables(_impl::OutputStream&) = 0;
+    virtual HistoryInfo write_history(_impl::OutputStream&) = 0;
     virtual ~TableWriter() noexcept
     {
     }

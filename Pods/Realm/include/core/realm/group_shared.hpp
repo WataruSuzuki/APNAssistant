@@ -223,6 +223,9 @@ public:
     /// on an unattached instance results in undefined behavior.
     bool is_attached() const noexcept;
 
+#ifdef REALM_DEBUG
+    /// Deprecated method, only called from a unit test
+    ///
     /// Reserve disk space now to avoid allocation errors at a later
     /// point in time, and to minimize on-disk fragmentation. In some
     /// cases, less fragmentation translates into improved
@@ -235,14 +238,12 @@ public:
     /// default). If the file is already bigger than the specified
     /// size, the size will be unchanged, and on-disk allocation will
     /// occur only for the initial section that corresponds to the
-    /// specified size. On systems that do not support preallocation,
-    /// this function has no effect. To know whether preallocation is
-    /// supported by Realm on your platform, call
-    /// util::File::is_prealloc_supported().
+    /// specified size.
     ///
     /// It is an error to call this function on an unattached shared
     /// group. Doing so will result in undefined behavior.
     void reserve(size_t size_in_bytes);
+#endif
 
     /// Querying for changes:
     ///
@@ -1008,10 +1009,6 @@ inline void SharedGroup::rollback_and_continue_as_read(O* observer)
     if (!hist)
         throw LogicError(LogicError::no_history);
 
-    // Mark all managed space (beyond the attached file) as free.
-    using gf = _impl::GroupFriend;
-    gf::reset_free_space_tracking(m_group); // Throws
-
     BinaryData uncommitted_changes = hist->get_uncommitted_changes();
 
     // FIXME: We are currently creating two transaction log parsers, one here,
@@ -1027,6 +1024,10 @@ inline void SharedGroup::rollback_and_continue_as_read(O* observer)
         parser.parse(reversed_in, *observer); // Throws
         observer->parse_complete();           // Throws
     }
+
+    // Mark all managed space (beyond the attached file) as free.
+    using gf = _impl::GroupFriend;
+    gf::reset_free_space_tracking(m_group); // Throws
 
     ref_type top_ref = m_read_lock.m_top_ref;
     size_t file_size = m_read_lock.m_file_size;

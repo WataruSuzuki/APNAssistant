@@ -521,8 +521,6 @@
 				96DA6BEE1C9B03FD00E424D5 /* Sources */,
 				96DA6BEF1C9B03FD00E424D5 /* Frameworks */,
 				96DA6BF01C9B03FD00E424D5 /* Resources */,
-				18E337D890D28D5FA0BA7FAD /* [CP] Embed Pods Frameworks */,
-				0A709D2A1E243C36B562BF3A /* [CP] Copy Pods Resources */,
 				60AA73A71C9BA73700E41CAE /* ShellScript */,
 				F009F3A51D6006A100D428D6 /* Embed App Extensions */,
 			);
@@ -580,7 +578,6 @@
 				F009F3911D6006A000D428D6 /* Sources */,
 				F009F3921D6006A000D428D6 /* Frameworks */,
 				F009F3931D6006A000D428D6 /* Resources */,
-				0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */,
 				F04DB17F1D6494BA00998852 /* ShellScript */,
 			);
 			buildRules = (
@@ -600,8 +597,6 @@
 				F02DA0F71D997944007F6C93 /* Sources */,
 				F02DA1101D997944007F6C93 /* Frameworks */,
 				F02DA1121D997944007F6C93 /* Resources */,
-				F02DA1221D997944007F6C93 /* [CP] Embed Pods Frameworks */,
-				F02DA1231D997944007F6C93 /* [CP] Copy Pods Resources */,
 				F02DA1241D997944007F6C93 /* ShellScript */,
 			);
 			buildRules = (
@@ -773,51 +768,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A709D2A1E243C36B562BF3A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0F0DBDB391AFCA38673804FB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		18E337D890D28D5FA0BA7FAD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		60AA73A71C9BA73700E41CAE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -865,36 +815,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F02DA1221D997944007F6C93 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F02DA1231D997944007F6C93 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F02DA1241D997944007F6C93 /* ShellScript */ = {

@@ -59,17 +59,12 @@
 
 - (CGRect)contentFrame {
     CGRect bubbleFrame = [self bubbleFrame];
-
-    if (self.shouldEnforceCustomViewPadding) {
-				CGRect contentFrame = CGRectMake(bubbleFrame.origin.x + _cornerRadius + _bubblePaddingX,
-												 bubbleFrame.origin.y + _cornerRadius + _bubblePaddingY,
-												 bubbleFrame.size.width - (_bubblePaddingX*2) - (_cornerRadius*2),
-												 bubbleFrame.size.height - (_bubblePaddingY*2) - (_cornerRadius*2));
-        return contentFrame;
-    }
-    else {
-        return bubbleFrame;
-    }
+    
+    CGRect contentFrame = CGRectMake(bubbleFrame.origin.x + _cornerRadius + _bubblePaddingX,
+                                     bubbleFrame.origin.y + _cornerRadius + _bubblePaddingY,
+                                     bubbleFrame.size.width - (_bubblePaddingX*2) - (_cornerRadius*2),
+                                     bubbleFrame.size.height - (_bubblePaddingY*2) - (_cornerRadius*2));
+    return contentFrame;
 }
 
 - (void)layoutSubviews {
@@ -370,7 +365,7 @@
 
     // If we want to dismiss the bubble when the user taps anywhere, we need to insert
     // an invisible button over the background.
-    if ( self.dismissTapAnywhere ) {
+    if ( self.dismissTapAnywhere && !self.dismissTarget ) {
         self.dismissTarget = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.dismissTarget addTarget:self action:@selector(dismissTapAnywhereFired:) forControlEvents:UIControlEventTouchUpInside];
         [self.dismissTarget setTitle:@"" forState:UIControlStateNormal];
@@ -480,12 +475,7 @@
         textSize.height += titleSize.height;
     }
 
-    if (self.shouldEnforceCustomViewPadding) {
-				_bubbleSize = CGSizeMake(textSize.width + (_bubblePaddingX*2) + (_cornerRadius*2), textSize.height + (_bubblePaddingY*2) + (_cornerRadius*2));
-    }
-    else {
-        _bubbleSize = CGSizeMake(textSize.width, textSize.height);
-    }
+	_bubbleSize = CGSizeMake(textSize.width + (_bubblePaddingX*2) + (_cornerRadius*2), textSize.height + (_bubblePaddingY*2) + (_cornerRadius*2));
 
 	UIView *superview = containerView.superview;
 	if ([superview isKindOfClass:[UIWindow class]])
@@ -830,7 +820,6 @@
 
 	if ((self = [self initWithFrame:frame])) {
 		self.customView = aView;
-        self.shouldEnforceCustomViewPadding = YES;
         self.shouldMaskCustomView = YES;
         [self addSubview:self.customView];
 	}

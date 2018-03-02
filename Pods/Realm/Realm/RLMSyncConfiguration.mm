@@ -18,6 +18,7 @@
 
 #import "RLMSyncConfiguration_Private.hpp"
 
+#import "RLMRealmConfiguration+Sync.h"
 #import "RLMSyncManager_Private.h"
 #import "RLMSyncSession_Private.hpp"
 #import "RLMSyncSessionRefreshHandle.hpp"
@@ -80,7 +81,7 @@ static BOOL isValidRealmURL(NSURL *url) {
 
 - (instancetype)initWithRawConfig:(realm::SyncConfig)config {
     if (self = [super init]) {
-        _config = std::make_unique<realm::SyncConfig>(config);
+        _config = std::make_unique<realm::SyncConfig>(std::move(config));
     }
     return self;
 }
@@ -92,7 +93,8 @@ static BOOL isValidRealmURL(NSURL *url) {
     RLMSyncConfiguration *that = (RLMSyncConfiguration *)object;
     return [self.realmURL isEqual:that.realmURL]
         && [self.user isEqual:that.user]
-        && self.stopPolicy == that.stopPolicy;
+        && self.stopPolicy == that.stopPolicy
+        && self.fullSynchronization == that.fullSynchronization;
 }
 
 - (void)setEnableSSLValidation:(BOOL)enableSSLValidation {
@@ -111,6 +113,14 @@ static BOOL isValidRealmURL(NSURL *url) {
     return (BOOL)_config->is_partial;
 }
 
+- (void)setFullSynchronization:(BOOL)fullSynchronization {
+    _config->is_partial = !(bool)fullSynchronization;
+}
+
+- (BOOL)fullSynchronization {
+    return !(BOOL)_config->is_partial;
+}
+
 - (realm::SyncConfig)rawConfiguration {
     return *_config;
 }
@@ -127,8 +137,23 @@ static BOOL isValidRealmURL(NSURL *url) {
     _config->stop_policy = translateStopPolicy(stopPolicy);
 }
 
+- (NSString *)urlPrefix {
+    if (_config->url_prefix) {
+        return @(_config->url_prefix->c_str());
+    }
+    return nil;
+}
+
+- (void)setUrlPrefix:(NSString *)urlPrefix {
+    if (urlPrefix) {
+        _config->url_prefix.emplace(urlPrefix.UTF8String);
+    } else {
+        _config->url_prefix = none;
+    }
+}
+
 - (NSURL *)realmURL {
-    NSString *rawStringURL = @(_config->realm_url().c_str());
+    NSString *rawStringURL = @(_config->reference_realm_url.c_str());
     return [NSURL URLWithString:rawStringURL];
 }
 
@@ -139,6 +164,23 @@ static BOOL isValidRealmURL(NSURL *url) {
                     isPartial:NO
                    stopPolicy:RLMSyncStopPolicyAfterChangesUploaded
                  errorHandler:nullptr];
+}
+
+- (instancetype)initWithUser:(RLMSyncUser *)user
+                    realmURL:(NSURL *)url
+                   isPartial:(BOOL)isPartial
+                   urlPrefix:(NSString *)urlPrefix
+                  stopPolicy:(RLMSyncStopPolicy)stopPolicy
+         enableSSLValidation:(BOOL)enableSSLValidation {
+    auto config = [self initWithUser:user
+                            realmURL:url
+                       customFileURL:nil
+                           isPartial:isPartial
+                          stopPolicy:stopPolicy
+                        errorHandler:nullptr];
+    config.urlPrefix = urlPrefix;
+    config.enableSSLValidation = enableSSLValidation;
+    return config;
 }
 
 - (instancetype)initWithUser:(RLMSyncUser *)user
@@ -184,16 +226,45 @@ static BOOL isValidRealmURL(NSURL *url) {
 
         _config = std::make_unique<SyncConfig>(SyncConfig{
             [user _syncUser],
-            [[url absoluteString] UTF8String],
-            translateStopPolicy(stopPolicy),
-            std::move(bindHandler),
-            std::move(errorHandler)
+            [[url absoluteString] UTF8String]
         });
+        _config->stop_policy = translateStopPolicy(stopPolicy);
+        _config->bind_session_handler = std::move(bindHandler);
+        _config->error_handler = std::move(errorHandler);
         _config->is_partial = isPartial;
+
+        if (NSString *authorizationHeaderName = [RLMSyncManager sharedManager].authorizationHeaderName) {
+            _config->authorization_header_name.emplace(authorizationHeaderName.UTF8String);
+        }
+        if (NSDictionary<NSString *, NSString *> *customRequestHeaders = [RLMSyncManager sharedManager].customRequestHeaders) {
+            for (NSString *key in customRequestHeaders) {
+                _config->custom_http_headers.emplace(key.UTF8String, customRequestHeaders[key].UTF8String);
+            }
+        }
+
         self.customFileURL = customFileURL;
         return self;
     }
     return nil;
+}
+
++ (RLMRealmConfiguration *)automaticConfiguration {
+    if (RLMSyncUser.allUsers.count != 1)
+        @throw RLMException(@"The automatic configuration requires there be exactly one logged-in sync user.");
+
+    return [RLMSyncConfiguration automaticConfigurationForUser:RLMSyncUser.currentUser];
+}
+
++ (RLMRealmConfiguration *)automaticConfigurationForUser:(RLMSyncUser *)user {
+    RLMSyncConfiguration *syncConfig = [[RLMSyncConfiguration alloc] initWithUser:user
+                                                                         realmURL:user.defaultRealmURL
+                                                                    customFileURL:nil
+                                                                        isPartial:YES
+                                                                       stopPolicy:RLMSyncStopPolicyAfterChangesUploaded
+                                                                     errorHandler:nullptr];
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    config.syncConfiguration = syncConfig;
+    return config;
 }
 
 @end

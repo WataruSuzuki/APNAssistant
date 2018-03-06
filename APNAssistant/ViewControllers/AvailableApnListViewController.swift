@@ -91,15 +91,12 @@ class AvailableApnListViewController: UITableViewController,
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
-//        var actions = [Any]()
         let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
             action in self.reloadCachedData()
         }
         let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
             action in self.startJsonFileDownload()
         }
-//        actions.append(cancelAction)
-//        actions.append(updateAction)
         
         UtilAlertSheet.showSheetController(title, message: message, actions: [cancelAction, updateAction], sender: self)
     }
@@ -204,6 +201,7 @@ class AvailableApnListViewController: UITableViewController,
         } else {
             targetProfileList = filteringTargetProfileList(searchString: searchString)
         }
+        myProfileHelper = AvailableProfileHelper(list: targetProfileList)
         self.tableView.reloadData()
     }
     

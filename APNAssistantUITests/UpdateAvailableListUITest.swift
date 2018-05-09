@@ -38,12 +38,12 @@ class UpdateAvailableListUITest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         if #available(iOS 9.0, *) {
             let app = XCUIApplication()
-            let confirmSheet = app.sheets["Confirm"]
-            confirmSheet.buttons["Yes, update"].tap()
+            let confirmSheet = app.sheets[UITestUtils.getTestStr(key: "confirm", sender: UpdateAvailableListUITest.self)]
+            confirmSheet.buttons[UITestUtils.getTestStr(key: "yes_update", sender: UpdateAvailableListUITest.self)].tap()
             UITestUtils.waitingSec(sec: 20.0, sender: self)
-            confirmSheet.buttons["Yes, cache data"].tap()
+            confirmSheet.buttons[UITestUtils.getTestStr(key: "yes_cache", sender: UpdateAvailableListUITest.self)].tap()
             UITestUtils.waitingSec(sec: 20.0, sender: self)
-            app.alerts["Complete cached data"].buttons["OK"].tap()
+            app.alerts[UITestUtils.getTestStr(key: "complete_cache", sender: UpdateAvailableListUITest.self)].buttons["OK"].tap()
         }
     }
     

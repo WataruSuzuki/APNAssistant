@@ -35,9 +35,9 @@ class APNAssistantUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         if #available(iOS 9.0, *) {
-            let app = XCUIApplication()
-            createSimpleAPN(app: app)
-            createFullAPN(app: app)
+            let xcUiApp = XCUIApplication()
+            createSimpleAPN(app: xcUiApp)
+            createFullAPN(app: xcUiApp)
         }
     }
 
@@ -76,17 +76,32 @@ class APNAssistantUITests: XCTestCase {
         dataApnUserNameTextField.tap()
         dataApnUserNameTextField.typeText("username")
         
-//        let dataApnPasswordCellsQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsPassword", sender: APNAssistantUITests.self))
-//        let dataApnPasswordTextField = dataApnPasswordCellsQuery.children(matching: .textField).element
-//        dataApnPasswordTextField.tap()
-//        dataApnPasswordTextField.typeText("password")
+        let dataApnPasswordCellsQuery = app.tables.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsPassword", sender: APNAssistantUITests.self))
+        //dataApnPasswordCellsQuery.secureTextFields[UITestUtils.getTestStr(key: "no_settings", sender: APNAssistantUITests.self)].tap()
+        let dataApnPasswordTextField = dataApnPasswordCellsQuery.children(matching: .secureTextField).element
+        dataApnPasswordTextField.tap()
+        dataApnPasswordTextField.typeText("password")
+
+        let dataApnProxyServerCellsQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsProxyServer", sender: APNAssistantUITests.self))
+        let dataApnProxyServerTextField = dataApnProxyServerCellsQuery.children(matching: .textField).element
+        dataApnProxyServerTextField.tap()
+        dataApnProxyServerTextField.typeText("apnassistant.proxy.com")
         
-        tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsAllowedProtocolMask", sender: APNAssistantUITests.self)).textFields["nothing"].tap()
+        let dataApnProxyServerPortCellsQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsProxyServerPort", sender: APNAssistantUITests.self))
+        let dataApnProxyServerPortTextField = dataApnProxyServerPortCellsQuery.children(matching: .textField).element
+        dataApnProxyServerPortTextField.tap()
+        dataApnProxyServerPortTextField.typeText("8080")
         
-//        let nothingPickerWheel = tablesQuery/*@START_MENU_TOKEN@*/.pickerWheels["nothing"]/*[[".cells",".pickers.pickerWheels[\"nothing\"]",".pickerWheels[\"nothing\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
-//        nothingPickerWheel.swipeUp()
-//        nothingPickerWheel.swipeUp()
-//        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[UITestUtils.getTestStr(key: "keyApnsAllowedProtocolMask", sender: APNAssistantUITests.self)]/*[[".cells.staticTexts[\"Data apn protocol\"]",".staticTexts[\"Data apn protocol\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let dataApnAllowedProtocolMaskCellsQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsAllowedProtocolMask", sender: APNAssistantUITests.self))
+        // Hide keyboard
+        dataApnAllowedProtocolMaskCellsQuery.element.swipeDown()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .table).element.swipeUp()
+
+        let wheelProtocolMaskQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsAllowedProtocolMask", sender: APNAssistantUITests.self))
+        wheelProtocolMaskQuery.textFields["nothing"].tap()
+        
+        tablesQuery/*@START_MENU_TOKEN@*/.pickerWheels["nothing"]/*[[".cells",".pickers.pickerWheels[\"nothing\"]",".pickerWheels[\"nothing\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
+        tablesQuery/*@START_MENU_TOKEN@*/.pickerWheels["both"]/*[[".cells",".pickers.pickerWheels[\"both\"]",".pickerWheels[\"both\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         saveNewProfile(app)
     }

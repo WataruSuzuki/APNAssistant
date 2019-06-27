@@ -151,5 +151,7 @@ class APNAssistantUITests: XCTestCase {
     fileprivate func tapAddNewProfile(_ app: XCUIApplication) {
         app.tabBars.buttons[UITestUtils.getTestStr(key: "profileList", sender: APNAssistantUITests.self)].tap()
         app.navigationBars[UITestUtils.getTestStr(key: "profileList", sender: APNAssistantUITests.self)].buttons[(UITestUtils.isJapanese(sender: APNAssistantUITests.self) ? "追加" : "Add")].tap()
+        
+        app.sheets[UITestUtils.getTestStr(key: "caution", sender: APNAssistantUITests.self)].buttons[UITestUtils.getTestStr(key: "understand", sender: APNAssistantUITests.self)].tap()
     }
 }

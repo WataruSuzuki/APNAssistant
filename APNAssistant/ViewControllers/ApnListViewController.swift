@@ -60,7 +60,7 @@ class ApnListViewController: UITableViewController,
             tutorialPopView?.dismiss(animated: true)
         } else {
             tutorialPopView?.has3DStyle = false
-            tutorialPopView?.presentPointing(at: self.navigationItem.rightBarButtonItem, animated: true)
+            //tutorialPopView?.presentPointing(at: self.navigationItem.rightBarButtonItem, animated: true)
         }
         if #available(iOS 9.0, *) {
             UtilShortcutLaunch().initDynamicShortcuts(UIApplication.shared)

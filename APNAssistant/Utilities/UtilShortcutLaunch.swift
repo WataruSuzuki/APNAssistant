@@ -25,35 +25,31 @@ class UtilShortcutLaunch: NSObject {
     
     @available(iOS 9.0, *)
     func shouldPerformAdditionalDelegateHandling(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
-        #if FULL_VERSION
-            // Install initial versions of our two extra dynamic shortcuts.
-            initDynamicShortcuts(application)
+        // Install initial versions of our two extra dynamic shortcuts.
+        initDynamicShortcuts(application)
+        
+        // If a shortcut was launched, display its information and take the appropriate action
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             
-            // If a shortcut was launched, display its information and take the appropriate action
-            if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
-                
-                launchedShortcutItem = shortcutItem
-                
-                // This will block "performActionForShortcutItem:completionHandler" from being called.
-                return false
-            }
-        #endif//FULL_VERSION
+            launchedShortcutItem = shortcutItem
+            
+            // This will block "performActionForShortcutItem:completionHandler" from being called.
+            return false
+        }
         return true
     }
     
     @available(iOS 9.0, *)
     func initDynamicShortcuts(_ application: UIApplication) {
-        #if FULL_VERSION
-            var loadedItems = [UIApplicationShortcutItem]()
-            let favorites = ApnSummaryObject.getFavoriteLists()
-            
-            for index in 0...ShortcutIdentifier.fourth.rawValue {
-                let shortcut = loadApplicationShortcutItem(index, results: favorites)
-                // Update the application providing the initial 'dynamic' shortcut items.
-                loadedItems.append(shortcut)
-            }
-            application.shortcutItems = loadedItems
-        #endif//FULL_VERSION
+        var loadedItems = [UIApplicationShortcutItem]()
+        let favorites = ApnSummaryObject.getFavoriteLists()
+        
+        for index in 0...ShortcutIdentifier.fourth.rawValue {
+            let shortcut = loadApplicationShortcutItem(index, results: favorites)
+            // Update the application providing the initial 'dynamic' shortcut items.
+            loadedItems.append(shortcut)
+        }
+        application.shortcutItems = loadedItems
     }
     
     @available(iOS 9.0, *)

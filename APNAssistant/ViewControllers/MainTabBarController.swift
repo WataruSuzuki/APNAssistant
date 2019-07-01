@@ -17,8 +17,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupTintColor()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         
         loadTabBarTitle()
@@ -92,33 +90,21 @@ class MainTabBarController: UITabBarController {
     }
     
     func hiddenSomeTabbar() {
-        #if FULL_VERSION
-            //do nothing
-        #else
-            var controllers = self.viewControllers
-            controllers?.remove(at: TabIndex.availableList.rawValue)
-            self.viewControllers = controllers
-            
-            /*
-             なぜかwindow.tintColorでは変更ができず、UIView.appearanceをいじると
-             tabが全てアクティブになるので、ここで初期化する
-             */
-            
-            let selected = self.selectedIndex
-            for item in self.viewControllers! {
-                self.selectedViewController = item
-            }
-            
-            self.selectedViewController = self.viewControllers![selected]
-        #endif
-    }
-    
-    func setupTintColor() {
-        #if STAND_ALONE_VERSION
-            UIView.appearance().tintColor = nil
-        #else
-            //Use Storyboard defined.
-        #endif
+        var controllers = self.viewControllers
+        controllers?.remove(at: TabIndex.availableList.rawValue)
+        self.viewControllers = controllers
+        
+        /*
+         なぜかwindow.tintColorでは変更ができず、UIView.appearanceをいじると
+         tabが全てアクティブになるので、ここで初期化する
+         */
+        
+        let selected = self.selectedIndex
+        for item in self.viewControllers! {
+            self.selectedViewController = item
+        }
+        
+        self.selectedViewController = self.viewControllers![selected]
     }
     
     enum TabIndex: Int {

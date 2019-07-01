@@ -25,15 +25,7 @@ extension UtilAppStatus {
     }
     
     func isShowImportantMenu() -> Bool {
-        #if false
-        return true
-        #elseif STAND_ALONE_VERSION
-        return UIApplication.sharedApplication().canOpenURL(NSURL(string: "jchankchandatausagecat://")!)
-        #elseif FULL_VERSION
         return UtilAppStatus().isAvailableAllFunction()
-        #else
-        return true
-        #endif
     }
     
     func showCautionProfile(_ sender: Any) {

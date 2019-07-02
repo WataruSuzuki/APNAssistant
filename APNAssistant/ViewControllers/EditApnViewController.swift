@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 protocol EditApnViewControllerDelegate {
     func didFinishEditApn(_ newObj: ApnSummaryObject)
@@ -43,8 +44,8 @@ class EditApnViewController: UITableViewController//,
         registerCustomCell("PickerCell")
 
         if nil != editingApnSummaryObj {
-            myUtilHandleRLMObject = UtilHandleRLMObject(id: editingApnSummaryObj!.id, profileObj: editingApnSummaryObj!.apnProfile, summaryObj: editingApnSummaryObj!)
-            myUtilHandleRLMObject.prepareKeepApnProfileColumn(editingApnSummaryObj!.apnProfile)
+            myUtilHandleRLMObject = UtilHandleRLMObject(id: editingApnSummaryObj!.id, profileObj: editingApnSummaryObj!.apnProfile!, summaryObj: editingApnSummaryObj!)
+            myUtilHandleRLMObject.prepareKeepApnProfileColumn(editingApnSummaryObj!.apnProfile!)
         } else {
             myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
         }

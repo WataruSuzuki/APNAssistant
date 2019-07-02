@@ -31,7 +31,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 self.labelApnName.isHidden = true
             } else {
                 self.labelApnName.isHidden = false
-                self.labelApnName.text = obj.apnProfile.attachApnName
+                self.labelApnName.text = obj.apnProfile!.attachApnName
             }
         }
     }

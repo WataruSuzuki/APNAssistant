@@ -34,7 +34,7 @@ class UtilFileManager: FileManager {
             try! fileManager.createDirectory(at: targetDirectory!, withIntermediateDirectories: true, attributes: nil)
         }
         
-        return targetDirectory!.path + "/"
+        return targetDirectory!.path
     }
     
     static func getAppGroupPathURL() -> URL? {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 protocol DetailApnPreviewDelegate {
     func selectShareAction(_ handleObj: UtilHandleRLMObject)
@@ -125,10 +126,10 @@ class DetailApnViewController: UITableViewController,
     }
     
     func loadTargetSummaryObj() {
-        myUtilHandleRLMObject = UtilHandleRLMObject(id: myApnSummaryObject.id, profileObj: myApnSummaryObject.apnProfile, summaryObj: myApnSummaryObject)
+        myUtilHandleRLMObject = UtilHandleRLMObject(id: myApnSummaryObject.id, profileObj: myApnSummaryObject.apnProfile!, summaryObj: myApnSummaryObject)
         self.navigationItem.title = myApnSummaryObject.name
         
-        myUtilHandleRLMObject.prepareKeepApnProfileColumn(myApnSummaryObject.apnProfile)
+        myUtilHandleRLMObject.prepareKeepApnProfileColumn(myApnSummaryObject.apnProfile!)
     }
     
     // MARK: - Navigation
@@ -196,7 +197,7 @@ class DetailApnViewController: UITableViewController,
     func showEditApnViewController() {
         if isShowCloudData {
             let obj = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
-            obj.prepareKeepApnProfileColumn(myApnSummaryObject!.apnProfile)
+            obj.prepareKeepApnProfileColumn(myApnSummaryObject!.apnProfile!)
             obj.profileName = myApnSummaryObject.name
             let realm = RLMRealm.default()
             obj.saveUpdateApnDataObj(realm, isSetDataApnManually: true)

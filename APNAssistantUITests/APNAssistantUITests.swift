@@ -30,19 +30,9 @@ class APNAssistantUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testCreateAPN() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        if #available(iOS 9.0, *) {
-            let xcUiApp = XCUIApplication()
-            createSimpleAPN(app: xcUiApp)
-            createFullAPN(app: xcUiApp)
-        }
-    }
-
     @available(iOS 9.0, *)
-    private func createFullAPN(app: XCUIApplication) {
+    func testCreateFullAPN() {
+        let app = XCUIApplication()
         cancelAvailableList(app)
         tapAddNewProfile(app)
 
@@ -64,7 +54,7 @@ class APNAssistantUITests: XCTestCase {
         setDataApnManuallySwitch/*@START_MENU_TOKEN@*/.tap()/*[[".tap()",".press(forDuration: 1.4);"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
         
         tablesQuery/*@START_MENU_TOKEN@*/.staticTexts[UITestUtils.getTestStr(key: "keyAttachApnName", sender: APNAssistantUITests.self)]/*[[".cells.staticTexts[\"Default apn name\"]",".staticTexts[\"Default apn name\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .table).element.swipeUp()
+        //app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .table).element.swipeUp()
         
         let dataApnNameCellsQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsName", sender: APNAssistantUITests.self))
         let dataApnNameTextField = dataApnNameCellsQuery.children(matching: .textField).element
@@ -95,7 +85,7 @@ class APNAssistantUITests: XCTestCase {
         let dataApnAllowedProtocolMaskCellsQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsAllowedProtocolMask", sender: APNAssistantUITests.self))
         // Hide keyboard
         dataApnAllowedProtocolMaskCellsQuery.element.swipeDown()
-        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .table).element.swipeUp()
+        //app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .table).element.swipeUp()
 
         let wheelProtocolMaskQuery = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: "keyApnsAllowedProtocolMask", sender: APNAssistantUITests.self))
         wheelProtocolMaskQuery.textFields["nothing"].tap()
@@ -107,13 +97,14 @@ class APNAssistantUITests: XCTestCase {
     }
 
     @available(iOS 9.0, *)
-    private func createSimpleAPN(app: XCUIApplication) {
+    func testCreateSimpleAPN() {
+        let app = XCUIApplication()
         cancelAvailableList(app)
         tapAddNewProfile(app)
         
         let tablesQuery = app.tables
-        let textField = tablesQuery.children(matching: .cell).element(boundBy: 0).children(matching: .textField).element
-        textField.typeText("Simple APN Tests")
+        let summaryTextField = tablesQuery.children(matching: .cell).element(boundBy: 0).children(matching: .textField).element
+        summaryTextField.typeText("Simple APN Tests")
         
         let nextButton = app.buttons["Next:"]
         nextButton.tap()

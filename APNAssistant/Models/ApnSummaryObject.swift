@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 class ApnSummaryObject: RLMObject {
     @objc dynamic var id = 0
@@ -16,7 +17,7 @@ class ApnSummaryObject: RLMObject {
     @objc dynamic var dataType = DataTypes.normal.rawValue
     @objc dynamic var country = Country.unknown.rawValue
     
-    @objc dynamic var apnProfile = ApnProfileObject()
+    @objc dynamic var apnProfile: ApnProfileObject? = ApnProfileObject()
     
     override class func primaryKey() -> String {
         return "id"

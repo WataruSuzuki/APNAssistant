@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Swifter
 
 class UtilCocoaHTTPServer: NSObject,
     XMLParserDelegate
 {
-    let cocoaHTTPServer = HTTPServer()
+    let cocoaHTTPServer = HttpServer()
     let fileNameSetting = "set-to-device"
     let fileNameShare = "apn-assistant"
     
@@ -26,14 +27,15 @@ class UtilCocoaHTTPServer: NSObject,
     var isPayloadDisplayName = false
     
     func startCocoaHTTPServer() {
-        cocoaHTTPServer.setType("_http._tcp.")
-        cocoaHTTPServer.setPort(8080)
-        
-        cocoaHTTPServer.setDocumentRoot(UtilFileManager.getProfilesAppGroupPath())
+        let path = UtilFileManager.getProfilesAppGroupPath()
+        print(path)
+        cocoaHTTPServer["/:path"] = shareFilesFromDirectory(path, defaults: ["index.html", "configrationProfile.html", "set-to-device.mobileconfig"])
+        //cocoaHTTPServer["/:path"] = shareFilesFromDirectory(Bundle.main.resourcePath!)
         do {
-            try cocoaHTTPServer.start()
-        } catch  _ as NSError{
+            try cocoaHTTPServer.start(8080)
+        } catch {
             //(・A・)!!
+            fatalError("Swifter could not start!!")
         }
     }
     
@@ -47,7 +49,7 @@ class UtilCocoaHTTPServer: NSObject,
     }
     
     func getTargetFilePath(_ fileName: String, fileType: String) -> String {
-        let filePath = UtilFileManager.getProfilesAppGroupPath() + fileName + fileType
+        let filePath = UtilFileManager.getProfilesAppGroupPath() + "/" + fileName + fileType
         print(filePath)
         
         return filePath
@@ -155,7 +157,7 @@ class UtilCocoaHTTPServer: NSObject,
         writeMobileConfigProfile(rlmObject, fileName: fileNameSetting)
         startCocoaHTTPServer()
         
-        return URL(string: "http://localhost:8080")!
+        return URL(string: "http://localhost:8080/index.html")!
     }
     
     func copyHtmlFilesFromResource(_ fileManager: FileManager, fileName: String, fileType: String) {
@@ -212,7 +214,7 @@ class UtilCocoaHTTPServer: NSObject,
             if isPayloadDisplayName {
                 readSummaryObjFromFile.name = string
             } else {
-                readSummaryObjFromFile.apnProfile.updateApnProfileColumn(currentParseType, column: currentParseTag, newText: string)
+                readSummaryObjFromFile.apnProfile?.updateApnProfileColumn(currentParseType, column: currentParseTag, newText: string)
             }
             isPayloadDisplayName = false
         } else {

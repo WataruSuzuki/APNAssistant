@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Realm
 
 struct UtilHandleRLMConst {
     internal static let CREATE_NEW_PROFILE = -1
-    internal static let CURRENT_SCHEMA_VERSION = UInt64(2)
+    internal static let CURRENT_SCHEMA_VERSION = UInt64(3)
 }
 
 class UtilHandleRLMObject: NSObject {

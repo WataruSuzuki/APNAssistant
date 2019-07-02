@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 struct ProfileXmlTag {
     static let AttachAPN = "AttachAPN"

@@ -1,19 +1,18 @@
 platform :ios, "8.0"
 #inhibit_all_warnings!
+use_frameworks!
 
 target "APNAssistant" do
-  pod 'CocoaAsyncSocket'
-  pod 'CocoaHTTPServer'
-  pod 'Realm'
-  pod 'CMPopTipView'
-  pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
+    pod 'Swifter', '~> 1.4.7'
+    pod 'RealmSwift'
+    pod 'CMPopTipView'
+    pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 
 target "TodayWidget" do
-  inherit! :search_paths
-  pod 'CocoaAsyncSocket'
-  pod 'CocoaHTTPServer'
-  pod 'Realm'
+    inherit! :search_paths
+    pod 'Swifter', '~> 1.4.7'
+    pod 'RealmSwift'
 end
 
 post_install do | installer |

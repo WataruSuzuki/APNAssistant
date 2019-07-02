@@ -1,0 +1,6 @@
+framework module Pods_APNAssistant {
+  umbrella header "Pods-APNAssistant-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,6 +1,6 @@
 {
   "name": "DJKFlatIconAuthors",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "A short description of DJKFlatIconAuthors.",
   "description": "A longer description of DJKFlatIconAuthors in Markdown format.\n\n* Think: Why did you write this? What is the focus? What does it do?\n* CocoaPods will be using this to generate tags, and improve search results.\n* Try to keep it short, snappy and to the point.\n* Finally, don't worry about the indent, CocoaPods strips it!",
   "authors": {
@@ -9,7 +9,7 @@
   "homepage": "https://github.com/WataruSuzuki",
   "source": {
     "git": "https://github.com/WataruSuzuki/DJKFlatIconAuthors.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "7.0"

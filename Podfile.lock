@@ -1,34 +1,25 @@
 PODS:
   - CMPopTipView (2.3.2)
-  - CocoaAsyncSocket (7.6.3)
-  - CocoaHTTPServer (2.3):
-    - CocoaAsyncSocket
-    - CocoaLumberjack
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
-  - DJKFlatIconAuthors (0.0.1)
-  - Realm (3.7.5):
-    - Realm/Headers (= 3.7.5)
-  - Realm/Headers (3.7.5)
+  - DJKFlatIconAuthors (0.0.2)
+  - Realm (3.18.0):
+    - Realm/Headers (= 3.18.0)
+  - Realm/Headers (3.18.0)
+  - RealmSwift (3.18.0):
+    - Realm (= 3.18.0)
+  - Swifter (1.4.7)
 
 DEPENDENCIES:
   - CMPopTipView
-  - CocoaAsyncSocket
-  - CocoaHTTPServer
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
-  - Realm
+  - RealmSwift
+  - Swifter (~> 1.4.7)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - CMPopTipView
-    - CocoaAsyncSocket
-    - CocoaHTTPServer
-    - CocoaLumberjack
     - Realm
+    - RealmSwift
+    - Swifter
 
 EXTERNAL SOURCES:
   DJKFlatIconAuthors:
@@ -36,17 +27,16 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DJKFlatIconAuthors:
-    :commit: 9a1596dd5e0ab2c2f933550d61f8644304c78f29
+    :commit: 04f3379bee05b3ce7566326ece13466f40636052
     :git: https://github.com/WataruSuzuki/DJKFlatIconAuthors.git
 
 SPEC CHECKSUMS:
   CMPopTipView: 2d56ef53e8e739c4e63ad97a5a88b97712b46c7b
-  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  DJKFlatIconAuthors: aff39c56b33e8a51c298d5750de2f4187edfe72c
-  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
+  DJKFlatIconAuthors: eb488fab9ee7c961401aec3552bfbaea6763088c
+  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
+  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
+  Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
 
-PODFILE CHECKSUM: b8c4a643e37d975be45bdbc9ac22df4261b11e46
+PODFILE CHECKSUM: 3ba3f1460b74fa6a25320ed6d8b81360fc0bc1a5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.0

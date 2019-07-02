@@ -6,6 +6,7 @@ target "APNAssistant" do
     pod 'Swifter', '~> 1.4.7'
     pod 'RealmSwift'
     pod 'CMPopTipView'
+    pod 'DZNEmptyDataSet'
     pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 

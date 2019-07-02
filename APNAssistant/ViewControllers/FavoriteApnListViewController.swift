@@ -23,11 +23,11 @@ class FavoriteApnListViewController: ApnListViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if 0 == Int(allFavoriteApnSummaryObjs.count) {
-            showNodataMessage()
-        } else {
-            dismissNodataMossage()
-        }
+//        if 0 == Int(allFavoriteApnSummaryObjs.count) {
+//            showNodataMessage()
+//        } else {
+//            dismissNodataMossage()
+//        }
     }
     
     override func didReceiveMemoryWarning() {

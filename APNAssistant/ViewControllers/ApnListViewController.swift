@@ -9,10 +9,12 @@
 import UIKit
 import Realm
 import CMPopTipView
+import DZNEmptyDataSet
 
 class ApnListViewController: UITableViewController,
     UISearchBarDelegate,
     CMPopTipViewDelegate,
+    DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,
     DetailApnPreviewDelegate,
     EditApnViewControllerDelegate
 {
@@ -20,7 +22,7 @@ class ApnListViewController: UITableViewController,
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
     let appStatus = UtilAppStatus()
     
-    var msgNodataView: MsgNoDataView?
+//    var msgNodataView: MsgNoDataView?
     var allApnSummaryObjs: RLMResults<RLMObject>!
     var previewApnSummaryObj: ApnSummaryObject?
     
@@ -37,6 +39,9 @@ class ApnListViewController: UITableViewController,
             }
         }
         self.tableView.keyboardDismissMode = .interactive
+        self.tableView.emptyDataSetSource = self
+        self.tableView.emptyDataSetDelegate = self
+        //self.tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,11 +54,11 @@ class ApnListViewController: UITableViewController,
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if 0 == Int(allApnSummaryObjs.count) {
-            showNodataMessage()
-        } else {
-            dismissNodataMossage()
-        }
+//        if 0 == Int(allApnSummaryObjs.count) {
+//            showNodataMessage()
+//        } else {
+//            dismissNodataMossage()
+//        }
     }
     
     func updateApnSummaryObjs() {
@@ -122,21 +127,21 @@ class ApnListViewController: UITableViewController,
         self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-    func showNodataMessage() {
-        msgNodataView = MsgNoDataView.instanceFromNib(getTableViewFrame())
-        msgNodataView!.labelMsgNoData.text = NSLocalizedString("nodata_available", comment: "")
-        self.view.addSubview(msgNodataView!)
-        self.tableView.isScrollEnabled = false
-    }
+//    func showNodataMessage() {
+//        msgNodataView = MsgNoDataView.instanceFromNib(getTableViewFrame())
+//        msgNodataView!.labelMsgNoData.text = NSLocalizedString("nodata_available", comment: "")
+//        self.view.addSubview(msgNodataView!)
+//        self.tableView.isScrollEnabled = false
+//    }
     
     func getTableViewFrame() -> CGRect {
         return CGRect(origin: self.tableView.contentOffset, size: self.view.frame.size)
     }
     
-    func dismissNodataMossage() {
-        msgNodataView?.removeFromSuperview()
-        self.tableView.isScrollEnabled = true
-    }
+//    func dismissNodataMossage() {
+//        msgNodataView?.removeFromSuperview()
+//        self.tableView.isScrollEnabled = true
+//    }
     
     // MARK: - EditApnViewControllerDelegate
     func didFinishEditApn(_ newObj: ApnSummaryObject) {
@@ -156,6 +161,11 @@ class ApnListViewController: UITableViewController,
     // MARK: - CMPopTipViewDelegate
     func popTipViewWasDismissed(byUser popTipView: CMPopTipView!) {
         //TODO
+    }
+    
+    // MARK: - DZNEmptyDataSetSource
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: NSLocalizedString("nodata_available", comment: ""))
     }
     
     // MARK: - UISearchBarDelegate

@@ -1,22 +1,25 @@
 PODS:
   - CMPopTipView (2.3.2)
   - DJKFlatIconAuthors (0.0.2)
-  - Realm (3.18.0):
-    - Realm/Headers (= 3.18.0)
-  - Realm/Headers (3.18.0)
-  - RealmSwift (3.18.0):
-    - Realm (= 3.18.0)
+  - DZNEmptyDataSet (1.8.1)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
+  - RealmSwift (3.19.0):
+    - Realm (= 3.19.0)
   - Swifter (1.4.7)
 
 DEPENDENCIES:
   - CMPopTipView
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
+  - DZNEmptyDataSet
   - RealmSwift
   - Swifter (~> 1.4.7)
 
 SPEC REPOS:
   trunk:
     - CMPopTipView
+    - DZNEmptyDataSet
     - Realm
     - RealmSwift
     - Swifter
@@ -33,10 +36,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   CMPopTipView: 2d56ef53e8e739c4e63ad97a5a88b97712b46c7b
   DJKFlatIconAuthors: eb488fab9ee7c961401aec3552bfbaea6763088c
-  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
-  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
+  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
   Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
 
-PODFILE CHECKSUM: 3ba3f1460b74fa6a25320ed6d8b81360fc0bc1a5
+PODFILE CHECKSUM: 8de099194483ed6a49b63fcbb9981e6d70d5af21
 
 COCOAPODS: 1.8.0

@@ -8,17 +8,17 @@
 
 import UIKit
 import Realm
-import CMPopTipView
+//import CMPopTipView
 import DZNEmptyDataSet
 
 class ApnListViewController: UITableViewController,
     UISearchBarDelegate,
-    CMPopTipViewDelegate,
+    //CMPopTipViewDelegate,
     DZNEmptyDataSetSource, DZNEmptyDataSetDelegate,
     DetailApnPreviewDelegate,
     EditApnViewControllerDelegate
 {
-    let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
+    //let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
     let appStatus = UtilAppStatus()
     
@@ -63,12 +63,12 @@ class ApnListViewController: UITableViewController,
     
     func updateApnSummaryObjs() {
         allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
-        if 0 < allApnSummaryObjs.count {
-            tutorialPopView?.dismiss(animated: true)
-        } else {
-            tutorialPopView?.has3DStyle = false
-            //tutorialPopView?.presentPointing(at: self.navigationItem.rightBarButtonItem, animated: true)
-        }
+//        if 0 < allApnSummaryObjs.count {
+//            tutorialPopView?.dismiss(animated: true)
+//        } else {
+//            tutorialPopView?.has3DStyle = false
+//            //tutorialPopView?.presentPointing(at: self.navigationItem.rightBarButtonItem, animated: true)
+//        }
         if #available(iOS 9.0, *) {
             UtilShortcutLaunch().initDynamicShortcuts(UIApplication.shared)
         }
@@ -156,11 +156,6 @@ class ApnListViewController: UITableViewController,
     func selectEditAction(_ newObj: ApnSummaryObject) {
         previewApnSummaryObj = newObj
         self.performSegue(withIdentifier: "EditApnViewController", sender: self)
-    }
-    
-    // MARK: - CMPopTipViewDelegate
-    func popTipViewWasDismissed(byUser popTipView: CMPopTipView!) {
-        //TODO
     }
     
     // MARK: - DZNEmptyDataSetSource

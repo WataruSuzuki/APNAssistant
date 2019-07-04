@@ -19,9 +19,14 @@ class UtilAppStatus: NSObject {
     func startIndicator(_ currentView: UIScrollView) {
         indicator = UIActivityIndicatorView(frame: getIndicatorFrame(currentView))
         //indicator.center = self.view.center
-        indicator.backgroundColor = UIColor.darkGray
         indicator.alpha = 0.5
-        indicator.activityIndicatorViewStyle = .whiteLarge
+        if #available(iOS 13.0, *) {
+            indicator.backgroundColor = .systemBackground
+            indicator.activityIndicatorViewStyle = .large
+        } else {
+            indicator.backgroundColor = .gray
+            indicator.activityIndicatorViewStyle = .whiteLarge
+        }
         indicator.startAnimating()
         currentView.addSubview(indicator)
     }

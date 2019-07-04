@@ -21,8 +21,8 @@ class ApnListViewController: UITableViewController,
     //let tutorialPopView = CMPopTipView(message: NSLocalizedString("tutorial_message", comment: ""))
     let myUtilHandleRLMObject = UtilHandleRLMObject(id: UtilHandleRLMConst.CREATE_NEW_PROFILE, profileObj: ApnProfileObject(), summaryObj: ApnSummaryObject())
     let appStatus = UtilAppStatus()
+    let configProfileService = ConfigProfileService()
     
-//    var msgNodataView: MsgNoDataView?
     var allApnSummaryObjs: RLMResults<RLMObject>!
     var previewApnSummaryObj: ApnSummaryObject?
     
@@ -51,24 +51,8 @@ class ApnListViewController: UITableViewController,
         self.tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-//        if 0 == Int(allApnSummaryObjs.count) {
-//            showNodataMessage()
-//        } else {
-//            dismissNodataMossage()
-//        }
-    }
-    
     func updateApnSummaryObjs() {
         allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
-//        if 0 < allApnSummaryObjs.count {
-//            tutorialPopView?.dismiss(animated: true)
-//        } else {
-//            tutorialPopView?.has3DStyle = false
-//            //tutorialPopView?.presentPointing(at: self.navigationItem.rightBarButtonItem, animated: true)
-//        }
         if #available(iOS 9.0, *) {
             UtilShortcutLaunch().initDynamicShortcuts(UIApplication.shared)
         }
@@ -127,21 +111,9 @@ class ApnListViewController: UITableViewController,
         self.tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
-//    func showNodataMessage() {
-//        msgNodataView = MsgNoDataView.instanceFromNib(getTableViewFrame())
-//        msgNodataView!.labelMsgNoData.text = NSLocalizedString("nodata_available", comment: "")
-//        self.view.addSubview(msgNodataView!)
-//        self.tableView.isScrollEnabled = false
-//    }
-    
     func getTableViewFrame() -> CGRect {
         return CGRect(origin: self.tableView.contentOffset, size: self.view.frame.size)
     }
-    
-//    func dismissNodataMossage() {
-//        msgNodataView?.removeFromSuperview()
-//        self.tableView.isScrollEnabled = true
-//    }
     
     // MARK: - EditApnViewControllerDelegate
     func didFinishEditApn(_ newObj: ApnSummaryObject) {
@@ -150,7 +122,7 @@ class ApnListViewController: UITableViewController,
     
     // MARK: - DetailApnPreviewDelegate
     func selectShareAction(_ handleObj: UtilHandleRLMObject) {
-        UtilShareAction.handleShareApn(UtilCocoaHTTPServer(), obj: handleObj, sender: self)
+        UtilShareAction.handleShareApn(configProfileService, obj: handleObj, sender: self)
     }
     
     func selectEditAction(_ newObj: ApnSummaryObject) {

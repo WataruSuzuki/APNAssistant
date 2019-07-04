@@ -13,7 +13,7 @@ class AvailableApnListViewController: UITableViewController,
     URLSessionDownloadDelegate
 {
     let myAvailableCountriesHelper = AvailableCountriesHelper()
-    let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let myUtilCocoaHTTPServer = ConfigProfileService()
     let appStatus = UtilAppStatus()
     
     var myProfileHelper: AvailableProfileHelper!

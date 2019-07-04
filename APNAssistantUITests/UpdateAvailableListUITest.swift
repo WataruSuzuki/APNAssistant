@@ -2,7 +2,7 @@
 //  UpdateAvailableListUITest.swift
 //  APNAssistantUITests
 //
-//  Created by 鈴木 航 on 2017/12/31.
+//  Created by WataruSuzuki on 2017/12/31.
 //  Copyright © 2017年 WataruSuzuki. All rights reserved.
 //
 

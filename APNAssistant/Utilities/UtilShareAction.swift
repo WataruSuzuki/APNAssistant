@@ -10,7 +10,7 @@ import UIKit
 
 class UtilShareAction: NSObject {
 
-    static func handleShareApn(_ httpServer: UtilCocoaHTTPServer, obj: UtilHandleRLMObject, sender: UIViewController){
+    static func handleShareApn(_ httpServer: ConfigProfileService, obj: UtilHandleRLMObject, sender: UIViewController){
         let configProfileUrl = httpServer.getProfileUrl(obj)
         
         let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)

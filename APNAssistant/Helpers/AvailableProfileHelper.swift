@@ -84,7 +84,7 @@ class AvailableProfileHelper: NSObject {
     }
     
     func generateProfilePath(lastPathComponent: String) -> String {
-        let utilHttpServer = UtilCocoaHTTPServer()
+        let utilHttpServer = ConfigProfileService()
         let fileName = lastPathComponent.replacingOccurrences(of: ".mobileconfig", with: "")
         let filePath = utilHttpServer.getTargetFilePath(fileName, fileType: ".mobileconfig")
         

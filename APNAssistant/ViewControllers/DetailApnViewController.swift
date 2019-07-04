@@ -17,7 +17,7 @@ protocol DetailApnPreviewDelegate {
 class DetailApnViewController: UITableViewController,
     EditApnViewControllerDelegate
 {
-    let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let myUtilCocoaHTTPServer = ConfigProfileService()
     let appStatus = UtilAppStatus()
     
     var myUtilHandleRLMObject: UtilHandleRLMObject!
@@ -30,13 +30,13 @@ class DetailApnViewController: UITableViewController,
     lazy var previewActions: [UIPreviewActionItem] = {
         let menuArray = self.loadMenuArray()
         
-        let setApnAction = UIPreviewAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .destructive, handler: { (action, viewcontroller) in
+        let setApnAction = UIPreviewAction(title: menuArray[DetailMenu.setThisApnToDevice.rawValue], style: .destructive, handler: { (action, viewcontroller) in
             self.handleUpdateDeviceApn()
         })
-        let shareAction = UIPreviewAction(title: menuArray[Menu.share.rawValue], style: .default, handler: { (action, viewcontroller) in
+        let shareAction = UIPreviewAction(title: menuArray[DetailMenu.share.rawValue], style: .default, handler: { (action, viewcontroller) in
             self.delegate.selectShareAction(self.myUtilHandleRLMObject)
         })
-        let editAction = UIPreviewAction(title: menuArray[Menu.edit.rawValue], style: .default, handler: { (action, viewcontroller) in
+        let editAction = UIPreviewAction(title: menuArray[DetailMenu.edit.rawValue], style: .default, handler: { (action, viewcontroller) in
             self.delegate.selectEditAction(self.myApnSummaryObject)
         })
         
@@ -151,12 +151,12 @@ class DetailApnViewController: UITableViewController,
     func loadMenuArray() -> [String] {
         var menuArray = [String]()
         
-        for index in Menu.setThisApnToDevice.rawValue..<Menu.max.rawValue {
-            menuArray.append(NSLocalizedString(Menu(rawValue: index)!.toString(), comment: ""))
+        for index in DetailMenu.setThisApnToDevice.rawValue..<DetailMenu.max.rawValue {
+            menuArray.append(NSLocalizedString(DetailMenu(rawValue: index)!.toString(), comment: ""))
         }
         
         if isShowCloudData {
-            menuArray[Menu.edit.rawValue] = NSLocalizedString("cache", comment: "")
+            menuArray[DetailMenu.edit.rawValue] = NSLocalizedString("cache", comment: "")
         }
 
         return menuArray
@@ -168,16 +168,16 @@ class DetailApnViewController: UITableViewController,
     }
     
     func showMenuAlertController(_ title: String, menuArray: [String]){
-        let setApnAction = UIAlertAction(title: menuArray[Menu.setThisApnToDevice.rawValue], style: .destructive){
+        let setApnAction = UIAlertAction(title: menuArray[DetailMenu.setThisApnToDevice.rawValue], style: .destructive){
             action in self.handleUpdateDeviceApn()
         }
-        let shareAction = UIAlertAction(title: menuArray[Menu.share.rawValue], style: .default){
+        let shareAction = UIAlertAction(title: menuArray[DetailMenu.share.rawValue], style: .default){
             action in UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
         }
-        let editAction = UIAlertAction(title: menuArray[Menu.edit.rawValue], style: .default){
+        let editAction = UIAlertAction(title: menuArray[DetailMenu.edit.rawValue], style: .default){
             action in self.showEditApnViewController()
         }
-        let cancelAction = UIAlertAction(title: menuArray[Menu.cancel.rawValue], style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: menuArray[DetailMenu.cancel.rawValue], style: .cancel, handler: nil)
         
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(cancelAction)
@@ -209,12 +209,7 @@ class DetailApnViewController: UITableViewController,
     }
     
     func handleUpdateDeviceApn(){
-        let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        self.myUtilCocoaHTTPServer.updateProfile(self.myUtilHandleRLMObject)
     }
     
     // MARK: Preview actions
@@ -223,7 +218,7 @@ class DetailApnViewController: UITableViewController,
         return previewActions
     }
     
-    enum Menu: Int {
+    enum DetailMenu: Int {
         case setThisApnToDevice = 0,
         share,
         edit,

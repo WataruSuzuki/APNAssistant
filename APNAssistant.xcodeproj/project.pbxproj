@@ -24,15 +24,15 @@
 		6052A18F1D63E28C00A3B8CE /* ApnSummaryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */; };
 		6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */; };
 		6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
-		6052A1951D63E34C00A3B8CE /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
+		6052A1951D63E34C00A3B8CE /* ConfigProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* ConfigProfileService.swift */; };
 		6066A99A1CB7DDA10059CAC7 /* UtilHandleRLMObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */; };
 		607165521CB3D28A000BCAF5 /* AvailableApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */; };
 		6082F1B51D536843000B59EA /* configrationProfile.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B31D536843000B59EA /* configrationProfile.html */; };
 		6082F1B61D536843000B59EA /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 6082F1B41D536843000B59EA /* index.html */; };
-		6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */; };
+		6082F1B81D536B53000B59EA /* ConfigProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6082F1B71D536B53000B59EA /* ConfigProfileService.swift */; };
 		6085D66B1D6EC46D008FF20A /* ic_favorite_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */; };
 		6085D66C1D6EC46D008FF20A /* ic_list_shortcut.png in Resources */ = {isa = PBXBuildFile; fileRef = 6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */; };
-		6085D6721D6F012B008FF20A /* ApnListViewController+Previewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */; };
+		6085D6721D6F012B008FF20A /* ApnList+Previewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6711D6F012B008FF20A /* ApnList+Previewing.swift */; };
 		6085D6741D6F1597008FF20A /* UtilShareAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085D6731D6F1597008FF20A /* UtilShareAction.swift */; };
 		60AA73A61C9BA3DD00E41CAE /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 60AA73A51C9BA3DD00E41CAE /* Settings.bundle */; };
 		60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */; };
@@ -49,6 +49,12 @@
 		9603C6E2232685EE00CE0C87 /* AppStatus+Stable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603C6E1232685EE00CE0C87 /* AppStatus+Stable.swift */; };
 		9618C8C51D92D1F8008B25F3 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */; };
 		9618C8C71D92D21C008B25F3 /* ProgressIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */; };
+		9678727723407650000E5B96 /* ConfigProfile+Xml.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678727623407650000E5B96 /* ConfigProfile+Xml.swift */; };
+		967872782340770B000E5B96 /* ConfigProfile+Xml.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678727623407650000E5B96 /* ConfigProfile+Xml.swift */; };
+		9678727A23407BEB000E5B96 /* HttpServerBridger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678727923407BEB000E5B96 /* HttpServerBridger.swift */; };
+		9678727C23407F35000E5B96 /* HttpServerBridger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678727923407BEB000E5B96 /* HttpServerBridger.swift */; };
+		9678727E23408025000E5B96 /* ConfigProfile+Open.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678727D23408025000E5B96 /* ConfigProfile+Open.swift */; };
+		96966F51233F9C4F00FF7397 /* ApnList+ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96966F50233F9C4F00FF7397 /* ApnList+ContextMenu.swift */; };
 		96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */; };
 		96D78C0C1FF8E87F009F418A /* UpdateAvailableListUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D78C0B1FF8E87F009F418A /* UpdateAvailableListUITest.swift */; };
 		96DA6BF61C9B03FD00E424D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */; };
@@ -131,10 +137,10 @@
 		607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableApnListViewController.swift; sourceTree = "<group>"; };
 		6082F1B31D536843000B59EA /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
 		6082F1B41D536843000B59EA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilCocoaHTTPServer.swift; sourceTree = "<group>"; };
+		6082F1B71D536B53000B59EA /* ConfigProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigProfileService.swift; sourceTree = "<group>"; };
 		6085D6691D6EC46D008FF20A /* ic_favorite_shortcut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_favorite_shortcut.png; sourceTree = "<group>"; };
 		6085D66A1D6EC46D008FF20A /* ic_list_shortcut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_list_shortcut.png; sourceTree = "<group>"; };
-		6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApnListViewController+Previewing.swift"; sourceTree = "<group>"; };
+		6085D6711D6F012B008FF20A /* ApnList+Previewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApnList+Previewing.swift"; sourceTree = "<group>"; };
 		6085D6731D6F1597008FF20A /* UtilShareAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilShareAction.swift; sourceTree = "<group>"; };
 		60AA73A51C9BA3DD00E41CAE /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		60AA73A81C9BA77C00E41CAE /* APNAssistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APNAssistant-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -165,6 +171,10 @@
 		9651C2161D9B9393008A4A9D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9651C21C1D9BA27C008A4A9D /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
 		9651C21D1D9BA27C008A4A9D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		9678727623407650000E5B96 /* ConfigProfile+Xml.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigProfile+Xml.swift"; sourceTree = "<group>"; };
+		9678727923407BEB000E5B96 /* HttpServerBridger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServerBridger.swift; sourceTree = "<group>"; };
+		9678727D23408025000E5B96 /* ConfigProfile+Open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigProfile+Open.swift"; sourceTree = "<group>"; };
+		96966F50233F9C4F00FF7397 /* ApnList+ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApnList+ContextMenu.swift"; sourceTree = "<group>"; };
 		96A1EF6E1D9304BE005EEA31 /* AboutThisAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutThisAppViewController.swift; sourceTree = "<group>"; };
 		96D78C0B1FF8E87F009F418A /* UpdateAvailableListUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAvailableListUITest.swift; sourceTree = "<group>"; };
 		96DA6BF21C9B03FD00E424D5 /* APNAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APNAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,9 +262,9 @@
 		60224E081CA0E2DB00AFB201 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				96966F4D233F9AAD00FF7397 /* Extensions */,
 				60224E0B1CA0E32200AFB201 /* EditApnViewController.swift */,
 				60224E0D1CA0E34D00AFB201 /* ApnListViewController.swift */,
-				6085D6711D6F012B008FF20A /* ApnListViewController+Previewing.swift */,
 				60BEE4F61CA38EA7005B86B9 /* FavoriteApnListViewController.swift */,
 				607165511CB3D28A000BCAF5 /* AvailableApnListViewController.swift */,
 				602211F61CC7395B0065D37D /* DetailApnViewController.swift */,
@@ -286,7 +296,6 @@
 			isa = PBXGroup;
 			children = (
 				6066A9991CB7DDA10059CAC7 /* UtilHandleRLMObject.swift */,
-				6082F1B71D536B53000B59EA /* UtilCocoaHTTPServer.swift */,
 				60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */,
 				6085D6731D6F1597008FF20A /* UtilShareAction.swift */,
 				96007FB31D963A02000FAE04 /* UtilAppStatus.swift */,
@@ -336,6 +345,34 @@
 			path = htdocs;
 			sourceTree = "<group>";
 		};
+		967872742340761B000E5B96 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				967872752340762D000E5B96 /* Extensions */,
+				6082F1B71D536B53000B59EA /* ConfigProfileService.swift */,
+				9678727923407BEB000E5B96 /* HttpServerBridger.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		967872752340762D000E5B96 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9678727623407650000E5B96 /* ConfigProfile+Xml.swift */,
+				9678727D23408025000E5B96 /* ConfigProfile+Open.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		96966F4D233F9AAD00FF7397 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6085D6711D6F012B008FF20A /* ApnList+Previewing.swift */,
+				96966F50233F9C4F00FF7397 /* ApnList+ContextMenu.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		96DA6BE91C9B03FD00E424D5 = {
 			isa = PBXGroup;
 			children = (
@@ -364,8 +401,9 @@
 		96DA6BF41C9B03FD00E424D5 /* APNAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				60301DC21E03C89E0013B26A /* Helpers */,
 				F009F3A71D600AE700D428D6 /* Models */,
+				967872742340761B000E5B96 /* Services */,
+				60301DC21E03C89E0013B26A /* Helpers */,
 				60BEE4F81CA3C565005B86B9 /* Utilities */,
 				60BEE50A1CA3FF42005B86B9 /* Views */,
 				60224E081CA0E2DB00AFB201 /* ViewControllers */,
@@ -760,7 +798,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96966F51233F9C4F00FF7397 /* ApnList+ContextMenu.swift in Sources */,
 				602A46311D65483A00ED22D6 /* SegmentedCtrlCell.swift in Sources */,
+				9678727A23407BEB000E5B96 /* HttpServerBridger.swift in Sources */,
 				60301DC81E03CA340013B26A /* UtilFileManager.swift in Sources */,
 				60301DC61E03C94C0013B26A /* AvailableProfileHelper.swift in Sources */,
 				96007FB41D963A02000FAE04 /* UtilAppStatus.swift in Sources */,
@@ -772,17 +812,19 @@
 				F009F3AA1D600AE700D428D6 /* ApnProfileObject.swift in Sources */,
 				96A1EF6F1D9304BE005EEA31 /* AboutThisAppViewController.swift in Sources */,
 				9603C6E2232685EE00CE0C87 /* AppStatus+Stable.swift in Sources */,
-				6085D6721D6F012B008FF20A /* ApnListViewController+Previewing.swift in Sources */,
+				6085D6721D6F012B008FF20A /* ApnList+Previewing.swift in Sources */,
 				60BEE4F71CA38EA7005B86B9 /* FavoriteApnListViewController.swift in Sources */,
 				F009F3AB1D600AE700D428D6 /* ApnSummaryObject.swift in Sources */,
+				9678727E23408025000E5B96 /* ConfigProfile+Open.swift in Sources */,
 				9618C8C51D92D1F8008B25F3 /* ProgressIndicatorView.swift in Sources */,
 				60BEE5101CA40061005B86B9 /* UISwitchCell.swift in Sources */,
+				9678727723407650000E5B96 /* ConfigProfile+Xml.swift in Sources */,
 				60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */,
 				CC565FEB1FD902E9009E1D49 /* PickerCell.swift in Sources */,
 				607165521CB3D28A000BCAF5 /* AvailableApnListViewController.swift in Sources */,
 				60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,
-				6082F1B81D536B53000B59EA /* UtilCocoaHTTPServer.swift in Sources */,
+				6082F1B81D536B53000B59EA /* ConfigProfileService.swift in Sources */,
 				602211F71CC7395B0065D37D /* DetailApnViewController.swift in Sources */,
 				F0A74DCD1D9BBD3E009D799E /* UtilAlertSheet.swift in Sources */,
 				60301DC41E03C8D20013B26A /* AvailableCountriesHelper.swift in Sources */,
@@ -812,11 +854,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9678727C23407F35000E5B96 /* HttpServerBridger.swift in Sources */,
 				F009F39A1D6006A100D428D6 /* TodayViewController.swift in Sources */,
 				6052A18F1D63E28C00A3B8CE /* ApnSummaryObject.swift in Sources */,
+				967872782340770B000E5B96 /* ConfigProfile+Xml.swift in Sources */,
 				6052A1941D63E34800A3B8CE /* UtilHandleRLMObject.swift in Sources */,
 				6052A1901D63E29100A3B8CE /* ApnProfileObject.swift in Sources */,
-				6052A1951D63E34C00A3B8CE /* UtilCocoaHTTPServer.swift in Sources */,
+				6052A1951D63E34C00A3B8CE /* ConfigProfileService.swift in Sources */,
 				603816941E07952E001D5C70 /* UtilFileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

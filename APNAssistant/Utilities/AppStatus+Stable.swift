@@ -2,7 +2,7 @@
 //  AppStatus+Stable.swift
 //  APNAssistant
 //
-//  Created by 鈴木 航 on 2019/09/09.
+//  Created by WataruSuzuki on 2019/09/09.
 //  Copyright © 2019 WataruSuzuki. All rights reserved.
 //
 

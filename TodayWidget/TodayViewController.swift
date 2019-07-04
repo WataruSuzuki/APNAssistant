@@ -16,7 +16,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var labelApnName: UILabel!
     @IBOutlet weak var buttonOpenApp: UIButton!
     
-    let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let myUtilCocoaHTTPServer = ConfigProfileService()
 
     override func viewDidLoad() {
         super.viewDidLoad()

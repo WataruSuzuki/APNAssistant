@@ -15,7 +15,7 @@ protocol EditApnViewControllerDelegate {
 
 class EditApnViewController: UITableViewController//,
 {
-    let myUtilCocoaHTTPServer = UtilCocoaHTTPServer()
+    let myUtilCocoaHTTPServer = ConfigProfileService()
     let appStatus = UtilAppStatus()
     
     var myUtilHandleRLMObject: UtilHandleRLMObject!
@@ -311,12 +311,7 @@ class EditApnViewController: UITableViewController//,
         self.dismiss(animated: true) { 
             if isUpdateNow {
                 if self.appStatus.isAvailableAllFunction() {
-                    let url = self.myUtilCocoaHTTPServer.prepareOpenSettingAppToSetProfile(self.myUtilHandleRLMObject)
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
+                    self.myUtilCocoaHTTPServer.updateProfile(self.myUtilHandleRLMObject)
                 } else {
                     self.appStatus.showStatuLimitByApple(self)
                 }

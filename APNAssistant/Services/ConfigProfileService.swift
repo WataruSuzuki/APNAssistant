@@ -1,5 +1,5 @@
 //
-//  UtilCocoaHTTPServer.swift
+//  ConfigProfileService.swift
 //  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/08/04.
@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import Swifter
 
-class UtilCocoaHTTPServer: NSObject,
-    XMLParserDelegate
-{
-    let cocoaHTTPServer = HttpServer()
+class ConfigProfileService: NSObject {
     let fileNameSetting = "set-to-device"
     let fileNameShare = "apn-assistant"
     
+    let bridger = HttpServerBridger()
     var didEndParse:((XMLParser, ApnSummaryObject) -> Void)?
     
     var readSummaryObjFromFile: ApnSummaryObject!
@@ -25,19 +22,6 @@ class UtilCocoaHTTPServer: NSObject,
     var isTagKey = false
     var isTagValue = false
     var isPayloadDisplayName = false
-    
-    func startCocoaHTTPServer() {
-        let path = UtilFileManager.getProfilesAppGroupPath()
-        print(path)
-        cocoaHTTPServer["/:path"] = shareFilesFromDirectory(path, defaults: ["index.html", "configrationProfile.html", "set-to-device.mobileconfig"])
-        //cocoaHTTPServer["/:path"] = shareFilesFromDirectory(Bundle.main.resourcePath!)
-        do {
-            try cocoaHTTPServer.start(8080)
-        } catch {
-            //(・A・)!!
-            fatalError("Swifter could not start!!")
-        }
-    }
     
     func getProfileUrl(_ rlmObject: UtilHandleRLMObject) -> URL {
         writeMobileConfigProfile(rlmObject, fileName: fileNameShare)
@@ -61,21 +45,6 @@ class UtilCocoaHTTPServer: NSObject,
     
     func readLatestSavedMobileConfigProfile() {
         startReadMobileCongigProfile(getConfigProfileFilePath(fileNameSetting))
-    }
-    
-    func startReadMobileCongigProfile(_ path: String) {
-        readSummaryObjFromFile = ApnSummaryObject()
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: path) {
-            if let parser = XMLParser(contentsOf: URL(fileURLWithPath: path)) {
-                parser.delegate = self
-                readSummaryObjFromFile.apnProfile = ApnProfileObject()
-                parser.parse()
-                return
-            }
-        }
-        readSummaryObjFromFile.name = NSLocalizedString("unknown", comment: "")
-        self.didEndParse?(XMLParser(), readSummaryObjFromFile)
     }
     
     func writeMobileConfigProfile(_ rlmObject: UtilHandleRLMObject, fileName: String) {
@@ -153,13 +122,6 @@ class UtilCocoaHTTPServer: NSObject,
         copyHtmlFilesFromResource(fileManager, fileName: "configrationProfile",fileType: ".html")
     }
     
-    func prepareOpenSettingAppToSetProfile(_ rlmObject: UtilHandleRLMObject) -> URL {
-        writeMobileConfigProfile(rlmObject, fileName: fileNameSetting)
-        startCocoaHTTPServer()
-        
-        return URL(string: "http://localhost:8080/index.html")!
-    }
-    
     func copyHtmlFilesFromResource(_ fileManager: FileManager, fileName: String, fileType: String) {
         let filePath = getTargetFilePath(fileName, fileType: fileType)
         
@@ -172,59 +134,4 @@ class UtilCocoaHTTPServer: NSObject,
         }
     }
     
-    // MARK: - NSXMLParserDelegate
-    func parserDidStartDocument(_ parser: XMLParser) {
-        //do nothing
-    }
-    
-    func parserDidEndDocument(_ parser: XMLParser) {
-        self.didEndParse?(parser, readSummaryObjFromFile)
-    }
-    
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-        
-        switch elementName {
-        case "key":
-            isTagKey = true
-            
-        case "string": fallthrough
-        case "integer":
-            isTagValue = true
-            break
-        default:
-            break
-        }
-    }
-    
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if isTagKey {
-            switch string {
-            case ProfileXmlTag.AttachAPN:
-                currentParseType = ApnSummaryObject.ApnInfoColumn.attach_APN
-            case ProfileXmlTag.APNs:
-                currentParseType = ApnSummaryObject.ApnInfoColumn.apns
-            default:
-                if string == "PayloadDisplayName" {
-                    isPayloadDisplayName = true
-                } else {
-                    currentParseTag = ApnProfileObject.KeyAPNs(tag: string)
-                }
-            }
-        } else if isTagValue {
-            if isPayloadDisplayName {
-                readSummaryObjFromFile.name = string
-            } else {
-                readSummaryObjFromFile.apnProfile?.updateApnProfileColumn(currentParseType, column: currentParseTag, newText: string)
-            }
-            isPayloadDisplayName = false
-        } else {
-            //do nothing
-        }
-        
-    }
-    
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        isTagKey = false
-        isTagValue = false
-    }
 }

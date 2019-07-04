@@ -359,11 +359,11 @@ class AvailableCountriesHelper: NSObject {
     
     func loadCachedJsonList() {
         let filemanager = FileManager()
-        let files = filemanager.enumerator(atPath: UtilCocoaHTTPServer().getTargetFilePath("", fileType: ""))
+        let files = filemanager.enumerator(atPath: ConfigProfileService().getTargetFilePath("", fileType: ""))
         while let file = files?.nextObject() as? String {
             if isJsonFile(file) {
                 let country = file.replacingOccurrences(of: ".json", with: "")
-                let path = UtilCocoaHTTPServer().getTargetFilePath(country, fileType: ".json")
+                let path = ConfigProfileService().getTargetFilePath(country, fileType: ".json")
                 let localUrl = URL(fileURLWithPath: path)
                 if let jsonData = try? Data(contentsOf: localUrl) {
                     let items = serializeCountryJsonData(jsonData)
@@ -424,7 +424,7 @@ class AvailableCountriesHelper: NSObject {
         let lastPathComponent = responseUrl.lastPathComponent
         
         let fileName = generateFileNameFromLastPathComponent(responseUrl, lastPathComponent: lastPathComponent)
-        let filePath = UtilCocoaHTTPServer().getTargetFilePath(fileName, fileType: ".json")
+        let filePath = ConfigProfileService().getTargetFilePath(fileName, fileType: ".json")
         UtilFileManager.moveDownloadItemAtURL(filePath, location: location)
         
         return filePath

@@ -11,7 +11,7 @@ import Realm
 
 struct UtilHandleRLMConst {
     internal static let CREATE_NEW_PROFILE = -1
-    internal static let CURRENT_SCHEMA_VERSION = UInt64(4)
+    internal static let CURRENT_SCHEMA_VERSION = UInt64(3)
 }
 
 class UtilHandleRLMObject: NSObject {
@@ -138,11 +138,29 @@ class UtilHandleRLMObject: NSObject {
         config.fileURL = containerURL
         config.schemaVersion = UtilHandleRLMConst.CURRENT_SCHEMA_VERSION
         config.migrationBlock = {(migration, oldSchemaVersion) in
-            // 最初のマイグレーションの場合、`oldSchemaVersion`は0です
+            // Note : https://realm.io/docs/objc/latest/#migrations
             if (oldSchemaVersion < UtilHandleRLMConst.CURRENT_SCHEMA_VERSION) {
-                // 何もする必要はありません！
-                // Realmは自動的に新しく追加されたプロパティと、削除されたプロパティを認識します。
-                // そしてディスク上のスキーマを自動的にアップデートします。
+                migration.enumerateObjects(ApnSummaryObject.className()) { (oldObject, newObject) in
+                    // Note : https://realm.io/docs/objc/latest/#updating-values
+                    newObject?["name"] = oldObject?["name"]
+                    newObject?["dataType"] = oldObject?["dataType"]
+                    if let oldProfile = oldObject?["apnProfile"] as? RLMObject,
+                        let newProfile = newObject?["apnProfile"] as? RLMObject {
+                        newProfile["apnsName"] = oldProfile["apnsName"]
+                        newProfile["apnsAuthenticationType"] = oldProfile["apnsAuthenticationType"]
+                        newProfile["apnsUserName"] = oldProfile["apnsUserName"]
+                        newProfile["apnsPassword"] = oldProfile["apnsPassword"]
+                        newProfile["apnsProxyServer"] = oldProfile["apnsProxyServer"]
+                        newProfile["apnsProxyServerPort"] = oldProfile["apnsProxyServerPort"]
+                        newProfile["apnsAllowedProtocolMask"] = oldProfile["apnsAllowedProtocolMask"]
+                        newProfile["apnsAllowedProtocolMaskInRoaming"] = oldProfile["apnsAllowedProtocolMaskInRoaming"]
+                        newProfile["apnsAllowedProtocolMaskInDomesticRoaming"] = oldProfile["apnsAllowedProtocolMaskInDomesticRoaming"]
+                        newProfile["attachApnName"] = oldProfile["attachApnName"]
+                        newProfile["attachApnAuthenticationType"] = oldProfile["attachApnAuthenticationType"]
+                        newProfile["attachApnUserName"] = oldProfile["attachApnUserName"]
+                        newProfile["attachApnPassword"] = oldProfile["attachApnPassword"]
+                    }
+                }
             }
         }
         RLMRealmConfiguration.setDefault(config)

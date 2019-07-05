@@ -63,6 +63,7 @@
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		96DA6C0D1C9B03FE00E424D5 /* APNAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* APNAssistantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */; };
+		CC29A3B8234C3F9300D398E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC29A3B7234C3F9300D398E2 /* SceneDelegate.swift */; };
 		CC565FEB1FD902E9009E1D49 /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC565FE91FD902E9009E1D49 /* PickerCell.swift */; };
 		CC565FEC1FD902E9009E1D49 /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC565FEA1FD902E9009E1D49 /* PickerCell.xib */; };
 		CC8DFC632011C34F00CAC0E0 /* UITestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8DFC622011C34F00CAC0E0 /* UITestUtils.swift */; };
@@ -190,6 +191,7 @@
 		96DA6C171C9B03FE00E424D5 /* APNAssistantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNAssistantUITests.swift; sourceTree = "<group>"; };
 		96DA6C191C9B03FE00E424D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
+		CC29A3B7234C3F9300D398E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CC565FE91FD902E9009E1D49 /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
 		CC565FEA1FD902E9009E1D49 /* PickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
 		CC8DFC622011C34F00CAC0E0 /* UITestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestUtils.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 				60224E081CA0E2DB00AFB201 /* ViewControllers */,
 				60AA73A51C9BA3DD00E41CAE /* Settings.bundle */,
 				96DA6BF51C9B03FD00E424D5 /* AppDelegate.swift */,
+				CC29A3B7234C3F9300D398E2 /* SceneDelegate.swift */,
 				96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */,
 				96DA6BFE1C9B03FD00E424D5 /* Assets.xcassets */,
 				96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */,
@@ -821,6 +824,7 @@
 				9678727723407650000E5B96 /* ConfigProfile+Xml.swift in Sources */,
 				60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */,
 				CC565FEB1FD902E9009E1D49 /* PickerCell.swift in Sources */,
+				CC29A3B8234C3F9300D398E2 /* SceneDelegate.swift in Sources */,
 				607165521CB3D28A000BCAF5 /* AvailableApnListViewController.swift in Sources */,
 				60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,

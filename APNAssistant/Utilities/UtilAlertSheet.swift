@@ -14,7 +14,7 @@ class UtilAlertSheet: NSObject {
         let buttonText = "OK"
         let title = NSLocalizedString(titlekey, comment: "")
         let message = NSLocalizedString(messagekey, comment: "")
-        let okAction = UIAlertAction(title: buttonText, style: UIAlertActionStyle.default){
+        let okAction = UIAlertAction(title: buttonText, style: .default){
             action in
             if nil != url {
                 UIApplication.shared.openURL(url!)

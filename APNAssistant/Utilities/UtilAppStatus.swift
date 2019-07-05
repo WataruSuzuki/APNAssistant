@@ -22,10 +22,10 @@ class UtilAppStatus: NSObject {
         indicator.alpha = 0.5
         if #available(iOS 13.0, *) {
             indicator.backgroundColor = .systemBackground
-            indicator.activityIndicatorViewStyle = .large
+            indicator.style = .large
         } else {
             indicator.backgroundColor = .gray
-            indicator.activityIndicatorViewStyle = .whiteLarge
+            indicator.style = .whiteLarge
         }
         indicator.startAnimating()
         currentView.addSubview(indicator)

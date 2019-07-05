@@ -589,7 +589,7 @@
 					96DA6BF11C9B03FD00E424D5 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = F35G39V2UB;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1100;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -607,18 +607,18 @@
 					};
 					96DA6C071C9B03FE00E424D5 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1100;
 						TestTargetID = 96DA6BF11C9B03FD00E424D5;
 					};
 					96DA6C121C9B03FE00E424D5 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1100;
 						TestTargetID = 96DA6BF11C9B03FD00E424D5;
 					};
 					F009F3941D6006A000D428D6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = F35G39V2UB;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1100;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1072,7 +1072,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1091,7 +1091,7 @@
 				PRODUCT_NAME = APNAssistant;
 				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1104,7 +1104,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = APNAssistantTests;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
 			name = Debug;
@@ -1118,7 +1118,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantTests;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = APNAssistantTests;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APNAssistant.app/APNAssistant";
 			};
 			name = Release;
@@ -1130,7 +1130,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
 				PRODUCT_NAME = APNAssistantUITests;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;
 			};
@@ -1143,7 +1143,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.APNAssistantUITests;
 				PRODUCT_NAME = APNAssistantUITests;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = APNAssistant;
 				USES_XCTRUNNER = YES;
 			};
@@ -1166,7 +1166,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "TodayWidget/TodayWidget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1186,7 +1186,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "TodayWidget/TodayWidget-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

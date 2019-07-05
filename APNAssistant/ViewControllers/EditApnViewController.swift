@@ -35,7 +35,7 @@ class EditApnViewController: UITableViewController//,
 
         self.navigationItem.title = NSLocalizedString("edit_apn", comment: "")
         self.tableView.estimatedRowHeight = 90
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.keyboardDismissMode = .interactive
 
         registerCustomCell("TextFieldCell")
@@ -175,7 +175,7 @@ class EditApnViewController: UITableViewController//,
             cell.switchValueChanged = {(switchOn) in
                 self.isSetDataApnManually = switchOn
                 UIView.animate(withDuration: 0.4, animations: {
-                    self.tableView.reloadSections(IndexSet(integer: indexPath.section), with: UITableViewRowAnimation.fade)
+                    self.tableView.reloadSections(IndexSet(integer: indexPath.section), with: UITableView.RowAnimation.fade)
                 })
             }
             cell.myUISwitch.isOn = isSetDataApnManually
@@ -298,7 +298,7 @@ class EditApnViewController: UITableViewController//,
         case ApnProfileObject.KeyAPNs.allowed_protocol_mask_in_domestic_roaming.rawValue:
             pickerExpandedStatus[ApnProfileObject.KeyAPNs(rawValue: row)!] = !pickerExpandedStatus[ApnProfileObject.KeyAPNs(rawValue: row)!]!
             UIView.animate(withDuration: 0.4, animations: {
-                self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                self.tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.fade)
             })
 
         default:
@@ -328,10 +328,10 @@ class EditApnViewController: UITableViewController//,
     }
     
     func showSheetController(_ title: String, negativeMessage: String, positiveMessage: String){
-        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+        let cancelAction = UIAlertAction(title: negativeMessage, style: .cancel){
             action in self.handleUpdateDeviceApn(false)
         }
-        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.destructive){
+        let updateAction = UIAlertAction(title: positiveMessage, style: .destructive){
             action in self.handleUpdateDeviceApn(true)
         }
         

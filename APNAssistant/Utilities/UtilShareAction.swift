@@ -15,9 +15,9 @@ class UtilShareAction: NSObject {
         
         let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)
         contoller.excludedActivityTypes = [
-            UIActivityType.postToWeibo,
-            UIActivityType.saveToCameraRoll,
-            UIActivityType.print
+            UIActivity.ActivityType.postToWeibo,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.print
         ]
         
         if UIDevice.current.userInterfaceIdiom == .pad {

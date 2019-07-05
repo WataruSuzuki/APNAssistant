@@ -30,7 +30,7 @@ class UtilShortcutLaunch: NSObject {
         initDynamicShortcuts(application)
         
         // If a shortcut was launched, display its information and take the appropriate action
-        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+        if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             
             launchedShortcutItem = shortcutItem
             
@@ -68,7 +68,7 @@ class UtilShortcutLaunch: NSObject {
             name = ""
             infoKey = -1
         }
-        return UIMutableApplicationShortcutItem(type: shortcut!.type, localizedTitle: shortcut!.getTitle(name!), localizedSubtitle: shortcut!.getSubTitle(), icon: shortcut!.getIcon(), userInfo: [UtilShortcutLaunch.infoKey: infoKey!])
+        return UIMutableApplicationShortcutItem(type: shortcut!.type, localizedTitle: shortcut!.getTitle(name!), localizedSubtitle: shortcut!.getSubTitle(), icon: shortcut!.getIcon(), userInfo: [UtilShortcutLaunch.infoKey: infoKey! as NSSecureCoding])
     }
     
     @available(iOS 9.0, *)

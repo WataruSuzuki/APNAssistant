@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view from its nib.
         
         labelTitle.text = NSLocalizedString("latest_set_profile", comment: "")
-        buttonOpenApp.setTitle(NSLocalizedString("openSettingApp", comment: ""), for: UIControlState())
+        buttonOpenApp.setTitle(NSLocalizedString("openSettingApp", comment: ""), for: UIControl.State())
         
         myUtilCocoaHTTPServer.didEndParse = {(parse, obj) in
             self.labelProfileName.text = obj.name

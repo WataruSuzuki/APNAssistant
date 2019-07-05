@@ -95,10 +95,10 @@ class AvailableApnListViewController: UITableViewController,
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_update", comment: "")
         
-        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+        let cancelAction = UIAlertAction(title: negativeMessage, style: .cancel){
             action in self.reloadCachedData()
         }
-        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
+        let updateAction = UIAlertAction(title: positiveMessage, style: .default){
             action in self.startJsonFileDownload()
         }
         
@@ -111,10 +111,10 @@ class AvailableApnListViewController: UITableViewController,
         let negativeMessage = NSLocalizedString("cancel", comment: "")
         let positiveMessage = NSLocalizedString("yes_cache", comment: "")
         
-        let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+        let cancelAction = UIAlertAction(title: negativeMessage, style: .cancel){
             action in //do nothing
         }
-        let updateAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.default){
+        let updateAction = UIAlertAction(title: positiveMessage, style: .default){
             action in
             self.myProfileHelper = AvailableProfileHelper(list: self.myAvailableCountriesHelper.publicProfileList)
             self.myProfileHelper.startDownloadAvailableProfiles()
@@ -314,7 +314,7 @@ class AvailableApnListViewController: UITableViewController,
         progressView = ProgressIndicatorView.instanceFromNib(appStatus.getIndicatorFrame(self.tableView))
         //progressView.center = self.view.center
         progressView.progressBar.progress = 0.0
-        progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: UIControlState())
+        progressView.cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: UIControl.State())
         progressView.didTapCancel = { (button) in
             self.updateSectionCount = self.tableView.numberOfSections + 1
             self.invalidateIndicator()

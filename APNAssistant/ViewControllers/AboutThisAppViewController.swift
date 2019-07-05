@@ -38,7 +38,7 @@ class AboutThisAppViewController: UITableViewController {
 
         self.navigationItem.title = NSLocalizedString("aboutThisApp", comment: "")
         self.tableView.estimatedRowHeight = 200
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,7 +92,7 @@ class AboutThisAppViewController: UITableViewController {
         case .apn:
             if let url = URL(string: "https://en.m.wikipedia.org/wiki/APN") {
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(url)
                 }
@@ -101,7 +101,7 @@ class AboutThisAppViewController: UITableViewController {
         case .profile:
             if let url = URL(string: "https://developer.apple.com/library/prerelease/content/documentation/NetworkingInternet/Conceptual/iPhoneOTAConfiguration/Introduction/Introduction.html") {
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(url)
                 }
@@ -110,7 +110,7 @@ class AboutThisAppViewController: UITableViewController {
         case .webApp:
             if let url = URL(string: DownloadProfiles.serverUrl + DownloadProfiles.apnBookmarks + "/deployment/") {
                 if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(url)
                 }
@@ -120,4 +120,9 @@ class AboutThisAppViewController: UITableViewController {
             break
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

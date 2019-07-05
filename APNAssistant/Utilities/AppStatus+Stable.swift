@@ -37,10 +37,10 @@ extension UtilAppStatus {
         var actions = [Any]()
         if #available(iOS 8.0, *) {
             let controller = sender as! UIViewController
-            let cancelAction = UIAlertAction(title: negativeMessage, style: UIAlertActionStyle.cancel){
+            let cancelAction = UIAlertAction(title: negativeMessage, style: .cancel){
                 action in //do nothing
             }
-            let installAction = UIAlertAction(title: positiveMessage, style: UIAlertActionStyle.destructive){
+            let installAction = UIAlertAction(title: positiveMessage, style: .destructive){
                 action in controller.performSegue(withIdentifier: "EditApnViewController", sender: controller)
             }
             actions.append(cancelAction)

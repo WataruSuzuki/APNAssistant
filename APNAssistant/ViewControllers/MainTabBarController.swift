@@ -17,7 +17,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainTabBarController.appDidBecomeActive(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         loadTabBarTitle()
         

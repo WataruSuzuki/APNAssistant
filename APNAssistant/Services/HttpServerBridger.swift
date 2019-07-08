@@ -9,7 +9,9 @@
 import UIKit
 import Swifter
 
-class HttpServerBridger: NSObject {
+class HttpServerBridger: NSObject
+    //, HttpServerIODelegate
+{
     private let portNumber = 8081
     private let server = HttpServer()
     
@@ -27,12 +29,19 @@ class HttpServerBridger: NSObject {
                 "configrationProfile.html",
                 "set-to-device.mobileconfig"]
         )
+        //server.delegate = self
         do {
             try server.start(in_port_t(portNumber))
         } catch {
             //(・A・)!!
-            fatalError("Swifter could not start!!")
+            // fatalError("Swifter could not start!!")
         }
     }
     
+    // MARK: HttpServerIODelegate
+    /*
+    func socketConnectionReceived(_ socket: Socket) {
+        
+    }
+    */
 }

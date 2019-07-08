@@ -14,10 +14,14 @@ class UtilAlertSheet: NSObject {
         let buttonText = "OK"
         let title = NSLocalizedString(titlekey, comment: "")
         let message = NSLocalizedString(messagekey, comment: "")
-        let okAction = UIAlertAction(title: buttonText, style: .default){
+        let okAction = UIAlertAction(title: buttonText, style: .default) {
             action in
-            if nil != url {
-                UIApplication.shared.openURL(url!)
+            if let url = url {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
             }
         }
         

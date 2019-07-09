@@ -190,6 +190,10 @@ class ApnProfileObject: RLMObject {
                 return prepareObj.apnsProxyServerPort
             case .allowed_protocol_mask:
                 return prepareObj.apnsAllowedProtocolMask
+            case .allowed_protocol_mask_in_roaming:
+                return prepareObj.apnsAllowedProtocolMaskInRoaming
+            case .allowed_protocol_mask_in_domestic_roaming:
+                return prepareObj.apnsAllowedProtocolMaskInDomesticRoaming
                 
             default:
                 return ""

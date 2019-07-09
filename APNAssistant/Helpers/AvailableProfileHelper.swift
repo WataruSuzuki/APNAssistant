@@ -98,9 +98,9 @@ class AvailableProfileHelper: NSObject {
                 UIApplication.shared.connectedScenes.forEach { (scene) in
                     if let delegate = scene.delegate as? SceneDelegate,
                         let window = delegate.window,
-                        window.isKeyWindow,
-                        let controller = window.rootViewController,
-                        scene.activationState == .foregroundActive {
+                        //window.isKeyWindow,
+                        //scene.activationState == .foregroundActive,
+                        let controller = window.rootViewController {
                         UtilAlertSheet.showAlertController("complete_cache", messagekey: "msg_complete", url: nil, vc: controller)
                     }
                 }

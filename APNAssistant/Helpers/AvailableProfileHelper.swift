@@ -94,9 +94,21 @@ class AvailableProfileHelper: NSObject {
     private func showCompAlert() {
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                if let controller = delegate.window?.rootViewController {
-                    UtilAlertSheet.showAlertController("complete_cache", messagekey: "msg_complete", url: nil, vc: controller)
+            if #available(iOS 13.0, *) {
+                UIApplication.shared.connectedScenes.forEach { (scene) in
+                    if let delegate = scene.delegate as? SceneDelegate,
+                        let window = delegate.window,
+                        window.isKeyWindow,
+                        let controller = window.rootViewController,
+                        scene.activationState == .foregroundActive {
+                        UtilAlertSheet.showAlertController("complete_cache", messagekey: "msg_complete", url: nil, vc: controller)
+                    }
+                }
+            } else {
+                if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                    if let controller = delegate.window?.rootViewController {
+                        UtilAlertSheet.showAlertController("complete_cache", messagekey: "msg_complete", url: nil, vc: controller)
+                    }
                 }
             }
         }

@@ -17,11 +17,29 @@ default_platform(:ios)
 
 platform :ios do
     desc "Tests all UI Tests on Latest Simulator"
-    lane :tests_all do
+    lane :tests_latest do
     run_tests(
         workspace: "APNAssistant.xcworkspace",
         scheme: "APNAssistant",
-        devices: ["iPhone 11 Pro Max", "iPad Pro (12.9-inch) (3rd generation)"],
+        devices: [
+            "iPhone 11 Pro Max",
+            "iPad Pro (12.9-inch) (3rd generation)"
+        ],
+        disable_concurrent_testing: true,
+        configuration: 'Debug'
+    )
+    end
+    desc "Tests all UI Tests on Older Simulator"
+    lane :tests_older_on_github do
+    run_tests(
+        workspace: "APNAssistant.xcworkspace",
+        scheme: "APNAssistant",
+        devices: [
+            "iPhone 4s (9.3)",
+            "iPhone 5 (10.2)",
+            "iPad Air (9.3)",
+            "iPad Pro (9.7 inch) (10.2)"
+        ],
         disable_concurrent_testing: true,
         configuration: 'Debug'
     )

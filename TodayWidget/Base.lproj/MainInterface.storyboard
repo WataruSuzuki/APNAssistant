@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,25 +19,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXP-zB-yM1">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Eh5-Kv-heD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTh-ep-Qt8">
+                                <rect key="frame" x="16" y="36" width="195" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="apn name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-gF-jLW">
+                                <rect key="frame" x="36" y="68" width="67.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-ni-5DB">
+                                <rect key="frame" x="219" y="24" width="81" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="MHe-Nb-AVq"/>
                                     <constraint firstAttribute="width" constant="81" id="TjG-HD-4uU"/>
@@ -46,22 +42,30 @@
                                     <action selector="tapOpenAppButton:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="BGP-JW-sf6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXP-zB-yM1">
+                                <rect key="frame" x="16" y="8" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Eh5-Kv-heD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="MKu-gF-jLW" secondAttribute="trailing" constant="109" id="A3f-Up-uhm"/>
-                            <constraint firstAttribute="trailing" secondItem="lXP-zB-yM1" secondAttribute="trailing" id="IGi-O0-uVr"/>
-                            <constraint firstItem="lXP-zB-yM1" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="N0l-pX-XUW"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MKu-gF-jLW" secondAttribute="trailing" constant="20" symbolic="YES" id="A3f-Up-uhm"/>
+                            <constraint firstAttribute="trailing" secondItem="lXP-zB-yM1" secondAttribute="trailing" constant="16" id="IGL-gk-f1d"/>
                             <constraint firstItem="MKu-gF-jLW" firstAttribute="top" secondItem="JTh-ep-Qt8" secondAttribute="bottom" constant="9" id="P1Y-Hv-JhJ"/>
                             <constraint firstItem="JTh-ep-Qt8" firstAttribute="top" secondItem="lXP-zB-yM1" secondAttribute="bottom" constant="7" id="S7J-Bi-3At"/>
                             <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="JTh-ep-Qt8" secondAttribute="trailing" constant="8" id="SKa-go-WZk"/>
                             <constraint firstItem="JTh-ep-Qt8" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="16" id="Vjp-qa-PcC"/>
                             <constraint firstItem="V3q-ni-5DB" firstAttribute="leading" secondItem="JTh-ep-Qt8" secondAttribute="trailing" constant="8" id="cbm-Ez-aK9"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="MKu-gF-jLW" secondAttribute="bottom" constant="11" id="cby-WI-j2u"/>
-                            <constraint firstItem="lXP-zB-yM1" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="hIf-TV-378"/>
                             <constraint firstItem="MKu-gF-jLW" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="36" id="hIh-Z6-AnD"/>
                             <constraint firstItem="JTh-ep-Qt8" firstAttribute="top" secondItem="lXP-zB-yM1" secondAttribute="bottom" constant="7" id="hsc-gA-Sm6"/>
                             <constraint firstItem="V3q-ni-5DB" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="qMV-Lb-Nph"/>
                             <constraint firstAttribute="trailing" secondItem="V3q-ni-5DB" secondAttribute="trailing" constant="20" id="rCA-9w-hkl"/>
+                            <constraint firstItem="lXP-zB-yM1" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="16" id="xFx-cO-Xha"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -79,12 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="284.5"/>
+            <point key="canvasLocation" x="747.82608695652175" y="190.51339285714286"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

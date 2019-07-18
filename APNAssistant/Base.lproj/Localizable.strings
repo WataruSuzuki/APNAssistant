@@ -58,7 +58,7 @@ cache = "Cache";
 tutorial_message = "No APN profile are available. You can create new one to tap here!!";
 latest_set_profile = "Profile latest set to device";
 unknown = "Unknown...";
-openSettingApp = "Open Setting";
+openSettingApp = "Setting";
 
 apn_assistant = "APN Assistant";
 show_favorites = "Show favorites";

@@ -6,39 +6,9 @@ on:
     - master
 
 jobs:
-  test-latest:
+  test-iOS-latest:
     runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
-    - name: CocoaPods
-      run: |
-        pod install --repo-update
-    - name: Change xcode version
-      run: |
-        sudo xcode-select -s '/Applications/Xcode_11.app/Contents/Developer'
-    - name: Check environment
-      run: |
-        xcodebuild -version
-        instruments -s device
-# Note : Realm cannot build x86_64 on GitHub Actions...
-  #   - name: Run XCTest and XCUITest
-  #     run: |
-  #       fastlane tests_latest
-  #
-  # test-older:
-  #   runs-on: macOS-latest
-  #   steps:
-  #   - uses: actions/checkout@v1
-  #   - name: Change xcode version
-  #     run: |
-  #       sudo xcode-select -s '/Applications/Xcode_11.app/Contents/Developer'
-  #   - name: Check environment
-  #     run: |
-  #       xcodebuild -version
-  #       instruments -s device
-  #   - name: Resolve CocoaPods
-  #     run: |
-  #       pod install
-  #   - name: Run XCTest and XCUITest
-  #     run: |
-  #       fastlane tests_older_on_github
+    - name: Test script
+      run: ./.github/workflows/xcodebuild.sh "latest"

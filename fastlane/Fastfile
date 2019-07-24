@@ -35,8 +35,8 @@ platform :ios do
         workspace: "APNAssistant.xcworkspace",
         scheme: "APNAssistant",
         devices: [
-            "iPhone 6 Plus (10.2)",
-            "iPad Air (10.2)"
+            "iPhone 6 (10.3.1)",
+            "iPad Air (10.3.1)"
         ],
         disable_concurrent_testing: true,
         configuration: 'Debug'

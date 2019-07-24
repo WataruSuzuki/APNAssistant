@@ -8,4 +8,5 @@ before_install:
     - pod setup
     - pod install --repo-update
 script:
-    - fastlane tests_latest
+    - instruments -s device
+    - fastlane tests_ios10

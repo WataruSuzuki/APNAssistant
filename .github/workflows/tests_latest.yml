@@ -1,4 +1,4 @@
-name: tests iOS 10
+name: tests latest iOS
 
 on:
   push:
@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Test script
-      run: ./.github/workflows/xcodebuild.sh "ios10"
+      run: ./.github/workflows/xcodebuild.sh "latest"

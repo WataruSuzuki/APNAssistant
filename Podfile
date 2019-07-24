@@ -6,6 +6,7 @@ target "APNAssistant" do
     pod 'Swifter', '~> 1.4.7'
     pod 'RealmSwift'
     pod 'DZNEmptyDataSet'
+    pod 'FTLinearActivityIndicator'
     pod 'DJKFlatIconAuthors', :git => 'https://github.com/WataruSuzuki/DJKFlatIconAuthors.git'
 end
 

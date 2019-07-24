@@ -1,22 +1,25 @@
 PODS:
   - DJKFlatIconAuthors (0.0.2)
   - DZNEmptyDataSet (1.8.1)
-  - Realm (3.19.0):
-    - Realm/Headers (= 3.19.0)
-  - Realm/Headers (3.19.0)
-  - RealmSwift (3.19.0):
-    - Realm (= 3.19.0)
+  - FTLinearActivityIndicator (1.3)
+  - Realm (3.20.0):
+    - Realm/Headers (= 3.20.0)
+  - Realm/Headers (3.20.0)
+  - RealmSwift (3.20.0):
+    - Realm (= 3.20.0)
   - Swifter (1.4.7)
 
 DEPENDENCIES:
   - DJKFlatIconAuthors (from `https://github.com/WataruSuzuki/DJKFlatIconAuthors.git`)
   - DZNEmptyDataSet
+  - FTLinearActivityIndicator
   - RealmSwift
   - Swifter (~> 1.4.7)
 
 SPEC REPOS:
   trunk:
     - DZNEmptyDataSet
+    - FTLinearActivityIndicator
     - Realm
     - RealmSwift
     - Swifter
@@ -33,10 +36,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   DJKFlatIconAuthors: eb488fab9ee7c961401aec3552bfbaea6763088c
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
-  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
+  FTLinearActivityIndicator: c89ccc2ef18279a155820c0e81f09ce2e90a2dc9
+  Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
+  RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
   Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
 
-PODFILE CHECKSUM: f47d0027fa1ea0648147a88a02449530b3e63b4a
+PODFILE CHECKSUM: ba9304f1ad3693dfdf836fab3201d21e0ce4e03e
 
 COCOAPODS: 1.8.3

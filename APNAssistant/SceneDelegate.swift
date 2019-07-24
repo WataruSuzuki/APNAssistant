@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  APNAssistant
 //
-//  Created by 鈴木航 on 2019/10/08.
+//  Created by WataruSuzuki on 2019/10/08.
 //  Copyright © 2019 WataruSuzuki. All rights reserved.
 //
 

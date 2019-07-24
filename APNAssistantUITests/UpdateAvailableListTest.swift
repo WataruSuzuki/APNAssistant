@@ -1,5 +1,5 @@
 //
-//  UpdateAvailableListUITest.swift
+//  UpdateAvailableListTest.swift
 //  APNAssistantUITests
 //
 //  Created by WataruSuzuki on 2017/12/31.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class UpdateAvailableListUITest: XCTestCase {
+class UpdateAvailableListTest: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -38,12 +38,12 @@ class UpdateAvailableListUITest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         if #available(iOS 9.0, *) {
             let app = XCUIApplication()
-            let confirmSheet = app.sheets[UITestUtils.getTestStr(key: "confirm", sender: UpdateAvailableListUITest.self)]
-            confirmSheet.buttons[UITestUtils.getTestStr(key: "yes_update", sender: UpdateAvailableListUITest.self)].tap()
+            let confirmSheet = app.sheets[UITestUtils.getTestStr(key: "confirm", sender: UpdateAvailableListTest.self)]
+            confirmSheet.buttons[UITestUtils.getTestStr(key: "yes_update", sender: UpdateAvailableListTest.self)].tap()
             UITestUtils.waitingSec(sec: 20.0, sender: self)
-            confirmSheet.buttons[UITestUtils.getTestStr(key: "yes_cache", sender: UpdateAvailableListUITest.self)].tap()
+            confirmSheet.buttons[UITestUtils.getTestStr(key: "yes_cache", sender: UpdateAvailableListTest.self)].tap()
             UITestUtils.waitingSec(sec: 20.0, sender: self)
-            app.alerts[UITestUtils.getTestStr(key: "complete_cache", sender: UpdateAvailableListUITest.self)].buttons["OK"].tap()
+            app.alerts[UITestUtils.getTestStr(key: "complete_cache", sender: UpdateAvailableListTest.self)].buttons["OK"].tap()
         }
     }
     

@@ -36,7 +36,9 @@ class EditApnViewController: UITableViewController//,
         self.navigationItem.title = NSLocalizedString("edit_apn", comment: "")
         self.tableView.estimatedRowHeight = 90
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.keyboardDismissMode = .interactive
+        self.tableView.keyboardDismissMode = .onDrag
+        tableView.accessibilityIdentifier = "EditApnTableView"
+        //tableView.isAccessibilityElement = true
 
         registerCustomCell("TextFieldCell")
         registerCustomCell("UISwitchCell")
@@ -145,7 +147,7 @@ class EditApnViewController: UITableViewController//,
     func loadSummaryApnProfileCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> TextFieldCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldCell", for: indexPath) as! TextFieldCell
         cell.myUILabel.text = ""
-        cell.myUITextField?.placeholder = NSLocalizedString("nameOfThisApnProfile", comment: "")
+        cell.setTextIdentifier("nameOfThisApnProfile")
         cell.myUITextField.text = myUtilHandleRLMObject.profileName
         cell.myUITextField.keyboardType = .default
         cell.myUITextField.isSecureTextEntry = false
@@ -171,7 +173,7 @@ class EditApnViewController: UITableViewController//,
         let cell = tableView.dequeueReusableCell(withIdentifier: "UISwitchCell", for: indexPath) as! UISwitchCell
         switch ApnSummaryObject.ApnInfoColumn(rawValue: indexPath.section)! {
         case .apns:
-            cell.myUILabel?.text = NSLocalizedString("setDataApnManual", comment: "")
+            cell.setTextIdentifier("setDataApnManual")
             cell.switchValueChanged = {(switchOn) in
                 self.isSetDataApnManually = switchOn
                 UIView.animate(withDuration: 0.4, animations: {
@@ -181,7 +183,7 @@ class EditApnViewController: UITableViewController//,
             cell.myUISwitch.isOn = isSetDataApnManually
             
         case .summary:
-            cell.myUILabel?.text = NSLocalizedString("isThisFavoriteOne", comment: "")
+            cell.setTextIdentifier("isThisFavoriteOne")
             cell.switchValueChanged = {(switchOn) in
                 self.myUtilHandleRLMObject.summaryDataType = (switchOn ? ApnSummaryObject.DataTypes.favorite : ApnSummaryObject.DataTypes.normal)
             }

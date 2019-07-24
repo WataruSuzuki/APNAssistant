@@ -1,7 +1,11 @@
 VERSION="latest"
 
+if [ $# -eq 1 ]; then
+    VERSION="$1"
+fi
+
 function exe_fast_lane() {
-    fastlane "tests_$1"
+    fastlane "tests_$VERSION"
 }
 
 # CocoaPods
@@ -10,7 +14,7 @@ pod install --repo-update
 
 # Change xcode version
   # run: |
-sudo xcode-select -s '/Applications/Xcode_11.app/Contents/Developer'
+sudo xcode-select -s '/Applications/Xcode_11.1.app/Contents/Developer'
 
 # Check environment
   # run: |
@@ -19,4 +23,4 @@ instruments -s device
 
 # Run XCTest and XCUITest
   # run: |
-exe_fast_lane ${VERSION}
+exe_fast_lane

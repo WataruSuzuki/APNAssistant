@@ -29,16 +29,27 @@ platform :ios do
         configuration: 'Debug'
     )
     end
-    desc "Tests all UI Tests on Older Simulator"
-    lane :tests_older_on_github do
+    desc "Tests all UI Tests on iOS 10 Simulator"
+    lane :tests_ios10 do
     run_tests(
         workspace: "APNAssistant.xcworkspace",
         scheme: "APNAssistant",
         devices: [
-            "iPhone 4s (9.3)",
-            "iPhone 5 (10.2)",
-            "iPad Air (9.3)",
-            "iPad Pro (9.7 inch) (10.2)"
+            "iPhone 6 Plus (10.2)",
+            "iPad Air (10.2)"
+        ],
+        disable_concurrent_testing: true,
+        configuration: 'Debug'
+    )
+    end
+    desc "Tests all UI Tests on iOS 12 Simulator"
+    lane :tests_ios12 do
+    run_tests(
+        workspace: "APNAssistant.xcworkspace",
+        scheme: "APNAssistant",
+        devices: [
+            "iPhone SE (12.4)",
+            "iPad (5th generation) (12.4)"
         ],
         disable_concurrent_testing: true,
         configuration: 'Debug'

@@ -21,11 +21,16 @@ or alternatively using `brew cask install fastlane`
 fastlane ios tests_latest
 ```
 Tests all UI Tests on Latest Simulator
-### ios tests_older_on_github
+### ios tests_ios10
 ```
-fastlane ios tests_older_on_github
+fastlane ios tests_ios10
 ```
-Tests all UI Tests on Older Simulator
+Tests all UI Tests on iOS 10 Simulator
+### ios tests_ios12
+```
+fastlane ios tests_ios12
+```
+Tests all UI Tests on iOS 12 Simulator
 
 ----
 

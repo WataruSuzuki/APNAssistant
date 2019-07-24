@@ -21,10 +21,9 @@ class UISwitchCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setTextIdentifier(_ id: String) {
+        myUILabel.text = NSLocalizedString(id, comment: "")
+        myUISwitch.accessibilityIdentifier = id
     }
 
     // MARK: - Action

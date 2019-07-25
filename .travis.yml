@@ -8,5 +8,5 @@ before_install:
     - pod setup
     - pod install --repo-update
 script:
-    - instruments -s device
+    - xcrun simctl list
     - fastlane tests_ios10

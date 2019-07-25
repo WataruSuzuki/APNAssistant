@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FTLinearActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let myUtilShortcutLaunch = UtilShortcutLaunch()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UIApplication.configureLinearNetworkActivityIndicatorIfNeeded()
         // Override point for customization after application launch.
         UtilHandleRLMObject.copyToGroupDB()
         UtilHandleRLMObject.setupGroupDB()

@@ -64,7 +64,6 @@
 		96DA6C021C9B03FD00E424D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DA6C001C9B03FD00E424D5 /* LaunchScreen.storyboard */; };
 		96DA6C0D1C9B03FE00E424D5 /* APNAssistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C0C1C9B03FE00E424D5 /* APNAssistantTests.swift */; };
 		96DA6C181C9B03FE00E424D5 /* CreateAPNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA6C171C9B03FE00E424D5 /* CreateAPNTests.swift */; };
-		CC29A3B8234C3F9300D398E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC29A3B7234C3F9300D398E2 /* SceneDelegate.swift */; };
 		CC565FEB1FD902E9009E1D49 /* PickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC565FE91FD902E9009E1D49 /* PickerCell.swift */; };
 		CC565FEC1FD902E9009E1D49 /* PickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC565FEA1FD902E9009E1D49 /* PickerCell.xib */; };
 		CC8DFC632011C34F00CAC0E0 /* UITestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8DFC622011C34F00CAC0E0 /* UITestUtils.swift */; };
@@ -815,7 +814,6 @@
 				9678727723407650000E5B96 /* ConfigProfile+Xml.swift in Sources */,
 				60BEE50E1CA4003F005B86B9 /* TextFieldCell.swift in Sources */,
 				CC565FEB1FD902E9009E1D49 /* PickerCell.swift in Sources */,
-				CC29A3B8234C3F9300D398E2 /* SceneDelegate.swift in Sources */,
 				607165521CB3D28A000BCAF5 /* AvailableApnListViewController.swift in Sources */,
 				60DC0F0C1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift in Sources */,
 				60224E0C1CA0E32200AFB201 /* EditApnViewController.swift in Sources */,

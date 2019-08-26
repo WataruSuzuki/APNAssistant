@@ -142,44 +142,37 @@ class UtilHandleRLMObject: NSObject {
             if (oldSchemaVersion < UtilHandleRLMConst.CURRENT_SCHEMA_VERSION) {
                 migration.enumerateObjects(ApnSummaryObject.className()) { (oldObject, newObject) in
                     // Note : https://realm.io/docs/objc/latest/#updating-values
-                    newObject?["name"] = oldObject?["name"]
-                    newObject?["dataType"] = oldObject?["dataType"]
-                    if let oldProfile = oldObject?["apnProfile"] as? RLMObject,
-                        let newProfile = newObject?["apnProfile"] as? RLMObject {
-                        newProfile["apnsName"] = oldProfile["apnsName"]
-                        newProfile["apnsAuthenticationType"] = oldProfile["apnsAuthenticationType"]
-                        newProfile["apnsUserName"] = oldProfile["apnsUserName"]
-                        newProfile["apnsPassword"] = oldProfile["apnsPassword"]
-                        newProfile["apnsProxyServer"] = oldProfile["apnsProxyServer"]
-                        newProfile["apnsProxyServerPort"] = oldProfile["apnsProxyServerPort"]
-                        newProfile["apnsAllowedProtocolMask"] = oldProfile["apnsAllowedProtocolMask"]
-                        newProfile["apnsAllowedProtocolMaskInRoaming"] = oldProfile["apnsAllowedProtocolMaskInRoaming"]
-                        newProfile["apnsAllowedProtocolMaskInDomesticRoaming"] = oldProfile["apnsAllowedProtocolMaskInDomesticRoaming"]
-                        newProfile["attachApnName"] = oldProfile["attachApnName"]
-                        newProfile["attachApnAuthenticationType"] = oldProfile["attachApnAuthenticationType"]
-                        newProfile["attachApnUserName"] = oldProfile["attachApnUserName"]
-                        newProfile["attachApnPassword"] = oldProfile["attachApnPassword"]
-                    }
+                    oldObject?.objectSchema.properties.forEach({ (migrationSummary) in
+                        if migrationSummary.name != "apnProfile" {
+                            newObject?[migrationSummary.name] = oldObject?[migrationSummary.name]
+                        } else {
+                            if let oldProfile = oldObject?["apnProfile"] as? RLMObject,
+                                let newProfile = newObject?["apnProfile"] as? RLMObject {
+                                oldProfile.objectSchema.properties.forEach { (migrationApnElement) in
+                                    newProfile[migrationApnElement.name] = oldProfile[migrationApnElement.name]
+                                }
+                            }
+                        }
+                    })
                 }
             }
         }
         RLMRealmConfiguration.setDefault(config)
     }
     
-    static func getRealmDatabaseFiles(_ targetURL: URL?) -> [URL?] {
-        let URLs = [
-            targetURL,
-            targetURL?.appendingPathExtension("lock"),
-            targetURL?.appendingPathExtension("management")
-        ]
+    static func getRealmDatabaseFiles(_ targetURL: URL?) -> [URL]? {
+        guard let targetURL = targetURL else { return nil }
         
-        return URLs
+        return [
+            targetURL,
+            targetURL.appendingPathExtension("lock"),
+            targetURL.appendingPathExtension("management")
+        ]
     }
     
     static func copyToGroupDB() {
         let manager = FileManager.default
         let config = RLMRealmConfiguration.default()
-        let oldURLs = getRealmDatabaseFiles(config.fileURL)
         
         let containerDirectory = getDatabasePathOfAppGroupPathURL()
         if nil == containerDirectory?.path
@@ -188,18 +181,18 @@ class UtilHandleRLMObject: NSObject {
             try! manager.createDirectory(at: containerDirectory!, withIntermediateDirectories: true, attributes: nil)
         }
         
-        let containerURL = getDefaultRealmDatabaseURL(containerDirectory)
-        let newURLs = getRealmDatabaseFiles(containerURL)
+        guard let containerURL = getDefaultRealmDatabaseURL(containerDirectory) else { return }
         
-        var index = 0
-        for oldURL in oldURLs {
-            do {
-                try manager.copyItem(at: oldURL!, to: newURLs[index]!)
-                index += 1
-                try manager.removeItem(at: oldURL!)
-            } catch {
-                let nsError = error as NSError
-                print(nsError.description)
+        if let oldURLs = getRealmDatabaseFiles(config.fileURL),
+            let newURLs = getRealmDatabaseFiles(containerURL) {
+            newURLs.enumerated().forEach { (index, url) in
+                do {
+                    try manager.copyItem(at: oldURLs[index], to: url)
+                    try manager.removeItem(at: oldURLs[index])
+                } catch {
+                    let nsError = error as NSError
+                    print(nsError.description)
+                }
             }
         }
     }

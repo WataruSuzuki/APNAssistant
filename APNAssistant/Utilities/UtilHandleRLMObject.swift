@@ -144,12 +144,16 @@ class UtilHandleRLMObject: NSObject {
                     // Note : https://realm.io/docs/objc/latest/#updating-values
                     oldObject?.objectSchema.properties.forEach({ (migrationSummary) in
                         if migrationSummary.name != "apnProfile" {
-                            newObject?[migrationSummary.name] = oldObject?[migrationSummary.name]
+                            if let migrationSummaryProperty = oldObject?[migrationSummary.name] {
+                                newObject?[migrationSummary.name] = migrationSummaryProperty
+                            }
                         } else {
                             if let oldProfile = oldObject?["apnProfile"] as? RLMObject,
                                 let newProfile = newObject?["apnProfile"] as? RLMObject {
                                 oldProfile.objectSchema.properties.forEach { (migrationApnElement) in
-                                    newProfile[migrationApnElement.name] = oldProfile[migrationApnElement.name]
+                                    if let apnElementProperty = oldProfile[migrationApnElement.name] {
+                                        newProfile[migrationApnElement.name] = apnElementProperty
+                                    }
                                 }
                             }
                         }

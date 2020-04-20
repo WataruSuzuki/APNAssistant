@@ -168,10 +168,6 @@
 		9603C6E1232685EE00CE0C87 /* AppStatus+Stable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStatus+Stable.swift"; sourceTree = "<group>"; };
 		9618C8C41D92D1F8008B25F3 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		9618C8C61D92D21C008B25F3 /* ProgressIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressIndicatorView.xib; sourceTree = "<group>"; };
-		9651C2141D9B938A008A4A9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9651C2161D9B9393008A4A9D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9651C21C1D9BA27C008A4A9D /* configrationProfile.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = configrationProfile.html; sourceTree = "<group>"; };
-		9651C21D1D9BA27C008A4A9D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		9678727623407650000E5B96 /* ConfigProfile+Xml.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigProfile+Xml.swift"; sourceTree = "<group>"; };
 		9678727923407BEB000E5B96 /* HttpServerBridger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServerBridger.swift; sourceTree = "<group>"; };
 		9678727D23408025000E5B96 /* ConfigProfile+Open.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigProfile+Open.swift"; sourceTree = "<group>"; };
@@ -206,8 +202,6 @@
 		F009F3A81D600AE700D428D6 /* ApnProfileObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnProfileObject.swift; sourceTree = "<group>"; };
 		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 		F06AD47C1D5D859B007B0842 /* APNAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = APNAssistant.entitlements; sourceTree = "<group>"; };
-		F07BB2231DA0116200728B9D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0A74DCB1D9BBBE0009D799E /* ApnMemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ApnMemo.entitlements; sourceTree = "<group>"; };
 		F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAlertSheet.swift; sourceTree = "<group>"; };
 		FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -328,26 +322,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		9651C20E1D9B9355008A4A9D /* ApnMemo */ = {
-			isa = PBXGroup;
-			children = (
-				F07BB2231DA0116200728B9D /* Info.plist */,
-				F0A74DCB1D9BBBE0009D799E /* ApnMemo.entitlements */,
-				9651C21B1D9BA27C008A4A9D /* htdocs */,
-				9651C2151D9B938A008A4A9D /* InfoPlist.strings */,
-			);
-			path = ApnMemo;
-			sourceTree = "<group>";
-		};
-		9651C21B1D9BA27C008A4A9D /* htdocs */ = {
-			isa = PBXGroup;
-			children = (
-				9651C21C1D9BA27C008A4A9D /* configrationProfile.html */,
-				9651C21D1D9BA27C008A4A9D /* index.html */,
-			);
-			path = htdocs;
-			sourceTree = "<group>";
-		};
 		967872742340761B000E5B96 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,7 +354,6 @@
 			isa = PBXGroup;
 			children = (
 				96DA6BF41C9B03FD00E424D5 /* APNAssistant */,
-				9651C20E1D9B9355008A4A9D /* ApnMemo */,
 				96DA6C0B1C9B03FE00E424D5 /* APNAssistantTests */,
 				96DA6C161C9B03FE00E424D5 /* APNAssistantUITests */,
 				F009F3981D6006A100D428D6 /* TodayWidget */,
@@ -905,15 +878,6 @@
 				60BEE5081CA3E1A6005B86B9 /* ja */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		9651C2151D9B938A008A4A9D /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9651C2141D9B938A008A4A9D /* Base */,
-				9651C2161D9B9393008A4A9D /* ja */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		96DA6BFB1C9B03FD00E424D5 /* Main.storyboard */ = {

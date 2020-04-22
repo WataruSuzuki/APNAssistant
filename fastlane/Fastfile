@@ -23,7 +23,7 @@ platform :ios do
         scheme: "APNAssistant",
         devices: [
             "iPhone 11 Pro Max",
-            "iPad Pro (12.9-inch) (3rd generation)"
+            "iPad Pro (12.9-inch) (4th generation)"
         ],
         disable_concurrent_testing: true,
         configuration: 'Debug'

@@ -116,8 +116,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C7066E1C528D83FA6C95E5F /* libPods-ApnMemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnMemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-APNAssistantLite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9CFEFEB8283B622418507E /* Pods-APNAssistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.debug.xcconfig"; sourceTree = "<group>"; };
 		2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		4F796CFFB7E95A2EE67CFB78 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,10 +156,8 @@
 		60BEE5131CA400AB005B86B9 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
 		60DC0F0B1D6E8ADE00A4DD29 /* UtilShortcutLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilShortcutLaunch.swift; sourceTree = "<group>"; };
 		60DC0F0D1D6E94FB00A4DD29 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		6A78525D0FE48CB6F5F6435F /* libPods-ApnBookmarks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApnBookmarks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7D6623243CCB76E3497208 /* Pods_APNAssistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APNAssistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A981C47AA8134FD895D9675 /* Pods_TodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82086984B027390E9C7FD7A4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D32C0BC91843370CFD7DA5 /* Pods-APNAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.release.xcconfig"; sourceTree = "<group>"; };
 		91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistant/Pods-APNAssistant.release.xcconfig"; sourceTree = "<group>"; };
 		96007FB31D963A02000FAE04 /* UtilAppStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAppStatus.swift; sourceTree = "<group>"; };
@@ -192,7 +188,6 @@
 		CC565FE91FD902E9009E1D49 /* PickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCell.swift; sourceTree = "<group>"; };
 		CC565FEA1FD902E9009E1D49 /* PickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerCell.xib; sourceTree = "<group>"; };
 		CC8DFC622011C34F00CAC0E0 /* UITestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestUtils.swift; sourceTree = "<group>"; };
-		E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.release.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.release.xcconfig"; sourceTree = "<group>"; };
 		F009F3951D6006A000D428D6 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F009F3961D6006A000D428D6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		F009F3991D6006A100D428D6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -203,7 +198,6 @@
 		F009F3A91D600AE700D428D6 /* ApnSummaryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApnSummaryObject.swift; sourceTree = "<group>"; };
 		F06AD47C1D5D859B007B0842 /* APNAssistant.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = APNAssistant.entitlements; sourceTree = "<group>"; };
 		F0A74DCC1D9BBD3E009D799E /* UtilAlertSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilAlertSheet.swift; sourceTree = "<group>"; };
-		FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APNAssistantLite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APNAssistantLite/Pods-APNAssistantLite.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,8 +244,6 @@
 				2FFE7029252220A93A87E3CF /* Pods-TodayWidget.release.xcconfig */,
 				C0F77DB63DFB28631659C55F /* Pods-APNAssistant.debug.xcconfig */,
 				91DC163925F165B50CB55BA8 /* Pods-APNAssistant.release.xcconfig */,
-				FFD5B00CD9A85C8C05AEC50B /* Pods-APNAssistantLite.debug.xcconfig */,
-				E5EAEE1911DDC17E20A8B1FC /* Pods-APNAssistantLite.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -424,11 +416,7 @@
 		ABEAB649DE6ACE49732DE041 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				82086984B027390E9C7FD7A4 /* libPods.a */,
 				F009F3961D6006A000D428D6 /* NotificationCenter.framework */,
-				6A78525D0FE48CB6F5F6435F /* libPods-ApnBookmarks.a */,
-				0C7066E1C528D83FA6C95E5F /* libPods-ApnMemo.a */,
-				128B0E72D54F7296BFA4B211 /* libPods-APNAssistantLite.a */,
 				7A7D6623243CCB76E3497208 /* Pods_APNAssistant.framework */,
 				7A981C47AA8134FD895D9675 /* Pods_TodayWidget.framework */,
 			);

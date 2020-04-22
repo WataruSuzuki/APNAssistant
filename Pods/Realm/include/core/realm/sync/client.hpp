@@ -150,8 +150,8 @@ public:
         /// The default changeset cooker to be used by new sessions. Can be
         /// overridden by Session::Config::changeset_cooker.
         ///
-        /// \sa make_client_history(), TrivialChangesetCooker.
-        std::shared_ptr<ClientHistory::ChangesetCooker> changeset_cooker;
+        /// \sa make_client_replication(), TrivialChangesetCooker.
+        std::shared_ptr<ClientReplication::ChangesetCooker> changeset_cooker;
 
         /// The maximum number of milliseconds to allow for a connection to
         /// become fully established. This includes the time to resolve the
@@ -403,8 +403,7 @@ public:
                                    int preverify_ok,
                                    int depth);
 
-    class Config {
-    public:
+    struct Config {
         Config() {}
 
         /// server_address is the fully qualified host name, or IP address of
@@ -558,10 +557,10 @@ public:
         /// destroyed. Please see "Callback semantics" section under Client for
         /// more on this.
         ///
-        /// \sa make_client_history(), TrivialChangesetCooker.
-        std::shared_ptr<ClientHistory::ChangesetCooker> changeset_cooker;
+        /// \sa make_client_replication(), TrivialChangesetCooker.
+        std::shared_ptr<ClientReplication::ChangesetCooker> changeset_cooker;
 
-        /// The encryption key the SharedGroup will be opened with.
+        /// The encryption key the DB will be opened with.
         util::Optional<std::array<char, 64>> encryption_key;
 
         /// ClientReset is used for both async open and client reset. If
@@ -665,6 +664,24 @@ public:
             port_type port;
         };
         util::Optional<ProxyConfig> proxy_config;
+
+        /// Set to true to disable the upload process for this session. This
+        /// includes the sending of empty UPLOAD messages.
+        ///
+        /// This feature exists exclusively for testing purposes at this time.
+        bool disable_upload = false;
+
+        /// Set to true to disable sending of empty UPLOAD messages for this
+        /// session.
+        ///
+        /// This feature exists exclusively for testing purposes at this time.
+        bool disable_empty_upload = false;
+
+        /// Set to true to cause the integration of the first received changeset
+        /// (in a DOWNLOAD message) to fail.
+        ///
+        /// This feature exists exclusively for testing purposes at this time.
+        bool simulate_integration_error = false;
     };
 
     /// \brief Start a new session for the specified client-side Realm.
@@ -920,17 +937,16 @@ public:
     /// replaces the corresponding parameters from the Session::Config object
     /// before the session is bound.
     /// void bind(std::string server_url, std::string signed_user_token) parses
-    /// the \param server_url and replaces the parameters in the Session::Config object
+    /// the \p server_url and replaces the parameters in the Session::Config object
     /// before the session is bound.
     ///
+    /// \throw BadServerUrl if the specified server URL is malformed.
+    void bind();
     /// \param server_url For example "realm://sync.realm.io/test". See
     /// server_address, server_path, and server_port in Session::Config for
     /// information about the individual components of the URL. See
     /// ProtocolEnvelope for the list of available URL schemes and the
     /// associated default ports.
-    ///
-    /// \throw BadServerUrl if the specified server URL is malformed.
-    void bind();
     void bind(std::string server_url, std::string signed_user_token);
     void bind(std::string server_address, std::string server_path,
               std::string signed_user_token, port_type server_port = 0,

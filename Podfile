@@ -3,7 +3,7 @@ platform :ios, "10.0"
 use_frameworks!
 
 target "APNAssistant" do
-    pod 'Swifter', '~> 1.4.7'
+    pod 'Swifter'
     pod 'RealmSwift'
     pod 'DZNEmptyDataSet'
     pod 'FTLinearActivityIndicator'
@@ -12,7 +12,7 @@ end
 
 target "TodayWidget" do
     inherit! :search_paths
-    pod 'Swifter', '~> 1.4.7'
+    pod 'Swifter'
     pod 'RealmSwift'
 end
 

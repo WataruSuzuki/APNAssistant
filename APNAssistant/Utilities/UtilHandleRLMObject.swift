@@ -11,7 +11,7 @@ import Realm
 
 struct UtilHandleRLMConst {
     internal static let CREATE_NEW_PROFILE = -1
-    internal static let CURRENT_SCHEMA_VERSION = UInt64(3)
+    internal static let CURRENT_SCHEMA_VERSION = UInt64(4)
 }
 
 class UtilHandleRLMObject: NSObject {

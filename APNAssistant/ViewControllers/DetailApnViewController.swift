@@ -209,7 +209,7 @@ class DetailApnViewController: UITableViewController,
     }
     
     func handleUpdateDeviceApn(){
-        self.myUtilCocoaHTTPServer.updateProfile(self.myUtilHandleRLMObject)
+        self.myUtilCocoaHTTPServer.updateProfile(self.myUtilHandleRLMObject, sender: self)
     }
     
     // MARK: Preview actions

@@ -31,7 +31,7 @@ extension ApnListViewController {
             
             let setApn = UIAction(title: menuArray[DetailApnViewController.DetailMenu.setThisApnToDevice.rawValue], image: UIImage(systemName: "link.circle"), attributes: .destructive) { _ in
                 let targetObj = self.targetProfileObj(indexPath: indexPath)
-                self.configProfileService.updateProfile(targetObj)
+                self.configProfileService.updateProfile(targetObj, sender: self)
             }
             let share = UIAction(title: menuArray[DetailApnViewController.DetailMenu.share.rawValue], image: UIImage(systemName: "square.and.arrow.up")) { (action) in
                 let targetObj = self.targetProfileObj(indexPath: indexPath)

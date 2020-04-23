@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import SafariServices
 
 class ProfileAction: NSObject {
-
+    static func open(url: URL, sender: UIViewController?) {
+        if #available(iOS 14.0, *) {
+            if let controller = sender {
+                let safari = SFSafariViewController(url: url)
+                controller.present(safari, animated: true, completion: nil)
+                return
+            }
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
     static func share(_ httpServer: ConfigProfileService, obj: UtilHandleRLMObject, sender: UIViewController) {
         let configProfileUrl = httpServer.getProfileUrl(obj)
         

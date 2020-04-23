@@ -7,24 +7,14 @@
 //
 
 import UIKit
-import SafariServices
 
 extension ConfigProfileService {
     
-    func updateProfile(_ rlmObject: UtilHandleRLMObject) {
+    func updateProfile(_ rlmObject: UtilHandleRLMObject, sender: UIViewController) {
         writeMobileConfigProfile(rlmObject, fileName: fileNameSetting)
         bridger.startCocoaHTTPServer()
         
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(bridger.url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(bridger.url)
-        }
+        ProfileAction.open(url: bridger.url, sender: sender)
     }
     
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

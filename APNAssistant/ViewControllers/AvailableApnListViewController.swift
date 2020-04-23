@@ -132,11 +132,7 @@ class AvailableApnListViewController: UITableViewController,
     
     func installProfileFromNetwork(_ selectedIndexPath: IndexPath) {
         let url = myProfileHelper.getTargetUrl(selectedIndexPath)
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
+        ProfileAction.open(url: url, sender: self)
     }
     
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {

@@ -313,7 +313,7 @@ class EditApnViewController: UITableViewController//,
         self.dismiss(animated: true) { 
             if isUpdateNow {
                 if self.appStatus.isAvailableAllFunction() {
-                    self.myUtilCocoaHTTPServer.updateProfile(self.myUtilHandleRLMObject)
+                    self.myUtilCocoaHTTPServer.updateProfile(self.myUtilHandleRLMObject, sender: self)
                 } else {
                     self.appStatus.showStatuLimitByApple(self)
                 }

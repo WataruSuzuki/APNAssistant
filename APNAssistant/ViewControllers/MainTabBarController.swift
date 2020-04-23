@@ -72,7 +72,7 @@ class MainTabBarController: UITabBarController {
         
         if let shortcutApn = results.object(at: UInt(shortcut!.rawValue - 1)) as? ApnSummaryObject {
             let shortcutApnObj = UtilHandleRLMObject(id: shortcutApn.id, profileObj: shortcutApn.apnProfile!, summaryObj: shortcutApn)
-            self.myUtilCocoaHTTPServer.updateProfile(shortcutApnObj)
+            self.myUtilCocoaHTTPServer.updateProfile(shortcutApnObj, sender: self)
         }
     }
     

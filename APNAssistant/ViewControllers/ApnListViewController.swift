@@ -122,7 +122,7 @@ class ApnListViewController: UITableViewController,
     
     // MARK: - DetailApnPreviewDelegate
     func selectShareAction(_ handleObj: UtilHandleRLMObject) {
-        UtilShareAction.handleShareApn(configProfileService, obj: handleObj, sender: self)
+        ProfileAction.share(configProfileService, obj: handleObj, sender: self)
     }
     
     func selectEditAction(_ newObj: ApnSummaryObject) {

@@ -1,5 +1,5 @@
 //
-//  UtilShareAction.swift
+//  ProfileAction.swift
 //  APNAssistant
 //
 //  Created by WataruSuzuki on 2016/08/25.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class UtilShareAction: NSObject {
+class ProfileAction: NSObject {
 
-    static func handleShareApn(_ httpServer: ConfigProfileService, obj: UtilHandleRLMObject, sender: UIViewController){
+    static func share(_ httpServer: ConfigProfileService, obj: UtilHandleRLMObject, sender: UIViewController) {
         let configProfileUrl = httpServer.getProfileUrl(obj)
         
         let contoller = UIActivityViewController(activityItems: [configProfileUrl], applicationActivities: nil)

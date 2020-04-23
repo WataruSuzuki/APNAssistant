@@ -35,7 +35,7 @@ extension ApnListViewController {
             }
             let share = UIAction(title: menuArray[DetailApnViewController.DetailMenu.share.rawValue], image: UIImage(systemName: "square.and.arrow.up")) { (action) in
                 let targetObj = self.targetProfileObj(indexPath: indexPath)
-                UtilShareAction.handleShareApn(self.configProfileService, obj: targetObj, sender: self)
+                ProfileAction.share(self.configProfileService, obj: targetObj, sender: self)
             }
             let edit = UIAction(title: menuArray[DetailApnViewController.DetailMenu.edit.rawValue], image: UIImage(systemName: "square.and.pencil")) { (action) in
                 self.selectEditAction(self.summaryObj(indexPath: indexPath))

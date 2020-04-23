@@ -172,7 +172,7 @@ class DetailApnViewController: UITableViewController,
             action in self.handleUpdateDeviceApn()
         }
         let shareAction = UIAlertAction(title: menuArray[DetailMenu.share.rawValue], style: .default){
-            action in UtilShareAction.handleShareApn(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
+            action in ProfileAction.share(self.myUtilCocoaHTTPServer, obj: self.myUtilHandleRLMObject, sender: self)
         }
         let editAction = UIAlertAction(title: menuArray[DetailMenu.edit.rawValue], style: .default){
             action in self.showEditApnViewController()

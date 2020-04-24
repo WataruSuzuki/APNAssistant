@@ -59,10 +59,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBAction func tapOpenAppButton(_ sender: UIButton) {
         let prefixStr: String
-        if #available(iOS 10, *) {
-            prefixStr = "app-Prefs"
+        if #available(iOS 13, *) {
+            prefixStr = "App-Prefs"
         } else {
-            prefixStr = "prefs"
+            prefixStr = "app-Prefs"
         }
         let profileSettingScheme = ":root=General&path=ManagedConfigurationList"
 

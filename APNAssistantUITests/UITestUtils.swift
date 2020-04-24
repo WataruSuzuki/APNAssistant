@@ -20,7 +20,6 @@ class UITestUtils: NSObject {
         }
     }
 
-    @available(iOS 9.0, *)
     static func cancelAvailableList(_ app: XCUIApplication) {
         if UIDevice.current.userInterfaceIdiom == .pad {
             XCUIApplication().tap()
@@ -29,7 +28,6 @@ class UITestUtils: NSObject {
         }
     }
     
-    @available(iOS 9.0, *)
     static func saveNewProfile(_ app: XCUIApplication) {
         app.navigationBars[UITestUtils.getTestStr(key: "edit_apn", sender: CreateAPNTests.self)].buttons[(UITestUtils.isJapanese(sender: CreateAPNTests.self) ? "保存" : "Save")].tap()
         if UIDevice.current.userInterfaceIdiom == .pad {

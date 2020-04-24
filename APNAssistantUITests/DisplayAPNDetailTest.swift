@@ -22,7 +22,6 @@ class DisplayAPNDetailTest: XCTestCase {
         }
     }
 
-    @available(iOS 9.0, *)
     func testShowSimpleAPNDetail() {
         let app = XCUIApplication()
         

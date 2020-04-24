@@ -8,7 +8,6 @@
 
 import UIKit
 
-@available(iOS 9.0, *)
 extension ApnListViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -17,7 +16,7 @@ extension ApnListViewController: UIViewControllerPreviewingDelegate {
         
         guard let targetController = storyboard?.instantiateViewController(withIdentifier: "DetailApnViewController") as? DetailApnViewController else { return nil }
         targetController.delegate = self
-        targetController.myApnSummaryObject = allApnSummaryObjs.object(at: UInt((indexPath.row))) as! ApnSummaryObject
+        targetController.myApnSummaryObject = allApnSummaryObjs.object(at: UInt((indexPath.row))) as? ApnSummaryObject
         
         targetController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
         

@@ -32,7 +32,7 @@ class ApnListViewController: UITableViewController,
         super.viewDidLoad()
                 
         self.navigationItem.title = NSLocalizedString("profileList", comment: "")
-        allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
+        allApnSummaryObjs = ApnSummaryObject.allObjects() as? RLMResults<RLMObject>
         if #available(iOS 9.0, *) {
             if self.traitCollection.forceTouchCapability == .available {
                 self.registerForPreviewing(with: self, sourceView: self.tableView)
@@ -52,7 +52,7 @@ class ApnListViewController: UITableViewController,
     }
     
     func updateApnSummaryObjs() {
-        allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
+        allApnSummaryObjs = ApnSummaryObject.allObjects() as? RLMResults<RLMObject>
         if #available(iOS 9.0, *) {
             UtilShortcutLaunch().initDynamicShortcuts(UIApplication.shared)
         }
@@ -152,7 +152,7 @@ class ApnListViewController: UITableViewController,
     
     func loadTargetApnSummaryObjs(_ searchString: String) {
         if searchString.isEmpty {
-            allApnSummaryObjs = ApnSummaryObject.allObjects() as! RLMResults<RLMObject>
+            allApnSummaryObjs = ApnSummaryObject.allObjects() as? RLMResults<RLMObject>
         } else {
             allApnSummaryObjs = ApnSummaryObject.getSearchedLists(searchString)
         }
@@ -166,7 +166,7 @@ class ApnListViewController: UITableViewController,
         case "DetailApnViewController":
             let indexPath = self.tableView.indexPathForSelectedRow
             let destinationVC = segue.destination as! DetailApnViewController
-            destinationVC.myApnSummaryObject = allApnSummaryObjs.object(at: UInt(((indexPath as NSIndexPath?)?.row)!)) as! ApnSummaryObject
+            destinationVC.myApnSummaryObject = allApnSummaryObjs.object(at: UInt(((indexPath as NSIndexPath?)?.row)!)) as? ApnSummaryObject
             
         case "EditApnViewController":
             if let navigationController = segue.destination as? UINavigationController {

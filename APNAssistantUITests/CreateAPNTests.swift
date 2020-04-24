@@ -22,7 +22,6 @@ class CreateAPNTests: XCTestCase {
         }
     }
     
-    @available(iOS 9.0, *)
     fileprivate func tapAddNewProfile(_ app: XCUIApplication) {
         app.tabBars.buttons[UITestUtils.getTestStr(key: "profileList", sender: CreateAPNTests.self)].tap()
         app.navigationBars[UITestUtils.getTestStr(key: "profileList", sender: CreateAPNTests.self)].buttons[(UITestUtils.isJapanese(sender: CreateAPNTests.self) ? "追加" : "Add")].tap()
@@ -30,7 +29,6 @@ class CreateAPNTests: XCTestCase {
         app.sheets[UITestUtils.getTestStr(key: "caution", sender: CreateAPNTests.self)].buttons[UITestUtils.getTestStr(key: "understand", sender: CreateAPNTests.self)].tap()
     }
     
-    @available(iOS 9.0, *)
     private func inputSummary(name: String, tablesQuery: XCUIElementQuery) {
         let summaryTextField: XCUIElement
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -41,25 +39,21 @@ class CreateAPNTests: XCTestCase {
         summaryTextField.typeText(name)
     }
     
-    @available(iOS 9.0, *)
     private func queryCell(key: String, from: XCUIElementQuery) -> XCUIElementQuery {
         //from.staticTexts[UITestUtils.getTestStr(key: "keyAttachApnName", sender: APNAssistantUITests.self)].tap()
         return from.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: key, sender: CreateAPNTests.self))
     }
     
-    @available(iOS 9.0, *)
     private func inputApnElement(info: String, cell: XCUIElementQuery) {
         let textField = cell.children(matching: .textField).element.firstMatch
         textField.tap()
         textField.typeText(info)
     }
     
-    @available(iOS 9.0, *)
     private func queryDataApnManuallySwitch(tablesQuery: XCUIElementQuery) -> XCUIElement {
         return tablesQuery.switches[UITestUtils.getTestStr(key: "setDataApnManual", sender: CreateAPNTests.self)]
     }
 
-    @available(iOS 9.0, *)
     private func queryThenInputElement(identifier: String, tablesQuery: XCUIElementQuery, text: String) {
         let cell = tablesQuery.cells.containing(.staticText, identifier:UITestUtils.getTestStr(key: identifier, sender: CreateAPNTests.self))
         
@@ -73,7 +67,6 @@ class CreateAPNTests: XCTestCase {
         textField.typeText(text)
     }
     
-    @available(iOS 9.0, *)
     func pickElement(identifier: String, tablesQuery: XCUIElementQuery) {
         let cell = tablesQuery.cells.containing(.staticText, identifier: identifier)
         if cell.textFields["nothing"].exists {
@@ -93,7 +86,6 @@ class CreateAPNTests: XCTestCase {
         }
     }
 
-    @available(iOS 9.0, *)
     func testCreateFullAPN() {
         let app = XCUIApplication()
 
@@ -140,7 +132,6 @@ class CreateAPNTests: XCTestCase {
         UITestUtils.saveNewProfile(app)
     }
 
-    @available(iOS 9.0, *)
     func testCreateSimpleAPN() {
         let app = XCUIApplication()
         

@@ -26,7 +26,6 @@ class DetailApnViewController: UITableViewController,
     var isShowCloudData = false
     var delegate: DetailApnPreviewDelegate!
     
-    @available(iOS 9.0, *)
     lazy var previewActions: [UIPreviewActionItem] = {
         let menuArray = self.loadMenuArray()
         
@@ -213,7 +212,6 @@ class DetailApnViewController: UITableViewController,
     }
     
     // MARK: Preview actions
-    @available(iOS 9.0, *)
     override var previewActionItems : [UIPreviewActionItem] {
         return previewActions
     }

@@ -18,7 +18,10 @@ extension ApnListViewController {
             
             guard let targetController = self.storyboard?.instantiateViewController(withIdentifier: "DetailApnViewController") as? DetailApnViewController else { return nil }
             targetController.delegate = self
-            targetController.myApnSummaryObject = self.allApnSummaryObjs.object(at: UInt((indexPath.row))) as! ApnSummaryObject
+            guard let apnObj = self.allApnSummaryObjs.object(at: UInt((indexPath.row))) as? ApnSummaryObject else {
+                return nil
+            }
+            targetController.myApnSummaryObject = apnObj
             
             //targetController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
             //previewingContext.sourceRect = cell.frame

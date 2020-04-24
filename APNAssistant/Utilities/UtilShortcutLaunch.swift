@@ -10,21 +10,10 @@ import UIKit
 import Realm
 
 class UtilShortcutLaunch: NSObject {
-
-    fileprivate var _launchedShortcutItem: Any?
-    @available(iOS 9.0, *)
-    var launchedShortcutItem: UIApplicationShortcutItem? {
-        get {
-            return _launchedShortcutItem as? UIApplicationShortcutItem
-        }
-        set {
-            _launchedShortcutItem = newValue
-        }
-    }
-    
     static let infoKey = "AppShortcutUserInfoIconKey"
+
+    var launchedShortcutItem: UIApplicationShortcutItem?
     
-    @available(iOS 9.0, *)
     func shouldPerformAdditionalDelegateHandling(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
         // Install initial versions of our two extra dynamic shortcuts.
         initDynamicShortcuts(application)
@@ -40,7 +29,6 @@ class UtilShortcutLaunch: NSObject {
         return true
     }
     
-    @available(iOS 9.0, *)
     func initDynamicShortcuts(_ application: UIApplication) {
         var loadedItems = [UIApplicationShortcutItem]()
         let favorites = ApnSummaryObject.getFavoriteLists()
@@ -53,7 +41,6 @@ class UtilShortcutLaunch: NSObject {
         application.shortcutItems = loadedItems
     }
     
-    @available(iOS 9.0, *)
     func loadApplicationShortcutItem(_ index: Int, results: RLMResults<RLMObject>) -> UIMutableApplicationShortcutItem {
         let shortcut = ShortcutIdentifier(rawValue: index)
         let name: String?
@@ -71,7 +58,6 @@ class UtilShortcutLaunch: NSObject {
         return UIMutableApplicationShortcutItem(type: shortcut!.type, localizedTitle: shortcut!.getTitle(name!), localizedSubtitle: shortcut!.getSubTitle(), icon: shortcut!.getIcon(), userInfo: [UtilShortcutLaunch.infoKey: infoKey! as NSSecureCoding])
     }
     
-    @available(iOS 9.0, *)
     func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
         
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
@@ -139,24 +125,11 @@ class UtilShortcutLaunch: NSObject {
             }
         }
         
-        @available(iOS 9.1, *)
-        func getSystemIcon() -> UIApplicationShortcutIcon {
+        func getIcon() -> UIApplicationShortcutIcon {
             if self == ShortcutIdentifier.first {
                 return UIApplicationShortcutIcon(type: .love)
             } else {
                 return UIApplicationShortcutIcon(type: .update)
-            }
-        }
-        
-        @available(iOS 9.0, *)
-        func getIcon() -> UIApplicationShortcutIcon {
-            if #available(iOS 9.1, *) {
-                return getSystemIcon()
-            }
-            if self == ShortcutIdentifier.first {
-                return UIApplicationShortcutIcon(templateImageName: "ic_favorite_shortcut")
-            } else {
-                return UIApplicationShortcutIcon(templateImageName: "ic_list_shortcut")
             }
         }
     }

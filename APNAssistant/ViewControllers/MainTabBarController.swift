@@ -38,12 +38,9 @@ class MainTabBarController: UITabBarController {
     }
     
     @objc func appDidBecomeActive(_ notification: Notification) {
-        if #available(iOS 9.0, *) {
-            executeShortcutActions()
-        }
+        executeShortcutActions()
     }
     
-    @available(iOS 9.0, *)
     func executeShortcutActions() {
         if let delegate = UIApplication.shared.delegate as? AppDelegate {
             guard let shortcutItem = delegate.myUtilShortcutLaunch.launchedShortcutItem else {

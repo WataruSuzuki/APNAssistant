@@ -110,7 +110,7 @@ class FavoriteApnListViewController: ApnListViewController {
         case "DetailApnViewController":
             let indexPath = self.tableView.indexPathForSelectedRow
             let destinationVC = segue.destination as! DetailApnViewController
-            destinationVC.myApnSummaryObject = allFavoriteApnSummaryObjs.object(at: UInt(((indexPath as NSIndexPath?)?.row)!)) as! ApnSummaryObject
+            destinationVC.myApnSummaryObject = allFavoriteApnSummaryObjs.object(at: UInt(((indexPath as NSIndexPath?)?.row)!)) as? ApnSummaryObject
             
         default:
             super.prepare(for: segue, sender: sender)

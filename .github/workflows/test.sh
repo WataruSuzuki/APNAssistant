@@ -14,12 +14,12 @@ pod install --repo-update
 
 # Change xcode version
   # run: |
-sudo xcode-select -s '/Applications/Xcode_11.1.app/Contents/Developer'
+# sudo xcode-select -s '/Applications/Xcode_11.1.app/Contents/Developer'
 
 # Check environment
   # run: |
 xcodebuild -version
-instruments -s device
+xcrun xctrace list devices
 
 # Run XCTest and XCUITest
   # run: |

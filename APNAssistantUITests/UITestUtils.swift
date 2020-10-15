@@ -31,7 +31,7 @@ class UITestUtils: NSObject {
     static func saveNewProfile(_ app: XCUIApplication) {
         app.navigationBars[UITestUtils.getTestStr(key: "edit_apn", sender: CreateAPNTests.self)].buttons[(UITestUtils.isJapanese(sender: CreateAPNTests.self) ? "保存" : "Save")].tap()
         if UIDevice.current.userInterfaceIdiom == .pad {
-            XCUIApplication()/*@START_MENU_TOKEN@*/.otherElements["PopoverDismissRegion"]/*[[".otherElements[\"dismiss popup\"]",".otherElements[\"PopoverDismissRegion\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+            app.children(matching: .window).element(boundBy: 0).tap()
         } else {
             app.sheets[UITestUtils.getTestStr(key: "is_update_now", sender: CreateAPNTests.self)].buttons[UITestUtils.getTestStr(key: "not_this_time", sender: CreateAPNTests.self)].tap()
         }

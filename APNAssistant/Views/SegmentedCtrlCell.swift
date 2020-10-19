@@ -45,7 +45,7 @@ class SegmentedCtrlCell: UITableViewCell {
         }
         
         func toString() -> String {
-            return String(describing: self)
+            return String(describing: self).uppercased()
         }
     }
 }

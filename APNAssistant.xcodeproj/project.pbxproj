@@ -1013,7 +1013,7 @@
 				CURRENT_PROJECT_VERSION = 2.5000;
 				INFOPLIST_FILE = APNAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
 				PRODUCT_NAME = APNAssistant;
 				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
@@ -1035,7 +1035,7 @@
 				CURRENT_PROJECT_VERSION = 2.5000;
 				INFOPLIST_FILE = APNAssistant/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 5.0.0;
+				MARKETING_VERSION = 5.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.JchanKchan.ApnAssister2;
 				PRODUCT_NAME = APNAssistant;
 				SWIFT_OBJC_BRIDGING_HEADER = "APNAssistant/APNAssistant-Bridging-Header.h";
